@@ -1,0 +1,21 @@
+.headerSection {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding: 0 15px;
+	padding-top: 55px;
+	z-index: 99;
+}
+
+.logo a {
+	display: inline-block;
+}
+
+.offcanvas-menu-wrapper {
+	display: none;
+}
+
+.canvas-open {
+	display: none;
+}

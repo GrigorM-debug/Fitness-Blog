@@ -1,0 +1,129 @@
+.latestRecipesSection {
+	background: #151515;
+}
+
+.latestRecipesSection.team-page {
+	padding-bottom: 70px;
+}
+
+.latestRecipesSection.team-page .lsItem {
+	margin-bottom: 30px;
+}
+
+.latestRecipesSection.team-page .lsItem:hover .lsText {
+	bottom: -30px;
+}
+
+.latestRecipesSection.team-page .lsItem .tt_social {
+	-webkit-transform: skewY(5deg);
+	-ms-transform: skewY(5deg);
+	transform: skewY(5deg);
+	margin-top: 13px;
+}
+
+.latestRecipesSection.team-page .lsItem .tt_social a {
+	font-size: 14px;
+	color: #c4c4c4;
+	margin-right: 10px;
+}
+
+.latestRecipesSection.team-page .lsItem .tt_social a:last-child {
+	margin-right: 0;
+}
+
+.lsTitle .sectionTitle {
+	text-align: left;
+	float: left;
+}
+
+.primary-btn.appoinment-btn {
+	background: transparent;
+	border: 2px solid #f36100;
+	float: right;
+	margin-top: 10px;
+}
+
+.lsSlider .col-lg-4 {
+	max-width: 100%;
+}
+
+.lsSlider.owl-carousel .owl-dots {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.lsSlider.owl-carousel .owl-dots button {
+	height: 4px;
+	width: 20px;
+	background: #5c5c5c;
+	margin-right: 15px;
+	-webkit-transform: skewY(-5deg);
+	-ms-transform: skewY(-5deg);
+	transform: skewY(-5deg);
+}
+
+.lsSlider.owl-carousel .owl-dots button.active {
+	background: #f36100;
+}
+
+.lsSlider.owl-carousel .owl-dots button:last-child {
+	margin-right: 0;
+}
+
+.lsItem {
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+
+.lsItem:hover .lsText {
+	bottom: -35px;
+}
+
+.lsItem .lsText {
+	padding: 40px 0 60px;
+	text-align: center;
+	background: #0a0a0a;
+	border-top: 4px solid #464646;
+	-webkit-transform: skewY(-5deg);
+	-ms-transform: skewY(-5deg);
+	transform: skewY(-5deg);
+	position: absolute;
+	left: 0;
+	bottom: -250px;
+	width: 100%;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.lsItem .lsText h4 {
+	color: #ffffff;
+	font-weight: 600;
+	margin-bottom: 14px;
+	-webkit-transform: skewY(5deg);
+	-ms-transform: skewY(5deg);
+	transform: skewY(5deg);
+}
+
+.lsItem .lsText span {
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	color: #aaaaaa;
+	text-transform: uppercase;
+	-webkit-transform: skewY(5deg);
+	-ms-transform: skewY(5deg);
+	transform: skewY(5deg);
+}
+
+.lsItem .lsText a {
+	font-size: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	width: 100%;
+	border: none;
+	padding: 14px 8px 12px;
+	background: #f36100;
+}

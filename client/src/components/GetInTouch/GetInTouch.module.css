@@ -1,0 +1,64 @@
+.getInTouchSection {
+	background: #0a0a0a;
+	padding: 30px 0 15px;
+}
+
+.gtText {
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.gtText i {
+	font-size: 30px;
+	color: #ffffff;
+	display: inline-block;
+	height: 65px;
+	width: 65px;
+	background: #f36100;
+	border-radius: 50%;
+	line-height: 65px;
+	text-align: center;
+	float: left;
+	margin-right: 20px;
+}
+
+.gtText p {
+	overflow: hidden;
+	color: #ffffff;
+	margin-bottom: 0;
+	padding-top: 10px;
+}
+
+.gtText ul {
+	overflow: hidden;
+	padding-top: 20px;
+}
+
+.gtText ul li {
+	list-style: none;
+	font-size: 14px;
+	color: #ffffff;
+	margin-right: 25px;
+	display: inline-block;
+	position: relative;
+}
+
+.gtText ul li:after {
+	position: absolute;
+	right: -18px;
+	top: 0;
+	content: "|";
+	color: #545454;
+}
+
+.gtText ul li:last-child {
+	margin-right: 0;
+}
+
+.gtText ul li:last-child:after {
+	display: none;
+}
+
+.gtText.email p {
+	padding-top: 20px;
+}
