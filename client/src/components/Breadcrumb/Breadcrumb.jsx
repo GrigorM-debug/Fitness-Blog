@@ -1,12 +1,14 @@
+import styles from './Breadcrumb.module.css';
+
 export default function Breadcrumb(props) {
     return (
-        <section className="breadcrumb-section set-bg" data-setbg="img/BMI.jpg">
+        <section className={`${styles.breadcrumbSection} set-bg`} data-setbg="/img/BMI.jpg">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 text-center">
-                        <div className="breadcrumb-text">
+                        <div className={styles.breadcrumbText}>
                             <h2>{props.title}</h2>
-                            <div className="bt-option">
+                            <div className={styles.btOption}>
                                 <a href="./index.html">Home</a>
                                 <a href="#">Pages</a>
                                 <span>{props.link}</span>

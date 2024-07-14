@@ -47,7 +47,7 @@
 	max-width: 100%;
 }
 
-.lsSlider.owl-carousel .owl-dots {
+/* .lsSlider.owl-carousel .owl-dots {
 	text-align: center;
 	margin-top: 30px;
 }
@@ -68,7 +68,7 @@
 
 .lsSlider.owl-carousel .owl-dots button:last-child {
 	margin-right: 0;
-}
+} */
 
 .lsItem {
 	height: 450px;
@@ -126,4 +126,74 @@
 	border: none;
 	padding: 14px 8px 12px;
 	background: #f36100;
+}
+
+.latestRecipesSection {
+    padding: 60px 0;
+    background-color: #000;
+}
+
+.section-title h2 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lsItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.lsText {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 90%;
+}
+
+.lsText h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.lsText span p {
+    display: inline;
+    font-weight: bold;
+}
+
+.lsText a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ff0;
+    text-decoration: underline;
+}
+
+.owl-dots {
+    text-align: center;
+	margin-top: 30px;
+}
+
+.owl-dots button.owl-dot {
+    height: 4px;
+	width: 20px;
+	background: #5c5c5c;
+	margin-right: 15px;
+	-webkit-transform: skewY(-5deg);
+	-ms-transform: skewY(-5deg);
+	transform: skewY(-5deg);
+}
+
+.owl-dots button.owl-dot.active {
+    background: #f36100;
+}
+
+.owl-dots button.owl-dot:hover {
+    background: #f36100;;
 }

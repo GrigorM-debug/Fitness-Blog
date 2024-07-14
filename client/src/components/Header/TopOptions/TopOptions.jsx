@@ -1,4 +1,4 @@
-import {styles} from './TopOptions.module.css';
+import styles from './TopOptions.module.css';
 
 export default function TopOptions() {
     return (    
@@ -6,11 +6,11 @@ export default function TopOptions() {
             <div className={`${styles.toSearch} search-switch`}>
                 <i className="fa fa-search" />
             </div>
-            <div className="user">
-                <h2>
+            <div className={styles.user}>
+                <h2 className={styles.welcomeMessage}>
                 Welcome, <span>Guest</span>
                 </h2>
-                <div id="auth-buttons">
+                <div id="auth-buttons" className={`${styles.topOption} ${styles.user}`}>
                     <a href="#">Register</a>
                     <a href="#">Login</a>
                 </div>

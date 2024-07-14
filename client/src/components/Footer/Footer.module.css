@@ -1,76 +1,76 @@
-.footer-section {
+.footerSection {
 	background: #000000;
 	padding-top: 50px;
 }
 
-.fs-about {
+.fsAbout {
 	margin-bottom: 30px;
 }
 
-.fs-about .fa-logo {
+.fsAbout .faLogo {
 	margin-bottom: 30px;
 }
 
-.fs-about .fa-logo a {
+.fsAbout .faLogo a {
 	display: inline-block;
 }
 
-.fs-about p {
+.fsAbout p {
 	line-height: 26px;
 	color: #c4c4c4;
 }
 
-.fs-about .fa-social a {
+.fsAbout .faSocial a {
 	font-size: 14px;
 	color: #c4c4c4;
 	margin-right: 10px;
 }
 
-.fs-about .fa-social a:last-child {
+.fsAbout .faSocial a:last-child {
 	margin-right: 0;
 }
 
-.fs-widget {
+.fsWidget {
 	margin-bottom: 30px;
 }
 
-.fs-widget h4 {
+.fsWidget h4 {
 	color: #ffffff;
 	font-weight: 600;
 	margin-bottom: 18px;
 }
 
-.fs-widget ul li {
+.fsWidget ul li {
 	list-style: none;
 }
 
-.fs-widget ul li a {
+.fsWidget ul li a {
 	font-size: 14px;
 	color: #c4c4c4;
 	line-height: 30px;
 }
 
-.fs-widget .fw-recent {
+.fsWidget .fwRecent {
 	margin-bottom: 20px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #1a1a1a;
 }
 
-.fs-widget .fw-recent:last-child {
+.fsWidget .fwRecent:last-child {
 	padding-bottom: 0;
 	border: none;
 }
 
-.fs-widget .fw-recent h6 {
+.fsWidget .fwRecent h6 {
 	margin-bottom: 6px;
 }
 
-.fs-widget .fw-recent h6 a {
+.fsWidget .fwRecent h6 a {
 	color: #c4c4c4;
 	letter-spacing: 0.5px;
 }
 
-.fs-widget .fw-recent ul li {
+.fsWidget .fwRecent ul li {
 	font-size: 12px;
 	color: #4d4d4d;
 	display: inline-block;
@@ -78,11 +78,11 @@
 	position: relative;
 }
 
-.fs-widget .fw-recent ul li:last-child:after {
+.fsWidget .fwRecent ul li:last-child:after {
 	display: none;
 }
 
-.fs-widget .fw-recent ul li:after {
+.fsWidget .fwRecent ul li:after {
 	position: absolute;
 	right: -16px;
 	top: 0;

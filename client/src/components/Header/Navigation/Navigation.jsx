@@ -1,4 +1,4 @@
-import {styles} from './Navigation.module.css';
+import styles from './Navigation.module.css';
 
 export default function Navigation() {
     return (
@@ -19,7 +19,7 @@ export default function Navigation() {
                     {/* <li><a href="./coaches.html">Coaches</a></li> */}
                     <li>
                         <a href="#">Pages</a>
-                    <ul className="dropdown">
+                    <ul className={styles.dropdown}>
                         <li>
                             <a href="./about-us.html">About us</a>
                             </li>

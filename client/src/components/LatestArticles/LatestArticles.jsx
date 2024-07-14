@@ -1,4 +1,4 @@
-import {styles} from './LatestArticles.module.css';
+import styles from './LatestArticles.module.css';
 
 export default function LatestArticles() {
     return (
@@ -16,7 +16,7 @@ export default function LatestArticles() {
                     <div className="col-lg-4 col-md-6">
                         <div className={styles.articleItem}>
                             <div className={styles.laPic}>
-                                <img src="assets/img/classes/class-1.jpg" alt="" />
+                                <img src="/img/classes/class-1.jpg" alt="" />
                             </div>
                             <div className={styles.laText}>
                                 <span>STRENGTH</span>
@@ -29,7 +29,7 @@ export default function LatestArticles() {
                     <div className="col-lg-4 col-md-6">
                         <div className={styles.articleItem}>
                             <div className={styles.laPic}>
-                                <img src="assets/img/classes/class-2.jpg" alt=""/>
+                                <img src="/img/classes/class-2.jpg" alt=""/>
                             </div>
                             <div className={styles.laText}>
                                 <span>Cardio</span>
@@ -42,7 +42,7 @@ export default function LatestArticles() {
                     <div className="col-lg-4 col-md-6">
                         <div className={styles.articleItem}>
                             <div className={styles.laPic}>
-                                <img src="assets/img/classes/class-3.jpg" alt=""/>
+                                <img src="/img/classes/class-3.jpg" alt=""/>
                             </div>
                             <div className={styles.laText}>
                                 <span>STRENGTH</span>
@@ -55,7 +55,7 @@ export default function LatestArticles() {
                     <div className="col-lg-6 col-md-6">
                         <div className={styles.articleItem}>
                             <div className={styles.laPic}>
-                                <img src="assets/img/classes/class-4.jpg" alt=""/>
+                                <img src="/img/classes/class-4.jpg" alt=""/>
                             </div>
                             <div className={styles.laText}>
                                 <span>Cardio</span>
@@ -68,7 +68,7 @@ export default function LatestArticles() {
                     <div className="col-lg-6">
                         <div className={styles.articleItem}>
                             <div className={styles.laPic}>
-                                <img src="assets/img/classes/class-5.jpg" alt=""/>
+                                <img src="/img/classes/class-5.jpg" alt=""/>
                             </div>
                             <div className={styles.laText}>
                                 <span>Training</span>

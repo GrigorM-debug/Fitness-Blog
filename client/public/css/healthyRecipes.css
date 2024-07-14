@@ -1,0 +1,31 @@
+.recipes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 2em;
+    background-color: #0A0A0A;
+}
+
+.recipe {
+    max-width: 1000px;
+    height: auto;
+}
+
+.recipe-image {
+    /* Set background properties (size, position, etc.) */
+    /* Ensure the image covers the container */
+    transition: background-color 0.3s; /* Add smooth transition for hover effect */
+}
+
+.recipe-title {
+    font-size: 1em;
+    color: white;
+}
+
+.recipe:hover .recipe-image {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+.view-details {
+    text-decoration: none;
+    color: white;
+}

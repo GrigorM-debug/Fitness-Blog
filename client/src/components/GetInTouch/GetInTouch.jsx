@@ -1,4 +1,4 @@
-import {styles} from './GetInTouch.module.css';
+import styles from './GetInTouch.module.css';
 
 export default function GetInTouch() {
     return (

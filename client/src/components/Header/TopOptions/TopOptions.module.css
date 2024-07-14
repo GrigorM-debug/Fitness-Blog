@@ -32,9 +32,10 @@
 	/* display: inline-block; */
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+    gap: 0.4em;
 }
 
-.topOption .user h2 {
+.topOption .user .welcomeMessage {
 	font-size: 1.2em;
 	color: #ffffff;
 	font-weight: 700;
@@ -52,5 +53,5 @@
 	border: none;
 	padding: 14px 8px 12px;
 	background: #f36100;
-	margin-right: 5px;
+	margin-right: 10px;
 }
