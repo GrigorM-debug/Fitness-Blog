@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection/HeroSection';
 import LatestArticles from './components/LatestArticles/LatestArticles';
 import LatestRecipes from './components/LatestRecipes/LatestRecipes';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 import './index.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <>
       <Header></Header>
       <HeroSection></HeroSection>
+      <Register></Register>
       <Login></Login>
       <ChooseUs></ChooseUs>
       <LatestArticles></LatestArticles>
