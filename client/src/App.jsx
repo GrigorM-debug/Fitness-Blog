@@ -17,6 +17,7 @@ function App() {
     <>
       <Header></Header>
       <HeroSection></HeroSection>
+      <CreateBlogPost></CreateBlogPost>
       <ChooseUs></ChooseUs>
       <LatestArticles></LatestArticles>
       <LatestRecipes></LatestRecipes>

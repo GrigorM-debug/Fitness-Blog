@@ -23,6 +23,17 @@ export default function CreateBlogPost() {
 
     console.log(formData)
 
+    const [image, setImage] = useState(null)
+
+    const onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setImage(URL.createObjectURL(event.target.files[0]));
+            // setImage(`img/${event.target.files[0].name}`)
+        }
+    }
+
+    console.log(image)
+
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -121,7 +132,7 @@ export default function CreateBlogPost() {
                             <input
                                 type="file"
                                 className="text-white"
-                                onChange={handleChange}
+                                onChange={onImageChange}
                             />
                         </div>
                     </div>
