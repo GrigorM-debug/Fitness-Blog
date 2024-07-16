@@ -1,4 +1,5 @@
 import ChooseUs from './components/ChooseUs/ChooseUs';
+import CreateBlogPost from './components/CreateBlogPost/CreateBlogPost';
 import CreateHealthyRecipe from './components/CreateHealthyRecipe/CreateHealthyRecipe';
 import Footer from './components/Footer/Footer';
 import GetInTouch from './components/GetInTouch/GetInTouch';
@@ -16,7 +17,6 @@ function App() {
     <>
       <Header></Header>
       <HeroSection></HeroSection>
-      <CreateHealthyRecipe></CreateHealthyRecipe>
       <ChooseUs></ChooseUs>
       <LatestArticles></LatestArticles>
       <LatestRecipes></LatestRecipes>

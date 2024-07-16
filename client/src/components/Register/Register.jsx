@@ -1,4 +1,4 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { useRef } from 'react';
 
 export default function Register() {

@@ -1,50 +1,29 @@
+import { useState } from 'react';
 import styles from './Navigation.module.css';
 
 export default function Navigation() {
+    const [isClicked, setIsCliked] = useState(false);
     return (
         <>
             <nav className={styles.navMenu}>
                 <ul>
                     {/* Add event that adds class="active" after clicking page */}
-                    <li className="active">
-                        <a href="./index.html">Home</a>
+                    <li className={isClicked ? 'active' : ''}>
+                        <a href="./index.html" onClick={() => setIsCliked(true)}>Home</a>
                     </li>
-                    <li>
-                        <a href="./about-us.html">Articles</a>
+                    <li className={isClicked ? 'active' : ''}>
+                        <a href="./about-us.html" onClick={() => setIsCliked(true)}>Our Blog</a>
                     </li>
                     {/* <li><a href="./class-details.html">WorkOuts</a></li> */}
-                    <li>
-                        <a href="./healthyRecipes.html">Healthy Recipes</a>
+                    <li className={isClicked ? 'active' : ''}>
+                        <a href="./healthyRecipes.html" onClick={() => setIsCliked(true)}>Healthy Recipes</a>
                     </li>
                     {/* <li><a href="./coaches.html">Coaches</a></li> */}
-                    <li>
-                        <a href="#">Pages</a>
-                    <ul className={styles.dropdown}>
-                        <li>
-                            <a href="./about-us.html">About us</a>
-                            </li>
-                        <li>
-                            <a href="./class-timetable.html">Classes timetable</a>
-                        </li>
-                        <li>
-                            <a href="./bmi-calculator.html">Bmi calculate</a>
-                        </li>
-                        <li>
-                            <a href="./coaches.html">Our team</a>
-                        </li>
-                        <li>
-                            <a href="./gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="./blog.html">Our blog</a>
-                        </li>
-                        <li>
-                            <a href="./404.html">404</a>
-                        </li>
-                    </ul>
+                    <li className={isClicked ? 'active' : ''}>
+                        <a href="./bmi-calculator.html">Bmi calculate</a>
                     </li>
-                    <li>
-                        <a href="./contact.html">Contact</a>
+                    <li className={isClicked ? 'active' : ''}>
+                        <a href="./contact.html" onClick={() => setIsCliked(true)}>Contact</a>
                     </li>
                 </ul>
             </nav>

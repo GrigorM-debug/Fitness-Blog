@@ -1,4 +1,7 @@
 import styles from './TopOptions.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-regular-svg-icons'; // Correct import statement
+import UserIcon from '../../UserIcon/UserIcon';
 
 export default function TopOptions() {
     return (    
@@ -8,12 +11,9 @@ export default function TopOptions() {
             </div>
             <div className={styles.user}>
                 <h2 className={styles.welcomeMessage}>
-                Welcome, <span>Guest</span>
+                    Welcome, <span>Guest</span>
                 </h2>
-                <div id="auth-buttons" className={`${styles.topOption} ${styles.user}`}>
-                    <a href="#">Register</a>
-                    <a href="#">Login</a>
-                </div>
+                <UserIcon/>
             </div>
         </div>
     );

@@ -1,4 +1,21 @@
+import { PhotoIcon } from '@heroicons/react/24/solid';
+import { useRef } from 'react';
+
 export default function CreateHealthyRecipe() {
+    const fileInputRef = useRef(null);
+
+    const handleButtonClick = () => {
+        fileInputRef.current.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+        console.log('Selected file:', file);
+        // You can add code here to handle the file, such as uploading it to a server
+        }
+    };
+
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -50,6 +67,28 @@ export default function CreateHealthyRecipe() {
                     <textarea
                     class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                     placeholder='Example: Peel the banana and discard skin. Add the banana, cracked eggs and protein powder...'></textarea>
+                </div>
+            </div>
+
+            <div>
+                <label htmlFor="photo" className="block text-sm font-medium leading-6 text-white">
+                Photo
+                </label>
+                <div className="mt-2 flex items-center gap-x-3">
+                <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+                {/* <button
+                    type="button"
+                    onClick={handleButtonClick}
+                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                >
+                    Add
+                </button> */}
+                <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    className="text-white"
+                />
                 </div>
             </div>
 
