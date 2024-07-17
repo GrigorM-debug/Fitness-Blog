@@ -1,9 +1,11 @@
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Field, Label, Switch } from '@headlessui/react'
-
+import {useState} from 'react'
 export default function ContactForm() {
+    const [agreed, setAgreed] = useState(false)
+
     return (
-        <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20 bg-black">
+        <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20 bg-blacj">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
@@ -108,7 +110,7 @@ export default function ContactForm() {
                 />
               </Switch>
             </div>
-            <Label className="text-sm leading-6 text-gray-600">
+            <Label className="text-sm leading-6 text-white">
               By selecting this, you agree to our{' '}
               <a href="#" className="font-semibold text-white">
                 privacy&nbsp;policy
