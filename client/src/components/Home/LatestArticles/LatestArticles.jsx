@@ -25,59 +25,7 @@ export default function LatestArticles() {
                                 <a href="#"><i className="fa fa-angle-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                        <div className={styles.articleItem}>
-                            <div className={styles.laPic}>
-                                <img src="/img/classes/class-2.jpg" alt=""/>
-                            </div>
-                            <div className={styles.laText}>
-                                <span>Cardio</span>
-                                <h5>Indoor cycling</h5>
-                                <span>Created by: <p>Creator Name</p></span>
-                                <a href="#"><i className="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6">
-                        <div className={styles.articleItem}>
-                            <div className={styles.laPic}>
-                                <img src="/img/classes/class-3.jpg" alt=""/>
-                            </div>
-                            <div className={styles.laText}>
-                                <span>STRENGTH</span>
-                                <h5>Kettlebell power</h5>
-                                <span>Created by: <p>Creator Name</p></span>
-                                <a href="#"><i className="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 col-md-6">
-                        <div className={styles.articleItem}>
-                            <div className={styles.laPic}>
-                                <img src="/img/classes/class-4.jpg" alt=""/>
-                            </div>
-                            <div className={styles.laText}>
-                                <span>Cardio</span>
-                                <h4>Indoor cycling</h4>
-                                <span>Created by: <p>Creator Name</p></span>
-                                <a href="#"><i className="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6">
-                        <div className={styles.articleItem}>
-                            <div className={styles.laPic}>
-                                <img src="/img/classes/class-5.jpg" alt=""/>
-                            </div>
-                            <div className={styles.laText}>
-                                <span>Training</span>
-                                <h4>Boxing</h4>
-                                <span>Created by: <p>Creator Name</p></span>
-                                <a href="#"><i className="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    </div>     
                 </div>
             </div>
         </section>

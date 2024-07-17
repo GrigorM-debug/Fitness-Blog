@@ -13,13 +13,14 @@ import Register from './components/Register/Register';
 import './index.css';
 import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
 import BlogPosts from './components/BlogPosts/BlogPosts';
-
+import BlogPostDetailsHero from './components/BlogPostDetails/BlogPostDetailsHero/BlogPostDetailsHero';
+import BlogPostDetails from './components/BlogPostDetails/BlogPostDetails';
 function App() {
   return (
     <>
       <Header></Header>
       <HeroSection></HeroSection>
-      <BlogPosts></BlogPosts>
+      <BlogPostDetails />
       <ChooseUs></ChooseUs>
       <LatestArticles></LatestArticles>
       <LatestRecipes></LatestRecipes>
