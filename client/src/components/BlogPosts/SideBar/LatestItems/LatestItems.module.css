@@ -1,0 +1,102 @@
+.sidebar-option .so-latest {
+	margin-bottom: 60px;
+}
+
+.sidebar-option .so-latest .title {
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+.sidebar-option .so-latest .latest-large {
+	height: 200px;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text {
+	position: absolute;
+	left: 0;
+	bottom: 18px;
+	width: 100%;
+	padding: 0 25px;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text h5 a {
+	color: #ffffff;
+	font-weight: 600;
+	line-height: 23px;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text ul li {
+	list-style: none;
+	font-size: 12px;
+	color: #888888;
+	position: relative;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text ul li:last-child {
+	margin-right: 0;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text ul li:last-child:after {
+	display: none;
+}
+
+.sidebar-option .so-latest .latest-large .ll-text ul li:after {
+	position: absolute;
+	right: -16px;
+	top: 0;
+	content: "|";
+}
+
+.sidebar-option .so-latest .latest-item {
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.sidebar-option .so-latest .latest-item:last-child {
+	margin-bottom: 0;
+}
+
+.sidebar-option .so-latest .latest-item .li-pic {
+	float: left;
+	margin-right: 20px;
+}
+
+.sidebar-option .so-latest .latest-item .li-text {
+	overflow: hidden;
+}
+
+.sidebar-option .so-latest .latest-item .li-text h6 a {
+	font-size: 15px;
+	color: #ffffff;
+	line-height: 21px;
+}
+
+.sidebar-option .so-latest .latest-item .li-text .li-time {
+	display: inline-block;
+	font-size: 12px;
+	color: #888888;
+}
+
+.sidebar-option .so-banner {
+	height: 300px;
+	position: relative;
+}
+
+.sidebar-option .so-banner h5 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #ffffff;
+	text-transform: uppercase;
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	width: 100%;
+	padding: 0 30px;
+}

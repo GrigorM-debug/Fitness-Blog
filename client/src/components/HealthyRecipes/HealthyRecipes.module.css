@@ -1,0 +1,183 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10em;
+    padding-right: 10em;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust the gap between items as needed */
+    margin-top: 20px; /* Add some space between the heading and the items */
+}
+
+@media only screen and (max-width: 768px){
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px; /* Adjust the gap between items as needed */
+        margin-top: 20px; /* Add some space between the heading and the items */
+    }
+    .healthyRecipeSection.team-page .hrItem {
+        margin-bottom: 100px;
+    }
+
+    .healthyRecipeSection.team-page .hrItem:hover .hrText {
+        bottom: -40px;
+    }
+
+    .section-title h2 {
+        color: #fff;
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+.healthyRecipeSection {
+	background: #151515;
+}
+
+.healthyRecipeSection.team-page {
+	padding-bottom: 70px;
+}
+
+.healthyRecipeSection.team-page .hrItem {
+	margin-bottom: 30px;
+}
+
+.healthyRecipeSection.team-page .hrItem:hover .hrText {
+	bottom: -30px;
+}
+
+.hrTitle .sectionTitle {
+	text-align: left;
+	float: left;
+}
+
+.primary-btn.appoinment-btn {
+	background: transparent;
+	border: 2px solid #f36100;
+	float: right;
+	margin-top: 10px;
+}
+
+
+.hrItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust height as needed */
+    width: 100%; /* Ensure it fills the grid cell */
+}
+
+.hrItem:hover .hrText {
+	bottom: -35px;
+}
+
+.hrItem .hrText {
+	padding: 40px 0 60px;
+	text-align: center;
+	background: #0a0a0a;
+	border-top: 4px solid #464646;
+	-webkit-transform: skewY(-5deg);
+	-ms-transform: skewY(-5deg);
+	transform: skewY(-5deg);
+	position: absolute;
+	left: 0;
+	bottom: -250px;
+	width: 100%;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.hrItem .hrText h4 {
+	color: #ffffff;
+	font-weight: 600;
+	margin-bottom: 14px;
+	-webkit-transform: skewY(5deg);
+	-ms-transform: skewY(5deg);
+	transform: skewY(5deg);
+}
+
+.hrItem .hrText span {
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	color: #aaaaaa;
+	text-transform: uppercase;
+	-webkit-transform: skewY(5deg);
+	-ms-transform: skewY(5deg);
+	transform: skewY(5deg);
+}
+
+.hrItem .hrText a {
+	font-size: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	width: 100%;
+	border: none;
+	padding: 14px 8px 12px;
+	background: #f36100;
+}
+
+.healthyRecipeSection {
+    padding: 60px 0;
+    background-color: #000;
+}
+
+.section-title h2 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hrItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.hrText {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 90%;
+}
+
+.hrText h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.hrText span p {
+    display: inline;
+    font-weight: bold;
+}
+
+.hrText a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ff0;
+    text-decoration: underline;
+}
+
+

@@ -1,0 +1,26 @@
+.pagination {
+	padding-top: 10px;
+}
+
+.pagination a {
+	display: inline-block;
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	font-weight: 500;
+	margin-right: 15px;
+	background: #252525;
+	font-family: "Oswald", sans-serif;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.pagination a:last-child {
+	margin-right: 0;
+}
+
+.pagination a:hover {
+	background: #555555;
+}
