@@ -1,5 +1,7 @@
 .pagination {
 	padding-top: 10px;
+    padding-bottom: 5em;
+    padding-left: 3em;
 }
 
 .pagination a {

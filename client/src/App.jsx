@@ -19,7 +19,6 @@ function App() {
     <>
       <Header></Header>
       <HeroSection></HeroSection>
-      <HealthyRecipes></HealthyRecipes>
       <BlogPosts></BlogPosts>
       <ChooseUs></ChooseUs>
       <LatestArticles></LatestArticles>

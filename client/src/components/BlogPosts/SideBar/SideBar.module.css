@@ -2,43 +2,13 @@
 	padding-left: 40px;
 }
 
-.sidebarOption .so-categories {
-	margin-bottom: 40px;
+.sidebarOption .soCategories {
+    padding-bottom: 2em;
 }
 
-.sidebarOption .so-categories .title {
-	font-size: 20px;
-	color: #ffffff;
-	font-weight: 600;
-	text-transform: uppercase;
-	margin-bottom: 24px;
+.sidebarOption .soCategories .title {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 1em;
 }
-
-.sidebarOption .so-categories ul li {
-	list-style: none;
-}
-
-.sidebarOption .so-categories ul li:hover a {
-	color: #f36100;
-}
-
-.sidebarOption .so-categories ul li:hover a span {
-	color: #ffffff;
-}
-
-.sidebarOption .so-categories ul li a {
-	font-size: 14px;
-	color: #c4c4c4;
-	line-height: 40px;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-}
-
-.sidebarOption .so-categories ul li a span {
-	font-size: 12px;
-	float: right;
-}
-
-
-

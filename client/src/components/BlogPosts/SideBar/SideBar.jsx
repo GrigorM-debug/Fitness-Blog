@@ -1,43 +1,40 @@
+import FilterByCategory from "./FilterByCategory/FilterByCategory";
 import LatestItems from "./LatestItems/LatestItems";
 import styles from './SideBar.module.css';
+import { useState } from "react";
+
 export default function SideBar() {
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const toggleCheck = (value) => {
+        if (selectedOption === value) {
+            setSelectedOption(null);
+        } else {
+            setSelectedOption(value);
+        }
+    };
+
+    const showSelectedOption = () => {
+        if (selectedOption) {
+            alert(`You selected: ${selectedOption}`);
+        } else {
+            alert('No option selected');
+        }
+    };
+
     return (
         <div className="col-lg-4 col-md-8 p-0">
             <div className={styles.sidebarOption}>
-                <div className="so-categories">
-                    <h5 className="title">Filter By Categoris</h5>
-                    <ul>
-                    <li>
-                        <a href="#">
-                        Yoga <span>12</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Runing <span>32</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Weightloss <span>86</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Cario <span>25</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Body buiding <span>36</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Nutrition <span>15</span>
-                        </a>
-                    </li>
-                    </ul>
+                <div className={styles.soCategories}>
+                    <h5 className={styles.title}>Filter By Categories</h5>
+                    {['Training', 'Competitions', 'Nutrition', 'Health & Recovery'].map((option) => (
+                        <FilterByCategory 
+                            key={option}
+                            option={option}
+                            selectedOption={selectedOption}
+                            toggleCheck={toggleCheck}
+                        />
+                    ))}
                 </div>
                 <LatestItems />
             </div>

@@ -1,0 +1,9 @@
+.categoryFilter label {
+    font-size: 18px;
+    color: white;
+}
+
+.categoryFilter input {
+    width: 20px;
+    height: 20px;
+}
