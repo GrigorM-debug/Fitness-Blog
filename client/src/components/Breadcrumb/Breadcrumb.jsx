@@ -2,7 +2,7 @@ import styles from './Breadcrumb.module.css';
 
 export default function Breadcrumb(props) {
     return (
-        <section className={`${styles.breadcrumbSection} set-bg`} data-setbg="/img/BMI.jpg">
+        <section className={`${styles.breadcrumbSection} set-bg`} style={{ backgroundImage: `url(${props.breadcrumbImage})` }}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 text-center">

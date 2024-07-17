@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import styles from './BMICalculator.module.css';
 
 export default function BMICalculator() {
     const [height, setHeight] = useState('');
@@ -39,19 +40,19 @@ export default function BMICalculator() {
     return (
         <>
             {/* Breadcrumb Section Begin */}
-            <Breadcrumb title="BMI calculator" page="BMI calculator"/>
+            <Breadcrumb title="BMI calculator" page="BMI calculator" breadcrumbImage="/img/BMI.jpg"/>
             {/* Breadcrumb Section End */}
             
             {/* BMI Calculator Section Begin */}
-            <section className="bmi-calculator-section spad">
+            <section className={`${styles.bmiCalculatorSection} spad`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
-                            <div className="section-title chart-title">
+                            <div className={`${styles.sectionTitle} ${styles.chartTitle}`}>
                                 <span>check your body</span>
                                 <h2>BMI CALCULATOR CHART</h2>
                             </div>
-                            <div className="chart-table">
+                            <div className={styles.charTable}>
                                 <table>
                                     <thead>
                                         <tr>
@@ -61,19 +62,19 @@ export default function BMICalculator() {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td className="point">Below 18.5</td>
+                                            <td className={styles.point}>Below 18.5</td>
                                             <td>Underweight</td>
                                         </tr>
                                         <tr>
-                                            <td className="point">18.5 - 24.9</td>
+                                            <td className={styles.point}>18.5 - 24.9</td>
                                             <td>Healthy</td>
                                         </tr>
                                         <tr>
-                                            <td className="point">25.0 - 29.9</td>
+                                            <td className={styles.point}>25.0 - 29.9</td>
                                             <td>Overweight</td>
                                         </tr>
                                         <tr>
-                                            <td className="point">30.0 - and Above</td>
+                                            <td className={styles.point}>30.0 - and Above</td>
                                             <td>Obese</td>
                                         </tr>
                                     </tbody>
@@ -81,11 +82,11 @@ export default function BMICalculator() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="section-title chart-calculate-title">
+                            <div className={`${styles.sectionTitle} ${styles.charCalculateTitle}`}>
                                 <span>check your body</span>
                                 <h2>CALCULATE YOUR BMI</h2>
                             </div>
-                            <div className="chart-calculate-form">
+                            <div className={styles.charCalculateForm}>
                                 <p>
                                     BMI, or Body Mass Index, is a measure that uses your weight and
                                     height to estimate whether your weight is healthy for your height.
@@ -139,13 +140,13 @@ export default function BMICalculator() {
                                             <input type="text" placeholder="Age" />
                                         </div>
                                         <div className="col-sm-6">
-                                            <select name="gender-select" className="unit-select">
+                                            <select name="gender-select" className={styles.unitSelect}>
                                                 <option value="">--Please select gender</option>
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                             </select>
                                         </div>
-                                        <div id="user-bmi" className="col-sm-6">
+                                        <div id={styles.userBMI} className="col-sm-6">
                                             <h2>Result: </h2>
                                             <input type="text" id="bmi-result" value={bmi} readOnly />
                                         </div>
