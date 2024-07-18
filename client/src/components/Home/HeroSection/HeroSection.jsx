@@ -9,13 +9,13 @@ export default function HeroSection() {
         {
           setBg: "/img/hero/hero-1.jpg",
           spanText: "Train Hard but Smart",
-          h1Text: "Learn about training and recovery",
+          h1Text: "Learn about <strong>training</strong> and <strong>recovery</strong>",
           btnText: "Join our community",
         },
         {
           setBg: "/img/healthyHomePageBanner.jpeg",
           spanText: "Be healthy",
-          h1Text: "Eat tasty and be in good shape",
+          h1Text: "Eat <strong>tasty</strong> and be in <strong>good</strong> shape",
           btnText: "Join our community",
         },
     ];

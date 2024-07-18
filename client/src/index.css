@@ -255,6 +255,10 @@ ol {
 	opacity: 0;
 }
 
+.hs-slider .hs-item .hi-text span {
+	color: #f36100;
+}
+
 .hs-slider .hs-item .hi-text h1 strong {
 	color: #f36100;
 }
