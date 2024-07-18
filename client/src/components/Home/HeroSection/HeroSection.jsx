@@ -19,6 +19,7 @@ export default function HeroSection() {
           btnText: "Join our community",
         },
     ];
+
     return (
         <section className="hero-section">
       <OwlCarousel
@@ -31,8 +32,8 @@ export default function HeroSection() {
         animateOut="fadeOut"
         animateIn="fadeIn"
         navText={[
-          '<i class="fa fa-angle-left"></i>',
           '<i class="fa fa-angle-right"></i>',
+          '<i class="fa fa-angle-left"></i>',
         ]}
         smartSpeed={1200}
         autoHeight={false}

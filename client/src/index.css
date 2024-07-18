@@ -199,8 +199,8 @@ ol {
 }
 
 .hs-slider.owl-carousel .owl-nav button {
-	/* height: 300px;
-	width: 2em; */
+	height: 50px;
+	width: 5px; 
 	font-size: 2em;
 	color: #a9a9a9;
 	background: rgba(255, 255, 255, 0.1);
@@ -216,8 +216,23 @@ ol {
 }
 
 .hs-slider.owl-carousel .owl-nav button.owl-next {
+	font-size: 2em;
+	right: auto;
+	right: 30px;
+	color: #a9a9a9;
+	background: rgba(10, 10, 10, 0.374);
+	width: 50px;
+	height: 50px;
+}
+
+.hs-slider.owl-carousel .owl-nav button.owl-prev {
+	font-size: 2em;
 	left: auto;
 	right: 30px;
+	color: #a9a9a9;
+	background: rgba(10, 10, 10, 0.374);
+	width: 50px;
+	height: 50px;
 }
 
 .hs-slider .hs-item {
@@ -259,7 +274,7 @@ ol {
 	color: #f36100;
 }
 
-.hs-slider .hs-item .hi-text h1 strong {
+.hs-slider .hs-item .hi-text strong {
 	color: #f36100;
 }
 
@@ -269,12 +284,12 @@ ol {
 	opacity: 0;
 }
 
-.hs-slider .owl-carousel .owl-nav i {
-	color: #a9a9a9;
+/* .hs-slider .owl-carousel .owl-nav i {
+	color: #red;
 	background: rgba(255, 255, 255, 0.1);
-	width: 46px;
+	width: 100px;
 	height: 46px;
-}
+} */
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
 @media only screen and (min-width: 1650px) and (max-width: 1920px) {
