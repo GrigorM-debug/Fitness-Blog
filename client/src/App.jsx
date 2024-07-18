@@ -32,6 +32,8 @@ function App() {
         <Route path="/createPost" element={<CreateBlogPost />}/>
         <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />}/>
         <Route path="/myProfile" element={<Profile />}/>
+        
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer />
     </>

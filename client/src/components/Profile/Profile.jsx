@@ -1,5 +1,10 @@
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
+
 export default function Profile() {
     return (
+        <>
+        <Breadcrumb title="My Profile" page="My Profile" breadcrumbImage="img/Planche.jpg"/>
+
         <div className="bg-neutral-950">
             <div className="p-8 bg-neutral-900 shadow mt-24">
                 <div className="grid grid-cols-1 md:grid-cols-3">
@@ -132,5 +137,6 @@ export default function Profile() {
                 </div>
             </div>
         </div>
+        </>
     );
 }

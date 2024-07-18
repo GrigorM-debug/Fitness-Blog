@@ -1,5 +1,6 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useRef } from 'react';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
 export default function CreateHealthyRecipe() {
     const fileInputRef = useRef(null);
@@ -17,6 +18,9 @@ export default function CreateHealthyRecipe() {
     };
 
     return (
+        <>
+        <Breadcrumb title="Create Healthy Recipe" page="Create Healthy Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
+
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -103,5 +107,6 @@ export default function CreateHealthyRecipe() {
           </form>
         </div>
       </div>
+      </>
     );
 };

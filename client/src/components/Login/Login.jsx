@@ -1,5 +1,10 @@
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
+
 export default function Login() {
     return (
+      <>
+        <Breadcrumb title="Welcome back" page="Login" breadcrumbImage="img/breadcrumb-bg.jpg"/>
+
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -85,5 +90,6 @@ export default function Login() {
           </p>
         </div>
       </div>
+      </>
     );
 };

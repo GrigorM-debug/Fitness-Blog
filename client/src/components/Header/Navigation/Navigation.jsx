@@ -1,33 +1,42 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import {NavLink} from 'react-router-dom';
 
 export default function Navigation() {
-    const [isClicked, setIsCliked] = useState(false);
+    const location = useLocation();
+    // const history = useHistory();
+    const [activePath, setActivePath] = useState(location.pathname);
+    
+    // Update activePath whenever location changes
+    useEffect(() => {
+        setActivePath(location.pathname);
+    }, [location.pathname]);
+
+    // Handle NavLink clicks
+    const handleNavLinkClick = (path) => {
+        setActivePath(path);
+        // history.push(path); // Navigate programmatically
+    };
+
     return (
-        <>
-            <nav className={styles.navMenu}>
-                <ul>
-                    {/* Add event that adds class="active" after clicking page */}
-                    <li className={isClicked ? 'active' : ''}>
-                        <NavLink to="/" onClick={() => setIsCliked(true)}>Home</NavLink>
-                    </li>
-                    <li className={isClicked ? 'active' : ''}>
-                        <NavLink to="/blog" onClick={() => setIsCliked(true)}>Our Blog</NavLink>
-                    </li>
-                    {/* <li><NavLink to="./class-details.html">WorkOuts</NavLink></li> */}
-                    <li className={isClicked ? 'active' : ''}>
-                        <NavLink to="/healthyRecipes" onClick={() => setIsCliked(true)}>Healthy Recipes</NavLink>
-                    </li>
-                    {/* <li><NavLink to="./coaches.html">Coaches</NavLink></li> */}
-                    <li className={isClicked ? 'active' : ''}>
-                        <NavLink to="/BMICalculator">Bmi Calculator</NavLink>
-                    </li>
-                    <li className={isClicked ? 'active' : ''}>
-                        <NavLink to="/contact" onClick={() => setIsCliked(true)}>Contact</NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </>
+        <nav className={styles.navMenu}>
+            <ul>
+                <li className={activePath === '/' ? styles.active : ''}>
+                    <NavLink to="/" onClick={() => handleNavLinkClick('/')}>Home</NavLink>
+                </li>
+                <li className={activePath === '/blog' ? styles.active : ''}>
+                    <NavLink to="/blog" onClick={() => handleNavLinkClick('/blog')}>Our Blog</NavLink>
+                </li>
+                <li className={activePath === '/healthyRecipes' ? styles.active : ''}>
+                    <NavLink to="/healthyRecipes" onClick={() => handleNavLinkClick('/healthyRecipes')}>Healthy Recipes</NavLink>
+                </li>
+                <li className={activePath === '/BMICalculator' ? styles.active : ''}>
+                    <NavLink to="/BMICalculator" onClick={() => handleNavLinkClick('/BMICalculator')}>BMI Calculator</NavLink>
+                </li>
+                <li className={activePath === '/contact' ? styles.active : ''}>
+                    <NavLink to="/contact" onClick={() => handleNavLinkClick('/contact')}>Contact</NavLink>
+                </li>
+            </ul>
+        </nav>
     );
-};
+}

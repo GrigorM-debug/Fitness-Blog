@@ -24,6 +24,7 @@
 .charTable {
 	width: 100%;
 	border-collapse: collapse;
+	padding-bottom: 2em;
 }
 
 .charTable thead {

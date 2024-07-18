@@ -2,6 +2,7 @@ import Pagination from "../Pagination/Pagination";
 import BlogItem from "./BlogItem/BlogItem";
 import styles from './BlogPosts.module.css';
 import SideBar from "./SideBar/SideBar";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 export default function BlogPosts() {
     const posts = [
@@ -51,10 +52,15 @@ export default function BlogPosts() {
         }
     ];
     return (
+        <>
+        <Breadcrumb title="Our Blog" page="Our Blog" breadcrumbImage="img/gallery/gallery-1.jpg"/>
         <section className={styles.blogSection}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 p-0">
+                            <div className={`${styles.sectionTitle} section-title`}>
+                                <h2>Our Blog Posts</h2>
+                            </div>
                         {posts.map((item, index) => (
                             <BlogItem 
                                 key={index}
@@ -75,6 +81,6 @@ export default function BlogPosts() {
                 </div>
             </div>
             </section>
-
+        </>
     );
 };

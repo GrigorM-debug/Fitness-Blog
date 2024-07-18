@@ -6,9 +6,9 @@ import UserIcon from './UserIcon/UserIcon';
 export default function TopOptions() {
     return (    
         <div className={styles.topOption}>
-            <div className={`${styles.toSearch} search-switch`}>
+            {/* <div className={`${styles.toSearch} search-switch`}>
                 <i className="fa fa-search" />
-            </div>
+            </div> */}
             <div className={styles.user}>
                 <h2 className={styles.welcomeMessage}>
                     Welcome, <span>Guest</span>

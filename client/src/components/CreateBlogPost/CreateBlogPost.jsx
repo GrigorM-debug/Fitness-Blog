@@ -1,5 +1,6 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useRef, useState } from 'react';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
 export default function CreateBlogPost() {
     const fileInputRef = useRef(null);
@@ -35,6 +36,9 @@ export default function CreateBlogPost() {
     console.log(image)
 
     return (
+        <>
+        <Breadcrumb title="Create Blog Post" page="Create Blog Post" breadcrumbImage="img/coaches-bg.jpg"/>
+
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
@@ -148,5 +152,6 @@ export default function CreateBlogPost() {
                 </form>
             </div>
         </div>
+        </>
     );
 };

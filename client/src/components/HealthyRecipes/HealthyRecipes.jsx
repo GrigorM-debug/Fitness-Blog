@@ -1,4 +1,5 @@
 import styles from './HealthyRecipes.module.css';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
 export default function HealthyRecipes() {
     const recipes = [
@@ -28,6 +29,9 @@ export default function HealthyRecipes() {
         }
     ];
     return (
+        <>
+        <Breadcrumb title="Healthy Recipes" page="Healthy Recipes" breadcrumbImage="img/recipe-bg2.jpg"/>
+
         <section className={`${styles.healthyRecipeSection} spad`}>
             <div className={styles.container}>
                 <div className="heading">
@@ -52,5 +56,6 @@ export default function HealthyRecipes() {
                 </div>
             </div>
         </section>
+        </>
     );
 };
