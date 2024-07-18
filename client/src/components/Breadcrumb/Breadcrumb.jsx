@@ -1,4 +1,5 @@
 import styles from './Breadcrumb.module.css';
+import { Link } from "react-router-dom";
 
 export default function Breadcrumb(props) {
     return (
@@ -9,7 +10,7 @@ export default function Breadcrumb(props) {
                         <div className={styles.breadcrumbText}>
                             <h2>{props.title}</h2>
                             <div className={styles.btOption}>
-                                <a href="./index.html">Home</a>
+                                <Link href="./index.html">Home</Link>
                                 <a href="#">Pages</a>
                                 <span>{props.link}</span>
                             </div>

@@ -3,6 +3,8 @@ import styles from './Header.module.css';
 import Navigation from './Navigation/Navigation';
 import TopOptions from './TopOptions/TopOptions';
 import OffCanvasMenu from '../OffCanvasMenu/OffCanvasMenu';
+import { Link } from "react-router-dom";
+
 
 export default function Header() {
     const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
@@ -40,9 +42,9 @@ export default function Header() {
           <div className="row">
             <div className="col-lg-3">
               <div className="logo">
-                <a href="./index.html">
+                <Link to="/">
                   <img src="/img/logo.png" alt="" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-6">

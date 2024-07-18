@@ -1,4 +1,6 @@
 import styles from './404.module.css';
+import { Link } from "react-router-dom";
+
 
 export default function NotFound() {
     return (
@@ -10,7 +12,7 @@ export default function NotFound() {
                             <h1>404</h1>
                             <h3>Opps! This page Could Not Be Found!</h3>
                             <p>Sorry bit the page you are looking for does not exist, have been removed or name changed</p>
-                            <a href="./index.html"><i className="fa fa-home"></i> Go back home</a>
+                            <Link to="/"><i className="fa fa-home"></i> Go back home</Link>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import styles from './TopOptions.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-regular-svg-icons'; // Correct import statement
-import UserIcon from '../../UserIcon/UserIcon';
+import UserIcon from './UserIcon/UserIcon';
 
 export default function TopOptions() {
     return (    

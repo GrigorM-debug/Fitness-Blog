@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom'
 
 export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) {
     const [showDropDown, setShowDropdown] = useState(false);
@@ -23,21 +24,21 @@ export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) 
         </div>
             <nav className="slicknav_menu">
                 <ul className="slicknav_nav">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about-us.html">Our Blog</a></li>
-                    <li><a href="./healthyRecipes.html">Healthy Recipes</a></li>
-                    <li><a href="./coaches.html">BMI Calculator</a></li>
-                    <li onClick={handleShowDropdown}><a href="#">User Pages {!showDropDown && <img src="img/arrow.png"></img>} {showDropDown && <img src="img/down-arrow.png"></img>}</a>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/blog">Our Blog</Link></li>
+                    <li><Link to="/healthyRecipes">Healthy Recipes</Link></li>
+                    <li><Link to="/BMICalculator">BMI Calculator</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li onClick={handleShowDropdown}><Link to="#">User Pages {!showDropDown && <img src="img/arrow.png"></img>} {showDropDown && <img src="img/down-arrow.png"></img>}</Link>
                         {showDropDown && <ul className="dropdown">
-                            <li><a href="./class-timetable.html">Register</a></li>
-                            <li><a href="./bmi-calculator.html">Create Article</a></li>
-                            <li><a href="./coaches.html">Create Healthy Recipe</a></li>
-                            <li><a href="./gallery.html">My profile</a></li>
-                            <li><a href="./blog.html">Login</a></li>
-                            <li><a href="./404.html">Logout</a></li>
+                            <li><Link to="/regiter">Register</Link></li>
+                            <li><Link to="/login">Login</Link></li>
+                            <li><Link to="/createPost">Create Post</Link></li>
+                            <li><Link to="/createHealthyRecipe">Create Healthy Recipe</Link></li>
+                            <li><Link to="/myProfile">My profile</Link></li>
+                            <li><Link to="./404.html">Logout</Link></li>
                         </ul>}
                     </li>
-                    <li><a href="./contact.html">Contact</a></li>
                 </ul>
             </nav>
       </div>

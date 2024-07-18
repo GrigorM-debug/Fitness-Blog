@@ -1,0 +1,42 @@
+.blogDetailsHero {
+	height: 900px;
+	padding-top: 365px;
+}
+
+.bhText {
+	background: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	padding: 40px 50px 34px 50px;
+}
+
+.bhText h3 {
+	color: #ffffff;
+	font-weight: 600;
+	line-height: 39px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.bhText ul li {
+	font-size: 12px;
+	color: #888888;
+	display: inline-block;
+	list-style: none;
+	margin-right: 25px;
+	position: relative;
+}
+
+.bhText ul li:after {
+	position: absolute;
+	right: -15px;
+	top: 0;
+	content: "|";
+}
+
+.bhText ul li:last-child {
+	margin-right: 0;
+}
+
+.bhText ul li:last-child:after {
+	display: none;
+}

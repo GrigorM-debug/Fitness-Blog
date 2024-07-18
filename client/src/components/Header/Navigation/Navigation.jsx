@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Navigation.module.css';
+import {Link} from 'react-router-dom';
 
 export default function Navigation() {
     const [isClicked, setIsCliked] = useState(false);
@@ -9,21 +10,21 @@ export default function Navigation() {
                 <ul>
                     {/* Add event that adds class="active" after clicking page */}
                     <li className={isClicked ? 'active' : ''}>
-                        <a href="./index.html" onClick={() => setIsCliked(true)}>Home</a>
+                        <Link to="/" onClick={() => setIsCliked(true)}>Home</Link>
                     </li>
                     <li className={isClicked ? 'active' : ''}>
-                        <a href="./about-us.html" onClick={() => setIsCliked(true)}>Our Blog</a>
+                        <Link to="/blog" onClick={() => setIsCliked(true)}>Our Blog</Link>
                     </li>
-                    {/* <li><a href="./class-details.html">WorkOuts</a></li> */}
+                    {/* <li><Link to="./class-details.html">WorkOuts</Link></li> */}
                     <li className={isClicked ? 'active' : ''}>
-                        <a href="./healthyRecipes.html" onClick={() => setIsCliked(true)}>Healthy Recipes</a>
+                        <Link to="/healthyRecipes" onClick={() => setIsCliked(true)}>Healthy Recipes</Link>
                     </li>
-                    {/* <li><a href="./coaches.html">Coaches</a></li> */}
+                    {/* <li><Link to="./coaches.html">Coaches</Link></li> */}
                     <li className={isClicked ? 'active' : ''}>
-                        <a href="./bmi-calculator.html">Bmi calculate</a>
+                        <Link to="/BMICalculator">Bmi Calculator</Link>
                     </li>
                     <li className={isClicked ? 'active' : ''}>
-                        <a href="./contact.html" onClick={() => setIsCliked(true)}>Contact</a>
+                        <Link to="/contact" onClick={() => setIsCliked(true)}>Contact</Link>
                     </li>
                 </ul>
             </nav>

@@ -1,0 +1,73 @@
+@media only screen and (max-width: 767px) {
+    .blogDetailsSection {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}
+
+.blogDetailsSection {
+	background: #151515;
+	padding-top: 80px;
+	overflow: hidden;
+}
+
+.blogPostDetailsText .blogPostDetailsTitle {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.blogPostDetailsText .blogPostDetailsTitle p {
+	color: #c4c4c4;
+}
+
+.blogPostDetailsText .blogPostDetailsTitle p:first-child {
+	margin-bottom: 25px;
+}
+
+.blogPostDetailsText .blogPostDetailsTitle h5 {
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: 600;
+	padding-top: 5px;
+	margin-bottom: 28px;
+}
+
+.blogPostDetailsText .blogPostDetailsPic {
+	margin-right: -10px;
+	overflow: hidden;
+	margin-bottom: 22px;
+}
+
+.blogPostDetailsText .blogPostDetailsPic .blogPostDetailsPicItem {
+	width: calc(50% - 10px);
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.blogPostDetailsText .blogPostDetailsPic .blogPostDetailsPicItem img {
+	min-width: 100%;
+}
+
+.blogPostDetailsText .BlogPostDetailsDescription {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.blogPostDetailsText .BlogPostDetailsDescription p {
+	color: #c4c4c4;
+}
+
+.blogPostDetailsText .BlogPostDetailsMoreDescription {
+	text-align: center;
+	margin-bottom: 40px;
+    padding-bottom: 3em;
+}
+
+.blogPostDetailsText .BlogPostDetailsMoreDescription p {
+	color: #c4c4c4;
+}
+
+.blogPostDetailsText .BlogPostDetailsMoreDescription p:first-child {
+	margin-bottom: 25px;
+}

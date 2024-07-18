@@ -1,29 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-regular-svg-icons'; 
 import styles from './UserIcon.module.css';
+import {Link} from 'react-router-dom';
 
 export default function UserIcon() {
     return (
         <ul className={styles.userIcon}>
             <li>
-                <a href="#" className={styles.icn}>
+                <Link to="#" className={styles.icn}>
                     <FontAwesomeIcon icon={faUserCircle} />
-                </a>
+                </Link>
                 <ul>
                     <li>
-                        <a href="register.html">Register</a>
+                        <Link to="/register">Register</Link>
                     </li>
                     <li>
-                        <a href="#">Create Article</a>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
-                        <a href="#">Create Healthy Recipe</a>
+                        <Link to="/createPost">Create Post</Link>
                     </li>
                     <li>
-                        <a href="#">My Profile</a>
+                        <Link to="/createHealthyRecipe">Create Healthy Recipe</Link>
                     </li>
                     <li>
-                        <a href="404.html">Logout</a>
+                        <Link to="/myProfile">My Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/404">Logout</Link>
                     </li>
                 </ul>
             </li>
