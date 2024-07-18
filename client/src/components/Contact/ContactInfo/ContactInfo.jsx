@@ -3,7 +3,7 @@ import styles from './ContactInfo.module.css';
 export default function ContactInfo() {
     return (
         <div className="col-lg-6">
-            <div className={`${styles.sectionTitle} ${styles.contactTitle}`}>
+            <div className={`section-title ${styles.contactTitle}`}>
             <span>Contact Us</span>
             <h2>GET IN TOUCH</h2>
             </div>

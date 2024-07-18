@@ -1,8 +1,13 @@
-.sectionTitle .contactTitle {
+.section-title .contactTitle {
 	text-align: left;
 	margin-bottom: 35px;
     color: white;
 }
+
+/* .section-title .contactTitle span {
+	color: #f36100;
+} */
+
 
 .contactWidget .cwText {
 	overflow: hidden;

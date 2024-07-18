@@ -48,7 +48,7 @@ export default function BMICalculator() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
-                            <div className={`${styles.sectionTitle} ${styles.chartTitle}`}>
+                            <div className={`section-title ${styles.chartTitle}`}>
                                 <span>check your body</span>
                                 <h2>BMI CALCULATOR CHART</h2>
                             </div>
@@ -82,7 +82,7 @@ export default function BMICalculator() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className={`${styles.sectionTitle} ${styles.charCalculateTitle}`}>
+                            <div className={`section-title ${styles.charCalculateTitle}`}>
                                 <span>check your body</span>
                                 <h2>CALCULATE YOUR BMI</h2>
                             </div>
@@ -101,15 +101,18 @@ export default function BMICalculator() {
                                 <form onSubmit={calculateBMI}>
                                     <div className="row">
                                         <div id="input-with-select" className="col-sm-6">
+                                            <label htmlFor="height">Height</label>
                                             <input 
                                                 type="text" 
-                                                placeholder="Height" 
+                                                name="height"
+                                                // placeholder="Height" 
                                                 value={height}
                                                 onChange={(e) => setHeight(e.target.value)}
                                             />
+                                            <label htmlFor='height-units'>Select Height Unit</label>
                                             <select
                                                 name="height-units"
-                                                className="unit-select"
+                                                className={styles.unitSelect}
                                                 value={heightUnit}
                                                 onChange={(e) => setHeightUnit(e.target.value)}
                                             >
@@ -119,15 +122,17 @@ export default function BMICalculator() {
                                             </select>
                                         </div>
                                         <div id="input-with-select" className="col-sm-6">
+                                            <label htmlFor="weight">Weight</label>
                                             <input 
                                                 type="text" 
-                                                placeholder="Weight" 
+                                                name="weight"
                                                 value={weight}
                                                 onChange={(e) => setWeight(e.target.value)}
                                             />
+                                            <label htmlFor="weight-units">Select Weight Unit</label>
                                             <select
                                                 name="weight-units"
-                                                className="unit-select"
+                                                className={styles.unitSelect}
                                                 value={weightUnit}
                                                 onChange={(e) => setWeightUnit(e.target.value)}
                                             >
@@ -137,9 +142,11 @@ export default function BMICalculator() {
                                             </select>
                                         </div>
                                         <div className="col-sm-6">
-                                            <input type="text" placeholder="Age" />
+                                            <label htmlFor="age">Age</label>
+                                            <input type="text"  name='age'/>
                                         </div>
                                         <div className="col-sm-6">
+                                            <label htmlFor="gender-select">Select Gender</label>
                                             <select name="gender-select" className={styles.unitSelect}>
                                                 <option value="">--Please select gender</option>
                                                 <option value="male">Male</option>

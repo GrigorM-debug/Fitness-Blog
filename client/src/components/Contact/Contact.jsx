@@ -7,7 +7,7 @@ import Breadcrumb from "../Breadcrumb/Breadcrumb";
 export default function Contact() {
     return (
         <>
-            <Breadcrumb title="Contacts" page="Contacts" breadcrumbImage="img/breadcrumb-bg.jpg"/>
+            <Breadcrumb title="Contact" page="Contact" breadcrumbImage="img/breadcrumb-bg.jpg"/>
             <section className={`${styles.contactSection} spad`}>
                 <div className="container">
                     <div className="row">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Navigation.module.css';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export default function Navigation() {
     const [isClicked, setIsCliked] = useState(false);
@@ -10,21 +10,21 @@ export default function Navigation() {
                 <ul>
                     {/* Add event that adds class="active" after clicking page */}
                     <li className={isClicked ? 'active' : ''}>
-                        <Link to="/" onClick={() => setIsCliked(true)}>Home</Link>
+                        <NavLink to="/" onClick={() => setIsCliked(true)}>Home</NavLink>
                     </li>
                     <li className={isClicked ? 'active' : ''}>
-                        <Link to="/blog" onClick={() => setIsCliked(true)}>Our Blog</Link>
+                        <NavLink to="/blog" onClick={() => setIsCliked(true)}>Our Blog</NavLink>
                     </li>
-                    {/* <li><Link to="./class-details.html">WorkOuts</Link></li> */}
+                    {/* <li><NavLink to="./class-details.html">WorkOuts</NavLink></li> */}
                     <li className={isClicked ? 'active' : ''}>
-                        <Link to="/healthyRecipes" onClick={() => setIsCliked(true)}>Healthy Recipes</Link>
+                        <NavLink to="/healthyRecipes" onClick={() => setIsCliked(true)}>Healthy Recipes</NavLink>
                     </li>
-                    {/* <li><Link to="./coaches.html">Coaches</Link></li> */}
+                    {/* <li><NavLink to="./coaches.html">Coaches</NavLink></li> */}
                     <li className={isClicked ? 'active' : ''}>
-                        <Link to="/BMICalculator">Bmi Calculator</Link>
+                        <NavLink to="/BMICalculator">Bmi Calculator</NavLink>
                     </li>
                     <li className={isClicked ? 'active' : ''}>
-                        <Link to="/contact" onClick={() => setIsCliked(true)}>Contact</Link>
+                        <NavLink to="/contact" onClick={() => setIsCliked(true)}>Contact</NavLink>
                     </li>
                 </ul>
             </nav>
