@@ -19,7 +19,6 @@
         $("#preloder").delay(200).fadeOut("slow");
     });
 
-
     /*------------------
         Background Set
     --------------------*/
@@ -86,7 +85,7 @@
     /*------------------
         Team Slider
     --------------------*/
-    $(".lsSlider").owlCarousel({
+    $(".ts-slider").owlCarousel({
         loop: true,
         margin: 0,
         items: 3,

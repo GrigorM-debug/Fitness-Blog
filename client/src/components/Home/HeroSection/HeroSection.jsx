@@ -2,6 +2,7 @@ import React from 'react';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import OwlCarousel from 'react-owl-carousel';
+import {NavLink} from 'react-router-dom';
 
 export default function HeroSection() {
     const items = [
@@ -45,7 +46,7 @@ export default function HeroSection() {
                   <div className="hi-text">
                     <span>{item.spanText}</span>
                     <h1 dangerouslySetInnerHTML={{ __html: item.h1Text }}></h1>
-                    <a href="#" className="primary-btn">{item.btnText}</a>
+                    <NavLink to="/login" className="primary-btn">{item.btnText}</NavLink>
                   </div>
                 </div>
               </div>

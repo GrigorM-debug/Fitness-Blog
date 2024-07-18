@@ -11,7 +11,7 @@ export default function Breadcrumb(props) {
                             <h2>{props.title}</h2>
                             <div className={styles.btOption}>
                                 <Link href="./index.html">Home</Link>
-                                <span>{props.title}</span>
+                                <span>{props.page}</span>
                             </div>
                         </div>
                     </div>

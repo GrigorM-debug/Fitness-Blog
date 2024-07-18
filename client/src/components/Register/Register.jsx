@@ -1,5 +1,7 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { useRef } from 'react';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
   const fileInputRef = useRef(null);
@@ -17,7 +19,10 @@ export default function Register() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
+    <>
+      <Breadcrumb title="Thanks for joining us" page="Register" breadcrumbImage="img/breadcrumb-bg.jpg"/>
+
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           alt="Your Company"
@@ -178,11 +183,12 @@ export default function Register() {
 
         <p className="mt-10 text-center text-sm text-white">
           Already a member?
-          <a href="#" className="font-semibold leading-6 text-orange-600 hover:text-orange-400">
-            Login
-          </a>
+          <Link to="/login" className="p-2 font-semibold leading-6 text-orange-600 hover:text-orange-400">
+                Login
+          </Link>
         </p>
       </div>
     </div>
+    </>
   );
 }

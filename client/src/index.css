@@ -199,8 +199,9 @@ ol {
 }
 
 .hs-slider.owl-carousel .owl-nav button {
-	height: 46px;
-	width: 46px;
+	/* height: 300px;
+	width: 2em; */
+	font-size: 2em;
 	color: #a9a9a9;
 	background: rgba(255, 255, 255, 0.1);
 	line-height: 46px;
@@ -264,7 +265,12 @@ ol {
 	opacity: 0;
 }
 
-
+.hs-slider .owl-carousel .owl-nav i {
+	color: #a9a9a9;
+	background: rgba(255, 255, 255, 0.1);
+	width: 46px;
+	height: 46px;
+}
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
 @media only screen and (min-width: 1650px) and (max-width: 1920px) {

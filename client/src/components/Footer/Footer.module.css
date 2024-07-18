@@ -19,14 +19,25 @@
 	line-height: 26px;
 	color: #c4c4c4;
 }
+.fsWidget .faSocial {
+	display: flex;
+	flex-direction: column;
 
-.fsAbout .faSocial a {
-	font-size: 14px;
-	color: #c4c4c4;
-	margin-right: 10px;
 }
 
-.fsAbout .faSocial a:last-child {
+.fsWidget .faSocial i {
+	margin-right: 1em;
+}
+
+.fsWidget .faSocial a {
+	font-size: 1em;
+	color: #c4c4c4;
+	margin-right: 10px;
+	padding-right: 1em;
+	padding-bottom: 1em;
+}
+
+.fsWidget .faSocial a:last-child {
 	margin-right: 0;
 }
 

@@ -26,13 +26,13 @@ function App() {
         <Route path="/BMICalculator" element={<BMICalculator />}/>
         <Route path="/contact" element={<Contact />}/>
 
-        <Route path="/regiter" element={<Register />}/>
+        <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/logout" element={<NotFound />}/>
         <Route path="/createPost" element={<CreateBlogPost />}/>
         <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />}/>
         <Route path="/myProfile" element={<Profile />}/>
-        
+
         <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer />
