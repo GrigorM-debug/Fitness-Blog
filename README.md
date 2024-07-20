@@ -1,6 +1,20 @@
 💪 **Fitness Blog Website**
 ===========================
 
+## 📋 Content
+- [Overview](#overview)
+- [Installation](#installation)
+- [Technologies Used](#technologies-used)
+- [Usage](#usage)
+- [Blog Posts](#blog-posts)
+- [High-Protein Recipes](#high-protein-recipes)
+- [BMI Calculator](#bmi-calculator)
+- [Contact Page](#contact-page)
+- [User Profile](#user-profile)
+- [User Authentication](#user-authentication)
+- [Community Engagement](#community-engagement)
+- [License](#license)
+
 📖 **Overview**
 ---------------
 Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitness enthusiasts to share their journeys, knowledge, and recipes. This dynamic site, built using React.js, offers a user-friendly experience, allowing users to engage with content, share their own stories, and discover healthy recipes to support their fitness goals.
