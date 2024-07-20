@@ -1,6 +1,10 @@
 💪 **Fitness Blog Website**
 ===========================
 
+📖 **Overview**
+---------------
+Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitness enthusiasts to share their journeys, knowledge, and recipes. This dynamic site, built using React.js, offers a user-friendly experience, allowing users to engage with content, share their own stories, and discover healthy recipes to support their fitness goals.
+
 🚀 **Installation**
 -------------------
 (Installation instructions will be added later)
@@ -18,9 +22,6 @@
 - Interacting with Content: Like and comment on posts and recipes, regardless of login status.
 - Profile Management: Access and edit your profile details from the "My Profile" page.
 
-📖 **Overview**
----------------
-Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitness enthusiasts to share their journeys, knowledge, and recipes. This dynamic site, built using React.js, offers a user-friendly experience, allowing users to engage with content, share their own stories, and discover healthy recipes to support their fitness goals.
 
 📝 **Blog Posts**
 -----------------
