@@ -27,16 +27,16 @@ Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitne
 - I recommmed using Visual Studio Code, so that you can open the folder with VS Code and run the project and server by writting the commands below, but you use Command Prompt, Windows PowerShell or something like that
 - Now lets write some commands
     1. Running the server
-        - First write cd server to go to the server folder
-        - Second write node server.js to run the server
+        - First write __cd server__ to go to the server folder
+        - Second write __node server.js__ to run the server
         - After running the server leave the terminal and don't touch it
-        - To stop the server just press Ctrl + C and the server will stop
+        - To stop the server just press __Ctrl + C__ and the server will stop
     2. Running the project
         - Open new terminal
-        - Write cd client to go to the client folder
-        - Write npm install ot the short version npm i to install all dependencies
-        - To start the project write npm run dev
-        - If you want to stop the project press Ctrl + C in the terminal 
+        - Write __cd client__ to go to the client folder
+        - Write __npm install__ ot the short version __npm i__ to install all dependencies
+        - To start the project write __npm run dev__
+        - If you want to stop the project press __Ctrl + C__ in the terminal 
 
 🛠️ **Technologies Used**
 --------------------------
