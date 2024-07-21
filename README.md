@@ -2,18 +2,19 @@
 ===========================
 
 ## 📋 Content
-- [Overview](#overview)
-- [Installation](#installation)
-- [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Blog Posts](#blog-posts)
-- [High-Protein Recipes](#high-protein-recipes)
-- [BMI Calculator](#bmi-calculator)
-- [Contact Page](#contact-page)
-- [User Profile](#user-profile)
-- [User Authentication](#user-authentication)
-- [Community Engagement](#community-engagement)
-- [License](#license)
+- [Overview](#-overview)
+- [Installation](#-installation)
+- [Technologies Used](#-technologies-used)
+- [Usage](#-usage)
+- [Blog Posts](#-blog-posts)
+- [High-Protein Recipes](#-high-protein-recipes)
+- [BMI Calculator](#-bmi-calculator)
+- [Contact Page](#-contact-page)
+- [User Profile](#-user-profile)
+- [User Authentication](#-user-authentication)
+- [Community Engagement](#-community-engagement)
+- [License](#-license)
+
 
 📖 **Overview**
 ---------------
@@ -21,7 +22,21 @@ Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitne
 
 🚀 **Installation**
 -------------------
-(Installation instructions will be added later)
+- First, download the project from [here](https://github.com/GrigorM-debug/Fitness-Blog-ReactJS.zip).
+- Extract it in seperated folder
+- I recommmed using Visual Studio Code, so that you can open the folder with VS Code and run the project and server by writting the commands below, but you use Command Prompt, Windows PowerShell or something like that
+- Now lets write some commands
+    1. Running the server
+        - First write cd server to go to the server folder
+        - Second write node server.js to run the server
+        - After running the server leave the terminal and don't touch it
+        - To stop the server just press Ctrl + C and the server will stop
+    2. Running the project
+        - Open new terminal
+        - Write cd client to go to the client folder
+        - Write npm install ot the short version npm i to install all dependencies
+        - To start the project write npm run dev
+        - If you want to stop the project press Ctrl + C in the terminal 
 
 🛠️ **Technologies Used**
 --------------------------
