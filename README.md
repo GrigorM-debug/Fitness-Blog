@@ -22,7 +22,7 @@ Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitne
 
 🚀 **Installation**
 -------------------
-- First, download the project from [here](https://github.com/GrigorM-debug/Fitness-Blog-ReactJS.zip).
+- First, download the project from [here](https://github.com/GrigorM-debug/Fitness-Blog-ReactJS/archive/refs/heads/main.zip).
 - Extract it in seperated folder
 - I recommmed using Visual Studio Code, so that you can open the folder with VS Code and run the project and server by writting the commands below, but you use Command Prompt, Windows PowerShell or something like that
 - Now lets write some commands
