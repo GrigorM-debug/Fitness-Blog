@@ -41,6 +41,8 @@ Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitne
         - Write __npm install__ ot the short version __npm i__ to install all dependencies
         - To start the project write __npm run dev__
         - If you want to stop the project press __Ctrl + C__ in the terminal 
+        - You will see this message - __^C^Terminate batch job (Y/N)?__
+            press Y or y and then press enter and the project will stop
 
 🛠️ **Technologies Used**
 --------------------------
