@@ -19,6 +19,10 @@
 📖 **Overview**
 ---------------
 Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitness enthusiasts to share their journeys, knowledge, and recipes. This dynamic site, built using React.js, offers a user-friendly experience, allowing users to engage with content, share their own stories, and discover healthy recipes to support their fitness goals.
+<!-- ![alt text](image.png) -->
+<img src="image.png" alt="alt text" width="500" style=""/>
+<img src="image-1.png" alt="alt text" width="500" style=""/>
+
 
 🚀 **Installation**
 -------------------
@@ -74,6 +78,7 @@ A special section dedicated to sharing healthy high-protein recipes, perfect for
 - **Like and Comment:** Engage with recipes by liking and commenting, regardless of login status.
 - **Publish Recipes:** Registered users can contribute by sharing their own favorite high-protein recipes.
 - **Edit and Delete:** Recipe creators can edit or delete their own recipes, ensuring their content stays up-to-date and accurate.
+
 
 📊 **BMI Calculator**
 ---------------------
