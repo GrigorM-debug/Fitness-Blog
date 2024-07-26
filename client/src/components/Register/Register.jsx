@@ -1,22 +1,9 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid';
-import { useRef } from 'react';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Link } from 'react-router-dom';
 
 export default function Register() {
-  const fileInputRef = useRef(null);
-
-  const handleButtonClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      console.log('Selected file:', file);
-      // You can add code here to handle the file, such as uploading it to a server
-    }
-  };
+ 
 
   return (
     <>
@@ -163,10 +150,9 @@ export default function Register() {
                 Add
               </button> */}
               <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
+                type="text"
                 className="text-white"
+                placeholder='Enter image URL address'
               />
             </div>
           </div>
