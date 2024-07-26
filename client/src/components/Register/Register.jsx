@@ -17,20 +17,18 @@ export default function Register() {
     imageUrl: ''
   }
 
-  const register = useRegister();
+  const [register, errors] = useRegister();
   const navigate = useNavigate();
 
   const formSubmit = async (formData) => {
-      try {
-        await register(formData);
-        navigate('/');
-      } catch (err) {
-        console.log(err.message);
-      }
+    const success = await register(formData);
+
+    if(success) {
+      navigate('/');
+    }
   }
 
   const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, formSubmit);
-
 
   return (
     <>
@@ -50,17 +48,18 @@ export default function Register() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form onSubmit={onSubmitHandler} className="space-y-6">
+         <p className="text-red-600">{errors ? errors.serverError : ''}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
                 Username
               </label>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.username : ''}</p>
                 <input
                   id="username"
                   name="username"
                   placeholder="johncena"
-                  required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.username}
                   onChange={onChangeHandler}
@@ -73,11 +72,11 @@ export default function Register() {
                 Email address
               </label>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.email : ''}</p>
                 <input
                   id="email"
                   name="email"
-                  type="email"
-                  required
+                  type="text"
                   placeholder="johncena@abv.bg"
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.email}
@@ -92,11 +91,11 @@ export default function Register() {
               Password
             </label>
             <div className="mt-2">
+              <p className="text-red-600">{errors ? errors.password : ''}</p>
               <input
                 id="password"
                 name="password"
                 type="password"
-                required
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 value={formData.password}
                 onChange={onChangeHandler}
@@ -109,11 +108,11 @@ export default function Register() {
               Confirm password
             </label>
             <div className="mt-2">
+              <p className="text-red-600">{errors ? errors.rePassword : ''}</p>
               <input
                 id="repassword"
                 name="rePassword"
                 type="password"
-                required
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 value={formData.rePassword}
                 onChange={onChangeHandler}
@@ -126,6 +125,7 @@ export default function Register() {
               About
             </label>
             <div className="mt-2">
+              <p className="text-red-600">{errors ? errors.description : ''}</p>
               <textarea
                 id="about"
                 name="description"
@@ -144,11 +144,11 @@ export default function Register() {
                 Country
               </label>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.country : ''}</p>
                 <input
                   id="country"
                   name="country"
                   type="text"
-                  required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.country}
                   onChange={onChangeHandler}
@@ -161,11 +161,11 @@ export default function Register() {
                 City
               </label>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.city : ''}</p>
                 <input
                   id="city"
                   name="city"
                   type="text"
-                  required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.city}
                   onChange={onChangeHandler}
@@ -181,11 +181,11 @@ export default function Register() {
             <div className="mt-2 flex items-center gap-x-3">
               <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.imageUrl : ''}</p>
                 <input
                   id="photo"
                   name="imageUrl"
                   type="text"
-                  required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.imageUrl}
                   onChange={onChangeHandler}

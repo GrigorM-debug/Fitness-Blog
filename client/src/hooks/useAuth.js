@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { login, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
+import { validateRegisterForm } from "../vaidations/registerUserDataValidation";
 
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
@@ -20,14 +21,28 @@ export function useLogin() {
 
 export function useRegister() {
     const {setUserDataHandler} = useContext(UserContext);
+    const [errors, setErrors] = useState({});
 
     const registerHandler = async (newUserData) => {
-        const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await register(newUserData)
-        
-        setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
+        const validationResult = validateRegisterForm(newUserData);
 
-        localStorage.setItem('auth-token', accessToken);
+        if(Object.keys(validationResult).length > 0) {
+            setErrors(validationResult);
+            return false;
+        }
+
+        try {
+            const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await register(newUserData)
+        
+            setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
+
+            localStorage.setItem('auth-token', accessToken);
+            return true;
+        } catch (err) {
+            setErrors({serverError: err.message});
+            return false;
+        }
     }
 
-    return registerHandler;
+    return [registerHandler, errors];
 }
