@@ -19,12 +19,19 @@ import UserContext from './contexts/userContext';
 function App() {
   const [userData, setUserData] = useState({});
 
-  const setUserDataHandler = (userData) => {
-    setUserData(userData);
+  const setUserDataHandler = (authData) => {
+    setUserData(authData);
   }
 
+  const contextData = {
+	_id: userData._id,
+	username: userData.username,
+	email: userData.userEmail,
+	isAuthenticated: !!userData.userEmail
+  }
+  
   return (
-    <UserContext.Provider value={{ userData, setUserDataHandler }}>
+    <UserContext.Provider value={{ contextData, setUserDataHandler }}>
       <>
         <Header />
         <Routes>

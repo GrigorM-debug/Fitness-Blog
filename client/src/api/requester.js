@@ -12,8 +12,19 @@ async function requester(method, url, data) {
         options.body = JSON.stringify(data);
     }
 
-    const result = await fetch(url, options);
-    const data = await result.json();
+    const token = localStorage.getItem('auth-token');
+
+    if(token) {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': token 
+        }
+    }
+
+    const response = await fetch(url, options);
+    const result = await response.json();
+
+    return result;
 }
 
 export const get = requester.bind(null, 'GET');
