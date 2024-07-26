@@ -1,7 +1,7 @@
 export function useLogin() {
-    const loginHandler = () => {
-
+    const loginHandler = (email, password) => {
+        
     }
 
-    return loginHandler()
+    return loginHandler;
 }
