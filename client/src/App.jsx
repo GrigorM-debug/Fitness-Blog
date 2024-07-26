@@ -13,31 +13,40 @@ import BlogPosts from './components/BlogPosts/BlogPosts';
 import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
 import BMICalculator from './components/BMICalculator/BMICalculator';
 import Contact from './components/Contact/Contact';
-
+import { useState } from 'react';
+import UserContext from './contexts/userContext';
 
 function App() {
+  const [userData, setUserData] = useState({});
+
+  const setUserDataHandler = (userData) => {
+    setUserData(userData);
+  }
+
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/blog" element={<BlogPosts />}/>
-        <Route path="/healthyRecipes" element={<HealthyRecipes />}/>
-        <Route path="/BMICalculator" element={<BMICalculator />}/>
-        <Route path="/contact" element={<Contact />}/>
+    <UserContext.Provider value={{ userData, setUserDataHandler }}>
+      <>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<BlogPosts />} />
+          <Route path="/healthyRecipes" element={<HealthyRecipes />} />
+          <Route path="/BMICalculator" element={<BMICalculator />} />
+          <Route path="/contact" element={<Contact />} />
 
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/logout" element={<NotFound />}/>
-        <Route path="/createPost" element={<CreateBlogPost />}/>
-        <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />}/>
-        <Route path="/myProfile" element={<Profile />}/>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<NotFound />} />
+          <Route path="/createPost" element={<CreateBlogPost />} />
+          <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
+          <Route path="/myProfile" element={<Profile />} />
 
-        <Route path="/*" element={<NotFound/>} />
-      </Routes>
-      <Footer />
-    </>
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </>
+    </UserContext.Provider>
   )
 }
 
-export default App
+export default App;
