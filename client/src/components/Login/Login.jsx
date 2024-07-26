@@ -9,15 +9,14 @@ export default function Login() {
         password: ''
     }
 
-    const login = useLogin();
+    const [login, errors] = useLogin();
     const navigate = useNavigate();
 
     const formSubmitHandler = async (formData) => {
-        try {
-            await login(formData.email, formData.password)
+        const success = await login(formData.email, formData.password)
+
+        if(success) {
             navigate('/');
-        } catch (err) {
-            console.log(err.message);
         }
     }
 
@@ -42,16 +41,17 @@ export default function Login() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={onSubmitHandler}>
+          <p className="text-red-600">{errors ? errors.serverError : ''}</p>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
                 Email address
               </label>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.email : ''}</p>
                 <input
                   id="email"
                   name="email"
-                  type="email"
-                  required
+                  type="text"
                   placeholder="johncena@abv.bg"
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.email}
@@ -72,11 +72,11 @@ export default function Login() {
                 </div>
               </div>
               <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.password : ''}</p>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.password}
                   onChange={onChangeHandler}
