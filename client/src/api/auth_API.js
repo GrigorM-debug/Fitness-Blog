@@ -20,13 +20,13 @@ export async function login(email, password) {
     return userData;
 }
 
-export async function register(username, email, password, description, coutry, city, imageUrl) {
+export async function register(newUserData) {
     const response = await fetch(`${BASE_URL}/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({username, email, password, description, coutry, city, imageUrl})
+        body: JSON.stringify(newUserData)
     });
 
     const userData = await response.json();

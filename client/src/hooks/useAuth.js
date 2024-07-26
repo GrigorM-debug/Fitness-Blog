@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { login } from "../api/auth_API";
+import { login, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
 
 export function useLogin() {
@@ -16,4 +16,18 @@ export function useLogin() {
     }
 
     return loginHandler;
+}
+
+export function useRegister() {
+    const {setUserDataHandler} = useContext(UserContext);
+
+    const registerHandler = async (newUserData) => {
+        const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await register(newUserData)
+        
+        setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
+
+        localStorage.setItem('auth-token', accessToken);
+    }
+
+    return registerHandler;
 }

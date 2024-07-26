@@ -1,9 +1,36 @@
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import { useRegister } from '../../hooks/useAuth';
 
 export default function Register() {
- 
+
+  const initialData = {
+    username: '',
+    email: '',
+    password: '',
+    rePassword: '',
+    description: '',
+    country: '',
+    city: '',
+    imageUrl: ''
+  }
+
+  const register = useRegister();
+  const navigate = useNavigate();
+
+  const formSubmit = async (formData) => {
+      try {
+        await register(formData);
+        navigate('/');
+      } catch (err) {
+        console.log(err.message);
+      }
+  }
+
+  const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, formSubmit);
+
 
   return (
     <>
@@ -22,7 +49,7 @@ export default function Register() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <form onSubmit={onSubmitHandler} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
@@ -35,6 +62,8 @@ export default function Register() {
                   placeholder="johncena"
                   required
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.username}
+                  onChange={onChangeHandler}
                 />
               </div>
             </div>
@@ -51,6 +80,8 @@ export default function Register() {
                   required
                   placeholder="johncena@abv.bg"
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.email}
+                  onChange={onChangeHandler}
                 />
               </div>
             </div>
@@ -67,6 +98,8 @@ export default function Register() {
                 type="password"
                 required
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={formData.password}
+                onChange={onChangeHandler}
               />
             </div>
           </div>
@@ -78,26 +111,29 @@ export default function Register() {
             <div className="mt-2">
               <input
                 id="repassword"
-                name="repassword"
+                name="rePassword"
                 type="password"
                 required
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={formData.rePassword}
+                onChange={onChangeHandler}
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="about" className="block text-sm font-medium leading-6 text-white">
+            <label htmlFor="description" className="block text-sm font-medium leading-6 text-white">
               About
             </label>
-            <p className="mt-3 text-sm leading-1 text-white">Write a few sentences about yourself.</p>
             <div className="mt-2">
               <textarea
                 id="about"
-                name="about"
+                name="description"
                 rows={3}
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
+                placeholder='Write a few sentences about yourself.'
+                value={formData.description}
+                onChange={onChangeHandler}
               />
             </div>
           </div>
@@ -113,8 +149,9 @@ export default function Register() {
                   name="country"
                   type="text"
                   required
-                  placeholder="Which country are you from?"
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.country}
+                  onChange={onChangeHandler}
                 />
               </div>
             </div>
@@ -129,8 +166,9 @@ export default function Register() {
                   name="city"
                   type="text"
                   required
-                  placeholder="Which city are you from?"
                   className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.city}
+                  onChange={onChangeHandler}
                 />
               </div>
             </div>
@@ -142,18 +180,17 @@ export default function Register() {
             </label>
             <div className="mt-2 flex items-center gap-x-3">
               <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-              {/* <button
-                type="button"
-                onClick={handleButtonClick}
-                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-              >
-                Add
-              </button> */}
-              <input
-                type="text"
-                className="text-white"
-                placeholder='Enter image URL address'
-              />
+              <div className="mt-2">
+                <input
+                  id="photo"
+                  name="imageUrl"
+                  type="text"
+                  required
+                  className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={formData.imageUrl}
+                  onChange={onChangeHandler}
+                />
+              </div>
             </div>
           </div>
 

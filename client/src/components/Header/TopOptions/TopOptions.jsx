@@ -7,7 +7,6 @@ import { useContext } from 'react';
 
 export default function TopOptions() {
     const {contextData} = useContext(UserContext);
-    console.log(contextData);
     const userName = contextData.username || 'Guest';
 
     return (    
