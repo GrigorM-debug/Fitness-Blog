@@ -32,21 +32,21 @@ export function validateRegisterForm(formData) {
     //Description validation
     if(!formData.description) {
         errors.description = 'Description is required !';
-    } else if (formData.description < 10) {
+    } else if (formData.description.length < 10) {
         errors.description = 'Description must be at least 10 characters long !';
     }
 
     //Country validation
     if(!formData.country) {
         errors.country = 'Country is required !';
-    } else if (formData.country < 5) {
+    } else if (formData.country.length < 5) {
         errors.country = 'Country must be at least 5 characters long !';
     }
 
     //City validation
     if(!formData.city) {
         errors.city = 'City is required !';
-    } else if (formData.city < 5) {
+    } else if (formData.city.length < 5) {
         errors.city = 'City must be at least 5 characters long !';
     }
 

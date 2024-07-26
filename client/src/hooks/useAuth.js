@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { login, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
-import { validateRegisterForm } from "../vaidations/registerUserDataValidation";
+import { validateRegisterForm } from "../vaidations/userValidations/registerUserDataValidation";
 
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
