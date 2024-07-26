@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import UserContext from "../../contexts/userContext";
 
 export default function Profile() {
+    const {contextData} = useContext(UserContext);
+    console.log(contextData)
+
     return (
         <>
             <Breadcrumb title="My Profile" page="My Profile" breadcrumbImage="img/Planche.jpg"/>
@@ -23,7 +28,11 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className="relative">
-                            <img className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500" src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" alt="" />
+                            <img 
+                                className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500" 
+                                src={contextData.imageUrl} 
+                                alt="" 
+                            />
                         </div>
                         <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
                             <button className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
@@ -36,16 +45,13 @@ export default function Profile() {
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-20">
                         <h1 className="text-6xl font-medium text-white">
-                            Gosho Strombata
+                            {contextData.username}
                         </h1>
-                        <p className="font-light text-white mt-3 text-xl">Bucharest, Romania</p>
+                        <p className="font-light text-white mt-3 text-xl">{`${contextData.city}, ${contextData.country}`}</p>
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-12">
                         <p className="text-white text-lg font-light lg:px-16">
-                            An artist of considerable range, Ryan — the name taken by
-                            Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-                            records all of his own music, giving it a warm, intimate feel with a
-                            solid groove structure. An artist of considerable range.
+                            {contextData.description}
                         </p>
                     </div>
 

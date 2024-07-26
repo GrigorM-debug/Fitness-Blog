@@ -27,6 +27,10 @@ function App() {
 	_id: userData._id,
 	username: userData.username,
 	email: userData.userEmail,
+	description: userData.description,
+	city: userData.city,
+	country: userData.country,
+	imageUrl: userData.imageUrl,
 	isAuthenticated: !!userData.userEmail
   }
   

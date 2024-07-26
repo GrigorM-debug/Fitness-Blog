@@ -6,11 +6,11 @@ export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
 
     const loginHandler = async (email, password) => {
-        const {_id, username, email: userEmail, accessToken} = await login(email, password);
+        const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await login(email, password);
 
         // console.log(_id, username, userEmail, accessToken)
 
-        setUserDataHandler({_id, userEmail, username})
+        setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
 
         localStorage.setItem('auth-token', accessToken);
     }
