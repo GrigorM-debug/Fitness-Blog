@@ -41,7 +41,7 @@ export default function Login() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={onSubmitHandler}>
-          <p className="text-red-600">{errors ? errors.serverError : ''}</p>
+          <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
                 Email address

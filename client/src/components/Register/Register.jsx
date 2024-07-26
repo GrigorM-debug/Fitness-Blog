@@ -52,7 +52,7 @@ export default function Register() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={onSubmitHandler} className="space-y-6">
-            <p className="text-red-600">{errors ? errors.serverError : ''}</p>
+            <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
