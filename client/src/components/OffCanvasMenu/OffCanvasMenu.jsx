@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import {Link} from 'react-router-dom'
 import UserContext from "../../contexts/userContext";
 
-export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) {
+export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu, handleLogoutClick}) {
     const [showDropDown, setShowDropdown] = useState(false);
 
     const handleShowDropdown = () => {
@@ -49,7 +49,7 @@ export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) 
                               <li><Link to="/createPost">Create Post</Link></li>
                               <li><Link to="/createHealthyRecipe">Create Healthy Recipe</Link></li>
                               <li><Link to="/myProfile">My profile</Link></li>
-                              <li><Link to="./404.html">Logout</Link></li>
+                              <li><Link to="#" onClick={handleLogoutClick}>Logout</Link></li>
                             </div>
                           }
                         </ul>}

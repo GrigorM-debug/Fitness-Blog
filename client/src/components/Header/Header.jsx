@@ -61,7 +61,7 @@ export default function Header({
             </div>
         </div>
       </header>
-      <OffCanvasMenu isOffcanvasOpen={isOffcanvasOpen} toggleOffcanvasMenu={toggleOffcanvasMenu} />
+      <OffCanvasMenu isOffcanvasOpen={isOffcanvasOpen} toggleOffcanvasMenu={toggleOffcanvasMenu} handleLogoutClick={handleLogoutClick}/>
     </>
   );
 }
