@@ -81,9 +81,11 @@ export function useLogout() {
             await logout(token);
             setUserDataHandler({});
             localStorage.removeItem('auth-token');
+            return true;
         } catch (err) {
             setIsFetching(false);
             setErrors({serverError: err.message});
+            return false;
         }
     }
 

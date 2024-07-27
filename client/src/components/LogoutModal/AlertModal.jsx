@@ -2,17 +2,25 @@
 import React from 'react';
 import { useLogout } from '../../hooks/useAuth';
 import Preloader from '../Preloader/Preloader';
+import { useNavigate } from 'react-router-dom';
 
 export default function AlertModal({ isVisible, onClose }) {
     if (!isVisible) return null;
     const token = localStorage.getItem('auth-token');
 
     const [logout, errors, isFetching] = useLogout();
+    const navigate = useNavigate();
+
+    console.log(isFetching);
 
     const handleButtonClick = async (e) => {
         e.preventDefault();
 
-        await logout(token);
+       const success =  await logout(token);
+    
+        if(success) {
+            navigate('/');
+        }
     }
 
     return (
