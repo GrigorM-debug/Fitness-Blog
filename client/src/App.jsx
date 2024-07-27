@@ -24,14 +24,14 @@ function App() {
   }
 
   const contextData = {
-	_id: userData._id,
-	username: userData.username,
-	email: userData.userEmail,
-	description: userData.description,
-	city: userData.city,
-	country: userData.country,
-	imageUrl: userData.imageUrl,
-	isAuthenticated: !!userData.userEmail
+    _id: userData._id,
+    username: userData.username,
+    email: userData.userEmail,
+    description: userData.description,
+    city: userData.city,
+    country: userData.country,
+    imageUrl: userData.imageUrl,
+    isAuthenticated: !!userData.userEmail
   }
   
   return (

@@ -1,7 +1,14 @@
+import { useContext } from 'react';
 import styles from './Footer.module.css';
 import {Link} from 'react-router-dom';
+import UserContext from '../../contexts/userContext';
 
 export default function Footer() {
+    const {contextData} = useContext(UserContext);
+
+    const isAuthenticated = contextData.isAuthenticated;
+    const isGuest = !isAuthenticated;
+
     return (
         <section className={styles.footerSection}>
             <div className="container">
@@ -37,9 +44,19 @@ export default function Footer() {
                         <div className={styles.fsWidget}>
                             <h4>User Links</h4>
                             <ul>
-                                <li><Link to="/register">Register</Link></li>
-                                <li><Link to="/login">Login</Link></li>
-                                <li><Link to="/myProfile">My Profile</Link></li>
+                                {isGuest && 
+                                    <div>
+                                        <li><Link to="/register">Register</Link></li>
+                                        <li><Link to="/login">Login</Link></li>
+                                    </div>
+                                }
+                                
+                                {isAuthenticated && 
+                                    <div>
+                                        <li><Link to="/myProfile">My Profile</Link></li>
+                                        <li><Link to="/logout">Logout</Link></li>
+                                    </div>
+                                }
                             </ul>
                         </div>
                     </div>
