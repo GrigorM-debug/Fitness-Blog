@@ -1,12 +1,13 @@
 // AlertModal.js
 import React from 'react';
 import { useLogout } from '../../hooks/useAuth';
+import Preloader from '../Preloader/Preloader';
 
 export default function AlertModal({ isVisible, onClose }) {
     if (!isVisible) return null;
     const token = localStorage.getItem('auth-token');
 
-    const [logout, errors] = useLogout();
+    const [logout, errors, isFetching] = useLogout();
 
     const handleButtonClick = async (e) => {
         e.preventDefault();
@@ -16,6 +17,7 @@ export default function AlertModal({ isVisible, onClose }) {
 
     return (
         <>
+            {isFetching && <Preloader />}
             <div
                 id="popup-modal"
                 tabIndex={-1}

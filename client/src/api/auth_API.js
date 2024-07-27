@@ -51,7 +51,6 @@ export async function register(newUserData) {
 }
 
 export async function logout(token) {
-    console.log(token)
     try {
         const response = await fetch(`${BASE_URL}/logout`, {
             headers: {
