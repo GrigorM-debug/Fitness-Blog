@@ -1,4 +1,4 @@
-import styles from './Preloader.module.cs';
+import styles from './Preloader.module.css';
 
 export default function Preloader() {
     return (

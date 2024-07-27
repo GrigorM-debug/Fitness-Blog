@@ -7,6 +7,7 @@ import { validateLoginForm } from "../vaidations/userValidations/loginUserDataVa
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
     const [errors, setErrors] = useState({});
+    const [isFetching, setIsFetching] = useState(false);
 
     const loginHandler = async (email, password) => {
         const validationResult = validateLoginForm({email, password});
@@ -17,6 +18,7 @@ export function useLogin() {
         }
 
         try {
+            setIsFetching(true);
             const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await login(email, password);
 
             // console.log(_id, username, userEmail, accessToken)
@@ -28,11 +30,12 @@ export function useLogin() {
             return true;
         } catch (err) {
             setErrors({serverError: err.message});
+            setIsFetching(false);
             return false;
         }
     }
 
-    return [loginHandler, errors];
+    return [loginHandler, errors, isFetching];
 }
 
 export function useRegister() {
