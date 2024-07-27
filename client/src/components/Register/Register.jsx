@@ -29,11 +29,6 @@ export default function Register() {
 
   const { formData, onChangeHandler, onSubmitHandler } = useForm(initialData, formSubmit);
 
-  const getInputClassName = (hasError) => 
-    `p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
-     ${hasError ? 'ring-red-500 border-red-500' : 'ring-gray-300'} 
-     placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`;
-
   return (
     <>
       <Breadcrumb title="Thanks for joining us" page="Register" breadcrumbImage="img/breadcrumb-bg.jpg" />
@@ -64,7 +59,9 @@ export default function Register() {
                     id="username"
                     name="username"
                     placeholder="johncena"
-                    className={getInputClassName(errors.username)}
+                    className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                      ${errors.username ? 'border-red-600' : 'border-gray-300'} 
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                     value={formData.username}
                     onChange={onChangeHandler}
                   />
@@ -82,7 +79,9 @@ export default function Register() {
                     name="email"
                     type="text"
                     placeholder="johncena@abv.bg"
-                    className={getInputClassName(errors.email)}
+                    className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                      ${errors.email ? 'border-red-600' : 'ring-gray-300'} 
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                     value={formData.email}
                     onChange={onChangeHandler}
                   />
@@ -100,7 +99,9 @@ export default function Register() {
                   id="password"
                   name="password"
                   type="password"
-                  className={getInputClassName(errors.password)}
+                  className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                    ${errors.password ? 'border-red-600' : 'ring-gray-300'} 
+                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                   value={formData.password}
                   onChange={onChangeHandler}
                 />
@@ -117,7 +118,9 @@ export default function Register() {
                   id="repassword"
                   name="rePassword"
                   type="password"
-                  className={getInputClassName(errors.rePassword)}
+                  className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                    ${errors.rePassword ? 'border-red-600' : 'ring-gray-300'} 
+                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                   value={formData.rePassword}
                   onChange={onChangeHandler}
                 />
@@ -134,7 +137,9 @@ export default function Register() {
                   id="about"
                   name="description"
                   rows={3}
-                  className={getInputClassName(errors.description)}
+                  className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                    ${errors.description ? 'border-red-600' : 'ring-gray-300'} 
+                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                   placeholder="Write a few sentences about yourself."
                   value={formData.description}
                   onChange={onChangeHandler}
@@ -154,7 +159,9 @@ export default function Register() {
                     name="country"
                     type="text"
                     placeholder="USA"
-                    className={getInputClassName(errors.country)}
+                    className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                      ${errors.country ? 'border-red-600' : 'ring-gray-300'} 
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                     value={formData.country}
                     onChange={onChangeHandler}
                   />
@@ -172,7 +179,9 @@ export default function Register() {
                     name="city"
                     type="text"
                     placeholder="New York"
-                    className={getInputClassName(errors.city)}
+                    className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                      ${errors.city ? 'border-red-600' : 'ring-gray-300'} 
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                     value={formData.city}
                     onChange={onChangeHandler}
                   />
@@ -192,7 +201,9 @@ export default function Register() {
                     id="photo"
                     name="imageUrl"
                     type="text"
-                    className={getInputClassName(errors.imageUrl)}
+                    className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                      ${errors.imageUrl ? 'border-red-600' : 'ring-gray-300'} 
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                     value={formData.imageUrl}
                     onChange={onChangeHandler}
                   />

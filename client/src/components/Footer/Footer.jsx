@@ -35,7 +35,7 @@ export default function Footer() {
                             <ul>
                                 <li><Link to="/blog">Our Blog</Link></li>
                                 <li><Link to="/healthyRecipes">Healthy Recipes</Link></li>
-                                <li><Link to="/BMICalculator">classNamees</Link></li>
+                                <li><Link to="/BMICalculator">BMI Calculator</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
                             </ul>
                         </div>

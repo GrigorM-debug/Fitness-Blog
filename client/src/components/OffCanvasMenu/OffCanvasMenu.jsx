@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {Link} from 'react-router-dom'
+import UserContext from "../../contexts/userContext";
 
 export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) {
     const [showDropDown, setShowDropdown] = useState(false);
 
     const handleShowDropdown = () => {
-        setShowDropdown(!showDropDown);
+      setShowDropdown(!showDropDown);
     }
+
+    const {contextData} = useContext(UserContext);
+    const isAuthenticated = contextData.isAuthenticated;
+    const isGuest = !isAuthenticated;
+
   return (
     <>
       <div
@@ -31,12 +37,21 @@ export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu }) 
                     <li><Link to="/contact">Contact</Link></li>
                     <li onClick={handleShowDropdown}><Link to="#">User Pages {!showDropDown && <img src="img/arrow.png"></img>} {showDropDown && <img src="img/down-arrow.png"></img>}</Link>
                         {showDropDown && <ul className="dropdown">
-                            <li><Link to="/regiter">Register</Link></li>
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="/createPost">Create Post</Link></li>
-                            <li><Link to="/createHealthyRecipe">Create Healthy Recipe</Link></li>
-                            <li><Link to="/myProfile">My profile</Link></li>
-                            <li><Link to="./404.html">Logout</Link></li>
+                          {isGuest && 
+                            <div>
+                              <li><Link to="/regiter">Register</Link></li>
+                              <li><Link to="/login">Login</Link></li>
+                            </div>
+                          }
+
+                          {isAuthenticated && 
+                            <div>
+                              <li><Link to="/createPost">Create Post</Link></li>
+                              <li><Link to="/createHealthyRecipe">Create Healthy Recipe</Link></li>
+                              <li><Link to="/myProfile">My profile</Link></li>
+                              <li><Link to="./404.html">Logout</Link></li>
+                            </div>
+                          }
                         </ul>}
                     </li>
                 </ul>
