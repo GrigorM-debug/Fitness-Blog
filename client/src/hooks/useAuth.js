@@ -41,6 +41,7 @@ export function useLogin() {
 export function useRegister() {
     const {setUserDataHandler} = useContext(UserContext);
     const [errors, setErrors] = useState({});
+    const [isFetching, setIsFetching] = useState(false);
 
     const registerHandler = async (newUserData) => {
         const validationResult = validateRegisterForm(newUserData);
@@ -51,6 +52,7 @@ export function useRegister() {
         }
 
         try {
+            setIsFetching(true);
             const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await register(newUserData)
         
             setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
@@ -59,11 +61,12 @@ export function useRegister() {
             return true;
         } catch (err) {
             setErrors({serverError: err.message});
+            setIsFetching(false)
             return false;
         }
     }
 
-    return [registerHandler, errors];
+    return [registerHandler, errors, isFetching];
 }
 
 export function useLogout() {

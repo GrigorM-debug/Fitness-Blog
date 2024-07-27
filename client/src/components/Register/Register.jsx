@@ -3,6 +3,7 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Link, useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { useRegister } from '../../hooks/useAuth';
+import Preloader from '../Preloader/Preloader';
 
 export default function Register() {
   const initialData = {
@@ -16,7 +17,7 @@ export default function Register() {
     imageUrl: '',
   };
 
-  const [register, errors] = useRegister();
+  const [register, errors, isFetching] = useRegister();
   const navigate = useNavigate();
 
   const formSubmit = async (formData) => {
@@ -31,6 +32,7 @@ export default function Register() {
 
   return (
     <>
+      {isFetching && <Preloader/>}
       <Breadcrumb title="Thanks for joining us" page="Register" breadcrumbImage="img/breadcrumb-bg.jpg" />
 
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
