@@ -5,7 +5,9 @@ import {Link} from 'react-router-dom';
 import { useContext } from 'react';
 import UserContext from '../../../../contexts/userContext';
 
-export default function UserIcon() {
+export default function UserIcon({
+    handleLogoutClick
+}) {
     const {contextData} = useContext(UserContext);
 
     const isAuthenticated = contextData.isAuthenticated;
@@ -41,7 +43,7 @@ export default function UserIcon() {
                                 <Link to="/myProfile">My Profile</Link>
                             </li>
                             <li>
-                                <Link to="/404">Logout</Link>
+                                <Link to="#" onClick={handleLogoutClick}>Logout</Link>
                             </li>
                         </div>
                     }

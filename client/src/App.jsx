@@ -15,6 +15,7 @@ import BMICalculator from './components/BMICalculator/BMICalculator';
 import Contact from './components/Contact/Contact';
 import { useState } from 'react';
 import UserContext from './contexts/userContext';
+import AlertModal from './components/LogoutModal/AlertModal';
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -33,11 +34,22 @@ function App() {
     imageUrl: userData.imageUrl,
     isAuthenticated: !!userData.userEmail
   }
+
+  const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
+
+  const handleLogoutClick = () => {
+    setIsVisibleLogoutModal(true)
+  }
+
+  const handleModalClose = () => {
+    setIsVisibleLogoutModal(false);
+  }
+  
   
   return (
     <UserContext.Provider value={{ contextData, setUserDataHandler }}>
       <>
-        <Header />
+        <Header handleLogoutClick={handleLogoutClick}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<BlogPosts />} />
@@ -47,7 +59,7 @@ function App() {
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<NotFound />} />
+          {/* <Route path="/logout" element={<AlertModal />} /> */}
           <Route path="/createPost" element={<CreateBlogPost />} />
           <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
           <Route path="/myProfile" element={<Profile />} />
@@ -55,6 +67,7 @@ function App() {
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <AlertModal isVisible={isVisibleLogOutModal} onClose={handleModalClose}></AlertModal>
       </>
     </UserContext.Provider>
   )

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { login, register } from "../api/auth_API";
+import { login, logout, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
 import { validateRegisterForm } from "../vaidations/userValidations/registerUserDataValidation";
 import { validateLoginForm } from "../vaidations/userValidations/loginUserDataValidation";
@@ -61,4 +61,22 @@ export function useRegister() {
     }
 
     return [registerHandler, errors];
+}
+
+export function useLogout() {
+    const {setUserDataHandler} = useContext(UserContext);
+    const [errors, setErrors] = useState({});
+
+    const logoutHandler = async (token) => {
+        // console.log(token)
+        try {
+            await logout(token);
+            setUserDataHandler({});
+            localStorage.removeItem('auth-token');
+        } catch (err) {
+            setErrors({serverError: err.message});
+        }
+    }
+
+    return [logoutHandler, errors];
 }

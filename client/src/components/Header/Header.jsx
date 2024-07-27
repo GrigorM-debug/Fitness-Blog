@@ -6,7 +6,9 @@ import OffCanvasMenu from '../OffCanvasMenu/OffCanvasMenu';
 import { Link } from "react-router-dom";
 
 
-export default function Header() {
+export default function Header({
+  handleLogoutClick
+}) {
     const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
     const [isNormalNav, setIsNormalNav] = useState(true);
   
@@ -51,7 +53,7 @@ export default function Header() {
               {isNormalNav && <Navigation />}
             </div>
             <div className="col-lg-3">
-              {isNormalNav && <TopOptions />}
+              {isNormalNav && <TopOptions handleLogoutClick={handleLogoutClick}/>}
             </div>
           </div>
           <div className="canvas-open" onClick={toggleOffcanvasMenu}>

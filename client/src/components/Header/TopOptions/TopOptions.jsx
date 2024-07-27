@@ -5,7 +5,9 @@ import UserIcon from './UserIcon/UserIcon';
 import UserContext from '../../../contexts/userContext';
 import { useContext } from 'react';
 
-export default function TopOptions() {
+export default function TopOptions({
+    handleLogoutClick
+}) {
     const {contextData} = useContext(UserContext);
     const userName = contextData.username || 'Guest';
 
@@ -18,7 +20,7 @@ export default function TopOptions() {
                 <h2 className={styles.welcomeMessage}>
                     Welcome, <span>{userName}</span>
                 </h2>
-                <UserIcon/>
+                <UserIcon handleLogoutClick={handleLogoutClick}/>
             </div>
         </div>
     );

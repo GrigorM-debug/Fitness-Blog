@@ -49,3 +49,26 @@ export async function register(newUserData) {
 
     // return userData;
 }
+
+export async function logout(token) {
+    console.log(token)
+    try {
+        const response = await fetch(`${BASE_URL}/logout`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Authorization': token
+            }
+        })
+
+        if(!response.ok) {
+            throw new Error('User session does not exist');
+        }
+
+        if(response.ok) {
+            console.log('Successfully log out')
+        }
+    } catch(err) {
+        console.log(err);
+        throw err;
+    }
+}
