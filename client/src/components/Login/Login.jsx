@@ -22,7 +22,6 @@ export default function Login() {
 
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, formSubmitHandler);
 
-
     return (
       <>
         <Breadcrumb title="Welcome back" page="Login" breadcrumbImage="img/breadcrumb-bg.jpg"/>
@@ -53,7 +52,10 @@ export default function Login() {
                   name="email"
                   type="text"
                   placeholder="johncena@abv.bg"
-                  className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className={`p-2 block w-full rounded-md border-2 ${errors.email ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset 
+                    ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                    sm:leading-6`
+                  }
                   value={formData.email}
                   onChange={onChangeHandler}
                 />
@@ -77,7 +79,10 @@ export default function Login() {
                   id="password"
                   name="password"
                   type="password"
-                  className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className={`p-2 block w-full rounded-md border-2 ${errors.password ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 
+                    shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
+                    focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`
+                  }
                   value={formData.password}
                   onChange={onChangeHandler}
                 />
