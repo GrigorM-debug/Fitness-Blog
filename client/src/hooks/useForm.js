@@ -6,7 +6,7 @@ export default function useForm(initialData, handleSubmitCallback) {
     const onChangeHandler = (e) => {
         setFormData(oldState => ({
             ...oldState,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value || e.target.selected
         }))
     }
 

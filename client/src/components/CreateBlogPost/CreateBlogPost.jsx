@@ -1,39 +1,24 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
-import { useRef, useState } from 'react';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import useForm from '../../hooks/useForm';
+import { useCreatePost } from '../../hooks/useBlogPosts';
 
 export default function CreateBlogPost() {
-    const fileInputRef = useRef(null);
-    const [category, setCategory] = useState('');
-    const [formData, setFormData] = useState({
+    const initialData = {
         title: '',
-        category: '',
-        shortDescription: '',
+        category: 'Choose a category',
+        shortDescription: '',  // Fixed typo
         content: '',
-        image: ''
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
+        imageUrl: ''
     };
 
-    console.log(formData)
+    const createPost = useCreatePost();
 
-    const [image, setImage] = useState(null)
+    const formSubmit = async (formData) => {
+        await createPost(formData)    
+    };
 
-    const onImageChange = (event) => {
-        if (event.target.files && event.target.files[0]) {
-            setImage(URL.createObjectURL(event.target.files[0]));
-            // setImage(`img/${event.target.files[0].name}`)
-        }
-    }
-
-    console.log(image)
+    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialData, formSubmit);
 
     return (
         <>
@@ -52,7 +37,7 @@ export default function CreateBlogPost() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form  method="POST" className="space-y-6">
+                <form onSubmit={onSubmitHandler}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label htmlFor="title" className="block text-sm font-medium leading-6 text-white">
@@ -63,19 +48,19 @@ export default function CreateBlogPost() {
                                     id="title"
                                     name="title"
                                     placeholder="Write blog Title"
-                                    required
                                     className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    onChange={handleChange}
+                                    onChange={onChangeHandler}
+                                    value={formData.title}
                                 />
                             </div>
                         </div>
                         <div>
                             <label htmlFor="categories" className="block text-sm font-medium leading-6 text-white">Select a category</label>
                             <select 
-                                defaultValue="Choose a category"
-                                value={category}
-                                onChange={handleChange}
+                                value={formData.category}
+                                onChange={onChangeHandler}
                                 id="categories" 
+                                name="category"  // Added name attribute
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <option value="Choose a category">Choose a category</option>
                                 <option value="training">Training</option>
@@ -87,18 +72,18 @@ export default function CreateBlogPost() {
                     </div>
 
                     <div>
-                        <label htmlFor="shortDesctiption" className="block text-sm font-medium leading-6 text-white">
+                        <label htmlFor="shortDescription" className="block text-sm font-medium leading-6 text-white">
                         Short Description
                         </label>
                         <div className="mt-2">
                             <textarea
-                                id="shortDesctiption"
-                                name="shortDesctiption"
+                                id="shortDescription"
+                                name="shortDescription"  // Fixed name
                                 rows={3}
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                defaultValue={''}
                                 placeholder="Write a few sentences about your post."
-                                onChange={handleChange}
+                                onChange={onChangeHandler}
+                                value={formData.shortDescription}  // Fixed value
                             />
                         </div>
                     </div>
@@ -113,30 +98,26 @@ export default function CreateBlogPost() {
                                 name="content"
                                 rows={3}
                                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                defaultValue={''}
                                 placeholder="Write your post content."
-                                onChange={handleChange}
+                                onChange={onChangeHandler}
+                                value={formData.content}
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="photo" className="block text-sm font-medium leading-6 text-white">
-                        Photo
+                        <label htmlFor="imageUrl" className="block text-sm font-medium leading-6 text-white">
+                        Image
                         </label>
                         <div className="mt-2 flex items-center gap-x-3">
                             <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-                            {/* <button
-                                type="button"
-                                onClick={handleButtonClick}
-                                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                            >
-                                Add
-                            </button> */}
                             <input
-                                type="file"
-                                className="text-white"
-                                onChange={onImageChange}
+                                id="imageUrl"  
+                                name="imageUrl"  
+                                placeholder='Write image Url'
+                                className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                onChange={onChangeHandler}
+                                value={formData.imageUrl}
                             />
                         </div>
                     </div>
