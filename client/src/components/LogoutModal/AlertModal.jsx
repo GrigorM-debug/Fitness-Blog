@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AlertModal({ isVisible, onClose }) {
     if (!isVisible) return null;
+
     const token = localStorage.getItem('auth-token');
 
     const [logout, errors, isFetching] = useLogout();

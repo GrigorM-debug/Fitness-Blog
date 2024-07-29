@@ -14,27 +14,10 @@ import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
 import BMICalculator from './components/BMICalculator/BMICalculator';
 import Contact from './components/Contact/Contact';
 import { useState } from 'react';
-import UserContext from './contexts/userContext';
 import AlertModal from './components/LogoutModal/AlertModal';
+import { AuthProvider } from './components/AuthProvider/AuthProvider';
 
 function App() {
-  const [userData, setUserData] = useState({});
-
-  const setUserDataHandler = (authData) => {
-    setUserData(authData);
-  }
-
-  const contextData = {
-    _id: userData._id,
-    username: userData.username,
-    email: userData.userEmail,
-    description: userData.description,
-    city: userData.city,
-    country: userData.country,
-    imageUrl: userData.imageUrl,
-    isAuthenticated: !!userData.userEmail
-  }
-
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
 
   const handleLogoutClick = () => {
@@ -47,7 +30,7 @@ function App() {
   
   
   return (
-    <UserContext.Provider value={{ contextData, setUserDataHandler }}>
+    <AuthProvider>
       <>
         <Header handleLogoutClick={handleLogoutClick}/>
         <Routes>
@@ -69,7 +52,7 @@ function App() {
         <Footer />
         <AlertModal isVisible={isVisibleLogOutModal} onClose={handleModalClose}></AlertModal>
       </>
-    </UserContext.Provider>
+    </AuthProvider>
   )
 }
 

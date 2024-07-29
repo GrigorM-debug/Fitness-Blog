@@ -19,14 +19,14 @@ export function useLogin() {
 
         try {
             setIsFetching(true);
-            const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await login(email, password);
+            const {_id, username, email: userEmail, accessToken} = await login(email, password);
 
             // console.log(_id, username, userEmail, accessToken)
     
-            setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
+            setUserDataHandler({_id, userEmail, username, accessToken})
     
             localStorage.setItem('auth-token', accessToken);
-
+    
             return true;
         } catch (err) {
             setErrors({serverError: err.message});
@@ -53,9 +53,9 @@ export function useRegister() {
 
         try {
             setIsFetching(true);
-            const {_id, username, email: userEmail, description, country, city, imageUrl, accessToken} = await register(newUserData)
+            const {_id, username, email: userEmail, accessToken} = await register(newUserData)
         
-            setUserDataHandler({_id, userEmail, username, description, country, city, imageUrl})
+            setUserDataHandler({_id, userEmail, username, accessToken})
 
             localStorage.setItem('auth-token', accessToken);
             return true;
