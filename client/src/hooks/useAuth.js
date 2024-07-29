@@ -72,22 +72,22 @@ export function useRegister() {
 export function useLogout() {
     const {setUserDataHandler} = useContext(UserContext);
     const [errors, setErrors] = useState({});
-    const [isFetching, setIsFetching] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const logoutHandler = async (token) => {
         // console.log(token)
         try {
-            setIsFetching(true);
+            setIsLoading(true);
             await logout(token);
             setUserDataHandler({});
             localStorage.removeItem('auth-token');
             return true;
         } catch (err) {
-            setIsFetching(false);
+            setIsLoading(false);
             setErrors({serverError: err.message});
             return false;
         }
     }
 
-    return [logoutHandler, errors, isFetching];
+    return [logoutHandler, errors, isLoading];
 }
