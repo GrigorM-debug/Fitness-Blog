@@ -46,7 +46,7 @@ export default function OffCanvasMenu({ isOffcanvasOpen, toggleOffcanvasMenu, ha
 
                           {isAuthenticated && 
                             <div>
-                              <li><Link to="/createPost">Create Post</Link></li>
+                              <li><Link to="/create-post">Create Post</Link></li>
                               <li><Link to="/createHealthyRecipe">Create Healthy Recipe</Link></li>
                               <li><Link to="/myProfile">My profile</Link></li>
                               <li><Link to="#" onClick={handleLogoutClick}>Logout</Link></li>
