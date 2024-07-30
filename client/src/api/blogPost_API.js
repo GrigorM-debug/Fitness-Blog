@@ -16,16 +16,17 @@ export async function createPost(postData) {
     return result;
 }
 
-export async function getAll() {
-    const params = new URLSearchParams({
-        load: `author=_ownerId:users`
-    });
+// export async function getAll() {
+//     const params = new URLSearchParams({
+//         load: `author=_ownerId:users`,
+//         sortBy: '_createdOn desc'
+//     });
 
-    const response = await fetch(`${BASE_URL}?${params.toString()}`)
+//     const response = await fetch(`${BASE_URL}/?${params.toString()}`)
 
-    const posts = await response.json();
-    return posts;
-}
+//     const posts = await response.json();
+//     return posts;
+// }
 
 export async function getOne(postId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);

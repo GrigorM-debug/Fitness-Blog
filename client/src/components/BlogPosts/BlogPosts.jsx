@@ -3,12 +3,12 @@ import BlogItem from "./BlogItem/BlogItem";
 import styles from './BlogPosts.module.css';
 import SideBar from "./SideBar/SideBar";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import { useGetAllPosts } from "../../hooks/useBlogPosts";
+import {useGetLatest } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
 
 export default function BlogPosts() {
 
-    const [posts, isFetching] = useGetAllPosts();
+    const [posts, isFetching] = useGetLatest();
 
     return (
         <>

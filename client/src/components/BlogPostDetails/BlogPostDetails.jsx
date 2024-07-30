@@ -10,7 +10,7 @@ export default function BlogPostDetails() {
     const {blogPostId} = useParams();
 
     const [post, isFetching] = useGetOneBlogPost(blogPostId);
-
+    console.log(post)
     return (
         <>
         {isFetching && <Preloader />}
