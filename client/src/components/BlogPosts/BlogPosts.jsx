@@ -32,7 +32,7 @@ export default function BlogPosts() {
                                     imageUrl={post.imageUrl}
                                     shortDescription={post.shortDescription}
                                     category={post.category}
-                                    createdOn={post.createdOn}
+                                    createdOn={post._createdOn}
                                 />
                             ))
                             : <h2>There is no post added</h2>

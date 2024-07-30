@@ -1,3 +1,4 @@
+import { timestampToDate } from '../../../utils/timeSpanToDate';
 import styles from './BlogItem.module.css';
 
 export default function BlogItem({
@@ -22,8 +23,8 @@ export default function BlogItem({
                 </h5>
                 <ul>
                     <li>Category: {category}</li>
-                    <li>{creator}</li>
-                    <li>{createdOn}</li>
+                    <li>Author: {creator}</li>
+                    <li>CreatedOn: {timestampToDate(createdOn)}</li>
                     <li>20 Comment</li>
                 </ul>
                 <p>
