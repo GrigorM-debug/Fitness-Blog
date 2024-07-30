@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { getAll, createPost, getOne} from "../api/blogPost_API";
+import { getAll, createPost, getOne, getLatest} from "../api/blogPost_API";
 import { blogPostsValidation } from "../vaidations/blogPostsValidations";
 import { useNavigate } from "react-router";
 
@@ -66,7 +66,29 @@ export function useGetOneBlogPost(postId) {
         }
 
         fetchPost();
-    }, [postId, navigate]);
+    }, [postId]);
+
 
     return [postData, isFetching];
+}
+
+export function useGetLatest() {
+    const [latestPosts, setLatestPosts] = useState([]);
+    const [isFetching, setIsFetching] = useState(false);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                setIsFetching(true);
+                const result = await getLatest();
+                setLatestPosts(result);
+                setIsFetching(false);
+            } catch (err) {
+                console.log(err);
+                setIsFetching(false);
+            }
+        })();
+    }, [])
+
+    return [latestPosts]
 }

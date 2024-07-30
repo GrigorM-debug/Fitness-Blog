@@ -29,14 +29,25 @@ export async function getAll() {
 
 export async function getOne(postId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
-    console.log(postId)
     const params = new URLSearchParams({
         load: `author=_ownerId:users`
     });
-    const response = await fetch(`${BASE_URL}?${params.toString()}`)
+    const response = await fetch(`${BASE_URL}/${postId}?${params.toString()}`)
 
     const post = await response.json();
 
     return post;
 }
 
+export async function getLatest() {
+    const params = new URLSearchParams({
+        load: `author=_ownerId:users`,
+        sortBy: '_createdOn desc'
+    });
+
+    const response = await fetch(`${BASE_URL}/?${params.toString()}`)
+
+    const posts = await response.json();
+
+    return posts;
+}

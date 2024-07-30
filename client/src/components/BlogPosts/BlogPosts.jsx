@@ -24,17 +24,17 @@ export default function BlogPosts() {
                         </div>
                         {posts.length > 0 
                             ? posts.map((post) => (
-                                <BlogItem 
-                                    key={post._id}
-                                    id={post._id}
-                                    title={post.title}
-                                    creator={post.author.username}
-                                    imageUrl={post.imageUrl}
-                                    shortDescription={post.shortDescription}
-                                    category={post.category}
-                                    createdOn={post._createdOn}
-                                />
-                            ))
+                                    <BlogItem 
+                                        key={post._id}
+                                        id={post._id}
+                                        title={post.title}
+                                        creator={post.author.username}
+                                        imageUrl={post.imageUrl}
+                                        shortDescription={post.shortDescription}
+                                        category={post.category}
+                                        createdOn={post._createdOn}
+                                    />
+                                ))
                             : <h2>There is no post added</h2>
                         }
                         
