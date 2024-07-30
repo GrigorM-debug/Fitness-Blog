@@ -1,4 +1,4 @@
-import {  useGetLatest } from "../../hooks/useBlogPosts";
+import { useGetLatest } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
 import ChooseUs from "./ChooseUs/ChooseUs";
 import GetInTouch from "./GetInTouch/GetInTouch";

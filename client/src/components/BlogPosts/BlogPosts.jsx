@@ -3,8 +3,8 @@ import BlogItem from "./BlogItem/BlogItem";
 import styles from './BlogPosts.module.css';
 import SideBar from "./SideBar/SideBar";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import {useGetLatest } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
+import { useGetLatest } from "../../hooks/useBlogPosts";
 
 export default function BlogPosts() {
 
@@ -36,7 +36,7 @@ export default function BlogPosts() {
                                             createdOn={post._createdOn}
                                         />
                                     ))
-                                : <h2>There is no post added</h2>
+                                : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
                             }
                             
                             <Pagination />

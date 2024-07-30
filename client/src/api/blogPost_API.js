@@ -16,17 +16,16 @@ export async function createPost(postData) {
     return result;
 }
 
-// export async function getAll() {
-//     const params = new URLSearchParams({
-//         load: `author=_ownerId:users`,
-//         sortBy: '_createdOn desc'
-//     });
+export async function getAll() {
+    const params = new URLSearchParams({
+        load: `author=_ownerId:users`,
+    });
 
-//     const response = await fetch(`${BASE_URL}/?${params.toString()}`)
+    const response = await fetch(`${BASE_URL}/?${params.toString()}`)
 
-//     const posts = await response.json();
-//     return posts;
-// }
+    const posts = await response.json();
+    return posts;
+}
 
 export async function getOne(postId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
@@ -41,12 +40,7 @@ export async function getOne(postId) {
 }
 
 export async function getLatest() {
-    const params = new URLSearchParams({
-        load: `author=_ownerId:users`,
-        sortBy: '_createdOn desc'
-    });
-
-    const response = await fetch(`${BASE_URL}/?${params.toString()}`)
+    const response = await fetch(`${BASE_URL}/?load=author%3D_ownerId%3Ausers&sortBy=_createdOn%20desc`) 
 
     const posts = await response.json();
 

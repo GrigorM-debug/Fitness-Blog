@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { createPost, getOne, getLatest} from "../api/blogPost_API";
+import { createPost, getOne, getLatest, getAll} from "../api/blogPost_API";
 import { blogPostsValidation } from "../vaidations/blogPostsValidations";
 import { useNavigate } from "react-router";
 
@@ -31,21 +31,20 @@ export function useCreatePost() {
     return [createPostHandler, isFetching, errors];
 }
 
-// export function useGetAllPosts() {
-//     const [posts, setPosts] = useState([]);
-//     const [isFetching, setIsFetching] = useState(false);
+export function useGetAllPosts() {
+    const [posts, setPosts] = useState([]);
+    const [isFetching, setIsFetching] = useState(true);
 
-//     useEffect(() => {
-//         (async () => {
-//             setIsFetching(true);
-//             const result = await getAll();
-//             setPosts(result);
-//             setIsFetching(false);
-//         })();
-//     }, []);
+    useEffect(() => {
+        (async () => {
+            const result = await getAll();
+            setPosts(result);
+            setIsFetching(false);
+        })();
+    }, []);
 
-//     return [posts, isFetching];
-// }
+    return [posts, isFetching];
+}
 
 export function useGetOneBlogPost(postId) {
     const [postData, setPostData] = useState({});
@@ -74,12 +73,11 @@ export function useGetOneBlogPost(postId) {
 
 export function useGetLatest() {
     const [latestPosts, setLatestPosts] = useState([]);
-    const [isFetching, setIsFetching] = useState(false);
+    const [isFetching, setIsFetching] = useState(true);
 
     useEffect(() => {
         (async () => {
             try {
-                setIsFetching(true);
                 const result = await getLatest();
                 setLatestPosts(result);
                 setIsFetching(false);
