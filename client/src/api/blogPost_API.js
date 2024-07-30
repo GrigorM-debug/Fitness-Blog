@@ -1,11 +1,9 @@
-import { post } from "jquery";
-
 const BASE_URL = 'http://localhost:3030/data/posts';
 
 export async function createPost(postData) {
     const token = localStorage.getItem('auth-token');
 
-    const result = await fetch(BASE_URL, {
+    const response = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,6 +12,7 @@ export async function createPost(postData) {
         body: JSON.stringify(postData)
     })
 
+    const result = await response.json();
     return result;
 }
 
@@ -24,8 +23,10 @@ export async function getAll() {
 }
 
 export async function getOne(postId) {
-    const post = await fetch(`${BASE_URL}/${postId}`);
+    const response = await fetch(`${BASE_URL}/${postId}`);
 
+    const post = await response.json();
+    
     return post;
 }
 

@@ -13,6 +13,13 @@ export function blogPostsValidation(formData) {
         errors.category = 'Please select category !';
     }
 
+    //Subtitle Validations
+    if(!formData.subTitle) {
+        errors.subTitle = 'Subtitle is required';
+    } else if (formData.subTitle.length < 5) {
+        errors.title = 'Subtitle must be at least 5 characters long !';
+    }
+
     //Short Description validations
     if(!formData.shortDescription) {
         errors.shortDescription = 'Short description is required !'; 
