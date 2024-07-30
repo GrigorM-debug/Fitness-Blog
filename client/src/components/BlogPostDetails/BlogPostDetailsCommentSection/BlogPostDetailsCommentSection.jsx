@@ -23,7 +23,7 @@ export default function BlogPostDetailsCommentSection() {
             <div className="col-lg-6">
                 <div className={styles.leaveComment}>
                     <h5>Leave a comment</h5>
-                    <form action="#">
+                    <form>
                         <input type="text" placeholder="Name" />
                         <input type="text" placeholder="Email" />
                         <input type="text" placeholder="Website" />

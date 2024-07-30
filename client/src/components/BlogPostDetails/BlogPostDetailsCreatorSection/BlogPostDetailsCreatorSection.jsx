@@ -17,7 +17,7 @@ export default function BlogDetailsCreatorSection({
                 <p>
                     {description}
                 </p>
-                <div className="bp-social">
+                <div className={styles.bpSocial}>
                     <a href="#">
                         <i className="fa fa-facebook" />
                     </a>

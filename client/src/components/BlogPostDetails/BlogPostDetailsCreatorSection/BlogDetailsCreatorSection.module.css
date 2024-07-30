@@ -41,12 +41,12 @@
 	color: #c4c4c4;
 }
 
-.blog-details-text .blog-details-author .ba-text .bp-social a {
+.blogDetailsAuthor .baText .bpSocial a {
 	font-size: 13px;
-	color: #c4c4c4;
+	color: white;
 	margin-right: 10px;
 }
 
-.blog-details-text .blog-details-author .ba-text .bp-social a:last-child {
+.blog-details-text .blogDetailsAuthor .baText .bpSocial a:last-child {
 	margin-right: 0;
 } 
