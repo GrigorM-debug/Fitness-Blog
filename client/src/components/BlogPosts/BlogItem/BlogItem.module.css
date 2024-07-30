@@ -7,16 +7,17 @@
 }
 
 .blogItem .blogItemPic img {
-	width: 360px;
-	height: 240px;
+	width: auto;
+	height: auto;
 	min-width: 100%;
 }
 
 .blogItem .blogItemText {
 	border: 1px solid #363636;
 	overflow: hidden;
-	height: 240px;
+	height: auto;
 	padding: 32px 30px 0 30px;
+	padding-bottom: 2em;
 }
 
 .blogItem .blogItemText h5 {

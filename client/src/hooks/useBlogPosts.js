@@ -3,7 +3,6 @@ import { getAll, createPost, getOne} from "../api/blogPost_API";
 import { blogPostsValidation } from "../vaidations/blogPostsValidations";
 import { useNavigate } from "react-router";
 
-//ToDo: Validatiions and error handeling like in useAuth Hook
 export function useCreatePost() {
     const [isFetching, setIsFetching] = useState(false);
     const [errors, setErrors] = useState({});
@@ -32,15 +31,18 @@ export function useCreatePost() {
     return [createPostHandler, isFetching, errors];
 }
 
-export async function useGetAllPosts() {
+export function useGetAllPosts() {
     const [posts, setPosts] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
 
-    // setIsFetching(true);
-    const result = await getAll();
-    // setIsFetching(false);
-
-    setPosts(result);
+    useEffect(() => {
+        (async () => {
+            setIsFetching(true);
+            const result = await getAll();
+            setPosts(result);
+            setIsFetching(false);
+        })();
+    }, []);
 
     return [posts, isFetching];
 }
@@ -53,10 +55,10 @@ export function useGetOneBlogPost(postId) {
     useEffect(() => {
         async function fetchPost() {
             try {
-                // setIsFetching(true);
+                setIsFetching(true);
                 const result = await getOne(postId);
                 setPostData(result);
-                setIsFetching(false);  // Set isFetching to false after setting postData
+                setIsFetching(false);
             } catch (err) {
                 setIsFetching(false);
                 navigate('/404');

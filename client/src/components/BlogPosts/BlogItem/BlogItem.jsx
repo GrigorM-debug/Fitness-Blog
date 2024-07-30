@@ -1,32 +1,33 @@
 import styles from './BlogItem.module.css';
 
 export default function BlogItem({
+    id,
     title,
     creator,
-    bannerImage,
-    link,
-    content,
+    imageUrl,
+    shortDescription,
     category,
     createdOn
 }) {
     return (
         <div className={styles.blogItem}>
             <div className={styles.blogItemPic}>
-                <img src={bannerImage} alt="" />
+                <img src={imageUrl} alt="" />
             </div>
             <div className={styles.blogItemText}>
                 <h5>
-                    <a href="./blog-details.html">
+                    <a href={`/blog/${id}/details`}>
                         {title}
                     </a>
                 </h5>
                 <ul>
+                    <li>Category: {category}</li>
                     <li>{creator}</li>
                     <li>{createdOn}</li>
                     <li>20 Comment</li>
                 </ul>
                 <p>
-                    {content}
+                    {shortDescription}
                 </p>
             </div>
         </div>

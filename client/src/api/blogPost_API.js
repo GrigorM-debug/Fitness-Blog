@@ -17,8 +17,13 @@ export async function createPost(postData) {
 }
 
 export async function getAll() {
-    const posts = await fetch(BASE_URL);
+    const params = new URLSearchParams({
+        load: `author=_ownerId:users`
+    });
 
+    const response = await fetch(`${BASE_URL}?${params.toString()}`)
+
+    const posts = await response.json();
     return posts;
 }
 
@@ -26,14 +31,11 @@ export async function getOne(postId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
     console.log(postId)
     const params = new URLSearchParams({
-        where: `_id="${postId}"`,
         load: `author=_ownerId:users`
     });
     const response = await fetch(`${BASE_URL}?${params.toString()}`)
 
     const post = await response.json();
-
-    console.log(post)
 
     return post;
 }
