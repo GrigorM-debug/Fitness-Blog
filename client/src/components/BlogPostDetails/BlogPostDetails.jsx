@@ -11,8 +11,6 @@ export default function BlogPostDetails() {
 
     const [post, isFetching] = useGetOneBlogPost(blogPostId);
 
-    console.log(post);
-
     return (
         <>
         {isFetching && <Preloader />}

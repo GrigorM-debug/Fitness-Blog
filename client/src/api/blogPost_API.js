@@ -24,6 +24,7 @@ export async function getAll() {
 
 export async function getOne(postId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
+    console.log(postId)
     const params = new URLSearchParams({
         where: `_id="${postId}"`,
         load: `author=_ownerId:users`
@@ -31,7 +32,9 @@ export async function getOne(postId) {
     const response = await fetch(`${BASE_URL}?${params.toString()}`)
 
     const post = await response.json();
-    
+
+    console.log(post)
+
     return post;
 }
 

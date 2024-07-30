@@ -10,7 +10,7 @@ export async function login(email, password) {
     })
 
     if(!response.ok) {
-        throw new Error("Email or password doesnt't exist !");
+        throw new Error("Wrong Email or Password doesnt't exist !");
     }
 
     const userData = await response.json();
@@ -47,10 +47,10 @@ export async function logout(token) {
     })
 
     if(!response.ok) {
-        throw new Error('User session does not exist');
+        throw new Error('User session does not exist !');
     }
 
     if(response.ok) {
-        console.log('Successfully log out')
+        console.log('Successfully log out !')
     }
 }

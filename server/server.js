@@ -1339,7 +1339,19 @@
     	}
     };
     var seedData = {
-    
+        posts: {
+            "ea6f29cc-8265-4fc1-bfa6-dfaa6239baf6": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "Anabolic Window",
+                category: "nutrition",
+                subTitle: "Shattering the Anabolic Window",
+                shortDescription: "Protein does not disappear after a workout. The body burns through its glycogen stores during activity. It does not start depleting muscle tissue until after the glycogen stores are entirely empty. Protein remains in the body to repair the torn muscle tissue. Exercise increases the utilization of protein for recovery, also known as muscle protein synthesis (MPS). One study on the anabolic window suggested that MPS does not dip outside of the anabolic window. It actually revealed that there is a 12 hour period of recovery (1). The body shifts into a sympathetic state during activity. This elevates the heart rate, creates microtears in the muscle fibers, and lowers glycogen stores. The appropriate assumption is to restore these with protein and carbohydrates. However, there should not be any rush to it. While in a catabolic state, the body may not properly absorb the nutrients. It needs time to shift into a parasympathetic state in order to open the anabolic window. The parasympathetic nervous system is activated through lowering the heart rate. Once the heart rate is lowered, the body is prepared to thoroughly digest food.",
+                content: "What’s the first thing you do after a workout? If your first thought is a protein shake, you’re reading the right article. It’s a decades-old practice to have protein immediately after a workout while still inside the “anabolic window”. The 60-90 minutes after exercise is believed to be the golden opportunity to have protein. However, what if there’s more to the anabolic window than just 60 minutes?",
+                imageUrl: "https://www.bodybuilding.com/images/2023/june/shattering-the-anabolic-window-header-830x467.jpg",
+                _createdOn: 1722348934844,
+                _id: "ea6f29cc-8265-4fc1-bfa6-dfaa6239baf6"
+            },
+        }
     };
     var rules$1 = {
     	users: {
