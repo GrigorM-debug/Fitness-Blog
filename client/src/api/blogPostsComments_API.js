@@ -15,7 +15,8 @@ export default async function createComment(gameId, text) {
 
 export default async function getAll(gameId) {
     const params = new URLSearchParams({
-        where: `gameId="${gameId}"`
+        where: `gameId="${gameId}"`,
+        load: `author=_ownerId:users`
     })
 
     const response = await fetch(`${BASE_URL}/?${params.toString()}`);
