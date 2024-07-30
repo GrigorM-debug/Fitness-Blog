@@ -3,7 +3,8 @@ import styles from './BlogPostDetailsHero.module.css';
 export default function BlogPostDetailsHero({
     title,
     imageUrl,
-    category
+    category,
+    authorName
 }) {
     return (
         <section className={`${styles.blogDetailsHero} set-bg`} style={{backgroundImage: `url(${imageUrl})`}}>
@@ -14,7 +15,7 @@ export default function BlogPostDetailsHero({
                             <h3>{title}</h3>
                             <ul>
                                 <li>Category: {category}</li>
-                                <li>by Admin</li>
+                                <li>by {authorName}</li>
                                 <li>Aug,15, 2019</li>
                                 <li>20 Comment</li>
                             </ul>

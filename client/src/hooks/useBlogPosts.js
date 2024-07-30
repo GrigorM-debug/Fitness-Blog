@@ -55,6 +55,7 @@ export function useGetOneBlogPost(postId) {
             try {
                 setIsFetching(true);
                 const result = await getOne(postId);
+                console.log(result)
                 setPostData(result);
                 setIsFetching(false);  // Set isFetching to false after setting postData
             } catch (err) {
@@ -64,7 +65,7 @@ export function useGetOneBlogPost(postId) {
         }
 
         fetchPost();
-    }, [postId, navigate]);
+    }, [postId]);
 
     return [postData, isFetching];
 }
