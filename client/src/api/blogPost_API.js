@@ -23,3 +23,9 @@ export async function getAll() {
     return posts;
 }
 
+export async function getOne(postId) {
+    const post = await fetch(`${BASE_URL}/${postId}`);
+
+    return post;
+}
+

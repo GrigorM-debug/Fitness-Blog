@@ -53,7 +53,7 @@ export function validateRegisterForm(formData) {
     //Image Url validation 
     if(!formData.imageUrl) {
         errors.imageUrl = 'Image URL is required !';
-    } else if (!/^https?:\/\/.*\.(?:jpg|jpeg|png|gif)(?:\?.*)?$/i.test(formData.imageUrl)) {
+    } else if (/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
         errors.imageUrl = 'Image URL is invalid or not supported.';
     }
 

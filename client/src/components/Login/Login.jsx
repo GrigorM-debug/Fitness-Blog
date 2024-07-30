@@ -44,7 +44,7 @@ export default function Login() {
           <form className="space-y-6" onSubmit={onSubmitHandler}>
           <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+              <label htmlFor="email" className="block text-sm font-bold leading-6 text-white">
                 Email address
               </label>
               <div className="mt-2">
@@ -66,7 +66,7 @@ export default function Login() {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-white">
+                <label htmlFor="password" className="block text-sm font-bold leading-6 text-white">
                   Password
                 </label>
                 <div className="text-sm">
