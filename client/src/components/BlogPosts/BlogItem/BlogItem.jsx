@@ -1,5 +1,6 @@
 import { timestampToDate } from '../../../utils/timeSpanToDate';
 import styles from './BlogItem.module.css';
+import { Link } from 'react-router-dom';
 
 export default function BlogItem({
     id,
@@ -17,9 +18,9 @@ export default function BlogItem({
             </div>
             <div className={styles.blogItemText}>
                 <h5>
-                    <a href={`/blog/${id}/details`}>
+                    <Link to={`/blog/${id}/details`}>
                         {title}
-                    </a>
+                    </Link>
                 </h5>
                 <ul>
                     <li>Category: {category}</li>
