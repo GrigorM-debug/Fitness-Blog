@@ -12,38 +12,41 @@ export default function BlogPosts() {
 
     return (
         <>
-        {isFetching && <Preloader />}
-        <Breadcrumb title="Our Blog" page="Our Blog" breadcrumbImage="img/gallery/gallery-1.jpg"/>
+        {isFetching ? <Preloader /> :
+            <>
+            <Breadcrumb title="Our Blog" page="Our Blog" breadcrumbImage="img/gallery/gallery-1.jpg"/>
 
-        <section className={styles.blogSection}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-8 p-0">
-                        <div className={`${styles.sectionTitle} section-title`}>
-                            <h2>Our Blog Posts</h2>
+            <section className={styles.blogSection}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 p-0">
+                            <div className={`${styles.sectionTitle} section-title`}>
+                                <h2>Our Blog Posts</h2>
+                            </div>
+                            {posts.length > 0 
+                                ? posts.map((post) => (
+                                        <BlogItem 
+                                            key={post._id}
+                                            id={post._id}
+                                            title={post.title}
+                                            creator={post.author.username}
+                                            imageUrl={post.imageUrl}
+                                            shortDescription={post.shortDescription}
+                                            category={post.category}
+                                            createdOn={post._createdOn}
+                                        />
+                                    ))
+                                : <h2>There is no post added</h2>
+                            }
+                            
+                            <Pagination />
                         </div>
-                        {posts.length > 0 
-                            ? posts.map((post) => (
-                                    <BlogItem 
-                                        key={post._id}
-                                        id={post._id}
-                                        title={post.title}
-                                        creator={post.author.username}
-                                        imageUrl={post.imageUrl}
-                                        shortDescription={post.shortDescription}
-                                        category={post.category}
-                                        createdOn={post._createdOn}
-                                    />
-                                ))
-                            : <h2>There is no post added</h2>
-                        }
-                        
-                        <Pagination />
+                        <SideBar />
                     </div>
-                    <SideBar />
                 </div>
-            </div>
-        </section>
+            </section>
+        /</>
+        }
         </>
     );
 };

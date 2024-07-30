@@ -1,4 +1,5 @@
 import styles from './LatestArticles.module.css';
+import { Link } from 'react-router-dom';
 
 export default function LatestArticles({
     posts
@@ -26,7 +27,7 @@ export default function LatestArticles({
                                             <span>Category: {post.category}</span>
                                             <h5>{post.title}</h5>
                                             <span>Created by: <p>{post.author.username}</p></span>
-                                            <a href={`/blog/${post._id}/details`}><i className="fa fa-angle-right"></i></a>
+                                            <Link to={`/blog/${post._id}/details`}><i className="fa fa-angle-right"></i></Link>
                                         </div>
                                     </div>
                                 </div> 

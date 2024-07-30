@@ -49,16 +49,16 @@ export function useCreatePost() {
 
 export function useGetOneBlogPost(postId) {
     const [postData, setPostData] = useState({});
-    const [isFetching, setIsFetching] = useState(false);
+    const [isFetching, setIsFetching] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchPost() {
             try {
-                setIsFetching(true);
                 const result = await getOne(postId);
                 setPostData(result);
                 setIsFetching(false);
+                console.log(postData)
             } catch (err) {
                 setIsFetching(false);
                 navigate('/404');

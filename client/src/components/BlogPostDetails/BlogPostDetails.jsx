@@ -5,59 +5,67 @@ import BlogPostDetailsHero from "./BlogPostDetailsHero/BlogPostDetailsHero";
 import { useParams } from "react-router";
 import { useGetOneBlogPost } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
+import { useState } from "react";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
 
     const [post, isFetching] = useGetOneBlogPost(blogPostId);
+
+    const [comments, setComments] = useState([]);
+
     console.log(post)
+
     return (
         <>
-        {isFetching && <Preloader />}
+        {isFetching ? <Preloader /> : 
+            <>
+            <BlogPostDetailsHero 
+                title={post.title} 
+                imageUrl={post.imageUrl} 
+                category={post.category} 
+                authorName={post.author.username}
+            />
 
-        <BlogPostDetailsHero 
-            title={post[0].title} 
-            imageUrl={post[0].imageUrl} 
-            category={post[0].category} 
-            authorName={post[0].author.username}
-        />
-
-        <section className={`${styles.blogDetailsSection} spad`}>
-            <div className="container">
-                <div className="row">
-                <div className="col-lg-8 p-0 m-auto">
-                    <div className={styles.blogPostDetailsText}>
-                        <div className={styles.blogPostDetailsTitle}>
-                            <h5>{post[0].subTitle}</h5>
-                        </div>
-                            <div className={styles.BlogPostDetailsDescription}>
-                                <p>
-                                    {post[0].shortDescription}
-                                </p>
+            <section className={`${styles.blogDetailsSection} spad`}>
+                <div className="container">
+                    <div className="row">
+                    <div className="col-lg-8 p-0 m-auto">
+                        <div className={styles.blogPostDetailsText}>
+                            <div className={styles.blogPostDetailsTitle}>
+                                <h5>{post.subTitle}</h5>
                             </div>
-                            <div className={styles.blogPostDetailsPic}>
-                                <div className={styles.blogPostDetailsPicItem}>
-                                    <img src={post[0].imageUrl} alt="" />
+                                <div className={styles.BlogPostDetailsDescription}>
+                                    <p>
+                                        {post.shortDescription}
+                                    </p>
                                 </div>
-                            </div>
-                            <div className={styles.BlogPostDetailsMoreDescription}>
-                                <p>
-                                    {post[0].content}
-                                </p>
-                            </div>
+                                <div className={styles.blogPostDetailsPic}>
+                                    <div className={styles.blogPostDetailsPicItem}>
+                                        <img src={post.imageUrl} alt="" />
+                                    </div>
+                                </div>
+                                <div className={styles.BlogPostDetailsMoreDescription}>
+                                    <p>
+                                        {post.content}
+                                    </p>
+                                </div>
 
-                            <BlogDetailsCreatorSection 
-                                name={post[0].author.username}
-                                email={post[0].author.email} 
-                                description={post[0].description} 
-                                imageUrl={post[0].author.imageUrl}/>
+                                <BlogDetailsCreatorSection 
+                                    name={post.author.username}
+                                    email={post.author.email} 
+                                    description={post.description} 
+                                    imageUrl={post.author.imageUrl}
+                                />
 
-                            <BlogPostDetailsCommentSection />
+                                <BlogPostDetailsCommentSection />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            </section>
+                </section>
+            </>
+        }
         </>
     );
 };

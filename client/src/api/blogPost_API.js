@@ -33,7 +33,7 @@ export async function getOne(postId) {
     const params = new URLSearchParams({
         load: `author=_ownerId:users`
     });
-    const response = await fetch(`${BASE_URL}/${postId}?${params.toString()}/details`)
+    const response = await fetch(`${BASE_URL}/${postId}?${params.toString()}`)
 
     const post = await response.json();
 
