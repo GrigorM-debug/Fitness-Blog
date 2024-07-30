@@ -16,5 +16,5 @@ export async function useGetAllPosts() {
 
     setPosts(result);
 
-    return posts
+    return posts;
 }

@@ -1,5 +1,5 @@
 import './index.css';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import CreateBlogPost from './components/CreateBlogPost/CreateBlogPost';
@@ -13,9 +13,10 @@ import BlogPosts from './components/BlogPosts/BlogPosts';
 import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
 import BMICalculator from './components/BMICalculator/BMICalculator';
 import Contact from './components/Contact/Contact';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import AlertModal from './components/LogoutModal/AlertModal';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
+import {IsGuest, IsUser} from './components/ProtectedRoutes/RoutesGuards';
 
 function App() {
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
@@ -28,6 +29,7 @@ function App() {
     setIsVisibleLogoutModal(false);
   }
   
+
   
   return (
     <AuthProvider>
@@ -40,12 +42,17 @@ function App() {
           <Route path="/BMICalculator" element={<BMICalculator />} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route element={<IsGuest/>}>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
           {/* <Route path="/logout" element={<AlertModal />} /> */}
-          <Route path="/create-post" element={<CreateBlogPost />} />
-          <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
-          <Route path="/myProfile" element={<Profile />} />
+
+          <Route element={<IsUser />}>
+            <Route path="/create-post" element={<CreateBlogPost />} />
+            <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
+            <Route path="/myProfile" element={<Profile />} />
+          </Route>
 
           <Route path="/*" element={<NotFound />} />
         </Routes>
