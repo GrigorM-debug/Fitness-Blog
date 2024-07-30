@@ -9,6 +9,7 @@ export default function CreateBlogPost() {
     const initialData = {
         title: '',
         category: 'Choose a category',
+        subTitle: '',
         shortDescription: '',  
         content: '',
         imageUrl: ''
@@ -18,11 +19,11 @@ export default function CreateBlogPost() {
     const navigate = useNavigate()
 
     const formSubmit = async (formData) => {
-        const success = await createPost(formData);
+        const postId = await createPost(formData);
 
-        if(success) {
+        if(postId) {
             //Todo navigate on details page
-            navigate('/');
+            navigate(`/blog/${postId}/details`);
         }
     };
 
@@ -81,6 +82,25 @@ export default function CreateBlogPost() {
                                 <option value="healthAndRecovery">Health & Recovery</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <div className="mt-3">
+                        <label htmlFor="subTitle" className="block text-sm font-bold leading-6 text-white">
+                            Subtitle
+                        </label>
+                        <p className="text-red-600">{errors ? errors.subTitle : ''}</p>
+                        <input
+                        id="subTitle"
+                        name="subTitle"
+                        type="text"
+                        placeholder='Write blog Subtitle'
+                        className={`p-2 block w-full rounded-md border-2 ${errors.subTitle ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 
+                            shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
+                            focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`
+                        }
+                        value={formData.subTitle}
+                        onChange={onChangeHandler}
+                        />
                     </div>
 
                     <div className='mt-3'>

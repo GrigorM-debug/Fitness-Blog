@@ -17,6 +17,7 @@ import { useContext, useState } from 'react';
 import AlertModal from './components/LogoutModal/AlertModal';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import {IsGuest, IsUser} from './components/ProtectedRoutes/RoutesGuards';
+import BlogPostDetails from './components/BlogPostDetails/BlogPostDetails';
 
 function App() {
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           <Route path="/healthyRecipes" element={<HealthyRecipes />} />
           <Route path="/BMICalculator" element={<BMICalculator />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path='/blog/:blogPostId/details' element={<BlogPostDetails />}/>
 
           <Route element={<IsGuest/>}>
             <Route path="/register" element={<Register />} />
