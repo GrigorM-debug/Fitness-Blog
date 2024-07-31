@@ -3,7 +3,8 @@ import styles from './LeaveComment.module.css';
 export default function LeaveComment({
     onSubmitHandler,
     onChangeHandler,
-    formData
+    formData,
+    isDisabled
 }) {
     return (
         <div className={styles.leaveComment}>
@@ -12,9 +13,11 @@ export default function LeaveComment({
                 <textarea
                     name='comment' 
                     placeholder="Comment" 
+                    className={isDisabled ? styles.disabled : ''}
                     onChange={onChangeHandler}
                     value={formData.comment}
                 />    
+                {isDisabled && <p className={styles.disabledNotice}>You must be logged in to comment.</p>}
                 <button type="submit">Submit</button>
             </form>
         </div>

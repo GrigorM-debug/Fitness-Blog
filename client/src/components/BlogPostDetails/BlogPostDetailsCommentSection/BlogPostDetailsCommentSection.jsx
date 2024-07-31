@@ -54,13 +54,12 @@ export default function BlogPostDetailsCommentSection({
                 </div>
             </div>
             <div className="col-lg-6">
-                {isAuthenticated && 
-                    <LeaveComment 
+                    <LeaveComment
                         onChangeHandler={onChangeHandler}
                         onSubmitHandler={onSubmitHandler}
                         formData={formData}
+                        isDisabled={!isAuthenticated}
                     />
-                }
             </div>
         </div>
         </>
