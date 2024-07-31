@@ -49,12 +49,13 @@ Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitne
 - **React.js:** The core library for building the user interface.
 - **Tailwind CSS:** A utility-first CSS framework used for styling and designing the website.
 - **Template:** Parts of the design are based on templates from <a href="https://colorlib.com/wp/templates/">Colorlib</a>, which provide a modern and visually appealing look.
+- **Responsive Design
 
 💡 **Usage**
 ------------
 - **Reading Posts:** Visit the blog section to read posts. No login required.
 - **Creating Posts/Recipes:** Sign in to create and manage your own blog posts and recipes.
-- **Interacting with Content:** Like and comment on posts and recipes, regardless of login status.
+- **Interacting with Content:** Like and comment on posts and recipes, regardless of login status. Users can also reply and like other users comments.
 - **Profile Management:** Access and edit your profile details from the "My Profile" page.
 
 
@@ -68,7 +69,7 @@ The blog section is the heart of the Fitness Blog Website. It allows users to:
     - **Competitions:** Everything about the competitive side of fitness. This includes bodybuilding competitions, powerlifting competitions, predictions for upcoming events like the next powerlifting world championship or the next Mr. Olympia.
     - **Nutrition:** Posts focused on diet and nutrition, sharing tips, meal plans, and dietary advice.
     - **Health & Recovery:** Tips and information on how to stay healthy, recover from workouts, and maintain overall wellness.
-- **Like and Comment:** Engage with posts by liking and commenting. This feature is available to both registered users and guests.
+- **Like and Comment:** Engage with posts by liking and commenting. This feature is available to registered users. Users can reply and like other users comments.
 - **Create Posts:** Registered users can share their own fitness experiences and knowledge by writing and publishing blog posts.
 - **Edit and Delete:** Users have complete control over their content and can edit or delete their own posts as needed.
 
@@ -77,7 +78,7 @@ The blog section is the heart of the Fitness Blog Website. It allows users to:
 A special section dedicated to sharing healthy high-protein recipes, perfect for those looking to enhance their diet with nutritious options:
 
 - **Discover Recipes:** Browse through a curated list of high-protein recipes that are loved by the fitness community. Contrary to popular belief, gym-goers and bodybuilders don't just eat boring food; this section showcases a variety of delicious and exciting recipes.
-- **Like and Comment:** Engage with recipes by liking and commenting, regardless of login status.
+- **Like and Comment:** Engage with recipes by liking and commenting. Only avaiable for registered users. Users can also like and reply to other users comments.
 - **Publish Recipes:** Registered users can contribute by sharing their own favorite high-protein recipes.
 - **Edit and Delete:** Recipe creators can edit or delete their own recipes, ensuring their content stays up-to-date and accurate.
 
