@@ -13,7 +13,7 @@ export function useLikeCommend() {
     return likeHandler;
 }
 
-export function useGetLikeStatus(commentId) {
+export function useGetLikes(commentId) {
     const [likes, setLikes] = useState([]);
 
     useEffect(() => {

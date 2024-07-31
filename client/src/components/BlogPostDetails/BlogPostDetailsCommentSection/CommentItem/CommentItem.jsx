@@ -1,12 +1,12 @@
 import { useCreateReply, useGetReplies } from '../../../../hooks/useCommentsReplies';
 import styles from './CommentItem.module.css';
-import { useState, useContext} from 'react';
+import { useState, useContext, useEffect} from 'react';
 import useForm from '../../../../hooks/useForm';
 import Preloader from '../../../Preloader/Preloader';
 import ReplyForm from './ReplyForm/ReplyForm';
 import ReplyItem from './ReplyItem/ReplyItem';
 import UserContext from '../../../../contexts/userContext';
-import { useGetLikeStatus, useLikeCommend } from '../../../../hooks/useCommentLikes';
+import { useGetLikes, useLikeCommend } from '../../../../hooks/useCommentLikes';
 
 export default function CommentItem({
     author,
@@ -44,13 +44,20 @@ export default function CommentItem({
         updateLikes()
     }
 
-    const [likes, updateLikes] = useGetLikeStatus(commentId);
+    const [likes, updateLikes] = useGetLikes(commentId);
 
     const [isLiked, setIsLiked] = useState(false);
+    const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
-    // if(likes.some(l => l._ownerId === userId)) {
-    //     setIsLiked(true);
-    // }
+    useEffect(() => {
+        if (likes.some(like => like._ownerId === userId)) {
+            setIsLiked(true);
+            setIsLikeDisabled(true);
+        } else {
+            setIsLiked(false);
+            setIsLikeDisabled(false);
+        }
+    }, [likes, userId]);
 
     // console.log(isLiked)
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
@@ -66,6 +73,7 @@ export default function CommentItem({
                             handleLikeClick(commentId);
                         }
                     }}
+                    className={isLikeDisabled ? styles.disabled : ''}
                 >
                     <i className={`fa ${isLiked ? 'fa-heart' : 'fa-heart-o'}`}></i>
                 </a>
