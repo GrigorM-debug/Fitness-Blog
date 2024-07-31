@@ -4,6 +4,7 @@ import { useState } from 'react';
 import useForm from '../../../../hooks/useForm';
 import Preloader from '../../../Preloader/Preloader';
 import ReplyForm from './ReplyForm/ReplyForm';
+import ReplyItem from './ReplyItem/ReplyItem';
 
 export default function CommentItem({
     author,
@@ -25,8 +26,9 @@ export default function CommentItem({
         const newReply = await addReply(commentId, reply);
         if(newReply) {
             updateReplies();
+            setIsReplying(false);
         }
-        setIsReplying(false); 
+        // setIsReplying(false); 
     };
 
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
@@ -61,6 +63,7 @@ export default function CommentItem({
                     onSubmit={onSubmitHandler} 
                     onChangeHandler={onChangeHandler} 
                     values={formData}
+                    errors={errors}
                 />
             )}
 
@@ -68,17 +71,25 @@ export default function CommentItem({
                     < Preloader/>
                 ) : (
                     replies.map((reply) => (
-                        <div className={`${styles.coItem} ${styles.replyComment}`}>
-                            <div className={styles.coPic}>
-                                <img src={reply.author.imageUrl} alt=""/>
-                                <h5>{reply.author.username}</h5>
-                            </div>
-                            <div className={styles.coText}>
-                                <p>
-                                    {reply.text}
-                                </p>
-                            </div>
-                        </div>
+                        // <div className={`${styles.coItem} ${styles.replyComment}`}>
+                        //     <div className={styles.coPic}>
+                        //         <img src={reply.author.imageUrl} alt=""/>
+                        //         <h5>{reply.author.username}</h5>
+                        //     </div>
+                        //     <div className={styles.coText}>
+                        //         <p>
+                        //             {reply.text}
+                        //         </p>
+                        //     </div>
+                        // </div>
+
+                        <ReplyItem 
+                            key={reply._id}
+                            authorProfilePic={reply.author.imageUrl}
+                            authorName={reply.author.username}
+                            text={reply.text}
+                        />
+
                     ))
                 )}
         </div>

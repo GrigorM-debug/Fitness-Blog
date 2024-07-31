@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getReplies, createReply} from "../api/commentsReplies_API";
+import commentsRepliesValidations from "../vaidations/commentsRepliesValidations";
 
 export function useGetReplies(commentId) {
     const [replies, setReplies] = useState([]);
@@ -31,12 +32,12 @@ export function useCreateReply() {
 
 
     const addReply = async (commentId, text) => {
-        // const validationResult = commentsFormValidations(text);
+        const validationResult = commentsRepliesValidations(text);
 
-        // if (Object.keys(validationResult).length > 0) {
-        //     setErrors(validationResult);
-        //     return;
-        // }
+        if (Object.keys(validationResult).length > 0) {
+            setErrors(validationResult);
+            return null;
+        }
 
         setIsFetching(true)
         try {
@@ -44,6 +45,7 @@ export function useCreateReply() {
             return newReply;
         } catch (err) {
             console.error('Failed to create reply:', err);
+            setErrors({serverError: err.message});
         } finally {
             setIsFetching(false)
         }

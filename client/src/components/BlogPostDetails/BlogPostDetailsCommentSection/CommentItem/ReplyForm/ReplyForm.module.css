@@ -14,6 +14,7 @@
 .replyForm textarea{
 	width: 50%;
 	height: 50px;
+	color: black;
 }
 
 .formFields {
@@ -37,4 +38,12 @@
 	text-decoration: none;
 	outline: none;
 	color: #fff;
+}
+
+.error {
+	border: 2px solid red;
+}
+
+.errorMessage {
+	color: red;
 }
