@@ -6,6 +6,7 @@ import Preloader from '../../../Preloader/Preloader';
 import ReplyForm from './ReplyForm/ReplyForm';
 import ReplyItem from './ReplyItem/ReplyItem';
 import UserContext from '../../../../contexts/userContext';
+import { useLikeCommend } from '../../../../hooks/useCommentLikes';
 
 export default function CommentItem({
     author,
@@ -24,7 +25,6 @@ export default function CommentItem({
     const [isReplying, setIsReplying] = useState(false);
     const [replies, updateReplies] = useGetReplies(commentId);
 
-    
     const [addReply, isFetching, errors] = useCreateReply();
     
     const handleReplySubmit = async ({reply}) => {
@@ -36,12 +36,32 @@ export default function CommentItem({
         // setIsReplying(false); 
     };
 
+    const likeHandler = useLikeCommend();
+
+    const handleLikeClick = async (commentId) => {
+        console.log(commentId)
+        await likeHandler(commentId);
+    }
+
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
 
     return (
         <div className={styles.coItem}>
             <div className={styles.coWidget}>
-                {/* <a href="#"><i className="fa fa-heart-o"></i></a> */}
+                <a 
+                    href="#"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        if(isAuthenticated) {
+                            handleLikeClick(commentId);
+                        }
+                    }}
+                >
+                    <i className="fa fa-heart-o"></i>
+                </a>
+              
+              
+                <a href="#"><i className="fa fa-heart"></i></a>
                 <a
                     href="#"
                     onClick={(e) => {
@@ -55,7 +75,6 @@ export default function CommentItem({
                 </a>
             </div>
 
-            {/* Comment  */}
             <div className={styles.coPic} >
                 <img src={authorProfilePic} alt="Author profile pic" />
                 <h5>{author}</h5>
