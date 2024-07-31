@@ -41,10 +41,11 @@ export default function BlogPostDetailsCommentSection({
                     ) : (
                         comments.map((comment) => (
                             <CommentItem 
-                                key={comment.id}
+                                key={comment._id}
                                 author={comment.author.username}
                                 authorProfilePic={comment.author.imageUrl}
                                 text={comment.text}
+                                commentId={comment._id}
                             />
                         ))
                     )}

@@ -26,6 +26,6 @@ export async function getAll(postId) {
     const response = await fetch(`${BASE_URL}?${params.toString()}`);
 
     const comments = await response.json();
-    
+
     return comments;
 }
