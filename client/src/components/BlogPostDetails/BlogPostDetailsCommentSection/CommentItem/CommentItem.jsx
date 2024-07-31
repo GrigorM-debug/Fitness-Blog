@@ -1,10 +1,11 @@
 import { useCreateReply, useGetReplies } from '../../../../hooks/useCommentsReplies';
 import styles from './CommentItem.module.css';
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 import useForm from '../../../../hooks/useForm';
 import Preloader from '../../../Preloader/Preloader';
 import ReplyForm from './ReplyForm/ReplyForm';
 import ReplyItem from './ReplyItem/ReplyItem';
+import UserContext from '../../../../contexts/userContext';
 
 export default function CommentItem({
     author,
@@ -12,6 +13,10 @@ export default function CommentItem({
     text,
     commentId
 }) {
+    const {contextData} = useContext(UserContext);
+
+    const isAuthenticated = contextData.isAuthenticated;
+
     const initialValues = {
         reply: ''
     }
@@ -40,14 +45,17 @@ export default function CommentItem({
                 <a
                     href="#"
                     onClick={(e) => {
-                        e.preventDefault(); // Prevent the default anchor behavior
-                        setIsReplying(!isReplying);
+                        e.preventDefault();
+                        if (isAuthenticated) {
+                            setIsReplying(!isReplying);
+                        } // Prevent the default anchor behavior
                     }}
                 >
                     <i className={`fa ${isReplying ? 'fa-times' : 'fa-share-square-o'}`}></i>
                 </a>
             </div>
-                    
+
+            {/* Comment  */}
             <div className={styles.coPic} >
                 <img src={authorProfilePic} alt="Author profile pic" />
                 <h5>{author}</h5>
@@ -59,14 +67,16 @@ export default function CommentItem({
             </div>  
 
             {isReplying && (
-                <ReplyForm 
-                    onSubmit={onSubmitHandler} 
-                    onChangeHandler={onChangeHandler} 
-                    values={formData}
-                    errors={errors}
-                />
+                isAuthenticated && 
+                    <ReplyForm 
+                        onSubmit={onSubmitHandler} 
+                        onChangeHandler={onChangeHandler} 
+                        values={formData}
+                        errors={errors}
+                    />
             )}
 
+            {/* Replies */}
             {isFetching ? (
                     < Preloader/>
                 ) : (

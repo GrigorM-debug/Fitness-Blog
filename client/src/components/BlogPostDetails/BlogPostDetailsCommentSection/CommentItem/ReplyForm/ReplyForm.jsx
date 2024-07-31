@@ -6,7 +6,6 @@ export default function ReplyForm({
     values,
     errors
 }) {
-    console.log(errors)
     return (
         <form onSubmit={onSubmit} className={styles.replyForm}>
             <p className={styles.errorMessage}>{errors ? errors.serverError : ''}</p>
