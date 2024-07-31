@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:3030/data/comments';
 
-export default async function createComment(gameId, text) {
+export default async function createComment(postId, text) {
     const token = localStorage.getItem('auth-token');
 
     await fetch(BASE_URL, {
@@ -13,9 +13,9 @@ export default async function createComment(gameId, text) {
     })
 }
 
-export default async function getAll(gameId) {
+export default async function getAll(postId) {
     const params = new URLSearchParams({
-        where: `gameId="${gameId}"`,
+        where: `postId="${postId}"`,
         load: `author=_ownerId:users`
     })
 

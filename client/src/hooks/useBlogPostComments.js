@@ -10,7 +10,7 @@ export function useCreateComment() {
     const [newComment, setNewComment] = useState({})
     const [errors, setErrors] = useState({});
 
-    const createCommentHandler = async (gameId, text) => {
+    const createCommentHandler = async (postId, text) => {
 
         const validationResult = commentsFormValidations(text);
 
@@ -20,12 +20,12 @@ export function useCreateComment() {
         }
 
         try {
-            const result = await createComment(gameId, text);
+            const result = await createComment(postId, text);
             setNewComment(result);
         } catch (err) {
             setErrors({serverError: err.message});
         }
     }
 
-    return [newComment, errors, ];
+    return [createCommentHandler, errors];
 }

@@ -9,12 +9,7 @@ import { useState } from "react";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
-
     const [post, isFetching] = useGetOneBlogPost(blogPostId);
-
-    const [comments, setComments] = useState([]);
-
-    console.log(post)
 
     return (
         <>
@@ -58,7 +53,8 @@ export default function BlogPostDetails() {
                                     imageUrl={post.author.imageUrl}
                                 />
 
-                                <BlogPostDetailsCommentSection />
+                                <BlogPostDetailsCommentSection 
+                                />
                             </div>
                         </div>
                     </div>
