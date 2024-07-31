@@ -3,10 +3,17 @@ import useForm from '../../../hooks/useForm';
 import { useCreateComment, useGetAll } from '../../../hooks/useBlogPostComments';
 import CommentItem from './CommentItem/CommentItem';
 import Preloader from '../../Preloader/Preloader';
+import UserContext from '../../../contexts/userContext';
+import LeaveComment from './LeaveCommentSection/LeaveComment';
+import { useContext } from 'react';
 
 export default function BlogPostDetailsCommentSection({
     postId
 }) {
+    const {contextData} = useContext(UserContext);
+
+    const isAuthenticated = contextData.isAuthenticated;
+
     const initialValues = {
         comment: ''
     }
@@ -33,7 +40,7 @@ export default function BlogPostDetailsCommentSection({
                 <div className={styles.commentOption}>
                     <h5 className={styles.coTitle}>Comment</h5>
                     {isFetching ? (
-                        <Preloader/>
+                        <Preloader />
                     ) : (
                         comments.map((comment) => (
                             <CommentItem 
@@ -47,18 +54,13 @@ export default function BlogPostDetailsCommentSection({
                 </div>
             </div>
             <div className="col-lg-6">
-                <div className={styles.leaveComment}>
-                    <h5>Leave a comment</h5>
-                    <form onSubmit={onSubmitHandler}>
-                        <textarea
-                            name='comment' 
-                            placeholder="Comment" 
-                            onChange={onChangeHandler}
-                            value={formData.comment}
-                        />    
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+                {isAuthenticated && 
+                    <LeaveComment 
+                        onChangeHandler={onChangeHandler}
+                        onSubmitHandler={onSubmitHandler}
+                        formData={formData}
+                    />
+                }
             </div>
         </div>
         </>
