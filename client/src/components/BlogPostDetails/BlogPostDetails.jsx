@@ -54,6 +54,7 @@ export default function BlogPostDetails() {
                                 />
 
                                 <BlogPostDetailsCommentSection 
+                                    postId={blogPostId}
                                 />
                             </div>
                         </div>

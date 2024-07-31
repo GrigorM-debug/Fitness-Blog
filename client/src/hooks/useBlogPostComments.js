@@ -1,6 +1,6 @@
 import { useState } from "react";
 import commentsFormValidations from "../vaidations/commentsFormValidations";
-import createComment from "../api/blogPostsComments_API";
+import {createComment} from "../api/blogPostsComments_API";
 
 export function useGetAll() {
 
@@ -11,6 +11,8 @@ export function useCreateComment() {
     const [errors, setErrors] = useState({});
 
     const createCommentHandler = async (postId, text) => {
+
+        console.log(`Hook is getting this ${postId} ${text}`)
 
         const validationResult = commentsFormValidations(text);
 

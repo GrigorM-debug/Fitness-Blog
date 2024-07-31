@@ -1,15 +1,19 @@
 import styles from './BlogPostDetailsCommentSection.module.css';
 import useForm from '../../../hooks/useForm';
+import { useCreateComment } from '../../../hooks/useBlogPostComments';
 
-export default function BlogPostDetailsCommentSection() {
-
-    
+export default function BlogPostDetailsCommentSection({
+    postId
+}) {
     const initialValues = {
         comment: ''
     }
+    
+    const [createCommentHandler, errors] = useCreateComment();
 
-    const onSubmit = (formData) => {
-        console.log(formData);
+    
+    const onSubmit = async ({comment}) => {
+        await createCommentHandler(postId, comment);
     }
 
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, onSubmit);
@@ -41,6 +45,7 @@ export default function BlogPostDetailsCommentSection() {
                             name='comment' 
                             placeholder="Comment" 
                             onChange={onChangeHandler}
+                            value={formData.comment}
                         />    
                         <button type="submit">Submit</button>
                     </form>

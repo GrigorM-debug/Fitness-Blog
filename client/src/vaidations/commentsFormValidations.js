@@ -4,4 +4,6 @@ export default function commentsFormValidations(text) {
     if(!text) {
         errors.text = 'Comment text is required';
     } 
+
+    return errors;
 }
