@@ -56,6 +56,7 @@ export default function BlogPostDetailsCommentSection({
                         onSubmitHandler={onSubmitHandler}
                         formData={formData}
                         isDisabled={!isAuthenticated}
+                        errors={errors}
                     />
             </div>
         </div>

@@ -4,16 +4,19 @@ export default function LeaveComment({
     onSubmitHandler,
     onChangeHandler,
     formData,
-    isDisabled
+    isDisabled,
+    errors
 }) {
     return (
         <div className={styles.leaveComment}>
             <h5>Leave a comment</h5>
             <form onSubmit={onSubmitHandler}>
+                <p className={styles.erroMessage}>{errors ? errors.serverError : ''}</p>
+                <p className={styles.erroMessage}>{errors ? errors.text : ''}</p>
                 <textarea
                     name='comment' 
                     placeholder="Comment" 
-                    className={isDisabled ? styles.disabled : ''}
+                    className={`${isDisabled ? styles.disabled : ''} ${errors ? styles.error : ''}`}
                     onChange={onChangeHandler}
                     value={formData.comment}
                 />    

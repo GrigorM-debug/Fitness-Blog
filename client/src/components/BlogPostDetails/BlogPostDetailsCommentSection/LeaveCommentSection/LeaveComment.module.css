@@ -92,3 +92,11 @@
     color: #888;
     font-size: 0.9em;
 }
+
+.erroMessage {
+	color: red;
+}
+
+.error {
+	border: 2px solid red;
+}

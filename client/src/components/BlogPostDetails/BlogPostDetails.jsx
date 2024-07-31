@@ -5,6 +5,8 @@ import BlogPostDetailsHero from "./BlogPostDetailsHero/BlogPostDetailsHero";
 import { useParams } from "react-router";
 import { useGetOneBlogPost } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
+import { useContext } from "react";
+import UserContext from "../../contexts/userContext";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
