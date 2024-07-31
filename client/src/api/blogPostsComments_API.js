@@ -1,8 +1,6 @@
 const BASE_URL = 'http://localhost:3030/data/comments';
 
 export async function createComment(postId, text) {
-    console.log(`Api is getting this ${postId}, ${text}`)
-    
     const token = localStorage.getItem('auth-token');
 
    const response =  await fetch(BASE_URL, {
@@ -26,6 +24,8 @@ export async function getAll(postId) {
     })
 
     const response = await fetch(`${BASE_URL}?${params.toString()}`);
-    const comments = await response.json()
+
+    const comments = await response.json();
+    
     return comments;
 }

@@ -39,15 +39,15 @@ export function validateRegisterForm(formData) {
     //Country validation
     if(!formData.country) {
         errors.country = 'Country is required !';
-    } else if (formData.country.length < 5) {
-        errors.country = 'Country must be at least 5 characters long !';
+    } else if (formData.country.length < 3) {
+        errors.country = 'Country must be at least 3 characters long !';
     }
 
     //City validation
     if(!formData.city) {
         errors.city = 'City is required !';
-    } else if (formData.city.length < 5) {
-        errors.city = 'City must be at least 5 characters long !';
+    } else if (formData.city.length < 3) {
+        errors.city = 'City must be at least 3 characters long !';
     }
 
     //Image Url validation 

@@ -1,19 +1,30 @@
-import { useState } from "react";
+import { useEffect, useInsertionEffect, useState } from "react";
 import commentsFormValidations from "../vaidations/commentsFormValidations";
-import {createComment} from "../api/blogPostsComments_API";
+import {createComment, getAll} from "../api/blogPostsComments_API";
 
-export function useGetAll() {
+export function useGetAll(postId) {
+    const [comments, setComments] = useState([]);
 
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await getAll(postId);
+                setComments(result);
+            } catch (err) {
+                console.error("Failed to fetch comments:", err);
+            } 
+        })();
+    }, [postId]);
+
+    return comments;
 }
 
 export function useCreateComment() {
-    const [newComment, setNewComment] = useState({})
+    // const [newComment, setNewComment] = useState({})
     const [errors, setErrors] = useState({});
+    const [isFetching, setIsFetching] = useState(false);
 
     const createCommentHandler = async (postId, text) => {
-
-        console.log(`Hook is getting this ${postId} ${text}`)
-
         const validationResult = commentsFormValidations(text);
 
         if(Object.keys(validationResult).length > 0) {
@@ -22,12 +33,17 @@ export function useCreateComment() {
         }
 
         try {
+            setIsFetching(true)
             const result = await createComment(postId, text);
-            setNewComment(result);
+            // setNewComment(result);
+            console.log(result)
+            return result;
         } catch (err) {
             setErrors({serverError: err.message});
+        } finally {
+            setIsFetching(false);
         }
     }
 
-    return [createCommentHandler, errors];
+    return [createCommentHandler, errors, isFetching];
 }
