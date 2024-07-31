@@ -14,6 +14,8 @@ export default function useForm(initialData, handleSubmitCallback) {
         e.preventDefault();
 
         handleSubmitCallback(formData);
+        
+        setFormData(initialData);
     } 
 
     return {formData, onChangeHandler, onSubmitHandler};
