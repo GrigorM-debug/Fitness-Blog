@@ -18,3 +18,15 @@ export async function likeComment(commentId) {
     return result;
 }
 
+export async function getLikes(commentId) {
+    const params = new URLSearchParams({
+        where: `commentId="${commentId}"`,
+    })
+
+    const response = await fetch(`${BASE_URL}?${params.toString()}`);
+
+    // const result = await response.json();
+    const result = await response.json();
+
+    return result;
+}

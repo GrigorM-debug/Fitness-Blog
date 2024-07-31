@@ -14,7 +14,6 @@ export async function createReply(newComment) {
 
     const result = await response.json();
 
-    console.log(result)
     return result;
 }
 
@@ -26,6 +25,5 @@ export async function getReplies(commentId) {
 
     const response = await fetch(`${BASE_URL}?${params.toString()}`);
     const replies = await response.json();
-    console.log(replies)
     return replies;
 }

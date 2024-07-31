@@ -6,7 +6,7 @@ import Preloader from '../../../Preloader/Preloader';
 import ReplyForm from './ReplyForm/ReplyForm';
 import ReplyItem from './ReplyItem/ReplyItem';
 import UserContext from '../../../../contexts/userContext';
-import { useLikeCommend } from '../../../../hooks/useCommentLikes';
+import { useGetLikeStatus, useLikeCommend } from '../../../../hooks/useCommentLikes';
 
 export default function CommentItem({
     author,
@@ -17,7 +17,8 @@ export default function CommentItem({
     const {contextData} = useContext(UserContext);
 
     const isAuthenticated = contextData.isAuthenticated;
-
+    const userId = contextData._id;
+    
     const initialValues = {
         reply: ''
     }
@@ -39,10 +40,19 @@ export default function CommentItem({
     const likeHandler = useLikeCommend();
 
     const handleLikeClick = async (commentId) => {
-        console.log(commentId)
         await likeHandler(commentId);
+        updateLikes()
     }
 
+    const [likes, updateLikes] = useGetLikeStatus(commentId);
+
+    const [isLiked, setIsLiked] = useState(false);
+
+    // if(likes.some(l => l._ownerId === userId)) {
+    //     setIsLiked(true);
+    // }
+
+    // console.log(isLiked)
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
 
     return (
@@ -57,11 +67,9 @@ export default function CommentItem({
                         }
                     }}
                 >
-                    <i className="fa fa-heart-o"></i>
+                    <i className={`fa ${isLiked ? 'fa-heart' : 'fa-heart-o'}`}></i>
                 </a>
               
-              
-                <a href="#"><i className="fa fa-heart"></i></a>
                 <a
                     href="#"
                     onClick={(e) => {
