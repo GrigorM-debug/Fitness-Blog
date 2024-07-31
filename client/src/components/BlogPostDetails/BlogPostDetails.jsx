@@ -7,6 +7,7 @@ import { useGetOneBlogPost } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
+import { useGetAll } from "../../hooks/useBlogPostComments";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
@@ -15,6 +16,10 @@ export default function BlogPostDetails() {
     const {contextData} = useContext(UserContext);
 
     const isAuthenticated = contextData.isAuthenticated;
+
+    //Do the same for likes
+    const [comments] = useGetAll(blogPostId);
+    
 
     return (
         <>
@@ -25,6 +30,8 @@ export default function BlogPostDetails() {
                 imageUrl={post.imageUrl} 
                 category={post.category} 
                 authorName={post.author.username}
+                commentsCount={comments.length}
+
             />
 
             <section className={`${styles.blogDetailsSection} spad`}>
