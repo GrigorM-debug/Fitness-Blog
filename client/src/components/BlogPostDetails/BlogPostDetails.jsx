@@ -5,11 +5,14 @@ import BlogPostDetailsHero from "./BlogPostDetailsHero/BlogPostDetailsHero";
 import { useParams } from "react-router";
 import { useGetOneBlogPost } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
-import { useState } from "react";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
     const [post, isFetching] = useGetOneBlogPost(blogPostId);
+
+    const {contextData} = useContext(UserContext);
+
+    const isAuthenticated = contextData.isAuthenticated;
 
     return (
         <>
@@ -55,6 +58,7 @@ export default function BlogPostDetails() {
 
                                 <BlogPostDetailsCommentSection 
                                     postId={blogPostId}
+                                    isAuthenticated={isAuthenticated}
                                 />
                             </div>
                         </div>

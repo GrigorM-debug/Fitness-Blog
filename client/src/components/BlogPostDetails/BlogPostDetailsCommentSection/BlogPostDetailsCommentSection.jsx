@@ -8,12 +8,9 @@ import LeaveComment from './LeaveCommentSection/LeaveComment';
 import { useContext } from 'react';
 
 export default function BlogPostDetailsCommentSection({
-    postId
+    postId,
+    isAuthenticated
 }) {
-    const {contextData} = useContext(UserContext);
-
-    const isAuthenticated = contextData.isAuthenticated;
-
     const initialValues = {
         comment: ''
     }
