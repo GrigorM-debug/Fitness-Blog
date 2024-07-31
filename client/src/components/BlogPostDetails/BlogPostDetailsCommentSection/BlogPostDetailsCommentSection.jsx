@@ -10,16 +10,19 @@ export default function BlogPostDetailsCommentSection({
     const initialValues = {
         comment: ''
     }
-    const comments = useGetAll(postId);
+
+    const [comments, updateComments] = useGetAll(postId);
     
     const [createCommentHandler, errors, isFetching] = useCreateComment();
 
     
     const onSubmit = async ({comment}) => {
-         await createCommentHandler(postId, comment);
+        const newComment = await createCommentHandler(postId, comment);
+        if (newComment) {
+            updateComments();
+        }
     }
 
-    console.log(isFetching)
 
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, onSubmit);
 

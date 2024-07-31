@@ -1,4 +1,4 @@
-import { useEffect, useInsertionEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import commentsFormValidations from "../vaidations/commentsFormValidations";
 import {createComment, getAll} from "../api/blogPostsComments_API";
 
@@ -16,34 +16,36 @@ export function useGetAll(postId) {
         })();
     }, [postId]);
 
-    return comments;
+    const updateComments = async () => {
+        const newCommentsState = await getAll(postId);
+        setComments(newCommentsState);
+    }
+
+    return [comments, updateComments];
 }
 
 export function useCreateComment() {
-    // const [newComment, setNewComment] = useState({})
     const [errors, setErrors] = useState({});
     const [isFetching, setIsFetching] = useState(false);
 
     const createCommentHandler = async (postId, text) => {
         const validationResult = commentsFormValidations(text);
 
-        if(Object.keys(validationResult).length > 0) {
+        if (Object.keys(validationResult).length > 0) {
             setErrors(validationResult);
             return;
         }
 
+        setIsFetching(true);
         try {
-            setIsFetching(true)
             const result = await createComment(postId, text);
-            // setNewComment(result);
-            console.log(result)
             return result;
         } catch (err) {
-            setErrors({serverError: err.message});
+            setErrors({ serverError: err.message });
         } finally {
             setIsFetching(false);
         }
-    }
+    };
 
     return [createCommentHandler, errors, isFetching];
 }
