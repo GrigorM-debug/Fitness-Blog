@@ -5,11 +5,12 @@ import BlogPostDetailsHero from "./BlogPostDetailsHero/BlogPostDetailsHero";
 import { useParams } from "react-router";
 import { useGetOneBlogPost } from "../../hooks/useBlogPosts";
 import Preloader from "../Preloader/Preloader";
-import { useContext } from "react";
+import { useContext, useState, useEffect} from "react";
 import UserContext from "../../contexts/userContext";
 import { useGetAll } from "../../hooks/useBlogPostComments";
 import AuthorButtons from "./AuthorButtons/AuthorButtons";
 import LikeButton from "./LikeButton/LikeButton";
+import { useGetLikes, useLikePost } from "../../hooks/usePostLikes";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
@@ -23,9 +24,36 @@ export default function BlogPostDetails() {
     //Do the same for likes
     const [comments] = useGetAll(blogPostId);
     
-    //Check this 
+    //Check if user is post author 
     const isAuthor = userId === post._ownerId;
     const isUser = !!isAuthenticated;
+
+    //Take the likes
+    //Set is Liked and Disable Like Button when isLiked
+    const [isLiked, setIsLiked] = useState(false);
+    const [isLikeDisabled, setIsLikeDisabled] = useState(false);
+
+    const [likes, updateLikes] = useGetLikes(blogPostId);
+    const likeHandler = useLikePost();
+
+    useEffect(() => {
+        if (likes.length > 0 && likes.some(like => like._ownerId === userId)) {
+            setIsLiked(true);
+            setIsLikeDisabled(true);
+        } else {
+            setIsLiked(false);
+            setIsLikeDisabled(false);
+        }
+    }, [likes, userId]);
+
+    const postId = post._id;
+
+    const likeButtonHandler = async (e) => {
+        e.preventDefault();
+        await likeHandler(postId);
+        updateLikes();
+        console.log('Post is liked')
+    }
 
     return (
         <>
@@ -67,7 +95,13 @@ export default function BlogPostDetails() {
                                 {/* Like Button for Users and Edit and Delete for Authors*/}
                                 {   isAuthor && <AuthorButtons /> }
 
-                                {isUser && !isAuthor && <LikeButton />}
+                                {isUser 
+                                    && !isAuthor 
+                                    && <LikeButton 
+                                        likeButtonHandler={likeButtonHandler}
+                                        isLikeDisabled={isLikeDisabled}
+                                        isLiked={isLiked}
+                                    />}
 
                                 <BlogDetailsCreatorSection 
                                     name={post.author.username}
