@@ -40,7 +40,7 @@ export default function CreateHealthyRecipe() {
             <div class="w-96">
                 <div class="relative w-full min-w-[200px]">
                     <label
-                      class=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      class=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                       Ingredients
                     </label>
                     <textarea
@@ -53,7 +53,7 @@ export default function CreateHealthyRecipe() {
             <div class="w-96">
                 <div class="relative w-full min-w-[200px]">
                     <label
-                      class="left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      class="left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                       Instructions
                     </label>
                     <textarea
@@ -64,7 +64,7 @@ export default function CreateHealthyRecipe() {
             </div>
 
             <div>
-                <label htmlFor="photo" className="block text-sm font-medium leading-6 text-white">
+                <label htmlFor="photo" className="block text-sm font-bold leading-6 text-white">
                   Image Url
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
@@ -73,7 +73,7 @@ export default function CreateHealthyRecipe() {
                   <input
                     id="imageUrl"
                     name="imageUrl"
-                    placeholder="placeholder='Write image Url'"
+                    placeholder="Write image Url"
                     className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
