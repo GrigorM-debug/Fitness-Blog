@@ -5,6 +5,8 @@ export default function LikeButton({
     isLiked,
     isLikeDisabled
 }) {
+    console.log(isLiked)
+    console.log(isLikeDisabled)
     return (
         <div className={styles.parentContainer}>
             <button 

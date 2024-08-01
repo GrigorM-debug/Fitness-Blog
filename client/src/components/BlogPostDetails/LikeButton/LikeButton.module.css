@@ -30,3 +30,10 @@
 .likeButton i {
     margin-left: 0.5em;
 }
+
+.disabled {
+    background-color: #ccc; 
+    color: #666;
+    pointer-events: none; 
+    cursor: not-allowed; 
+}
