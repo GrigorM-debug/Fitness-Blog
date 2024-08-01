@@ -19,6 +19,7 @@ export default function LeaveComment({
                     className={`${isDisabled ? styles.disabled : ''} ${errors ? styles.error : ''}`}
                     onChange={onChangeHandler}
                     value={formData.comment}
+                    disabled={isDisabled}
                 />    
                 {isDisabled && <p className={styles.disabledNotice}>You must be logged in to comment.</p>}
                 <button type="submit">Submit</button>
