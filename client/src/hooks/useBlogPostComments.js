@@ -4,6 +4,7 @@ import {createComment, getAll} from "../api/blogPostsComments_API";
 
 export function useGetAll(postId) {
     const [comments, setComments] = useState([]);
+    const [isFetchingComments, setIsFetchingComments] = useState(true);
 
     useEffect(() => {
         (async () => {
@@ -12,7 +13,9 @@ export function useGetAll(postId) {
                 setComments(result);
             } catch (err) {
                 console.error("Failed to fetch comments:", err);
-            } 
+            } finally {
+                setIsFetchingComments(false);s
+            }
         })();
     }, [postId]);
 
@@ -21,12 +24,12 @@ export function useGetAll(postId) {
         setComments(newCommentsState);
     }
 
-    return [comments, updateComments];
+    return [comments, updateComments, isFetchingComments];
 }
 
 export function useCreateComment() {
     const [errors, setErrors] = useState({});
-    const [isFetching, setIsFetching] = useState(false);
+    const [isFetchingNewComment, setIsFetchingNewComment] = useState(false);
 
     const createCommentHandler = async (postId, text) => {
         const validationResult = commentsFormValidations(text);
@@ -36,16 +39,16 @@ export function useCreateComment() {
             return;
         }
 
-        setIsFetching(true);
+        setIsFetchingNewComment(true);
         try {
             const result = await createComment(postId, text);
             return result;
         } catch (err) {
             setErrors({ serverError: err.message });
         } finally {
-            setIsFetching(false);
+            setIsFetchingNewComment(false);
         }
     };
 
-    return [createCommentHandler, errors, isFetching];
+    return [createCommentHandler, errors, isFetchingNewComment];
 }

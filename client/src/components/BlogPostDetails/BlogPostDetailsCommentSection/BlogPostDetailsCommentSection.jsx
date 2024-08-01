@@ -15,9 +15,9 @@ export default function BlogPostDetailsCommentSection({
         comment: ''
     }
 
-    const [comments, updateComments] = useGetAll(postId);
+    const [comments, updateComments, isFetchingComments] = useGetAll(postId);
     
-    const [createCommentHandler, errors, isFetching] = useCreateComment();
+    const [createCommentHandler, errors, isFetchingNewComment] = useCreateComment();
 
     
     const onSubmit = async ({comment}) => {
@@ -30,16 +30,18 @@ export default function BlogPostDetailsCommentSection({
 
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, onSubmit);
 
+    const isProcessing = isFetchingComments || isFetchingNewComment;
+
     return (
         <>
         <div className="row">
             <div className="col-lg-6">
                 <div className={styles.commentOption}>
                     <h5 className={styles.coTitle}>Comment</h5>
-                    {isFetching ? (
+                    {isProcessing ? (
                         <Preloader />
                     ) : (
-                        comments.map((comment) => (
+                        comments && comments.map((comment) => (
                             <CommentItem 
                                 key={comment._id}
                                 author={comment.author.username}
