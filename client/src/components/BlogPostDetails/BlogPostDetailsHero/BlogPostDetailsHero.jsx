@@ -5,7 +5,8 @@ export default function BlogPostDetailsHero({
     imageUrl,
     category,
     authorName,
-    commentsCount
+    commentsCount,
+    likesCount
 }) {
     return (
         <section className={`${styles.blogDetailsHero} set-bg`} style={{backgroundImage: `url(${imageUrl})`}}>
@@ -18,7 +19,8 @@ export default function BlogPostDetailsHero({
                                 <li>Category: {category}</li>
                                 <li>by {authorName}</li>
                                 <li>Aug,15, 2019</li>
-                                <li>{commentsCount} Comment</li>
+                                <li>{commentsCount} Comments</li>
+                                <li>{likesCount} Likes</li>
                             </ul>
                         </div>
                     </div>

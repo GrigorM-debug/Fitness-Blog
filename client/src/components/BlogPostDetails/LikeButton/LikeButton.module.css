@@ -37,3 +37,13 @@
     pointer-events: none; 
     cursor: not-allowed; 
 }
+
+.icon {
+    color: gray; 
+    font-size: 20px; 
+    margin-left: 0.5em;
+}
+
+.iconLiked {
+    color: blue; 
+}
