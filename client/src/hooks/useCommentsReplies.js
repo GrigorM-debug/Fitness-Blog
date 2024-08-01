@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getReplies, createReply} from "../api/commentsReplies_API";
-import commentsRepliesValidations from "../vaidations/commentsRepliesValidations";
+import commentsRepliesValidations from "../vaidations/userValidations/commentsRepliesValidations";
 
 export function useGetReplies(commentId) {
     const [replies, setReplies] = useState([]);

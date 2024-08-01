@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react";
 import { createPost, getOne, getLatest, getAll} from "../api/blogPost_API";
-import { blogPostsValidation } from "../vaidations/blogPostsValidations";
+import { blogPostsValidation } from "../vaidations/userValidations/blogPostsValidations";
 import { useNavigate } from "react-router";
 
 export function useCreatePost() {
