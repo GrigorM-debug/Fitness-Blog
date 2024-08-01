@@ -2,6 +2,7 @@ import styles from './LikeButton.module.css';
 import { faThumbsUp as solidThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp as regularThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export default function LikeButton({
     likeButtonHandler,
     isLiked,
