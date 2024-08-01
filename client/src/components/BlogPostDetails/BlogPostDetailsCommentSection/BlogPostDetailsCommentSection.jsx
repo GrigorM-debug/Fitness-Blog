@@ -9,7 +9,7 @@ import { useContext } from 'react';
 
 export default function BlogPostDetailsCommentSection({
     postId,
-    isAuthenticated
+    isAuthenticated,
 }) {
     const initialValues = {
         comment: ''
@@ -32,6 +32,7 @@ export default function BlogPostDetailsCommentSection({
 
     const isProcessing = isFetchingComments || isFetchingNewComment;
 
+
     return (
         <>
         <div className="row">
@@ -45,6 +46,7 @@ export default function BlogPostDetailsCommentSection({
                             <CommentItem 
                                 key={comment._id}
                                 author={comment.author.username}
+                                authorId={comment.author._id}
                                 authorProfilePic={comment.author.imageUrl}
                                 text={comment.text}
                                 commentId={comment._id}

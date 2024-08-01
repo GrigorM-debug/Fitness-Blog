@@ -12,7 +12,8 @@ export default function CommentItem({
     author,
     authorProfilePic,
     text,
-    commentId
+    commentId,
+    authorId
 }) {
     const {contextData} = useContext(UserContext);
 
@@ -62,6 +63,14 @@ export default function CommentItem({
     // console.log(isLiked)
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
 
+    // const [isCommentAuthor, setIsCommentAuthor] = useState(userId === authorId);
+    
+    // useEffect(() => {
+    //     setIsCommentAuthor(userId === authorId);
+    // }, [userId, authorId]);
+
+    const isCommentAuthor = userId === authorId;
+
     return (
         <div className={styles.coItem}>
             <div className={styles.coWidget}>
@@ -69,7 +78,7 @@ export default function CommentItem({
                     href="#"
                     onClick={(e) => {
                         e.preventDefault();
-                        if(isAuthenticated) {
+                        if(isAuthenticated && !isCommentAuthor) {
                             handleLikeClick(commentId);
                         }
                     }}
