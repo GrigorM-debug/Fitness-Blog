@@ -63,12 +63,6 @@ export default function CommentItem({
     // console.log(isLiked)
     const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, handleReplySubmit);
 
-    // const [isCommentAuthor, setIsCommentAuthor] = useState(userId === authorId);
-    
-    // useEffect(() => {
-    //     setIsCommentAuthor(userId === authorId);
-    // }, [userId, authorId]);
-
     const isCommentAuthor = userId === authorId;
 
     return (
