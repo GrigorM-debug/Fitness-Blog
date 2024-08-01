@@ -50,7 +50,7 @@ export default function CommentItem({
     const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
     useEffect(() => {
-        if (likes.some(like => like._ownerId === userId)) {
+        if (likes.length > 0 && likes.some(like => like._ownerId === userId)) {
             setIsLiked(true);
             setIsLikeDisabled(true);
         } else {
@@ -115,7 +115,7 @@ export default function CommentItem({
             {isFetching ? (
                     < Preloader/>
                 ) : (
-                    replies && replies.map((reply) => (
+                    replies && replies.length > 0 && replies.map((reply) => (
                         <ReplyItem 
                             key={reply._id}
                             authorProfilePic={reply.author.imageUrl}

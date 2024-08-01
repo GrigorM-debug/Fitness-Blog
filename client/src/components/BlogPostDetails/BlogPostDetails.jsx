@@ -25,7 +25,7 @@ export default function BlogPostDetails() {
     
     //Check this 
     const isAuthor = userId === post._ownerId;
-    const isGuest = !!isAuthenticated;
+    const isUser = !!isAuthenticated;
 
     return (
         <>
@@ -67,7 +67,7 @@ export default function BlogPostDetails() {
                                 {/* Like Button for Users and Edit and Delete for Authors*/}
                                 {   isAuthor && <AuthorButtons /> }
 
-                                {isGuest && <LikeButton />}
+                                {isUser && !isAuthor && <LikeButton />}
 
                                 <BlogDetailsCreatorSection 
                                     name={post.author.username}
@@ -84,7 +84,7 @@ export default function BlogPostDetails() {
                         </div>
                     </div>
                 </div>
-                </section>
+            </section>
             </>
         }
         </>
