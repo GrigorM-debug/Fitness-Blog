@@ -8,34 +8,24 @@ export function createHelthyRecipesValidations(formData) {
         errors.title = 'Title must be at least 5 characters long !';
     }
 
-    //Category validations
-    if(formData.category === 'Choose a category') {
-        errors.category = 'Please select category !';
+    //Ingredients Validations
+    if(!formData.ingredients) {
+        errors.subTitle = 'Ingredients is required';
+    } else if (formData.ingredients.length < 5) {
+        errors.title = 'Ingredients must be at least 5 characters long !';
     }
 
-    //Subtitle Validations
-    if(!formData.subTitle) {
-        errors.subTitle = 'Subtitle is required';
-    } else if (formData.subTitle.length < 5) {
-        errors.title = 'Subtitle must be at least 5 characters long !';
-    }
-
-    //Short Description validations
-    if(!formData.shortDescription) {
-        errors.shortDescription = 'Short description is required !'; 
-    } else if(formData.shortDescription.length < 10) {
-        errors.shortDescription = 'Short description must at least 10 characters long !';
-    }
-
-    //Content validations
-    if(!formData.content) {
-        errors.content = 'Content is required !';
-    } else if (formData.content.length < 30) {
-        errors.content = 'Content must be at least 30 characters long !'
+    //Instructions validations
+    if(!formData.instructions) {
+        errors.instructions = 'Instructions description is required !'; 
+    } else if(formData.instructions.length < 5) {
+        errors.Instructions = 'Short instructions must at least 5 characters long !';
     }
 
     //Image URL validations
-    if(formData.imageUrl !== '' && !/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
+    if(!ormData.imageUrl) {
+        errors.imageUrl = 'Image Url is required !';
+    } else if(!/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
         errors.imageUrl = 'Invalid Image Url';
     }
 
