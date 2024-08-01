@@ -19,8 +19,8 @@ export default function BlogPostDetailsHero({
                                 <li>Category: {category}</li>
                                 <li>by {authorName}</li>
                                 <li>Aug,15, 2019</li>
-                                <li>{commentsCount} Comments</li>
-                                <li>{likesCount} Likes</li>
+                                <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
+                                <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>
                         </div>
                     </div>
