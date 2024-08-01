@@ -1,3 +1,5 @@
+import { useGetAll } from '../../../hooks/useBlogPostComments';
+import { useGetLikes } from '../../../hooks/usePostLikes';
 import { timestampToDate } from '../../../utils/timeSpanToDate';
 import styles from './BlogItem.module.css';
 import { Link } from 'react-router-dom';
@@ -11,6 +13,9 @@ export default function BlogItem({
     category,
     createdOn
 }) {
+
+    const [comments] = useGetAll(id);
+    const [likes] = useGetLikes(id);
     return (
         <div className={styles.blogItem}>
             <div className={styles.blogItemPic}>
@@ -26,7 +31,8 @@ export default function BlogItem({
                     <li>Category: {category}</li>
                     <li>Author: {creator}</li>
                     <li>CreatedOn: {timestampToDate(createdOn)}</li>
-                    <li>20 Comment</li>
+                    <li>{comments.length} Comments</li>
+                    <li>{likes.length} Likes</li>
                 </ul>
                 <p>
                     {shortDescription}
