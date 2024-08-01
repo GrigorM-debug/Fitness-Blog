@@ -43,6 +43,8 @@ export default function BlogPostDetails() {
     const [likes, updateLikes] = useGetLikes(blogPostId);
     const likeHandler = useLikePost();
 
+    //Wihout this useEffect React gives a error for too many re-renders
+    //So I put it as Side Effect
     useEffect(() => {
         if (likes.length > 0 && likes.some(like => like._ownerId === userId)) {
             setIsLiked(true);

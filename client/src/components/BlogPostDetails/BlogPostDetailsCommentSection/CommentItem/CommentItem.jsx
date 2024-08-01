@@ -50,6 +50,8 @@ export default function CommentItem({
     const [isLiked, setIsLiked] = useState(false);
     const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
+    //Wihout this useEffect React gives a error for too many re-renders
+    //So I put it as Side Effect
     useEffect(() => {
         if (likes.length > 0 && likes.some(like => like._ownerId === userId)) {
             setIsLiked(true);
