@@ -20,7 +20,7 @@ export default function CreateBlogPost() {
 
     const formSubmit = async (formData) => {
         const postId = await createPost(formData);
-
+        console.log(postId)
         if(postId) {
             //Todo navigate on details page
             navigate(`/blog/${postId}/details`);

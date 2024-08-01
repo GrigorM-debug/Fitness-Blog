@@ -35,9 +35,7 @@ export function blogPostsValidation(formData) {
     }
 
     //Image URL validations
-    if(!formData.imageUrl) {
-        errors.imageUrl = 'Image Url is required !';
-    } else if(!/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
+    if(formData.imageUrl !== '' && !/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
         errors.imageUrl = 'Invalid Image Url';
     }
 

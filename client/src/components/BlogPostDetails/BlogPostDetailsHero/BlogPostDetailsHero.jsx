@@ -8,8 +8,14 @@ export default function BlogPostDetailsHero({
     commentsCount,
     likesCount
 }) {
+    const defaultImageUrl = 'img/blog/blog-2.jpg'; // Default image URL
+    const backgroundImageUrl = imageUrl && imageUrl.trim() !== '' ? imageUrl : defaultImageUrl;
+
     return (
-        <section className={`${styles.blogDetailsHero} set-bg`} style={{backgroundImage: `url(${imageUrl})`}}>
+        <section 
+            className={`${styles.blogDetailsHero} set-bg`} 
+            style={{backgroundImage: `url(${backgroundImageUrl})`}}
+        >
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 p-0 m-auto">
@@ -18,7 +24,7 @@ export default function BlogPostDetailsHero({
                             <ul>
                                 <li>Category: {category}</li>
                                 <li>by {authorName}</li>
-                                <li>Aug,15, 2019</li>
+                                <li>Aug 15, 2019</li>
                                 <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
                                 <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>

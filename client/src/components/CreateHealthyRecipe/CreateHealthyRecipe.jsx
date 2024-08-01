@@ -1,25 +1,12 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
-import { useRef } from 'react';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
 export default function CreateHealthyRecipe() {
-    const fileInputRef = useRef(null);
-
-    const handleButtonClick = () => {
-        fileInputRef.current.click();
-    };
-
-    const handleFileChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-        console.log('Selected file:', file);
-        // You can add code here to handle the file, such as uploading it to a server
-        }
-    };
+    
 
     return (
         <>
-        <Breadcrumb title="Create Healthy Recipe" page="Create Healthy Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
+        <Breadcrumb title="Create Healthy High Protein Recipe" page="Create Healthy High Protein Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -29,14 +16,14 @@ export default function CreateHealthyRecipe() {
             className="mx-auto h-20 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-            Create Your Healthy Recipe
+            Create Your Healthy High Protein Recipe
           </h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form className="space-y-6">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
+              <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
                 Recipe Title
               </label>
               <div className="mt-2">
@@ -53,46 +40,42 @@ export default function CreateHealthyRecipe() {
             <div class="w-96">
                 <div class="relative w-full min-w-[200px]">
                     <label
-                    class=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                    Ingredients
+                      class=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      Ingredients
                     </label>
                     <textarea
-                    class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                    placeholder='Example: 200g Oats, 2 Eggs...'></textarea>
+                      class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+                      placeholder='Example: 200g Oats, 2 Eggs...'
+                    />
                 </div>
             </div>
 
             <div class="w-96">
                 <div class="relative w-full min-w-[200px]">
                     <label
-                    class="left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                    Instructions
+                      class="left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-normal leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      Instructions
                     </label>
                     <textarea
-                    class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
-                    placeholder='Example: Peel the banana and discard skin. Add the banana, cracked eggs and protein powder...'></textarea>
+                      class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+                      placeholder='Example: Peel the banana and discard skin. Add the banana, cracked eggs and protein powder...' 
+                    />
                 </div>
             </div>
 
             <div>
                 <label htmlFor="photo" className="block text-sm font-medium leading-6 text-white">
-                Photo
+                  Image Url
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
-                <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-                {/* <button
-                    type="button"
-                    onClick={handleButtonClick}
-                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                    Add
-                </button> */}
-                <input
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handleFileChange}
-                    className="text-white"
-                />
+                  <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+              
+                  <input
+                    id="imageUrl"
+                    name="imageUrl"
+                    placeholder="placeholder='Write image Url'"
+                    className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
                 </div>
             </div>
 
