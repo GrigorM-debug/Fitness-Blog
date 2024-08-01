@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import commentsFormValidations from "../vaidations/commentsFormValidations";
 import {createComment, getAll} from "../api/blogPostsComments_API";
 
@@ -14,7 +14,7 @@ export function useGetAll(postId) {
             } catch (err) {
                 console.error("Failed to fetch comments:", err);
             } finally {
-                setIsFetchingComments(false);s
+                setIsFetchingComments(false);
             }
         })();
     }, [postId]);

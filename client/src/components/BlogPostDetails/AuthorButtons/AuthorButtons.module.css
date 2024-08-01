@@ -1,10 +1,16 @@
 .authButtons {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .authButtons a{
-	padding: 2em;
+	padding: 1em;
 	color: white;
+    font-weight: bold;
 	background-color: #f36100;
+    margin-bottom: 8em;
+}
+
+.authButtons i {
+    margin-left: 0.5em;
 }

@@ -2,5 +2,11 @@
     color: white;
     background-color: #f36100;
     padding: 1em;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 8em;
+    align-items: center;
+}
+
+.likeButton i {
+    margin-left: 0.5em;
 }

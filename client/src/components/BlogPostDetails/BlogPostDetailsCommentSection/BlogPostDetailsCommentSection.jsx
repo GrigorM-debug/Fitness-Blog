@@ -37,11 +37,11 @@ export default function BlogPostDetailsCommentSection({
         <div className="row">
             <div className="col-lg-6">
                 <div className={styles.commentOption}>
-                    <h5 className={styles.coTitle}>Comment</h5>
+                    <h5 className={styles.coTitle}>Comments</h5>
                     {isProcessing ? (
                         <Preloader />
                     ) : (
-                        comments && comments.map((comment) => (
+                        comments && comments.length > 0 && comments.map((comment) => (
                             <CommentItem 
                                 key={comment._id}
                                 author={comment.author.username}
