@@ -8,7 +8,6 @@ import Preloader from "../Preloader/Preloader";
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
 import { useGetAll } from "../../hooks/useBlogPostComments";
-import { Link } from "react-router-dom";
 import AuthorButtons from "./AuthorButtons/AuthorButtons";
 import LikeButton from "./LikeButton/LikeButton";
 
