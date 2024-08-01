@@ -21,15 +21,22 @@ export default function BlogPostDetails() {
     const isAuthenticated = contextData.isAuthenticated;
     const userId = contextData._id;
 
-    //Do the same for likes
-    const [comments] = useGetAll(blogPostId);
-    
+    //Taking the comments to dispay their count in hero section
+    //Invoke updateComments function to update the comments when new
+    //comment is added. Commets count is also updated in hero section
+    //Wihout calling the function Comments count updates only after refresh (re-render)
+    const [comments, updateComments] = useGetAll(blogPostId);
+    updateComments();
+
     //Check if user is post author 
     const isAuthor = userId === post._ownerId;
     const isUser = !!isAuthenticated;
 
     //Take the likes
-    //Set is Liked and Disable Like Button when isLiked
+    //Set is Liked and Disable Like Button when isLiked is true
+    //ThumbsUp icons is with solid style with blue color. Before like is regular stylewith gray color.
+    //When isLikeDisabled is true the Like button is disabled to prevent multiple likes by user
+    //Button styles is changing to gray color for background when post is liked
     const [isLiked, setIsLiked] = useState(false);
     const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
