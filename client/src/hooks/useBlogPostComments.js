@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import commentsFormValidations from "../vaidations/userValidations/commentsFormValidations";
 import {createComment, getAll} from "../api/blogPostsComments_API";
+import commentsFormValidations from'../vaidations/blogPostsValidations/commentsFormValidations';
 
 export function useGetAll(postId) {
     const [comments, setComments] = useState([]);
