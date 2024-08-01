@@ -1,0 +1,10 @@
+.authButtons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.authButtons a{
+	padding: 2em;
+	color: white;
+	background-color: #f36100;
+}

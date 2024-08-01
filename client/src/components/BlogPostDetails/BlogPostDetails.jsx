@@ -8,6 +8,9 @@ import Preloader from "../Preloader/Preloader";
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
 import { useGetAll } from "../../hooks/useBlogPostComments";
+import { Link } from "react-router-dom";
+import AuthorButtons from "./AuthorButtons/AuthorButtons";
+import LikeButton from "./LikeButton/LikeButton";
 
 export default function BlogPostDetails() {
     const {blogPostId} = useParams();
@@ -16,10 +19,13 @@ export default function BlogPostDetails() {
     const {contextData} = useContext(UserContext);
 
     const isAuthenticated = contextData.isAuthenticated;
+    const userId = contextData._id;
 
     //Do the same for likes
     const [comments] = useGetAll(blogPostId);
     
+    //Check this 
+    const isAuthor = userId === post._ownerId;
 
     return (
         <>
@@ -57,6 +63,9 @@ export default function BlogPostDetails() {
                                         {post.content}
                                     </p>
                                 </div>
+
+                                {/* Like Button for Users and Edit and Delete for Authors*/}
+                                {   isAuthor ? <AuthorButtons /> : <LikeButton /> }
 
                                 <BlogDetailsCreatorSection 
                                     name={post.author.username}

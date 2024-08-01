@@ -115,19 +115,7 @@ export default function CommentItem({
             {isFetching ? (
                     < Preloader/>
                 ) : (
-                    replies.map((reply) => (
-                        // <div className={`${styles.coItem} ${styles.replyComment}`}>
-                        //     <div className={styles.coPic}>
-                        //         <img src={reply.author.imageUrl} alt=""/>
-                        //         <h5>{reply.author.username}</h5>
-                        //     </div>
-                        //     <div className={styles.coText}>
-                        //         <p>
-                        //             {reply.text}
-                        //         </p>
-                        //     </div>
-                        // </div>
-
+                    replies && replies.map((reply) => (
                         <ReplyItem 
                             key={reply._id}
                             authorProfilePic={reply.author.imageUrl}
