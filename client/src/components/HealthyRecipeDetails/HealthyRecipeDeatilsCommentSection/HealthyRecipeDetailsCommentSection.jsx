@@ -1,18 +1,63 @@
 import CommentItem from "./CommentItem/CommentItem";
 import LeaveComment from "./LeaveCommentSection/LeaveComment";
 import styles from './HealthyRecipeDetailsCommentSection.module.css';
+import { useCreateComment, useGetAll } from "../../../hooks/useRecipesComments";
+import useForm from "../../../hooks/useForm";
 
-export default function HealthyRecipeDetailsCommentSection() {
+export default function HealthyRecipeDetailsCommentSection({
+    recipeId,
+    isAuthenticated,
+}) {
+    const initialValues = {
+        comment: ''
+    }
+
+    const [comments, updateComments, isFetchingComments] = useGetAll(recipeId);
+    
+    const [createCommentHandler, errors, isFetchingNewComment] = useCreateComment();
+
+    
+    const onSubmit = async ({comment}) => {
+        const newComment = await createCommentHandler(recipeId, comment);
+        if (newComment) {
+            updateComments();
+        }
+    }
+
+
+    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, onSubmit);
+
+    const isProcessing = isFetchingComments || isFetchingNewComment;
+
     return (
         <div className="row">
             <div className="col-lg-6">
                 <div className={styles.commentOption}>
                     <h5 className={styles.coTitle}>Comment</h5>
-                    <CommentItem />
+                    {isProcessing ? (
+                        <Preloader />
+                    ) : (
+                        comments && comments.length > 0 && comments.map((comment) => (
+                            <CommentItem 
+                                key={comment._id}
+                                author={comment.author.username}
+                                authorId={comment.author._id}
+                                authorProfilePic={comment.author.imageUrl}
+                                text={comment.text}
+                                commentId={comment._id}
+                            />
+                        ))
+                    )}
                 </div>
             </div>
             <div className="col-lg-6">
-                <LeaveComment />
+                <LeaveComment
+                    onChangeHandler={onChangeHandler}
+                    onSubmitHandler={onSubmitHandler}
+                    formData={formData}
+                    isDisabled={!isAuthenticated}
+                    errors={errors}
+                />
             </div>
             </div>
     );

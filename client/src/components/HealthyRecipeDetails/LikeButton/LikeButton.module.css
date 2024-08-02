@@ -1,0 +1,49 @@
+/* .likeButton {
+    color: white;
+    background-color: #f36100;
+    padding: 1em;
+    margin: 0 auto;
+    margin-bottom: 8em;
+    font-weight: bold;
+    align-items: center;
+}
+
+.likeButton i {
+    margin-left: 0.5em;
+} */
+.parentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.likeButton {
+    color: white;
+    background-color: #f36100;
+    padding: 1em;
+    margin-bottom: 8em;
+    font-weight: bold;
+    display: flex; 
+    align-items: center;
+}
+
+.likeButton i {
+    margin-left: 0.5em;
+}
+
+.disabled {
+    background-color: #ccc; 
+    color: #666;
+    pointer-events: none; 
+    cursor: not-allowed; 
+}
+
+.icon {
+    color: gray; 
+    font-size: 20px; 
+    margin-left: 0.5em;
+}
+
+.iconLiked {
+    color: blue; 
+}

@@ -8,11 +8,19 @@ export function createHelthyRecipesValidations(formData) {
         errors.title = 'Title must be at least 5 characters long !';
     }
 
+    
+    //Subtitle Validations
+    if(!formData.subTitle) {
+        errors.subTitle = 'Subtitle is required';
+    } else if (formData.subTitle.length < 5) {
+        errors.subTitle = 'Subtitle must be at least 5 characters long !';
+    }
+
     //Ingredients Validations
     if(!formData.ingredients) {
-        errors.subTitle = 'Ingredients is required';
+        errors.ingredients = 'Ingredients is required';
     } else if (formData.ingredients.length < 5) {
-        errors.title = 'Ingredients must be at least 5 characters long !';
+        errors.ingredients = 'Ingredients must be at least 5 characters long !';
     }
 
     //Instructions validations

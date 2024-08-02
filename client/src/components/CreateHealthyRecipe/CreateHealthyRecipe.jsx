@@ -8,6 +8,7 @@ import Preloader from '../Preloader/Preloader';
 export default function CreateHealthyRecipe() {
     const initialData = {
         title: '',
+        subTitle: '',
         ingredients: '',
         instructions: '',  
         description: '',
@@ -62,6 +63,23 @@ export default function CreateHealthyRecipe() {
                   className={`p-2 block w-full rounded-md border-2 ${errors.title ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                   onChange={onChangeHandler}
                   value={formData.title}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
+                SubTitle
+              </label>
+              <div className="mt-2">
+                <p className="text-red-600">{errors ? errors.subTitle : ''}</p>
+                <input
+                  id="subTitle"
+                  name="subTitle"
+                  placeholder="Example: Banana Pancakes"
+                  className={`p-2 block w-full rounded-md border-2 ${errors.subTitle ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                  onChange={onChangeHandler}
+                  value={formData.subTitle}
                 />
               </div>
             </div>

@@ -8,6 +8,8 @@ import UserContext from '../../contexts/userContext';
 import { useGetAll } from '../../hooks/useRecipesComments';
 import { useGetLikes } from '../../hooks/useRecipeLikes';
 import Preloader from '../Preloader/Preloader';
+import LikeButton from './LikeButton/LikeButton';
+import AuthorButtons from './AuthButtons/AuthButtons';
 
 export default function HealthyRecipeDetails() {
     const {recipeId} = useParams();
@@ -79,47 +81,51 @@ export default function HealthyRecipeDetails() {
                 <div className="col-lg-8 p-0 m-auto">
                     <div className={styles.blogPostDetailsText}>
                         <div className={styles.blogPostDetailsTitle}>
-                            <h5>You Can Buy For Less Than A College Degree</h5>
+                            <h5>{recipe.subTitle}</h5>
                         </div>
                             <div className={styles.BlogPostDetailsDescription}>
                                 <p>
-                                Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    {recipe.description}
                                 </p>
                             </div>
                             <div className={styles.blogPostDetailsPic}>
                                 <div className={styles.blogPostDetailsPicItem}>
-                                    <img src="img/blog/details/details-1.jpg" alt="" />
+                                    <img src={recipe.imageUrl} alt="" />
                                 </div>
                             </div>
                             <div className={styles.BlogPostDetailsMoreDescription}>
                                 <p>
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in. . Sed ut perspiciatis unde omnis iste natus error sit
-                                voluptatem.
+                                    {recipe.ingredients}
                                 </p>
+                            </div>
+                            <div className={styles.BlogPostDetailsMoreDescription}>
                                 <p>
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                eiusmod tempor incididunt laboris nisi ut aliquip commodo
-                                consequat. Class aptent taciti sociosqu ad litora torquent per
-                                conubia nostra, per inceptos himenaeos. Mauris vel magna ex.
-                                Integer gravida tincidunt accumsan. Vestibulum nulla mauris,
-                                condimentum id felis ac, volutpat volutpat mi qui dolorem.
+                                    {recipe.instructions}
                                 </p>
                             </div>
 
-                            <HealthyRecipeDetailsCreatorSection />
+                            {/* Like Button for Users and Edit and Delete for Authors*/}
+                            {   isAuthor && <AuthorButtons /> }
 
-                            <HealthyRecipeDetailsCommentSections />
+                            {isUser 
+                                && !isAuthor 
+                                && <LikeButton 
+                                    likeButtonHandler={likeButtonHandler}
+                                    isLikeDisabled={isLikeDisabled}
+                                    isLiked={isLiked}
+                                />}
+
+                            <HealthyRecipeDetailsCreatorSection 
+                                name={recipe.author.username}
+                                email={recipe.author.email} 
+                                description={recipe.author.description} 
+                                imageUrl={recipe.author.imageUrl}
+                            />
+
+                            <HealthyRecipeDetailsCommentSections 
+                                recipeId={recipeId}
+                                isAuthenticated={isAuthenticated}
+                            />
                         </div>
                     </div>
                 </div>

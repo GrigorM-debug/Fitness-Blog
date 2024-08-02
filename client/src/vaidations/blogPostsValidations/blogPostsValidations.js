@@ -17,7 +17,7 @@ export function blogPostsValidation(formData) {
     if(!formData.subTitle) {
         errors.subTitle = 'Subtitle is required';
     } else if (formData.subTitle.length < 5) {
-        errors.title = 'Subtitle must be at least 5 characters long !';
+        errors.subTitle = 'Subtitle must be at least 5 characters long !';
     }
 
     //Short Description validations

@@ -116,7 +116,7 @@ export default function BlogPostDetails() {
                                 <BlogDetailsCreatorSection 
                                     name={post.author.username}
                                     email={post.author.email} 
-                                    description={post.description} 
+                                    description={post.author.description} 
                                     imageUrl={post.author.imageUrl}
                                 />
 

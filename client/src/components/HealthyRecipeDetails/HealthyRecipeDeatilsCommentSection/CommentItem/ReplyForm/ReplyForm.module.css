@@ -1,0 +1,49 @@
+
+.replyForm {
+	font-size: 13px;
+	color: #c4c4c4;
+	width: 100%;
+	/* height: 50px; */
+	/* padding-left: 7px; */
+	/* padding-right: 5px; */
+	background: transparent;
+	/* margin-bottom: 20px; */
+	/* margin-right: 2em; */
+}
+
+.replyForm textarea{
+	width: 50%;
+	height: 50px;
+	color: black;
+}
+
+.formFields {
+	display: flex;
+	justify-content: space-between;
+}
+
+.replyForm .replyFormButton {
+	margin-left: 1em;
+	/* margin-top: 2em; */
+	margin-bottom: 2em;
+	padding: 10px;
+	color:white;
+	background-color: #f36100;
+	width: 50%;
+	height: 50px;
+}
+
+.replyForm .replyFormButton:hover,
+.replyForm .replyFormButton:focus {
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+}
+
+.error {
+	border: 2px solid red;
+}
+
+.errorMessage {
+	color: red;
+}
