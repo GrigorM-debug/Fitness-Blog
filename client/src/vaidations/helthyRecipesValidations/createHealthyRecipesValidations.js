@@ -23,7 +23,7 @@ export function createHelthyRecipesValidations(formData) {
     }
 
     //Image URL validations
-    if(!ormData.imageUrl) {
+    if(!formData.imageUrl) {
         errors.imageUrl = 'Image Url is required !';
     } else if(!/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
         errors.imageUrl = 'Invalid Image Url';
