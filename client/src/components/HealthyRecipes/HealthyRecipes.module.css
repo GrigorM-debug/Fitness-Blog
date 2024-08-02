@@ -12,6 +12,10 @@
     margin-top: 20px; /* Add some space between the heading and the items */
 }
 
+.healthyRecipeSection h2 {
+    color: #fff;
+}
+
 @media only screen and (max-width: 768px){
     .container {
         display: flex;
