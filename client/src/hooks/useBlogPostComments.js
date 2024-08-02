@@ -3,7 +3,6 @@ import commentsFormValidations from'../vaidations/commentsFormValidations';
 import { getAll } from "../api/recipes_API";
 import { createComment } from "../api/recipesComments_API";
 
-
 export function useGetAll(recipeId) {
     const [comments, setComments] = useState([]);
     const [isFetchingComments, setIsFetchingComments] = useState(true);
