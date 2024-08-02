@@ -18,6 +18,7 @@ import AlertModal from './components/LogoutModal/AlertModal';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import {IsGuest, IsUser} from './components/ProtectedRoutes/RoutesGuards';
 import BlogPostDetails from './components/BlogPostDetails/BlogPostDetails';
+import HealthyRecipeDetails from './components/HealthyRecipeDetails/HealthyRecipeDetails';
 
 function App() {
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
@@ -43,6 +44,7 @@ function App() {
           <Route path="/BMICalculator" element={<BMICalculator />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='/blog/:blogPostId/details' element={<BlogPostDetails />}/>
+          <Route path='/healthy-recipes/:recipeId/details' element={< HealthyRecipeDetails/>}/>
 
           <Route element={<IsGuest/>}>
             <Route path="/register" element={<Register />} />
