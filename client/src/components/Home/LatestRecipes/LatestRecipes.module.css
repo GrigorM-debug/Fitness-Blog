@@ -2,6 +2,10 @@
 	background: #151515;
 }
 
+.latestRecipesSection h2 {
+	color: white;
+}
+
 .latestRecipesSection.team-page {
 	padding-bottom: 70px;
 }

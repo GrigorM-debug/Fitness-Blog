@@ -3,35 +3,11 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import styles from './LatestRecipes.module.css';
+import { Link } from 'react-router-dom';
 
-const LatestRecipes = () => {
-    const recipes = [
-        {
-            title: 'Blueberry Pancakes',
-            creator: 'Creator Name',
-            setBg: '/img/blueberry-protein-pancakes-6.jpg',
-            link: '#'
-        },
-        {
-            title: 'Creamy Cajun Chicken Pasta',
-            creator: 'Creator Name',
-            setBg: '/img/pasta.jpg',
-            link: '#'
-        },
-        {
-            title: 'Banana Cake',
-            creator: 'Creator Name',
-            setBg: '/img/banana-cake.jpg',
-            link: '#'
-        },
-        {
-            title: 'Simple High-Protein Lasagne',
-            creator: 'Creator Name',
-            setBg: '/img/lasanq.jpg',
-            link: '#'
-        }
-    ];
-
+export default function LatestRecipes ({
+    recipes
+}){
     const responsive = {
         0: {
             items: 1,
@@ -51,7 +27,7 @@ const LatestRecipes = () => {
                     <div className="col-lg-12">
                         <div className={styles.lsTitle}>
                             <div className={`${styles.sectionTitle} section-title`}>
-                                <h2>Our latest Healthy Recipes</h2>
+                                <h2>Our Latest Healthy High Recipes</h2>
                             </div>
                         </div>
                     </div>
@@ -69,12 +45,12 @@ const LatestRecipes = () => {
                         autoplay
                         responsive={responsive}
                     >
-                        {recipes.map((item, index) => (
+                        {recipes && recipes.length > 0 ? recipes.map((recipe) => (
                             <div className="item" key={index}>
                                 <div 
                                     className={`${styles.lsItem}`} 
                                     style={{ 
-                                        backgroundImage: `url(${item.setBg})`,
+                                        backgroundImage: `url(${recipe.imageUrl})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         height: '450px',
@@ -82,13 +58,15 @@ const LatestRecipes = () => {
                                     }}
                                 >
                                     <div className={styles.lsText}>
-                                        <h4>{item.title}</h4>
-                                        <span>Created by: <p>{item.creator}</p></span>
-                                        <a href={item.link}>View Recipe Details</a>
+                                        <h4>{recipe.title}</h4>
+                                        <span>Created by: <p>{recipe.author.username}</p></span>
+                                        <Link to={`/healthy-recipes/${recipe._id}/details`}>View Recipe Details</Link>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        ))
+                        : <h2>There is no post added</h2>
+                        }
                     </OwlCarousel>
                 </div>
             </div>
@@ -96,4 +74,3 @@ const LatestRecipes = () => {
     );
 };
 
-export default LatestRecipes;
