@@ -107,7 +107,7 @@ export default function BlogPostDetails() {
                                 </div>
 
                                 {/* Like Button for Users and Edit and Delete for Authors*/}
-                                {   isAuthor && <AuthorButtons itemTitle={post.title}/> }
+                                {   isAuthor && <AuthorButtons itemTitle={post.title} itemId={post._id}/> }
 
                                 {isUser 
                                     && !isAuthor 

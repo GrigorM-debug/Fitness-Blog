@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { createPost, getOne, getLatest, getAll} from "../api/blogPost_API";
+import { createPost, getOne, getLatest, getAll, deletePost} from "../api/blogPost_API";
 import { useNavigate } from "react-router";
 import { blogPostsValidation } from "../vaidations/blogPostsValidations/blogPostsValidations";
 
@@ -23,7 +23,7 @@ export function useCreatePost() {
             return _id;
         } catch (err) {
             setIsFetching(false);
-            setErrors({serverError: err.mesaage});
+            setErrors({serverError: err.message});
             return null;
         }
     }
@@ -89,4 +89,22 @@ export function useGetLatest() {
     }, [])
 
     return [latestPosts, isFetching]
+}
+
+export function useDeletePost() {
+    const [error, setError] = useState({});
+    // const [isDeleted, setIsDeleted] = useState(false);
+
+    const deleteHandler = async (postId) => {
+        try {
+            const result = await deletePost(postId)
+            // setIsDeleted(result);
+            console.log(result)
+            return result;
+        } catch (err) {
+            setError({serverError: err.message})
+        }
+    }
+
+    return [error, deleteHandler]
 }

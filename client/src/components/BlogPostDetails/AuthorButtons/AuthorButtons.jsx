@@ -3,22 +3,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import DeleteAlertModal from '../../DeleteAlertModal/DeleteAlertModal';
+import { useDeletePost } from '../../../hooks/useBlogPosts';
+import SuccessfullyDeletedModal from '../../SuccessfullyDeletedModal/SuccessfullyDeletedModal';
 
 export default function AuthorButtons({
-    itemTitle
+    itemTitle,
+    itemId
 }) {
 
     const [isDeleteAlertModalOpen, setDeleteAlertModalOpen] = useState(false);
+    const [isDeleteSuccesfullyModalOpen, setDeleteSuccesfullyModalOpen] = useState(false);
+
 
     const openDeleteAlertModal = () => setDeleteAlertModalOpen(true);
     const closeDeleteAlertModal = () => setDeleteAlertModalOpen(false);
 
-    const handleDelete = () => {
-    
-        // Handle the delete action here (e.g., call an API)
-        console.log('Item deleted');
+    const openSuccessfullyDeletedModal = () => setDeleteSuccesfullyModalOpen(true);
+    const closeSuccessfullyDeletedModal = () => setDeleteSuccesfullyModalOpen(false);
+
+    const [error, deleteHandler] = useDeletePost();
+
+
+    const handleDelete = async () => {
         //Call Delete method. If seccess show Successfully Deleted Modal
-        closeDeleteAlertModal();
+        const success = await deleteHandler(itemId)
+
+        if(success) {
+            closeDeleteAlertModal();
+            openSuccessfullyDeletedModal();
+        }
+
+        // closeSuccessfullyDeletedModal();
+        // closeDeleteAlertModal();
     };
 
     return (
@@ -39,6 +55,12 @@ export default function AuthorButtons({
                 onClose={closeDeleteAlertModal}
                 onConfirm={handleDelete}
                 itemTitle={itemTitle}
+                errorMessage={error.serverError}
+            />
+
+            <SuccessfullyDeletedModal 
+                isOpen={isDeleteSuccesfullyModalOpen}
+                onClose={closeSuccessfullyDeletedModal}
             />
         </>
     );
