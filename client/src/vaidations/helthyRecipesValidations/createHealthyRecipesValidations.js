@@ -11,23 +11,30 @@ export function createHelthyRecipesValidations(formData) {
     
     //Subtitle Validations
     if(!formData.subTitle) {
-        errors.subTitle = 'Subtitle is required';
+        errors.subTitle = 'Subtitle is required !';
     } else if (formData.subTitle.length < 5) {
         errors.subTitle = 'Subtitle must be at least 5 characters long !';
     }
 
+    //Description validations
+    if(!formData.description) {
+        errors.description = 'Description is required !';
+    } else if(formData.description.length < 10) {
+        errors.description = 'Description must be at least 10 characters long !';
+    }
+
     //Ingredients Validations
     if(!formData.ingredients) {
-        errors.ingredients = 'Ingredients is required';
+        errors.ingredients = 'Ingredients are required !';
     } else if (formData.ingredients.length < 5) {
         errors.ingredients = 'Ingredients must be at least 5 characters long !';
     }
 
     //Instructions validations
     if(!formData.instructions) {
-        errors.instructions = 'Instructions description is required !'; 
+        errors.instructions = 'Instructions are required !'; 
     } else if(formData.instructions.length < 5) {
-        errors.Instructions = 'Short instructions must at least 5 characters long !';
+        errors.Instructions = 'Short instructions must be at least 5 characters long !';
     }
 
     //Image URL validations

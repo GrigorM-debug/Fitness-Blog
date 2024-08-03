@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import styles from './AuthorButtons.module.css';
+import styles from './AuthButtons.module.css';
 
 export default function AuthorButtons() {
     return (

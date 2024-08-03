@@ -8,7 +8,7 @@ export default function RecipeItem({
     recipeId
 }) {
     return (
-        <div className={styles.hrItem} key={index} style={{ backgroundImage: `url(${imageUrl})` }}>
+        <div className={styles.hrItem} style={{ backgroundImage: `url(${imageUrl})` }}>
             <div className={styles.hrText}>
                 <h4>{title}</h4>
                 <span>Created by: <p>{author}</p></span>

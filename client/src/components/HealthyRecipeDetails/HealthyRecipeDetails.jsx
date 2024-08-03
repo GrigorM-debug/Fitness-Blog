@@ -3,10 +3,11 @@ import HealthyRecipeDetailsCommentSection from './HealthyRecipeDeatilsCommentSec
 import styles from './HealthyRecipeDetails.module.css';
 import HealthyRecipeDetailsHero from './HealthyRecipeDetailsHero/HealthyRecipeDetailsHero';
 import HealthyRecipeDetailsCreatorSection from './HealthyRecipeDetalsCreatorSection/HealthyRecipeDetailsCreatorSection';
-import { useParams, useState, useEffect, useContext } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import UserContext from '../../contexts/userContext';
 import { useGetAll } from '../../hooks/useRecipesComments';
-import { useGetLikes } from '../../hooks/useRecipeLikes';
+import { useGetLikes, useLikeRecipe } from '../../hooks/useRecipeLikes';
 import Preloader from '../Preloader/Preloader';
 import LikeButton from './LikeButton/LikeButton';
 import AuthorButtons from './AuthButtons/AuthButtons';
@@ -28,7 +29,7 @@ export default function HealthyRecipeDetails() {
     updateComments();
 
     //Check if user is post author 
-    const isAuthor = userId === post._ownerId;
+    const isAuthor = userId === recipe._ownerId;
     const isUser = !!isAuthenticated;
 
     //Take the likes
@@ -40,7 +41,7 @@ export default function HealthyRecipeDetails() {
     const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
     const [likes, updateLikes] = useGetLikes(recipeId);
-    const likeHandler = useLikePost();
+    const likeHandler = useLikeRecipe();
 
     //Wihout this useEffect React gives a error for too many re-renders
     //So I put it as Side Effect

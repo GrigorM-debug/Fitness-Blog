@@ -1,4 +1,4 @@
-import styles from './HealthyRecipeCreatorSection.module.css'
+import styles from './HealthyRecipeDetailsCreatorSection.module.css';
 
 export default function HealthyRecipeDetailsCreatorSection({
     name,

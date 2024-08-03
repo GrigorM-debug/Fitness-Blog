@@ -2,6 +2,7 @@ import styles from './HealthyRecipes.module.css';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { useGetLatestRecipes } from '../../hooks/useRecipes';
 import RecipeItem from './RecipeItem/RecipeItem';
+import Preloader from '../Preloader/Preloader';
 
 export default function HealthyRecipes() {
 

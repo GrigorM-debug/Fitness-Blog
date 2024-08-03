@@ -21,7 +21,7 @@ export function useCreateRecipe() {
             // setIsFetching(true)
             const {_id} =  await createRecipe(newRecipeData);
             setRecipeId(_id);
-            return recipeId;
+            return _id;
         } catch (err) {
             setIsFetching(false);
             setErrors({serverError: err.mesaage});

@@ -92,7 +92,7 @@ export default function CreateHealthyRecipe() {
                     </label>
                     <p className="text-red-600">{errors ? errors.description : ''}</p>
                     <textarea
-                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] border-2 ${errors.description ? 'border-red-600' : 'border-gray-300'} border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
+                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] border-2 ${errors.description ? 'border-red-600' : 'border-gray-300'} border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
                       name='description'
                       onChange={onChangeHandler}
                       value={formData.description}
@@ -108,7 +108,7 @@ export default function CreateHealthyRecipe() {
                     </label>
                     <p className="text-red-600">{errors ? errors.ingredients : ''}</p>
                     <textarea
-                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] ${errors.ingredients ? 'border-red-600' : 'border-gray-300'} border-2 border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
+                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] ${errors.ingredients ? 'border-red-600' : 'border-gray-300'} border-2 border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
                       placeholder='Example: 200g Oats, 2 Eggs...'
                       name='ingredients'
                       onChange={onChangeHandler}
@@ -125,7 +125,7 @@ export default function CreateHealthyRecipe() {
                     </label>
                     <p className="text-red-600">{errors ? errors.instructions : ''}</p>
                     <textarea
-                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] border-2 ${errors.instructions ? 'border-red-600' : 'border-gray-300'} border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-white outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
+                      className={`peer h-full min-h-[100px] w-full resize-none rounded-[7px] border-2 ${errors.instructions ? 'border-red-600' : 'border-gray-300'} border-blue-gray-200 border-t-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50`}
                       placeholder='Example: Peel the banana and discard skin. Add the banana, cracked eggs and protein powder...' 
                       name='instructions'
                       onChange={onChangeHandler}
@@ -138,9 +138,9 @@ export default function CreateHealthyRecipe() {
                 <label htmlFor="photo" className="block text-sm font-bold leading-6 text-white">
                   Image Url
                 </label>
+                <p className="text-red-600">{errors ? errors.imageUrl : ''}</p>
                 <div className="mt-2 flex items-center gap-x-3">
                   <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-                  <p className="text-red-600">{errors ? errors.imageUrl : ''}</p>
                   <input
                     id="imageUrl"
                     name="imageUrl"

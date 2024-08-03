@@ -20,7 +20,7 @@ export function useCreatePost() {
             // setIsFetching(true)
             const {_id} =  await createPost(newPostData);
             setPostId(_id);
-            return postId;
+            return _id;
         } catch (err) {
             setIsFetching(false);
             setErrors({serverError: err.mesaage});
