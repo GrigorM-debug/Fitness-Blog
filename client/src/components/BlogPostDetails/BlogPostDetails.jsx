@@ -26,7 +26,11 @@ export default function BlogPostDetails() {
     //comment is added. Comments count is also updated in hero section
     //Wihout calling the function Comments count updates only after refresh (re-render)
     const [comments, updateComments] = useGetAll(blogPostId);
-    updateComments();
+    
+    //Check this 
+    useEffect(() => {
+        updateComments();
+    }, [comments])
 
     //Check if user is post author 
     const isAuthor = userId === post._ownerId;

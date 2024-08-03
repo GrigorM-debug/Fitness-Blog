@@ -26,7 +26,7 @@ export default function HealthyRecipes() {
                         </div>
                     </div>
                     <div className={styles.content}>
-                        {recipes && recipes.length > 0 ? recipes.map(recipe => (
+                        {recipes.length > 0 ? recipes.map(recipe => (
                             // <div className={styles.hrItem} key={index} style={{ backgroundImage: `url(${item.setBg})` }}>
                             //     <div className={styles.hrText}>
                             //         <h4>{item.title}</h4>
