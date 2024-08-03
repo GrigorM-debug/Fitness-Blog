@@ -29,12 +29,15 @@ export async function getAll() {
 
 export async function getOne(recipeId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
-    const params = new URLSearchParams({
-        load: 'author=_ownerId:users'
-    });
-    const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
+    // const params = new URLSearchParams({
+    //     load: 'author=_ownerId:users'
+    // });
+    // const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
 
+    const response = await fetch(`${BASE_URL}/?load=author%3D_ownerId%3Ausers`)
     const recipe = await response.json();
+
+    console.log(recipe)
     return recipe;
 }
 

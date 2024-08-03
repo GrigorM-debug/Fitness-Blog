@@ -79,7 +79,7 @@ export default function BlogPostDetails() {
                 authorName={post.author.username}
                 commentsCount={comments.length}
                 likesCount={likes.length}
-                createdOn={post.createdOn}
+                createdOn={post._createdOn}
             />
 
             <section className={`${styles.blogDetailsSection} spad`}>
