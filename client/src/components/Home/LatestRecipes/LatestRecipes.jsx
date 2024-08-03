@@ -46,7 +46,7 @@ export default function LatestRecipes ({
                         responsive={responsive}
                     >
                         {recipes && recipes.length > 0 ? recipes.map((recipe) => (
-                            <div className="item">
+                            <div className="item" key={recipe._id}>
                                 <div 
                                     className={`${styles.lsItem}`} 
                                     style={{ 

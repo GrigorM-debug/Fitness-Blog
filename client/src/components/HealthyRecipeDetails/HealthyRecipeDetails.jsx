@@ -117,7 +117,7 @@ export default function HealthyRecipeDetails() {
                                 />}
 
                             <HealthyRecipeDetailsCreatorSection 
-                                name={recipe.author.username}
+                                name={recipe?.author.username}
                                 email={recipe.author.email} 
                                 description={recipe.author.description} 
                                 imageUrl={recipe.author.imageUrl}

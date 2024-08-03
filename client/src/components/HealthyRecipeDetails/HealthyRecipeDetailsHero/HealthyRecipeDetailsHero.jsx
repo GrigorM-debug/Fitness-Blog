@@ -1,3 +1,4 @@
+import { timestampToDate } from '../../../utils/timeSpanToDate';
 import styles from './HealthyRecipeDetailsHero.module.css';
 
 export default function HealthyRecipeDetailsHero({
@@ -17,7 +18,7 @@ export default function HealthyRecipeDetailsHero({
                             <h3>{title}</h3>
                             <ul>
                                 <li>by {authorName}</li>
-                                <li>{createdOn}</li>
+                                <li>{timestampToDate(createdOn)}</li>
                                 <li>{commentsCount} Comments</li>
                                 <li>{likesCount} Likes</li>
                             </ul>

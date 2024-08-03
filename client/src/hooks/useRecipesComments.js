@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import {createComment, getAll} from "../api/blogPostsComments_API";
 import commentsFormValidations from'../vaidations/commentsFormValidations';
+import { getAll, createComment } from "../api/recipesComments_API";
 
-export function useGetAll(postId) {
+export function useGetAll(recipeId) {
     const [comments, setComments] = useState([]);
     const [isFetchingComments, setIsFetchingComments] = useState(true);
 
     useEffect(() => {
         (async () => {
             try {
-                const result = await getAll(postId);
+                const result = await getAll(recipeId);
                 setComments(result);
             } catch (err) {
                 console.error("Failed to fetch comments:", err);
@@ -17,10 +17,10 @@ export function useGetAll(postId) {
                 setIsFetchingComments(false);
             }
         })();
-    }, [postId]);
+    }, [recipeId]);
 
     const updateComments = async () => {
-        const newCommentsState = await getAll(postId);
+        const newCommentsState = await getAll(recipeId);
         setComments(newCommentsState);
     }
 
@@ -31,7 +31,7 @@ export function useCreateComment() {
     const [errors, setErrors] = useState({});
     const [isFetchingNewComment, setIsFetchingNewComment] = useState(false);
 
-    const createCommentHandler = async (postId, text) => {
+    const createCommentHandler = async (recipeId, text) => {
         const validationResult = commentsFormValidations(text);
 
         if (Object.keys(validationResult).length > 0) {
@@ -41,7 +41,7 @@ export function useCreateComment() {
 
         setIsFetchingNewComment(true);
         try {
-            const result = await createComment(postId, text);
+            const result = await createComment(recipeId, text);
             return result;
         } catch (err) {
             setErrors({ serverError: err.message });
