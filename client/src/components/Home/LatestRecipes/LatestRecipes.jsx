@@ -45,7 +45,7 @@ export default function LatestRecipes ({
                         autoplay
                         responsive={responsive}
                     >
-                        {recipes.length > 0 ? recipes.map((recipe) => (
+                        {recipes.length > 0 ? recipes.slice(0, 5).map((recipe) => (
                             <div className="item" key={recipe._id}>
                                 <div 
                                     className={`${styles.lsItem}`} 
