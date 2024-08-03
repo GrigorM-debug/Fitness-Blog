@@ -1,3 +1,4 @@
+import { timestampToDate } from '../../../utils/timeSpanToDate';
 import styles from './BlogPostDetailsHero.module.css';
 
 export default function BlogPostDetailsHero({
@@ -6,10 +7,13 @@ export default function BlogPostDetailsHero({
     category,
     authorName,
     commentsCount,
-    likesCount
+    likesCount,
+    createdOn
 }) {
-    const defaultImageUrl = 'img/blog/blog-2.jpg'; // Default image URL
-    const backgroundImageUrl = imageUrl && imageUrl.trim() !== '' ? imageUrl : defaultImageUrl;
+
+    const defaultImageUrl = 'public/img/blog/blog-2.jpg'; // Default image URL
+    const backgroundImageUrl = imageUrl ? imageUrl : defaultImageUrl;
+
 
     return (
         <section 
@@ -24,7 +28,7 @@ export default function BlogPostDetailsHero({
                             <ul>
                                 <li>Category: {category}</li>
                                 <li>by {authorName}</li>
-                                <li>Aug 15, 2019</li>
+                                <li>Created On: {timestampToDate(createdOn)}</li>
                                 <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
                                 <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>

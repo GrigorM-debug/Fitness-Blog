@@ -18,9 +18,9 @@ export default function HealthyRecipeDetailsHero({
                             <h3>{title}</h3>
                             <ul>
                                 <li>by {authorName}</li>
-                                <li>{timestampToDate(createdOn)}</li>
-                                <li>{commentsCount} Comments</li>
-                                <li>{likesCount} Likes</li>
+                                <li>Created On: {timestampToDate(createdOn)}</li>
+                                <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
+                                <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>
                         </div>
                     </div>

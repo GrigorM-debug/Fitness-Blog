@@ -23,7 +23,7 @@ export default function BlogPostDetails() {
 
     //Taking the comments to dispay their count in hero section
     //Invoke updateComments function to update the comments when new
-    //comment is added. Commets count is also updated in hero section
+    //comment is added. Comments count is also updated in hero section
     //Wihout calling the function Comments count updates only after refresh (re-render)
     const [comments, updateComments] = useGetAll(blogPostId);
     updateComments();

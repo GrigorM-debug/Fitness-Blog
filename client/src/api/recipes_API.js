@@ -23,26 +23,25 @@ export async function getAll() {
 
     const response = await fetch(`${BASE_URL}/?${params.toString()}`)
 
-    const posts = await response.json();
-    return posts;
+    const recipes = await response.json();
+    return recipes;
 }
 
 export async function getOne(recipeId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
     const params = new URLSearchParams({
-        load: `author=_ownerId:users`
+        load: 'author=_ownerId:users'
     });
     const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
 
-    const post = await response.json();
-
-    return post;
+    const recipe = await response.json();
+    return recipe;
 }
 
 export async function getLatest() {
     const response = await fetch(`${BASE_URL}/?load=author%3D_ownerId%3Ausers&sortBy=_createdOn%20desc`) 
 
-    const posts = await response.json();
+    const recipes = await response.json();
 
-    return posts;
+    return recipes;
 }

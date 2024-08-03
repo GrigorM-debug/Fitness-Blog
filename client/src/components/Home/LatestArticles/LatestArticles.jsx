@@ -17,7 +17,7 @@ export default function LatestArticles({
                 </div>
                 <div className="row">
                     {posts.length > 0 
-                        ? posts.map((post) => (
+                        ? posts.slice(0, 3).map((post) => (
                                 <div className="col-lg-4 col-md-6" key={post._id}>
                                     <div className={styles.articleItem}>
                                         <div className={styles.laPic}>

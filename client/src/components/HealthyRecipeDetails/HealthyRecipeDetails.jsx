@@ -16,6 +16,8 @@ export default function HealthyRecipeDetails() {
     const {recipeId} = useParams();
     const [recipe, isFetching] = useGetOneRecipe(recipeId);
 
+    console.log(recipe)
+
     const {contextData} = useContext(UserContext);
 
     const isAuthenticated = contextData.isAuthenticated;
@@ -117,7 +119,7 @@ export default function HealthyRecipeDetails() {
                                 />}
 
                             <HealthyRecipeDetailsCreatorSection 
-                                name={recipe?.author.username}
+                                name={recipe.author.username}
                                 email={recipe.author.email} 
                                 description={recipe.author.description} 
                                 imageUrl={recipe.author.imageUrl}
