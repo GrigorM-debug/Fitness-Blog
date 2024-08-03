@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 export default function LatestArticles({
     posts
 }) {
+    const defaultImageUrl = '/img/blog/blog-2.jpg';
+
     return (
         <section className={`${styles.latestArticlesSection} spad`}>
             <div className="container">
@@ -17,11 +19,13 @@ export default function LatestArticles({
                 </div>
                 <div className="row">
                     {posts.length > 0 
-                        ? posts.slice(0, 3).map((post) => (
+                        ? posts.slice(0, 5).map((post) => (
                                 <div className="col-lg-4 col-md-6" key={post._id}>
                                     <div className={styles.articleItem}>
                                         <div className={styles.laPic}>
-                                            <img src={post.imageUrl} alt="" />
+                                            <img src={post.imageUrl && post.imageUrl.trim() !== '' 
+                                            ? post.imageUrl 
+                                            : defaultImageUrl} alt="" />
                                         </div>
                                         <div className={styles.laText}>
                                             <span>Category: {post.category}</span>

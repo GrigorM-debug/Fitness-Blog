@@ -20,7 +20,6 @@ export default function CreateHealthyRecipe() {
 
     const formSubmit = async (formData) => {
         const recipeId = await createRecipeHandler(formData);
-        console.log(recipeId)
         if(recipeId) {
             //Todo navigate on details page
             navigate(`/healthy-recipes/${recipeId}/details`);

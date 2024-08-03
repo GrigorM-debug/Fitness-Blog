@@ -10,6 +10,8 @@ export default function BlogPosts() {
 
     const [posts, isFetching] = useGetLatest();
 
+    const defaultImageUrl = '/img/blog/blog-2.jpg';
+
     return (
         <>
         {isFetching ? <Preloader /> :
@@ -30,7 +32,10 @@ export default function BlogPosts() {
                                             id={post._id}
                                             title={post.title}
                                             creator={post.author.username}
-                                            imageUrl={post.imageUrl}
+                                            imageUrl={post.imageUrl && post.imageUrl.trim() !== '' 
+                                                ? post.imageUrl 
+                                                : defaultImageUrl
+                                            }
                                             shortDescription={post.shortDescription}
                                             category={post.category}
                                             createdOn={post._createdOn}

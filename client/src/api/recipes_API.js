@@ -27,16 +27,21 @@ export async function getAll() {
     return recipes;
 }
 
-export async function getOne(recipeId) {
+export async function getOneRecipe(recipeId) {
     // const response = await fetch(`${BASE_URL}/${postId}`);
     // const params = new URLSearchParams({
     //     load: 'author=_ownerId:users'
     // });
     // const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
-
-    const response = await fetch(`${BASE_URL}/?load=author%3D_ownerId%3Ausers`)
+    console.log(recipeId)
+    // const params = new URLSearchParams({
+    //     load: `author=_ownerId:users`
+    // });
+    const response = await fetch(`http://localhost:3030/data/recipes/${recipeId}/?load=author%3D_ownerId%3Ausers`)
+    // const response = await fetch(`${BASE_URL}/${recipeId}/?load=author%3D_ownerId%3Ausers`);
+    
+    
     const recipe = await response.json();
-
     console.log(recipe)
     return recipe;
 }

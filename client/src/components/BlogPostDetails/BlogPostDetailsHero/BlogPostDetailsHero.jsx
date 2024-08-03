@@ -11,7 +11,7 @@ export default function BlogPostDetailsHero({
     createdOn
 }) {
 
-    const defaultImageUrl = 'public/img/blog/blog-2.jpg'; // Default image URL
+    const defaultImageUrl = '/img/blog/blog-2.jpg'; // Adjusted path
     const backgroundImageUrl = imageUrl ? imageUrl : defaultImageUrl;
 
 
