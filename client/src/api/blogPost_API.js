@@ -46,3 +46,22 @@ export async function getLatest() {
 
     return posts;
 }
+
+export async function deletePost(postId) {
+    const token = localStorage.getItem('auth-token');
+
+    const response = await fetch(`${BASE_URL}/${postId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        // body: JSON.stringify(postData)
+    })
+
+    if(!response.ok) {
+        return false;
+    } 
+
+    return true;
+}
