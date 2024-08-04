@@ -1,6 +1,7 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 
 export default function EditBlogPost() {
+    //0.Make route for Blog Post edit page in App Component
     //1. Take the id from params
     //2.Load the data with making querry
     //3. Give the data as initial value to useForm
