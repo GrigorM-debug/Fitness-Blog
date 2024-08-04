@@ -7,13 +7,14 @@ import UserContext from '../../../contexts/userContext';
 import LeaveComment from './LeaveCommentSection/LeaveComment';
 import { useContext } from 'react';
 
+const initialValues = {
+    comment: ''
+}
+
 export default function BlogPostDetailsCommentSection({
     postId,
     isAuthenticated,
 }) {
-    const initialValues = {
-        comment: ''
-    }
 
     const [comments, updateComments, isFetchingComments] = useGetAll(postId);
     

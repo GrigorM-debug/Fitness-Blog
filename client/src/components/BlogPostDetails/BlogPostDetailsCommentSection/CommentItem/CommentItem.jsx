@@ -8,6 +8,10 @@ import ReplyItem from './ReplyItem/ReplyItem';
 import UserContext from '../../../../contexts/userContext';
 import { useGetLikes, useLikeCommend } from '../../../../hooks/useCommentLikes';
 
+const initialValues = {
+    reply: ''
+}
+
 export default function CommentItem({
     author,
     authorProfilePic,
@@ -19,10 +23,6 @@ export default function CommentItem({
 
     const isAuthenticated = contextData.isAuthenticated;
     const userId = contextData._id;
-    
-    const initialValues = {
-        reply: ''
-    }
 
     const [isReplying, setIsReplying] = useState(false);
     const [replies, updateReplies] = useGetReplies(commentId);
