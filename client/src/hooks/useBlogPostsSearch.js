@@ -1,11 +1,20 @@
 import { useState } from "react";
 import searchPost from "../api/blogPostsSearch_API";
+import blogPostsSearchValidations from "../vaidations/blogPostsValidations/blogPostsSearchValidations";
 
 export default function useBlogPostsSearch() {
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
     const searchHandler = async (postTitle, postCategory) => {
+
+        const validationResult = blogPostsSearchValidations(postTitle, postCategory);
+
+        if(Object.keys(validationResult).length > 0) {
+            setErrors(validationResult);
+            return null;
+        }
+
         try {
             setIsLoading(true);
             const result = await searchPost(postTitle, postCategory);
@@ -14,8 +23,9 @@ export default function useBlogPostsSearch() {
         } catch (err) {
             setIsLoading(false); // Ensure this line is reached in case of error
             setErrors({ serverError: err.message });
+            return null;
         }
     };
 
-    return [isLoading, searchHandler];
+    return [isLoading, searchHandler, errors];
 }

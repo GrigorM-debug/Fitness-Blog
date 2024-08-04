@@ -3,7 +3,8 @@ import styles from './SideBar.module.css';
 export default function SideBar({
     onChange,
     onSubmit,
-    formData
+    formData,
+    errors
 }) {
 
 
@@ -13,16 +14,18 @@ export default function SideBar({
                 <div className={styles.soCategories}>
                     <h1 className={styles.title}>Search</h1>
                     <form onSubmit={onSubmit}>
+                        <p className="text-red-600">{errors ? errors.serverError : ''}</p>
                         <div className='mb-3'>
                             <label htmlFor="title" className="block text-sm font-bold leading-6 text-white">
                                 Title
                             </label>
                             <div className="mt-2">
+                            <p className="text-red-600">{errors ? errors.postTitle : ''}</p>
                                 <input
                                     id="title"
                                     name="title"
                                     placeholder="Write post Title"
-                                    className="p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className={`p-2 block w-full ${errors.postTitle ? 'border-red-600' : 'border-gray-300'} rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                     onChange={onChange}
                                     value={formData.title}
                                 />
@@ -32,10 +35,11 @@ export default function SideBar({
                             <label htmlFor="categories" className="block text-sm font-bold leading-6 text-white">
                                 Select a category
                             </label>
+                            <p className="text-red-600">{errors ? errors.postCategory : ''}</p>
                             <select
                                 id="categories"
                                 name="category"
-                                className="p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className={`p-2 block w-full ${errors.postCategory ? 'border-red-600' : 'border-gray-300'} rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                 onChange={onChange}
                                 value={formData.category}
                             >

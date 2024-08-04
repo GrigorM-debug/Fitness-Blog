@@ -27,7 +27,8 @@ export default function BlogPosts() {
         category: 'Choose a category'
     }
 
-    const [isLoading, searchHandler] = useBlogPostsSearch()
+    const [isLoading, searchHandler, errors] = useBlogPostsSearch()
+    // console.log(errors)
 
     const searchSubmitHandler = async (formData) => {
         const result = await searchHandler(formData.title, formData.category)
@@ -50,7 +51,7 @@ export default function BlogPosts() {
                             <div className={`${styles.sectionTitle} section-title`}>
                                 <h2>Our Blog Posts</h2>
                             </div>
-                            {filteredPosts.length > 0 
+                            {filteredPosts && filteredPosts.length > 0 
                                 ? filteredPosts.map((post) => (
                                         <BlogItem 
                                             key={post._id}
@@ -75,6 +76,7 @@ export default function BlogPosts() {
                             onChange={onChangeHandler}
                             onSubmit={onSubmitHandler}
                             formData={formData}
+                            errors={errors}
                         />
                     </div>
                 </div>
