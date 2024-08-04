@@ -5,6 +5,7 @@ import { useState } from 'react';
 import DeleteAlertModal from '../../DeleteAlertModal/DeleteAlertModal';
 import { useDeletePost } from '../../../hooks/useBlogPosts';
 import SuccessfullyDeletedModal from '../../SuccessfullyDeletedModal/SuccessfullyDeletedModal';
+import { Link } from 'react-router-dom';
 
 export default function AuthorButtons({
     itemTitle,
@@ -40,19 +41,19 @@ export default function AuthorButtons({
     const openEditAlertModal = () => setisEditAlertModalOpen(true)
     const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true);
 
-    
+
 
     return (
         <>
             <div className={styles.authButtons}>
-                <button type='submit'>
+                <Link to={`/blog-post/${itemId}/edit`}>
                     Edit
                     <FontAwesomeIcon icon={faEdit} style={{color: "#ffffff", marginLeft: '0.5em'} } />
-                </button>
-                <button onClick={openDeleteAlertModal}>
+                </Link>
+                <Link onClick={openDeleteAlertModal}>
                     Delete
                     <FontAwesomeIcon icon={faTrash} style={{marginLeft: '0.5em'}}/>
-                </button>
+                </Link>
             </div>
 
             <DeleteAlertModal 

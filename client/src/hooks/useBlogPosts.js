@@ -110,9 +110,15 @@ export function useDeletePost() {
 }
 
 export function useEditPost() {
-    const [error, setError] = useState({});
+    const [errors, setErrors] = useState({});
 
     const editPostHandler = async (postId, newData) => {
+        const validationResult = blogPostsValidation(newData)
+
+        if(Object.keys(validationResult).length > 0) {
+            setErrors(validationResult)
+            return;
+        }
         try {
             const result = await editPost(postId, newData);
             return result;
@@ -121,5 +127,5 @@ export function useEditPost() {
         }
     }
 
-    return [error, editPostHandler]
+    return [errors, editPostHandler]
 }

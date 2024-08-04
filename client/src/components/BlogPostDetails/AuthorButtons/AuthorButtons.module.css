@@ -3,7 +3,7 @@
 	justify-content: space-around;
 }
 
-.authButtons button{
+.authButtons a{
 	padding: 1em;
 	color: white;
     font-weight: bold;
