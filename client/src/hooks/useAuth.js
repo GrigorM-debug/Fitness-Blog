@@ -149,11 +149,11 @@ export function useGetUserRecipes(userId) {
         const fetchUserRecipes = async () => {
             try {
                 const result = await getUserRecipes(userId);
-                setUserPosts(result);
+                setUserRecipes(result);
             } catch (err) {
                 console.error(err);
             } finally {
-                setIsLoading(false); // Optional, to mark fetching complete
+                setIsLoadingData(false); // Optional, to mark fetching complete
             }
         };
 

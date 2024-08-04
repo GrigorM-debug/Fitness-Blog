@@ -3,6 +3,7 @@ import { useGetUserData, useGetUserPosts } from "../../hooks/useAuth";
 import Preloader from "../Preloader/Preloader";
 import BlogPostsWrittenSection from "./BlogPostsWrittenSection/BlogPostsWrittenSection";
 import { useGetAllRecipes } from "../../hooks/useRecipes";
+import HighProteinRecipesWrittenSection from "./HighProteinRecipesWrittenSection/HighProteinRecipesWrittenSection";
 
 export default function Profile() {
     const {userData, isPreloading} = useGetUserData();
@@ -11,9 +12,10 @@ export default function Profile() {
 
     const {userRecipes, isLoadingData} = useGetAllRecipes(userData._id);
 
-
+    console.log(userRecipes)
 
     const isFetching = isPreloading || isLoading || isLoadingData;
+
     return (
         <>
             {isFetching && <Preloader />}
@@ -68,7 +70,7 @@ export default function Profile() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12 p-10">
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Blog Posts Written</h2>
-                            {userPosts.length > 0 
+                            {userPosts && userPosts.length > 0 
                             ? userPosts.map(post => (
                                 <BlogPostsWrittenSection 
                                     key={post._id}
@@ -80,13 +82,26 @@ export default function Profile() {
                                     imageUrl={post.imageUrl}
                                 />
                             )) 
-                            : <h2 className="font-medium text-white">Not posts writed</h2>
+                            : <h2 className="mt-5 font-medium text-white text-center">Not Blog Posts written</h2>
                             }
         
                         </div>
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">High Protein Recipes Written</h2>
-                            
+                            {userRecipes && userRecipes.length > 0 
+                                ? userRecipes.map(recipe => (
+                                    <HighProteinRecipesWrittenSection 
+                                        key={recipe._id}
+                                        title={recipe.title}
+                                        createdOn={recipe._createdOn}
+                                        updatedOn={recipe._updatedOn}
+                                        description={recipe.description}
+                                        recipeId={recipe._id}
+                                        imageUrl={recipe.imageUrl}
+                                    />
+                                ))
+                                : <h2 className="font-medium text-white text-center">Not High Protein Recipes written</h2>
+                            }
                         </div>
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Liked Posts</h2>
