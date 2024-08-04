@@ -7,7 +7,6 @@ export default function Pagination({
     onPageChange
 }) {
 
-    console.log(length)
     const paginationNumbers = [];
 
     // Calculate the number of pages
