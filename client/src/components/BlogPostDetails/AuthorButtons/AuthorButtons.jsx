@@ -32,10 +32,15 @@ export default function AuthorButtons({
             closeDeleteAlertModal();
             openSuccessfullyDeletedModal();
         }
-
-        // closeSuccessfullyDeletedModal();
-        // closeDeleteAlertModal();
     };
+
+    const [isEditAlertModalOpen, setisEditAlertModalOpen] = useState(false);
+    const [isEditSuccessfullyModalOpen, setIsEditSuccessfullyModalOpen] = useState(false)
+
+    const openEditAlertModal = () => setisEditAlertModalOpen(true)
+    const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true);
+
+    
 
     return (
         <>

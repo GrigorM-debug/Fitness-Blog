@@ -65,3 +65,22 @@ export async function deletePost(postId) {
 
     return true;
 }
+
+export async function editPost(postId, newData) {
+    const token = localStorage.getItem('auth-token');
+
+    const response = await fetch(`${BASE_URL}/${postId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify(newData)
+    })
+
+    if(!response.ok) {
+        return false;
+    } 
+
+    return true;
+}
