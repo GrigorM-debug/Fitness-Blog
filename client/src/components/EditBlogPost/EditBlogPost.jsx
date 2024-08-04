@@ -1,7 +1,17 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 
 export default function EditBlogPost() {
-    
+    //1. Take the id from params
+    //2.Load the data with making querry
+    //3. Give the data as initial value to useForm
+    // 4. use useEffect and updater method in useForm to update the initial data when id is changed
+    //5. Load the data in the form
+    //6. Add validation and error messages
+    //7. When the from is submitted show modal for confirming the update
+    //8. When the update is confirm make the response to the server
+    //9. If the response is success show modal for successfull update
+        //Reuse the modal that you used for Deleting
+
 
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
