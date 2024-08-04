@@ -3,6 +3,7 @@ import { getUserData, login, logout, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
 import { validateRegisterForm } from "../vaidations/userValidations/registerUserDataValidation";
 import { validateLoginForm } from "../vaidations/userValidations/loginUserDataValidation";
+import { getUserPosts } from "../api/blogPost_API";
 
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
@@ -112,4 +113,29 @@ export function useGetUserData() {
     }, []);
 
     return { userData, isFetching };
+}
+
+
+export function useGetUserPosts(userId) {
+    const [userPosts, setUserPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchUserPosts = async () => {
+            try {
+                const result = await getUserPosts(userId);
+                setUserPosts(result);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setIsLoading(false); // Optional, to mark fetching complete
+            }
+        };
+
+        if (userId) { // Optional, only fetch if userId is provided
+            fetchUserPosts();
+        }
+    }, [userId]);
+
+    return {userPosts, isLoading};
 }

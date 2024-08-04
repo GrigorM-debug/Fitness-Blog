@@ -1,11 +1,14 @@
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import { useGetUserData } from "../../hooks/useAuth";
+import { useGetUserData, useGetUserPosts } from "../../hooks/useAuth";
 import Preloader from "../Preloader/Preloader";
+import BlogPostsWrittenSection from "./BlogPostsWrittenSection/BlogPostsWrittenSection";
 
 export default function Profile() {
     const {userData, isFetching} = useGetUserData();
     
+    const {userPosts, isLoading} = useGetUserPosts(userData._id);
 
+    console.log(userPosts)
     return (
         <>
             {isFetching && <Preloader />}
@@ -60,24 +63,21 @@ export default function Profile() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12 p-10">
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Articles Written</h2>
-                            <div className="py-8 px-8 bg-zinc-900 space-y-2">
-                                <img className="block h-50 w-100 mx-auto rounded-lg mb-4" src="img/blog/blog-1.jpg" alt="" />
-                                <div className="space-y-2">
-                                    <p className="text-lg text-white font-semibold">Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler...</p>
-                                    <ul className="flex space-x-4 text-gray-600 text-sm mb-2">
-                                        <li>Aug, 15, 2019</li>
-                                        <li>20 Comments</li>
-                                        <li>20 Likes</li>
-                                    </ul>
-                                    <p className="text-white font-medium mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua accumsan lacus facilisis.</p>
-                                    <div className="flex justify-center">
-                                        <a href="#" className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                                            Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="border-t border-gray-800" />
+                            {userPosts.length > 0 
+                            ? userPosts.map(post => (
+                                <BlogPostsWrittenSection 
+                                    key={post._id}
+                                    title={post.title}
+                                    createdOn={post._createdOn}
+                                    updatedOn={post._updatedOn}
+                                    shortDescription={post.shortDescription}
+                                    postId={post._id}
+                                    imageUrl={post.imageUrl}
+                                />
+                            )) 
+                            : <h2 className="font-medium text-white">Not posts writed</h2>
+                            }
+        
                         </div>
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Recipes Written</h2>
