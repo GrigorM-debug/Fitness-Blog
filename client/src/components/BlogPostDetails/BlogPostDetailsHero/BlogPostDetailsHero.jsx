@@ -8,7 +8,8 @@ export default function BlogPostDetailsHero({
     authorName,
     commentsCount,
     likesCount,
-    createdOn
+    createdOn,
+    updatedOn
 }) {
 
     const defaultImageUrl = '/img/blog/blog-2.jpg'; // Adjusted path
@@ -29,6 +30,7 @@ export default function BlogPostDetailsHero({
                                 <li>Category: {category}</li>
                                 <li>by {authorName}</li>
                                 <li>Created On: {timestampToDate(createdOn)}</li>
+                                <li>Updated On: {updatedOn ? timestampToDate(updatedOn) : ''}</li>
                                 <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
                                 <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>

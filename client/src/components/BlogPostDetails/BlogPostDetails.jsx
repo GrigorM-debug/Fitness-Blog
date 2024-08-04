@@ -80,6 +80,7 @@ export default function BlogPostDetails() {
                 commentsCount={comments.length}
                 likesCount={likes.length}
                 createdOn={post._createdOn}
+                updatedOn={post._updatedOn}
             />
 
             <section className={`${styles.blogDetailsSection} spad`}>
