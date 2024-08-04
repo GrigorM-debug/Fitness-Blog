@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router";
 import { createHelthyRecipesValidations } from "../vaidations/helthyRecipesValidations/createHealthyRecipesValidations";
-import { createRecipe, getAll, getLatest, getOneRecipe } from "../api/recipes_API";
+import { createRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
 
 
 export function useCreateRecipe() {
@@ -52,24 +52,19 @@ export function useGetOneRecipe(recipeId) {
     const [isFetching, setIsFetching] = useState(true);
     const navigate = useNavigate();
 
-    console.log(recipeId)
     useEffect(() => {
-        async function fetchRecipe() {
-            console.log(recipeId)
+        (async () => {
             try {
-                console.log(recipeId)
-                const result = await getOneRecipe(recipeId);
+                const result = await getOne(recipeId);
                 setRecipeData(result);
                 setIsFetching(false);
             } catch (err) {
+                console.log(err);
                 setIsFetching(false);
                 navigate('/404');
             }
-        }
-
-        fetchRecipe();
+        })();
     }, [recipeId]);
-
 
     return [recipeData, isFetching];
 }

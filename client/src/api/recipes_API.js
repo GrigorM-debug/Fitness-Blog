@@ -27,24 +27,6 @@ export async function getAll() {
     return recipes;
 }
 
-export async function getOneRecipe(recipeId) {
-    // const response = await fetch(`${BASE_URL}/${postId}`);
-    // const params = new URLSearchParams({
-    //     load: 'author=_ownerId:users'
-    // });
-    // const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
-    console.log(recipeId)
-    // const params = new URLSearchParams({
-    //     load: `author=_ownerId:users`
-    // });
-    const response = await fetch(`http://localhost:3030/data/recipes/${recipeId}/?load=author%3D_ownerId%3Ausers`)
-    // const response = await fetch(`${BASE_URL}/${recipeId}/?load=author%3D_ownerId%3Ausers`);
-    
-    
-    const recipe = await response.json();
-    console.log(recipe)
-    return recipe;
-}
 
 export async function getLatest() {
     const response = await fetch(`${BASE_URL}/?load=author%3D_ownerId%3Ausers&sortBy=_createdOn%20desc`) 
@@ -52,4 +34,13 @@ export async function getLatest() {
     const recipes = await response.json();
 
     return recipes;
+}
+
+export async function getOne(recipeId) {
+    const params = new URLSearchParams({
+        load: 'creator=_ownerId:users'
+    });
+    const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`);
+    const recipe = await response.json();
+    return recipe;
 }

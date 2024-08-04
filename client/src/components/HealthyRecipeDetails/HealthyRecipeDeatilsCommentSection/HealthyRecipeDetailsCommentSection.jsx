@@ -4,13 +4,14 @@ import styles from './HealthyRecipeDetailsCommentSection.module.css';
 import { useCreateComment, useGetAll } from "../../../hooks/useRecipesComments";
 import useForm from "../../../hooks/useForm";
 
+const initialValues = {
+    comment: ''
+}
+
 export default function HealthyRecipeDetailsCommentSection({
     recipeId,
     isAuthenticated,
 }) {
-    const initialValues = {
-        comment: ''
-    }
 
     const [comments, updateComments, isFetchingComments] = useGetAll(recipeId);
     
