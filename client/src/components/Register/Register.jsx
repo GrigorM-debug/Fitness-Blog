@@ -5,18 +5,18 @@ import useForm from '../../hooks/useForm';
 import { useRegister } from '../../hooks/useAuth';
 import Preloader from '../Preloader/Preloader';
 
-export default function Register() {
-  const initialData = {
-    username: '',
-    email: '',
-    password: '',
-    rePassword: '',
-    description: '',
-    country: '',
-    city: '',
-    imageUrl: '',
-  };
+const initialData = {
+  username: '',
+  email: '',
+  password: '',
+  rePassword: '',
+  description: '',
+  country: '',
+  city: '',
+  imageUrl: '',
+};
 
+export default function Register() {
   const [register, errors, isFetching] = useRegister();
   const navigate = useNavigate();
 

@@ -5,16 +5,16 @@ import useForm from '../../hooks/useForm';
 import { useNavigate } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
 
-export default function CreateHealthyRecipe() {
-    const initialData = {
-        title: '',
-        subTitle: '',
-        ingredients: '',
-        instructions: '',  
-        description: '',
-        imageUrl: ''
-    };
+const initialData = {
+  title: '',
+  subTitle: '',
+  ingredients: '',
+  instructions: '',  
+  description: '',
+  imageUrl: ''
+};
 
+export default function CreateHealthyRecipe() {
     const [createRecipeHandler, isFetching, errors] = useCreateRecipe();
     const navigate = useNavigate()
 

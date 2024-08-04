@@ -9,6 +9,11 @@ import { useState, useEffect } from "react";
 import useForm from "../../hooks/useForm";
 import useBlogPostsSearch from "../../hooks/useBlogPostsSearch";
 
+const initialValues = {
+    title: '',
+    category: 'Choose a category'
+}
+
 export default function BlogPosts() {
 
     const [posts, isFetching] = useGetLatest();
@@ -21,16 +26,14 @@ export default function BlogPosts() {
         setFilteredPosts(posts);
     }, [posts]);
 
-    const initialValues = {
-        title: '',
-        category: 'Choose a category'
-    }
-
     const [isLoading, searchHandler, errors] = useBlogPostsSearch();
 
     const searchSubmitHandler = async (formData) => {
         const result = await searchHandler(formData.title, formData.category);
-        setFilteredPosts(result);
+
+        if(result) {
+            setFilteredPosts(result);
+        }
     }
 
     const { formData, onChangeHandler, onSubmitHandler } = useForm(initialValues, searchSubmitHandler);
@@ -44,7 +47,7 @@ export default function BlogPosts() {
     // Calculate indices for the current page
     const indexOfLastPost = currentPage * itemsPerPage;
     const indexOfFirstPost = indexOfLastPost - itemsPerPage;
-    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = filteredPosts && filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -63,7 +66,7 @@ export default function BlogPosts() {
                             <div className={`${styles.sectionTitle} section-title`}>
                                 <h2>Our Blog Posts</h2>
                             </div>
-                            {currentPosts.length > 0 
+                            {currentPosts && currentPosts.length > 0 
                                 ? currentPosts.map((post) => (
                                         <BlogItem 
                                             key={post._id}
@@ -84,7 +87,7 @@ export default function BlogPosts() {
                             
                             <Pagination 
                                 handleItemsPerPage={itemsPerPage}
-                                length={filteredPosts.length}
+                                length={filteredPosts && filteredPosts.length}
                                 currentPage={currentPage}
                                 onPageChange={handlePageChange}
                             />

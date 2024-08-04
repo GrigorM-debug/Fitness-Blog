@@ -5,16 +5,17 @@ import { useCreatePost } from '../../hooks/useBlogPosts';
 import { useNavigate } from 'react-router';
 import Preloader from '../Preloader/Preloader';
 
-export default function CreateBlogPost() {
-    const initialData = {
-        title: '',
-        category: 'Choose a category',
-        subTitle: '',
-        shortDescription: '',  
-        content: '',
-        imageUrl: ''
-    };
 
+const initialData = {
+    title: '',
+    category: 'Choose a category',
+    subTitle: '',
+    shortDescription: '',  
+    content: '',
+    imageUrl: ''
+};
+
+export default function CreateBlogPost() {
     const [createPost, isFetching, errors] = useCreatePost();
     const navigate = useNavigate()
 

@@ -12,13 +12,14 @@ export default function useBlogPostsSearch() {
 
         if(Object.keys(validationResult).length > 0) {
             setErrors(validationResult);
-            return null;
+            return;
         }
 
         try {
             setIsLoading(true);
             const result = await searchPost(postTitle, postCategory);
             setIsLoading(false); // Ensure this line is reached
+            setErrors({})
             return result;
         } catch (err) {
             setIsLoading(false); // Ensure this line is reached in case of error

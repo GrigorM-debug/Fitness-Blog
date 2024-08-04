@@ -4,11 +4,12 @@ import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import {Link, useNavigate} from 'react-router-dom';
 import Preloader from "../Preloader/Preloader";
 
+const initialData = {
+  email: '',
+  password: ''
+}
+
 export default function Login() {
-    const initialData = {
-        email: '',
-        password: ''
-    }
 
     const [login, errors, isFetching] = useLogin();
     const navigate = useNavigate();
