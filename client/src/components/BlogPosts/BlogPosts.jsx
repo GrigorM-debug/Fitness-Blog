@@ -12,10 +12,9 @@ import useBlogPostsSearch from "../../hooks/useBlogPostsSearch";
 export default function BlogPosts() {
 
     const [posts, isFetching] = useGetLatest();
-
     const defaultImageUrl = '/img/blog/blog-2.jpg';
 
-    //Filtered data after using the Search
+    // Filtered data after using the Search
     const [filteredPosts, setFilteredPosts] = useState([]);
 
     useEffect(() => {
@@ -27,17 +26,30 @@ export default function BlogPosts() {
         category: 'Choose a category'
     }
 
-    const [isLoading, searchHandler, errors] = useBlogPostsSearch()
-    // console.log(errors)
+    const [isLoading, searchHandler, errors] = useBlogPostsSearch();
 
     const searchSubmitHandler = async (formData) => {
-        const result = await searchHandler(formData.title, formData.category)
+        const result = await searchHandler(formData.title, formData.category);
         setFilteredPosts(result);
     }
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, searchSubmitHandler)
-    
+    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialValues, searchSubmitHandler);
+
     const isPreloading = isFetching || isLoading;
+
+    // Pagination state
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
+
+    // Calculate indices for the current page
+    const indexOfLastPost = currentPage * itemsPerPage;
+    const indexOfFirstPost = indexOfLastPost - itemsPerPage;
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
+
     return (
         <>
         {isPreloading ? <Preloader /> :
@@ -51,8 +63,8 @@ export default function BlogPosts() {
                             <div className={`${styles.sectionTitle} section-title`}>
                                 <h2>Our Blog Posts</h2>
                             </div>
-                            {filteredPosts && filteredPosts.length > 0 
-                                ? filteredPosts.map((post) => (
+                            {currentPosts.length > 0 
+                                ? currentPosts.map((post) => (
                                         <BlogItem 
                                             key={post._id}
                                             id={post._id}
@@ -67,10 +79,15 @@ export default function BlogPosts() {
                                             createdOn={post._createdOn}
                                         />
                                     ))
-                                : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
+                                : <h2 className={`${styles.sectionTitle} section-title`}>There are no posts available</h2>
                             }
                             
-                            <Pagination />
+                            <Pagination 
+                                handleItemsPerPage={itemsPerPage}
+                                length={filteredPosts.length}
+                                currentPage={currentPage}
+                                onPageChange={handlePageChange}
+                            />
                         </div>
                         <SideBar 
                             onChange={onChangeHandler}
@@ -81,8 +98,8 @@ export default function BlogPosts() {
                     </div>
                 </div>
             </section>
-        /</>
+            </>
         }
         </>
     );
-};
+}

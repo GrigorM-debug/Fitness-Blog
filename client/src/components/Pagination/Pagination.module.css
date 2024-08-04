@@ -4,7 +4,7 @@
     padding-left: 3em;
 }
 
-.pagination a {
+.pagination .pageButton {
 	display: inline-block;
 	font-size: 18px;
 	color: #ffffff;
@@ -19,10 +19,14 @@
 	transition: all 0.3s;
 }
 
-.pagination a:last-child {
+.pagination .pageButton:last-child {
 	margin-right: 0;
 }
 
-.pagination a:hover {
+.pagination .pageButton:hover {
+	background: #555555;
+}
+
+.pageButton.active {
 	background: #555555;
 }
