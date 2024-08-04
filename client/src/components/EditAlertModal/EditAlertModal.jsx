@@ -6,6 +6,7 @@ export default function EditAlertModal({
     onClose, 
     onConfirm,
     itemTitle,
+    errorMessage
 }) {
     if (!isOpen) return null;
 
@@ -31,6 +32,7 @@ export default function EditAlertModal({
                   <DialogTitle as="h2" className="text-base font-bold leading-6 text-black">
                     Editing - {itemTitle}
                   </DialogTitle>
+                  <p className="text-red-600 font-bold">{errorMessage ? errorMessage : ''}</p>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
                       Are you sure you want to Edit Blog Post with Title: {itemTitle} ?
