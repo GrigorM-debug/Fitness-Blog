@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { createPost, getOne, getLatest, getAll, deletePost} from "../api/blogPost_API";
+import { createPost, getOne, getLatest, getAll, deletePost, editPost} from "../api/blogPost_API";
 import { useNavigate } from "react-router";
 import { blogPostsValidation } from "../vaidations/blogPostsValidations/blogPostsValidations";
 
@@ -107,4 +107,19 @@ export function useDeletePost() {
     }
 
     return [error, deleteHandler]
+}
+
+export function useEditPost() {
+    const [error, setError] = useState({});
+
+    const editPostHandler = async (postId, newData) => {
+        try {
+            const result = await editPost(postId, newData);
+            return result;
+        } catch (err) {
+            setError({serverError: err.message})
+        }
+    }
+
+    return [error, editPostHandler]
 }
