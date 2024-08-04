@@ -4,6 +4,7 @@ import UserContext from "../contexts/userContext";
 import { validateRegisterForm } from "../vaidations/userValidations/registerUserDataValidation";
 import { validateLoginForm } from "../vaidations/userValidations/loginUserDataValidation";
 import { getUserPosts } from "../api/blogPost_API";
+import { getUserRecipes } from "../api/recipes_API";
 
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
@@ -138,4 +139,28 @@ export function useGetUserPosts(userId) {
     }, [userId]);
 
     return {userPosts, isLoading};
+}
+
+export function useGetUserRecipes(userId) {
+    const [userRecipes, setUserRecipes] = useState([])
+    const [isLoadingData, setIsLoadingData] = useState(true);
+
+    useEffect(() => {
+        const fetchUserRecipes = async () => {
+            try {
+                const result = await getUserRecipes(userId);
+                setUserPosts(result);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setIsLoading(false); // Optional, to mark fetching complete
+            }
+        };
+
+        if (userId) { // Optional, only fetch if userId is provided
+            fetchUserRecipes();
+        }
+    }, [userId]);
+
+    return {userRecipes, isLoadingData};
 }
