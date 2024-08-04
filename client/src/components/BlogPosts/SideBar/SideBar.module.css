@@ -11,4 +11,25 @@
     font-weight: 700;
     font-size: 18px;
     padding-bottom: 1em;
+    font-size: 1.5em;
+}
+.categoryFilter label {
+    font-size: 14px;
+    color: white;
+}
+
+.categoryFilter input {
+    width: 20px;
+    height: 20px;
+}
+
+.submitButton {
+    background-color: #f36100;
+    color: white;
+    padding: 0.5em;
+    font-weight: bold;
+    border-radius: 0.3em;
+    width: 80%;
+    margin-top: 1.5em;
+    margin-left: 2em;
 }

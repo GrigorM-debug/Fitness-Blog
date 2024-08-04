@@ -5,6 +5,9 @@ import SideBar from "./SideBar/SideBar";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import Preloader from "../Preloader/Preloader";
 import { useGetLatest } from "../../hooks/useBlogPosts";
+import { useState, useEffect } from "react";
+import useForm from "../../hooks/useForm";
+import useBlogPostsSearch from "../../hooks/useBlogPostsSearch";
 
 export default function BlogPosts() {
 
@@ -12,9 +15,31 @@ export default function BlogPosts() {
 
     const defaultImageUrl = '/img/blog/blog-2.jpg';
 
+    //Filtered data after using the Search
+    const [filteredPosts, setFilteredPosts] = useState([]);
+
+    useEffect(() => {
+        setFilteredPosts(posts);
+    }, [posts]);
+
+    const initialValues = {
+        title: '',
+        category: 'Choose a category'
+    }
+
+    const [isLoading, searchHandler] = useBlogPostsSearch()
+
+    const searchSubmitHandler = async (formData) => {
+        const result = await searchHandler(formData.title, formData.category)
+        setFilteredPosts(result);
+    }
+
+    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, searchSubmitHandler)
+    
+    const isPreloading = isFetching || isLoading;
     return (
         <>
-        {isFetching ? <Preloader /> :
+        {isPreloading ? <Preloader /> :
             <>
             <Breadcrumb title="Our Blog" page="Our Blog" breadcrumbImage="img/gallery/gallery-1.jpg"/>
 
@@ -25,8 +50,8 @@ export default function BlogPosts() {
                             <div className={`${styles.sectionTitle} section-title`}>
                                 <h2>Our Blog Posts</h2>
                             </div>
-                            {posts.length > 0 
-                                ? posts.map((post) => (
+                            {filteredPosts.length > 0 
+                                ? filteredPosts.map((post) => (
                                         <BlogItem 
                                             key={post._id}
                                             id={post._id}
@@ -46,7 +71,11 @@ export default function BlogPosts() {
                             
                             <Pagination />
                         </div>
-                        <SideBar />
+                        <SideBar 
+                            onChange={onChangeHandler}
+                            onSubmit={onSubmitHandler}
+                            formData={formData}
+                        />
                     </div>
                 </div>
             </section>
