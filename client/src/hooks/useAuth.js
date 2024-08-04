@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { login, logout, register } from "../api/auth_API";
+import { useContext, useEffect, useState } from "react";
+import { getUserData, login, logout, register } from "../api/auth_API";
 import UserContext from "../contexts/userContext";
 import { validateRegisterForm } from "../vaidations/userValidations/registerUserDataValidation";
 import { validateLoginForm } from "../vaidations/userValidations/loginUserDataValidation";
@@ -90,4 +90,26 @@ export function useLogout() {
     }
 
     return [logoutHandler, errors, isLoading];
+}
+
+export function useGetUserData() {
+    const [userData, setUserData] = useState({});
+    const [isFetching, setIsFetching] = useState(true);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const result = await getUserData();
+                setUserData(result);
+            } catch(err) {
+                console.error(err);
+            } finally {
+                setIsFetching(false);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
+    return { userData, isFetching };
 }

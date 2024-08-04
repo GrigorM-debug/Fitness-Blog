@@ -84,3 +84,19 @@ export async function editPost(postId, newData) {
 
     return true;
 }
+
+//Getting user Created Posts
+export async function getUserPosts(userId) {
+    const params = new URLSearchParams();
+
+    const encodedUser = `_ownerId="${userId}"`;
+    params.append('where', encodedUser);
+
+    const queryString = params.toString();
+
+    const response = await fetch(`${BASE_URL}?${queryString}`);
+
+    const result = await response.json();
+
+    return result;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { createHelthyRecipesValidations } from "../vaidations/helthyRecipesValidations/createHealthyRecipesValidations";
 import { createRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
 

@@ -1,13 +1,15 @@
-import { useContext } from "react";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import UserContext from "../../contexts/userContext";
+import { useGetUserData } from "../../hooks/useAuth";
+import Preloader from "../Preloader/Preloader";
 
 export default function Profile() {
-    const {contextData} = useContext(UserContext);
-    console.log(contextData)
+    const {userData, isFetching} = useGetUserData();
+    
 
     return (
         <>
+            {isFetching && <Preloader />}
+
             <Breadcrumb title="My Profile" page="My Profile" breadcrumbImage="img/Planche.jpg"/>
 
             <div className="bg-neutral-950 p-0 m-0">
@@ -30,7 +32,7 @@ export default function Profile() {
                         <div className="relative">
                             <img 
                                 className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500" 
-                                src={contextData.imageUrl} 
+                                src={userData.imageUrl} 
                                 alt="" 
                             />
                         </div>
@@ -45,17 +47,17 @@ export default function Profile() {
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-20">
                         <h1 className="text-6xl font-medium text-white">
-                            {contextData.username}
+                            {userData.username}
                         </h1>
-                        <p className="font-light text-white mt-3 text-xl">{`${contextData.city}, ${contextData.country}`}</p>
+                        <p className="font-light text-white mt-3 text-xl">{`${userData.city}, ${userData.country}`}</p>
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-12">
                         <p className="text-white text-lg font-light lg:px-16">
-                            {contextData.description}
+                            {userData.description ? userData.description : ''}
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 p-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12 p-10">
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Articles Written</h2>
                             <div className="py-8 px-8 bg-zinc-900 space-y-2">

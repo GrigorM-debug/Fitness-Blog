@@ -54,3 +54,22 @@ export async function logout(token) {
         console.log('Successfully log out !')
     }
 }
+
+export async function getUserData() {
+    const token = localStorage.getItem('auth-token');
+
+    const response = await fetch(`${BASE_URL}/me`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        }
+    })
+
+    if(!response.ok) {
+        throw new Error('User session does not exist !');
+    }
+
+    const result = await response.json();
+
+    return result;
+}

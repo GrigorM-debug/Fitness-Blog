@@ -38,9 +38,11 @@ export async function getLatest() {
 
 export async function getOne(recipeId) {
     const params = new URLSearchParams({
-        load: 'creator=_ownerId:users'
+        load: `author=_ownerId:users`
     });
-    const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`);
+    const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
+
     const recipe = await response.json();
+
     return recipe;
 }
