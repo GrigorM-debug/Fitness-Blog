@@ -3,9 +3,7 @@ import useForm from '../../../hooks/useForm';
 import { useCreateComment, useGetAll } from '../../../hooks/useBlogPostComments';
 import CommentItem from './CommentItem/CommentItem';
 import Preloader from '../../Preloader/Preloader';
-import UserContext from '../../../contexts/userContext';
 import LeaveComment from './LeaveCommentSection/LeaveComment';
-import { useContext } from 'react';
 
 const initialValues = {
     comment: ''
