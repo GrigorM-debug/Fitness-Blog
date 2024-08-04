@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useForm(initialData, handleSubmitCallback) {
     const [formData, setFormData] = useState(initialData);
+
+    useEffect(() => {
+        setFormData(initialData)
+    }, [initialData])
+
+    const updateFormInitialData = () => {
+        setFormData(initialData);
+    }
 
     const onChangeHandler = (e) => {
         setFormData(oldState => ({
@@ -18,5 +26,5 @@ export default function useForm(initialData, handleSubmitCallback) {
         setFormData(initialData);
     } 
 
-    return {formData, onChangeHandler, onSubmitHandler};
+    return {formData, onChangeHandler, onSubmitHandler, updateFormInitialData};
 }

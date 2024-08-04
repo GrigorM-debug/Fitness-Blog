@@ -1,38 +1,7 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
-import { useRef, useState } from 'react';
 
 export default function EditBlogPost() {
-    const fileInputRef = useRef(null);
-    const [category, setCategory] = useState('');
-    const [formData, setFormData] = useState({
-        title: '',
-        category: '',
-        shortDescription: '',
-        content: '',
-        image: ''
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
-
-    console.log(formData)
-
-    const [image, setImage] = useState(null)
-
-    const onImageChange = (event) => {
-        if (event.target.files && event.target.files[0]) {
-            setImage(URL.createObjectURL(event.target.files[0]));
-            // setImage(`img/${event.target.files[0].name}`)
-        }
-    }
-
-    console.log(image)
+    
 
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
@@ -122,17 +91,11 @@ export default function EditBlogPost() {
                         </label>
                         <div className="mt-2 flex items-center gap-x-3">
                             <PhotoIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
-                            {/* <button
-                                type="button"
-                                onClick={handleButtonClick}
-                                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                            >
-                                Add
-                            </button> */}
                             <input
-                                type="file"
-                                className="text-white"
-                                onChange={onImageChange}
+                                id="imageUrl"  
+                                name="imageUrl"  
+                                placeholder='Write image Url'
+                                className={`p-2 block w-full rounded-md border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                             />
                         </div>
                     </div>
