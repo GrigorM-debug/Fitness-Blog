@@ -1,16 +1,58 @@
 import styles from './HealthyRecipes.module.css';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { useGetLatestRecipes } from '../../hooks/useRecipes';
+import { useState, useEffect} from 'react';
+import useForm from '../../hooks/useForm';
 import RecipeItem from './RecipeItem/RecipeItem';
 import Preloader from '../Preloader/Preloader';
+import Pagination from '../Pagination/Pagination';
+import SideBar from './SideBar/SideBar';
+import useHealthyRecipesSearch from '../../hooks/useHealthyRecipesSearch';
+
+const initialValues = {
+    title: ''
+}
 
 export default function HealthyRecipes() {
 
     const [recipes, isFetching] = useGetLatestRecipes();
-    
+
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+    useEffect(() => {
+        setFilteredRecipes(recipes);
+    }, [recipes]);
+
+    const [isLoading, searchHandler, errors] = useHealthyRecipesSearch();
+
+    const searchSubmitHandler = async (formData) => {
+        const result = await searchHandler(formData.title);
+
+        if(result) {
+            setFilteredRecipes(result);
+        }
+    }
+
+    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialValues, searchSubmitHandler);
+
+    const isPreloading = isFetching || isLoading;
+
+    // Pagination state
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
+
+    // Calculate indices for the current page
+    const indexOfLastPost = currentPage * itemsPerPage;
+    const indexOfFirstPost = indexOfLastPost - itemsPerPage;
+    const currentRecipes = filteredRecipes && filteredRecipes.slice(indexOfFirstPost, indexOfLastPost);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
+
     return (
     <>
-        {isFetching ? <Preloader /> :
+        {isPreloading ? <Preloader /> :
             <>
             <Breadcrumb title="Healthy Recipes" page="Healthy Recipes" breadcrumbImage="img/recipe-bg2.jpg"/>
     
@@ -26,14 +68,7 @@ export default function HealthyRecipes() {
                         </div>
                     </div>
                     <div className={styles.content}>
-                        {recipes.length > 0 ? recipes.map(recipe => (
-                            // <div className={styles.hrItem} key={index} style={{ backgroundImage: `url(${item.setBg})` }}>
-                            //     <div className={styles.hrText}>
-                            //         <h4>{item.title}</h4>
-                            //         <span>Created by: <p>{item.creator}</p></span>
-                            //         <a href={item.link}>View Recipe Details</a>
-                            //     </div>
-                            // </div>
+                        {currentRecipes.length > 0 ? currentRecipes.map(recipe => (
                             <RecipeItem 
                                 key={recipe._id}
                                 title={recipe.title}
@@ -45,7 +80,19 @@ export default function HealthyRecipes() {
                             : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
                         }
                     </div>
+                    <Pagination 
+                        handleItemsPerPage={itemsPerPage}
+                        length={filteredRecipes && filteredRecipes.length}
+                        currentPage={currentPage}
+                        onPageChange={handlePageChange}
+                    />
                 </div>
+                <SideBar 
+                    onChange={onChangeHandler}
+                    onSubmit={onSubmitHandler}
+                    formData={formData}
+                    errors={errors}
+                />
             </section>
             </>
         }
