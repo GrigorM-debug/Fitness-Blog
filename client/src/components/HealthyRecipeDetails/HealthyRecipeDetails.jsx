@@ -54,9 +54,9 @@ export default function HealthyRecipeDetails() {
     }
 
     return (
-        <>
-            {isFetching && <Preloader />}
-
+    <>
+        {isFetching ? <Preloader /> :
+            <>
             <HealthyRecipeDetailsHero 
                 title={recipe.title} 
                 imageUrl={recipe.imageUrl} 
@@ -115,6 +115,8 @@ export default function HealthyRecipeDetails() {
                     </div>
                 </div>
             </section>
+            </>
+        }
         </>
     );
 }

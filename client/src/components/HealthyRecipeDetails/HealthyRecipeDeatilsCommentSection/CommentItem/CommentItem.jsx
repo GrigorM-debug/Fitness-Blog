@@ -3,9 +3,10 @@ import UserContext from '../../../../contexts/userContext';
 import { useState, useEffect, useContext } from 'react';
 import useForm from '../../../../hooks/useForm';
 import { useGetReplies, useCreateReply } from '../../../../hooks/useCommentsReplies';
-import { useLikeCommend } from '../../../../hooks/useCommentLikes';
+import { useLikeCommend, useGetLikes} from '../../../../hooks/useCommentLikes';
 import ReplyForm from './ReplyForm/ReplyForm';
 import ReplyItem from './ReplyItem/ReplyItem';
+import Preloader from '../../../Preloader/Preloader';
 
 const initialValues = {
     reply: ''
