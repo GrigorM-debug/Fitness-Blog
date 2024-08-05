@@ -6,6 +6,7 @@ import useSendContacts from '../../../hooks/useContacts'
 import Preloader from '../../Preloader/Preloader'
 import emailjs from '@emailjs/browser';
 import SuccessfullySubmittedContacts from '../../SuccesfullySubmittedContactsModal/SuccessfullySubmittedContacts'
+import contactUsValidations from '../../../vaidations/contactUsValidations/contactUsValidations'
 
 const initialData ={
   firstName: '',
@@ -27,16 +28,24 @@ export default function ContactForm() {
 
     const [isLoading, sendContacts] = useSendContacts();
 
+    const [errors, setErrors] = useState({});
+    
+    
     const onSubmit = async (formData) => {
       if(!agreed) {
         setShowNotCheckedMessagee(true);
       } else{
-        setShowNotCheckedMessagee(false)
-        // const success = await sendContacts(formData);
-        await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
+        const validationResult = contactUsValidations(formData)
+        setErrors(validationResult)
         
-        openSuccessfullySubmittedContact();
-        setAgreed(false);
+        if(Object.keys(validationResult).length < 0) {
+          setShowNotCheckedMessagee(false)
+          // const success = await sendContacts(formData);
+          await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
+        
+          openSuccessfullySubmittedContact();
+          setAgreed(false);
+        }
       }
     }
 
@@ -54,6 +63,7 @@ export default function ContactForm() {
             <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-white">
               First name
             </label>
+            <p className="text-red-600">{errors ? errors.firstName : ''}</p>
             <div className="mt-2.5">
               <input
                 id="firstName"
@@ -70,6 +80,7 @@ export default function ContactForm() {
             <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-white">
               Last name
             </label>
+            <p className="text-red-600">{errors ? errors.lastName : ''}</p>
             <div className="mt-2.5">
               <input
                 id="lastName"
@@ -85,6 +96,7 @@ export default function ContactForm() {
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
               Email
             </label>
+            <p className="text-red-600">{errors ? errors.email : ''}</p>
             <div className="mt-2.5">
               <input
                 id="email"
@@ -100,6 +112,7 @@ export default function ContactForm() {
             <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
               Phone number
             </label>
+            <p className="text-red-600">{errors ? errors.phoneNumber : ''}</p>
             <div className="relative mt-2.5">
               <div className="absolute inset-y-0 left-0 flex items-center">
                 <label htmlFor="country" className="sr-only">
@@ -136,6 +149,7 @@ export default function ContactForm() {
             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
               Message
             </label>
+            <p className="text-red-600">{errors ? errors.message : ''}</p>
             <div className="mt-2.5">
               <textarea
                 id="message"
