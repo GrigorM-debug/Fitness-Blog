@@ -10,7 +10,7 @@ export async function login(email, password) {
     })
 
     if(!response.ok) {
-        throw new Error("Wrong Email or Password doesnt't exist !");
+        throw new Error("Wrong Email or Password!");
     }
 
     const userData = await response.json();
