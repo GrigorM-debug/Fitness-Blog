@@ -5,3 +5,7 @@
 	text-transform: uppercase;
 	margin-bottom: 40px;
 }
+
+.commentOption h3 {
+	color: white;
+}

@@ -39,7 +39,7 @@ export default function HealthyRecipeDetailsCommentSection({
                     {isProcessing ? (
                         <Preloader />
                     ) : (
-                        comments && comments.length > 0 && comments.map((comment) => (
+                        comments && comments.length > 0 ? comments.map((comment) => (
                             <CommentItem 
                                 key={comment._id}
                                 author={comment.author.username}
@@ -49,6 +49,7 @@ export default function HealthyRecipeDetailsCommentSection({
                                 commentId={comment._id}
                             />
                         ))
+                        : <h3>No comments yet</h3>
                     )}
                 </div>
             </div>
