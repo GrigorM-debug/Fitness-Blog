@@ -38,11 +38,9 @@ export default function ContactForm() {
         const validationResult = contactUsValidations(formData)
         setErrors(validationResult)
         
-        if(Object.keys(validationResult).length < 0) {
-          setShowNotCheckedMessagee(false)
-          // const success = await sendContacts(formData);
-          await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
-        
+        if (Object.keys(validationResult).length === 0) {
+          setShowNotCheckedMessagee(false);
+          await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA');
           openSuccessfullySubmittedContact();
           setAgreed(false);
         }
@@ -70,7 +68,7 @@ export default function ContactForm() {
                 name="firstName"
                 type="text"
                 autoComplete="given-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                className={`block w-full rounded-md border-2 ${errors.firstName ? 'border-red-600' : 'border-gray-300'} px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6`}
                 onChange={onChangeHandler}
                 value={formData.firstName}
               />
@@ -86,7 +84,7 @@ export default function ContactForm() {
                 id="lastName"
                 name="lastName"
                 type="text"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                className={`block w-full rounded-md border-2 ${errors.lastName ? 'border-red-600' : 'border-gray-300'} px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6`}
                 onChange={onChangeHandler}
                 value={formData.lastName}
               />
@@ -102,7 +100,7 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 type="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                className={`block w-full rounded-md border-2 ${errors.email ? 'border-red-600' : 'border-gray-300'} px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6`}
                 onChange={onChangeHandler}
                 value={formData.email}
               />
@@ -113,7 +111,7 @@ export default function ContactForm() {
               Phone number
             </label>
             <p className="text-red-600">{errors ? errors.phoneNumber : ''}</p>
-            <div className="relative mt-2.5">
+            <div className={`relative border-2 ${errors.phoneNumber ? 'border-red-600' : ''} mt-2.5`}>
               <div className="absolute inset-y-0 left-0 flex items-center">
                 <label htmlFor="country" className="sr-only">
                   Country
@@ -139,7 +137,7 @@ export default function ContactForm() {
                 id="phoneNumber"
                 name="phoneNumber"
                 type="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 pl-28 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                 onChange={onChangeHandler}
                 value={formData.phoneNumber}
               />
@@ -155,7 +153,7 @@ export default function ContactForm() {
                 id="message"
                 name="message"
                 rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                className={`block w-full rounded-md border-2 ${errors.message ? 'border-red-600' : 'border-gray-300'} px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6`}
                 onChange={onChangeHandler}
                 value={formData.message}
               />
