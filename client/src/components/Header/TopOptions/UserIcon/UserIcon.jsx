@@ -43,7 +43,7 @@ export default function UserIcon({
                                 <Link to="/myProfile">My Profile</Link>
                             </li>
                             <li>
-                                <Link to="#" onClick={handleLogoutClick}>Logout</Link>
+                                <Link to="/" onClick={handleLogoutClick}>Logout</Link>
                             </li>
                         </div>
                     }

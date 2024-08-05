@@ -9,6 +9,11 @@ export default function AlertModal({ isVisible, onClose }) {
 
     const token = localStorage.getItem('auth-token');
 
+    // Check this if is correct
+    if(!token) {
+        navigate('/');
+    }
+
     const [logout, errors, isFetching] = useLogout();
     const navigate = useNavigate();
 

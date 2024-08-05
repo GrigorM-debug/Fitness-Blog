@@ -65,7 +65,7 @@ function App() {
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
-        <AlertModal isVisible={isVisibleLogOutModal} onClose={handleModalClose}></AlertModal>
+      <AlertModal isVisible={isVisibleLogOutModal} onClose={handleModalClose}></AlertModal>
       </>
     </AuthProvider>
   )

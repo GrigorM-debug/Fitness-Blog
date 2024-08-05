@@ -13,7 +13,6 @@ export default function NotFound() {
                     <div className="col-lg-12">
                         <div className={styles.text404}>
                             {/* <h1>404</h1> */}
-                            <img src="img/notFound.png" alt="" />
                             <h3>Opps! This page Could Not Be Found!</h3>
                             <p>Sorry bit the page you are looking for does not exist, have been removed or name changed</p>
                             <Link to="/"><i className="fa fa-home"></i> Go back home</Link>

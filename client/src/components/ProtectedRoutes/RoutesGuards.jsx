@@ -15,6 +15,6 @@ export function IsGuest() {
     const {contextData} = useContext(UserContext);
     const auth = contextData.isAuthenticated;
     return (
-        auth === false ? <Outlet /> : <Navigate to="/" replace/>
+        auth === false ? <Outlet /> : <Navigate to="/login" replace/>
     );
 }
