@@ -2,7 +2,6 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Field, Label, Switch } from '@headlessui/react'
 import {useState} from 'react'
 import useForm from '../../../hooks/useForm'
-import useSendContacts from '../../../hooks/useContacts'
 import Preloader from '../../Preloader/Preloader'
 import emailjs from '@emailjs/browser';
 import SuccessfullySubmittedContacts from '../../SuccesfullySubmittedContactsModal/SuccessfullySubmittedContacts'
@@ -26,10 +25,10 @@ export default function ContactForm() {
     const openSuccessfullySubmittedContact = () => setIsSuccessfullySubmittedContactOpen(true)
     const closeSuccessfullySubmittedContact = () => setIsSuccessfullySubmittedContactOpen(false);
 
-    const [isLoading, sendContacts] = useSendContacts();
 
     const [errors, setErrors] = useState({});
     
+    const [isLoading, setIsLoading] = useState(false);
     
     const onSubmit = async (formData) => {
       if(!agreed) {
@@ -40,7 +39,9 @@ export default function ContactForm() {
         
         if (Object.keys(validationResult).length === 0) {
           setShowNotCheckedMessagee(false);
+          setIsLoading(true);
           await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA');
+          setIsLoading(false)
           openSuccessfullySubmittedContact();
           setAgreed(false);
         }
