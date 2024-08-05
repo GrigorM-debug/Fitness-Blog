@@ -18,11 +18,12 @@ export default function Login() {
         const success = await login(formData.email, formData.password)
 
         if(success) {
+          clearData();
           navigate('/');
         }
     }
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, formSubmitHandler);
+    const {formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialData, formSubmitHandler);
 
     return (
       <>
