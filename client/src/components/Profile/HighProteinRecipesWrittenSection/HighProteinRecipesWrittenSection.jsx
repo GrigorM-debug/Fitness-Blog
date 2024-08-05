@@ -2,12 +2,12 @@ import { timestampToDate } from "../../../utils/timeSpanToDate";
 import { Link } from "react-router-dom";
 
 export default function HighProteinRecipesWrittenSection({
-    imageUrl,
     title,
     createdOn,
     updatedOn,
     description,
-    recipeId
+    recipeId,
+    imageUrl,
 }) {
     return (
         <>

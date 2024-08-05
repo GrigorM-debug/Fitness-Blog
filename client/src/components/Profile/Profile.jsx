@@ -1,22 +1,20 @@
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import  {useGetUserData, useGetUserPosts } from "../../hooks/useAuth";
+import  {useGetUserData, useGetUserPosts, useGetUserRecipes } from "../../hooks/useAuth";
 import Preloader from "../Preloader/Preloader";
 import BlogPostsWrittenSection from "./BlogPostsWrittenSection/BlogPostsWrittenSection";
-import { useGetAllRecipes } from "../../hooks/useRecipes";
 import HighProteinRecipesWrittenSection from "./HighProteinRecipesWrittenSection/HighProteinRecipesWrittenSection";
-import { useEffect, useState } from "react";
 
 export default function Profile() {
     const {userData, isPreloading} = useGetUserData();
     
     const {userPosts, isLoading} = useGetUserPosts(userData._id);
 
-    const {userRecipes, isLoadingData} = useGetAllRecipes(userData._id);
+    const {userRecipes, isLoadingData} = useGetUserRecipes(userData._id);
 
     const isFetching = isPreloading || isLoading || isLoadingData;
 
 
-
+    console.log(userRecipes)
     return (
         <>
             {isFetching ? <Preloader /> : 

@@ -149,15 +149,16 @@ export function useGetUserRecipes(userId) {
         const fetchUserRecipes = async () => {
             try {
                 const result = await getUserRecipes(userId);
+                console.log(result)
                 setUserRecipes(result);
             } catch (err) {
                 console.error(err);
             } finally {
-                setIsLoadingData(false); // Optional, to mark fetching complete
+                setIsLoadingData(false); 
             }
         };
 
-        if (userId) { // Optional, only fetch if userId is provided
+        if (userId) { 
             fetchUserRecipes();
         }
     }, [userId]);
