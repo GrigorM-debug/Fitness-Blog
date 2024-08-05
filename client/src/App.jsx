@@ -13,14 +13,15 @@ import BlogPosts from './components/BlogPosts/BlogPosts';
 import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
 import BMICalculator from './components/BMICalculator/BMICalculator';
 import Contact from './components/Contact/Contact';
-import { useContext, useState } from 'react';
+import {useState } from 'react';
 import AlertModal from './components/LogoutModal/AlertModal';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
-import {IsGuest, IsUser} from './components/ProtectedRoutes/RoutesGuards';
 import BlogPostDetails from './components/BlogPostDetails/BlogPostDetails';
 import HealthyRecipeDetails from './components/HealthyRecipeDetails/HealthyRecipeDetails';
 import EditBlogPost from './components/EditBlogPost/EditBlogPost';
 import EditHealthyRecipe from './components/EditHealthyRecipe/EditHealthyRecipe';
+import PrivateGuard from './components/ProtectedRoutes/PrivateGuard';
+import RouteGuard from './components/ProtectedRoutes/RouteGuard';
 
 function App() {
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
@@ -48,13 +49,13 @@ function App() {
           <Route path='/blog/:blogPostId/details' element={<BlogPostDetails />}/>
           <Route path='/healthy-recipes/:recipeId/details' element={< HealthyRecipeDetails/>}/>
 
-          <Route element={<IsGuest/>}>
+          <Route element={<RouteGuard />}>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Route>
           {/* <Route path="/logout" element={<AlertModal />} /> */}
 
-          <Route element={<IsUser />}>
+          <Route element={<PrivateGuard />}>
             <Route path="/create-post" element={<CreateBlogPost />} />
             <Route path='/blog-post/:postId/edit' element={<EditBlogPost/>}/>
             <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
