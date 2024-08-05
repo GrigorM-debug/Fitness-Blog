@@ -36,6 +36,7 @@ export default function ContactForm() {
         await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
         
         openSuccessfullySubmittedContact();
+        setAgreed(false);
       }
     }
 
