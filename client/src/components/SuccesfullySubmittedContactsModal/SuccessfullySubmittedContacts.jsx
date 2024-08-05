@@ -49,7 +49,7 @@ export default function SuccessfullySubmittedContacts({
                         <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                             Thank You for Reaching Out!
                         </h3>
-                        <p>We received your contact form, but we may need more information to assist you properly.</p>
+                        <p>We are very busy at the moment but will get back to you as soon as possible</p>
                         <p>Our team will follow up with you via email if we need any additional details.</p>
                         <button type="button" onClick={onClose}>Close</button>
                     </div>

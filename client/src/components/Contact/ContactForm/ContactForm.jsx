@@ -35,9 +35,7 @@ export default function ContactForm() {
         // const success = await sendContacts(formData);
         await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
         
-        if(success) {
-          openSuccessfullySubmittedContact();
-        }
+        openSuccessfullySubmittedContact();
       }
     }
 
