@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGetLatest } from "../../hooks/useBlogPosts";
 import { useGetLatestRecipes } from "../../hooks/useRecipes";
 import Preloader from "../Preloader/Preloader";
@@ -12,6 +13,7 @@ export default function Home() {
     const [recipes, isFetchingRecipes] = useGetLatestRecipes();
 
     const isLoading = isFetchingPosts || isFetchingRecipes;
+
     return (
         <>
             {isLoading && <Preloader/>}

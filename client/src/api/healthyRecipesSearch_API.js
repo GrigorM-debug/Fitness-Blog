@@ -12,4 +12,6 @@ export default async function searchRecipe(recipeTitle) {
     }
     
     const result = await response.json();
+
+    return result
 }

@@ -38,7 +38,7 @@ export default function LatestRecipes ({
                         loop
                         margin={0}
                         dots
-                        dotsEach={1}
+                        dotsEach={3}
                         dotsClass='owl-dots'
                         smartSpeed={1200}
                         autoHeight={false}
@@ -64,10 +64,9 @@ export default function LatestRecipes ({
                                     </div>
                                 </div>
                             </div>
-                        ))
-                        : <h2>There is no post added</h2>
-                        }
+                        )) : <h2>There is no post added</h2>}
                     </OwlCarousel>
+
                 </div>
             </div>
         </section>
