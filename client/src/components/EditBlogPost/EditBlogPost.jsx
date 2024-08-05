@@ -34,12 +34,13 @@ export default function EditBlogPost() {
         const success = await editPostHandler(postId, formData);
 
         if(success) {
+            clearData()
             closeEditAlertModal();
             openSuccessfullyEditedModal();
         }
     }
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(postData, editPostCallback)
+    const {formData, onChangeHandler, onSubmitHandler, clearData} = useForm(postData, editPostCallback)
     
     return (
         <>

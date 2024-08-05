@@ -32,10 +32,11 @@ export default function HealthyRecipes() {
         console.log(result)
         if(result) {
             setFilteredRecipes(result);
+            clearData()
         }
     }
 
-    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialValues, searchSubmitHandler);
+    const { formData, onChangeHandler, onSubmitHandler, clearData } = useForm(initialValues, searchSubmitHandler);
 
     const isPreloading = isFetching || isLoading;
 

@@ -22,11 +22,12 @@ export default function CreateHealthyRecipe() {
         const recipeId = await createRecipeHandler(formData);
         if(recipeId) {
             //Todo navigate on details page
+            clearData()
             navigate(`/healthy-recipes/${recipeId}/details`);
         }
     };
 
-    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialData, formSubmit);
+    const { formData, onChangeHandler, onSubmitHandler, clearData } = useForm(initialData, formSubmit);
 
     return (
         <>

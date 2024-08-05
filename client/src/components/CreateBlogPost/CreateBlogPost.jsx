@@ -24,11 +24,12 @@ export default function CreateBlogPost() {
         console.log(postId)
         if(postId) {
             //Todo navigate on details page
+            clearData();
             navigate(`/blog/${postId}/details`);
         }
     };
 
-    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialData, formSubmit);
+    const { formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialData, formSubmit);
 
     return (
         <>

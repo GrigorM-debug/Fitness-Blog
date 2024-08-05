@@ -44,11 +44,12 @@ export default function ContactForm() {
           setIsLoading(false)
           openSuccessfullySubmittedContact();
           setAgreed(false);
+          clearData();
         }
       }
     }
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, onSubmit)
+    const {formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialData, onSubmit)
 
 
     return (

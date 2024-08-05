@@ -23,11 +23,12 @@ export default function HealthyRecipeDetailsCommentSection({
         const newComment = await createCommentHandler(recipeId, comment);
         if (newComment) {
             updateComments();
+            clearData()
         }
     }
 
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialValues, onSubmit);
+    const {formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialValues, onSubmit);
 
     const isProcessing = isFetchingComments || isFetchingNewComment;
 

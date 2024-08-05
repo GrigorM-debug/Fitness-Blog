@@ -34,12 +34,13 @@ export default function EditHealthyRecipe() {
         const success = await editRecipeHandler(recipeId, formData);
 
         if(success) {
+            clearData()
             closeEditAlertModal();
             openSuccessfullyEditedModal();
         }
     }
 
-    const {formData, onChangeHandler, onSubmitHandler} = useForm(recipe, editRecipeCallback)
+    const {formData, onChangeHandler, onSubmitHandler, clearData} = useForm(recipe, editRecipeCallback)
 
     return (
         <>

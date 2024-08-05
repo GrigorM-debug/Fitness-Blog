@@ -35,10 +35,11 @@ export default function BlogPosts() {
 
         if(result) {
             setFilteredPosts(result);
+            clearData()
         }
     }
 
-    const { formData, onChangeHandler, onSubmitHandler } = useForm(initialValues, searchSubmitHandler);
+    const { formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialValues, searchSubmitHandler);
 
     const isPreloading = isFetching || isLoading;
 
