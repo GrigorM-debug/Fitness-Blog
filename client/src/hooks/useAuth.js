@@ -27,7 +27,7 @@ export function useLogin() {
     
             setUserDataHandler({_id, userEmail, username, accessToken})
     
-            localStorage.setItem('auth-token', accessToken);
+            // localStorage.setItem('auth-token', accessToken);
     
             return true;
         } catch (err) {
@@ -59,7 +59,7 @@ export function useRegister() {
         
             setUserDataHandler({_id, userEmail, username, accessToken})
 
-            localStorage.setItem('auth-token', accessToken);
+            // localStorage.setItem('auth-token', accessToken);
             return true;
         } catch (err) {
             setErrors({serverError: err.message});
@@ -82,7 +82,7 @@ export function useLogout() {
             setIsLoading(true);
             await logout(token);
             setUserDataHandler({});
-            localStorage.removeItem('auth-token');
+            // localStorage.removeItem('auth-token');
             return true;
         } catch (err) {
             setIsLoading(false);

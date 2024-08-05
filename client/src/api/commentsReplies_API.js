@@ -1,7 +1,8 @@
 const BASE_URL = 'http://localhost:3030/data/replies';
 
 export async function createReply(newComment) {
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}`, {
         method: 'POST',

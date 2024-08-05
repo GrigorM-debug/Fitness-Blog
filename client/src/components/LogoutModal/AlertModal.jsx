@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 export default function AlertModal({ isVisible, onClose }) {
     if (!isVisible) return null;
 
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     // Check this if is correct
     if(!token) {

@@ -1,7 +1,8 @@
 const BASE_URL = 'http://localhost:3030/data/recipes';
 
 export async function createRecipe(recipeData) {
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     const response = await fetch(BASE_URL, {
         method: 'POST',
@@ -64,7 +65,8 @@ export async function getUserRecipes(userId) {
 }
 
 export async function deleteRecipe(recipeId) {
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/${recipeId}`, {
         method: 'DELETE',
@@ -83,7 +85,8 @@ export async function deleteRecipe(recipeId) {
 }
 
 export async function editRecipe(recipeId, newData) {
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/${recipeId}`, {
         method: 'PUT',
