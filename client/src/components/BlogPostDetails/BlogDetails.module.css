@@ -6,80 +6,81 @@
 }
 
 .blogDetailsSection {
-	background: #151515;
-	padding-top: 80px;
-	overflow: hidden;
+    background: #151515;
+    padding-top: 80px;
+    overflow: hidden;
 }
 
 .blogPostDetailsText .blogPostDetailsTitle {
-	text-align: center;
-	margin-bottom: 32px;
+    text-align: center;
+    margin-bottom: 32px;
 }
 
 .blogPostDetailsText .blogPostDetailsTitle p {
-	color: #c4c4c4;
+    color: #c4c4c4;
 }
 
 .blogPostDetailsText .blogPostDetailsTitle p:first-child {
-	margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .blogPostDetailsText .blogPostDetailsTitle h5 {
-	font-size: 20px;
-	color: #ffffff;
-	font-weight: 600;
-	padding-top: 5px;
-	margin-bottom: 28px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    padding-top: 5px;
+    margin-bottom: 28px;
 }
 
 .blogPostDetailsText .blogPostDetailsPic {
-	margin-right: -10px;
-	overflow: hidden;
-	margin-bottom: 22px;
+    margin-right: -10px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    text-align: center; /* Ensure the container text is centered */
 }
 
 .blogPostDetailsText .blogPostDetailsPic .blogPostDetailsPicItem {
-	max-width: 800px;
-	float:none;
-	margin: auto;
-
+    max-width: 800px;
+    display: inline-block; /* Ensure the image container is inline-block */
+    margin: auto;
 }
 
 .blogPostDetailsText .blogPostDetailsPic .blogPostDetailsPicItem img {
-	min-width: 100%;
+    min-width: 100%;
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: auto;
 }
 
 .blogPostDetailsText .BlogPostDetailsDescription {
-	text-align: center;
-	margin-bottom: 60px;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .blogPostDetailsText .BlogPostDetailsDescription p {
-	color: #c4c4c4;
+    color: #c4c4c4;
 }
 
 .blogPostDetailsText .BlogPostDetailsMoreDescription {
-	text-align: center;
-	margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 40px;
     padding-bottom: 3em;
 }
 
 .blogPostDetailsText .BlogPostDetailsMoreDescription p {
-	color: #c4c4c4;
+    color: #c4c4c4;
 }
 
 .blogPostDetailsText .BlogPostDetailsMoreDescription p:first-child {
-	margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 /* .authButtons {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .authButtons a{
-	padding: 2em;
-	color: white;
-	background-color: #f36100;
+    padding: 2em;
+    color: white;
+    background-color: #f36100;
 } */
-

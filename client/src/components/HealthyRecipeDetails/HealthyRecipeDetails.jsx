@@ -72,7 +72,7 @@ export default function HealthyRecipeDetails() {
                         <div className="col-lg-8 p-0 m-auto">
                             <div className={styles.blogPostDetailsText}>
                                 <div className={styles.blogPostDetailsTitle}>
-                                    <h5>{recipe.subTitle}</h5>
+                                    <h2>{recipe.subTitle}</h2>
                                 </div>
                                 <div className={styles.BlogPostDetailsDescription}>
                                     <p>{recipe.description}</p>
@@ -83,9 +83,11 @@ export default function HealthyRecipeDetails() {
                                     </div>
                                 </div>
                                 <div className={styles.BlogPostDetailsMoreDescription}>
+                                    <h2>Ingredients</h2>
                                     <p>{recipe.ingredients}</p>
                                 </div>
                                 <div className={styles.BlogPostDetailsMoreDescription}>
+                                    <h2>Instructions</h2>
                                     <p>{recipe.instructions}</p>
                                 </div>
 
