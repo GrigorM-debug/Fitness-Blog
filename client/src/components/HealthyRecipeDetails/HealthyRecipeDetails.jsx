@@ -92,7 +92,7 @@ export default function HealthyRecipeDetails() {
                                     <p>{recipe.instructions}</p>
                                 </div>
 
-                                {isAuthor && <AuthButtons />}
+                                {isAuthor && <AuthButtons itemTitle={recipe.title} itemId={recipe._id}/>}
 
                                 {isUser && !isAuthor && (
                                     <LikeButton 

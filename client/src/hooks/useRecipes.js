@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { createHelthyRecipesValidations } from "../vaidations/helthyRecipesValidations/createHealthyRecipesValidations";
-import { createRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
+import { createRecipe, deleteRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
 
 
 export function useCreateRecipe() {
@@ -86,4 +86,21 @@ export function useGetLatestRecipes() {
     }, [])
 
     return [latestRecipes, isFetching]
+}
+
+export function useDeleteRecipe() {
+    const [error, setError] = useState({});
+    // const [isDeleted, setIsDeleted] = useState(false);
+
+    const deleteHandler = async (recipeId) => {
+        try {
+            const result = await deleteRecipe(recipeId)
+            // setIsDeleted(result);
+            return result;
+        } catch (err) {
+            setError({serverError: err.message})
+        }
+    }
+
+    return [error, deleteHandler]
 }

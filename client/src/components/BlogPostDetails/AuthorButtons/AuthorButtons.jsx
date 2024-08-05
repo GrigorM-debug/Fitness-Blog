@@ -35,11 +35,11 @@ export default function AuthorButtons({
         }
     };
 
-    const [isEditAlertModalOpen, setisEditAlertModalOpen] = useState(false);
-    const [isEditSuccessfullyModalOpen, setIsEditSuccessfullyModalOpen] = useState(false)
+    // const [isEditAlertModalOpen, setisEditAlertModalOpen] = useState(false);
+    // const [isEditSuccessfullyModalOpen, setIsEditSuccessfullyModalOpen] = useState(false)
 
-    const openEditAlertModal = () => setisEditAlertModalOpen(true)
-    const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true);
+    // const openEditAlertModal = () => setisEditAlertModalOpen(true)
+    // const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true);
 
 
 

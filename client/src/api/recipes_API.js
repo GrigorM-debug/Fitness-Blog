@@ -62,3 +62,22 @@ export async function getUserRecipes(userId) {
 
     return result;
 }
+
+export async function deleteRecipe(recipeId) {
+    const token = localStorage.getItem('auth-token');
+
+    const response = await fetch(`${BASE_URL}/${recipeId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        // body: JSON.stringify(postData)
+    })
+
+    if(!response.ok) {
+        return false;
+    } 
+
+    return true;
+}
