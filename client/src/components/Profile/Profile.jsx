@@ -46,8 +46,9 @@ export default function Profile() {
 
     return (
         <>
-            {isFetching && <Preloader />}
-
+            {isFetching ? <Preloader /> : 
+            
+            <>
             <Breadcrumb title="My Profile" page="My Profile" breadcrumbImage="img/Planche.jpg"/>
 
             <div className="bg-neutral-950 p-0 m-0">
@@ -168,6 +169,8 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+            </>
+            }
         </>
     );
 }

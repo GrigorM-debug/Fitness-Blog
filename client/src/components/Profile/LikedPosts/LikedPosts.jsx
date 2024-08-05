@@ -17,7 +17,7 @@ export default function LikedPosts({
                 <p className="text-lg text-white font-semibold">{title}</p>
                 <ul className="flex space-x-4 text-gray-600 text-sm mb-2">
                     <li>Created On: {timestampToDate(createdOn)}</li>
-                    <li>Updated On: {updatedOn ? timeSpanToDate(updatedOn) : ''}</li>
+                    <li>Updated On: {updatedOn ? timestampToDate(updatedOn) : ''}</li>
                 </ul>
                 <p className="text-white font-medium mb-4">{shortDescription}</p>
                 <div className="flex justify-center">

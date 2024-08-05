@@ -23,7 +23,9 @@ export default function BlogPosts() {
     const [filteredPosts, setFilteredPosts] = useState([]);
 
     useEffect(() => {
-        setFilteredPosts(posts);
+        if(posts) {
+            setFilteredPosts(posts);
+        }
     }, [posts]);
 
     const [isLoading, searchHandler, errors] = useBlogPostsSearch();
@@ -45,9 +47,11 @@ export default function BlogPosts() {
     const [itemsPerPage, setItemsPerPage] = useState(5);
 
     // Calculate indices for the current page
-    const indexOfLastPost = currentPage * itemsPerPage;
-    const indexOfFirstPost = indexOfLastPost - itemsPerPage;
-    const currentPosts = filteredPosts && filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    // const indexOfLastPost = currentPage * itemsPerPage;
+    // const indexOfFirstPost = indexOfLastPost - itemsPerPage;
+    // const currentPosts = filteredPosts && filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = Array.isArray(filteredPosts) ? 
+        filteredPosts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);

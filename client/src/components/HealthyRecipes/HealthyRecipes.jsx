@@ -20,7 +20,9 @@ export default function HealthyRecipes() {
     const [filteredRecipes, setFilteredRecipes] = useState([]);
 
     useEffect(() => {
-        setFilteredRecipes(recipes);
+        if(recipes) {
+            setFilteredRecipes(recipes);
+        }
     }, [recipes]);
 
     const [isLoading, searchHandler, errors] = useHealthyRecipesSearch();
@@ -42,9 +44,11 @@ export default function HealthyRecipes() {
     const [itemsPerPage, setItemsPerPage] = useState(5);
 
     // Calculate indices for the current page
-    const indexOfLastRecipe = currentPage * itemsPerPage;
-    const indexOfFirstRecipe = indexOfLastRecipe - itemsPerPage;
-    const currentRecipes = filteredRecipes && filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+    // const indexOfLastRecipe = currentPage * itemsPerPage;
+    // const indexOfFirstRecipe = indexOfLastRecipe - itemsPerPage;
+    // const currentRecipes = filteredRecipes ? filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe) : []
+    const currentRecipes = Array.isArray(filteredRecipes) ? 
+        filteredRecipes.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
