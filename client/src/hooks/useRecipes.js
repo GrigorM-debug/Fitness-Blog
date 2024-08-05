@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { createHelthyRecipesValidations } from "../vaidations/helthyRecipesValidations/createHealthyRecipesValidations";
-import { createRecipe, deleteRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
+import { createRecipe, deleteRecipe, editRecipe, getAll, getLatest, getOne } from "../api/recipes_API";
 
 
 export function useCreateRecipe() {
@@ -116,7 +116,7 @@ export function useEditRecipe() {
             return;
         }
         try {
-            const result = await editPost(recipeId, newData);
+            const result = await editRecipe(recipeId, newData);
             return result;
         } catch (err) {
             setError({serverError: err.message})

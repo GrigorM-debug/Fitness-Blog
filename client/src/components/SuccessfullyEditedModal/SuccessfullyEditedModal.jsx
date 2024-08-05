@@ -19,7 +19,7 @@ export default function SuccessfullyEditedModal({
                     className="relative p-4 w-full max-w-md mx-auto bg-white rounded-lg shadow-lg dark:bg-gray-700"
                     onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
                 >
-                    <button
+                    {/* <button
                         type="button"
                         className="absolute top-3 right-3 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
                         data-modal-hide="popup-modal"
@@ -41,7 +41,7 @@ export default function SuccessfullyEditedModal({
                             />
                         </svg>
                         <span className="sr-only">Close modal</span>
-                    </button>
+                    </button> */}
                     <div className="p-4 md:p-5 text-center">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

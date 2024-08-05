@@ -2,6 +2,9 @@ import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useParams} from 'react-router-dom';
 import { useState } from 'react';
 import { useEditRecipe, useGetOneRecipe } from '../../hooks/useRecipes';
+import useForm from '../../hooks/useForm';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import Preloader from '../Preloader/Preloader';
 import EditAlertModal from '../EditAlertModal/EditAlertModal';
 import SuccessfullyEditedModal from '../SuccessfullyEditedModal/SuccessfullyEditedModal';
 
@@ -36,17 +39,12 @@ export default function EditHealthyRecipe() {
         <>
         {isFetching && <Preloader />}
 
-        <Breadcrumb title="Create Healthy High Protein Recipe" page="Create Healthy High Protein Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
+        <Breadcrumb title="Edit Healthy High Protein Recipe" page="Edit Healthy High Protein Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            alt="Your Company"
-            src="img/createRecipeIcon.png"
-            className="mx-auto h-20 w-auto"
-          />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-            Create Your Healthy High Protein Recipe
+            Edit Healthy High Protein Recipe
           </h2>
         </div>
 
@@ -171,7 +169,7 @@ export default function EditHealthyRecipe() {
         <EditAlertModal 
             isOpen={isEditAlertModalOpen}
             onClose={closeEditAlertModal}
-            onConfirm={editPostCallback}
+            onConfirm={editRecipeCallback}
             itemTitle={recipe.title}
             errorMessage={errors && errors.serverError}
         />
