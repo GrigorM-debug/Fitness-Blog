@@ -38,7 +38,7 @@ export default function AuthorButtons({
     return (
         <>
         <div className={styles.authButtons}>
-            <Link to="#">
+            <Link to={`/healthy-recipe/${itemId}/edit`}>
                 Edit
                 <FontAwesomeIcon icon={faEdit} style={{color: "#ffffff", marginLeft: '0.5em'} } />
             </Link>

@@ -1,43 +1,68 @@
 .blogDetailsHero {
-	height: 900px;
-	padding-top: 365px;
+    position: relative;
+    height: 900px;
+    padding-top: 365px;
+    overflow: hidden; /* Ensure the overlay doesn't spill out */
 }
 
+.blogDetailsHero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity to make it darker */
+    z-index: 1; /* Ensure it is above the background image but below the content */
+}
+
+.blogDetailsHero .set-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Ensure it is behind the overlay */
+}
 
 .bhText {
-	background: rgba(0, 0, 0, 0.8);
-	text-align: center;
-	padding: 40px 50px 34px 50px;
+    position: relative; /* Ensure it is above the overlay */
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 40px 50px 34px 50px;
+    z-index: 2; /* Ensure it is above the overlay */
 }
 
 .bhText h3 {
-	color: #ffffff;
-	font-weight: 600;
-	line-height: 39px;
-	text-transform: uppercase;
-	margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 39px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .bhText ul li {
-	font-size: 12px;
-	color: #888888;
-	display: inline-block;
-	list-style: none;
-	margin-right: 25px;
-	position: relative;
+    font-size: 12px;
+    color: #888888;
+    display: inline-block;
+    list-style: none;
+    margin-right: 25px;
+    position: relative;
 }
 
 .bhText ul li:after {
-	position: absolute;
-	right: -15px;
-	top: 0;
-	content: "|";
+    position: absolute;
+    right: -15px;
+    top: 0;
+    content: "|";
 }
 
 .bhText ul li:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .bhText ul li:last-child:after {
-	display: none;
+    display: none;
 }
