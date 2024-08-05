@@ -1,9 +1,12 @@
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import { useGetUserData, useGetUserPosts } from "../../hooks/useAuth";
+import  {useGetUserData, useGetUserLikedContent, useGetUserPosts } from "../../hooks/useAuth";
 import Preloader from "../Preloader/Preloader";
 import BlogPostsWrittenSection from "./BlogPostsWrittenSection/BlogPostsWrittenSection";
 import { useGetAllRecipes } from "../../hooks/useRecipes";
 import HighProteinRecipesWrittenSection from "./HighProteinRecipesWrittenSection/HighProteinRecipesWrittenSection";
+import { useEffect, useState } from "react";
+import LikedPosts from "./LikedPosts/LikedPosts";
+import LikedRecipes from "./LikedRecipes/LikedRecipes";
 
 export default function Profile() {
     const {userData, isPreloading} = useGetUserData();
@@ -11,10 +14,35 @@ export default function Profile() {
     const {userPosts, isLoading} = useGetUserPosts(userData._id);
 
     const {userRecipes, isLoadingData} = useGetAllRecipes(userData._id);
-
     console.log(userRecipes)
 
-    const isFetching = isPreloading || isLoading || isLoadingData;
+    const {userLikedRecipes, userLikedPosts, isLoadingLikes } = useGetUserLikedContent(userData._id)
+
+    const isFetching = isPreloading || isLoading || isLoadingData || isLoadingLikes;
+
+    const [totalPostCount, seTotalPostCount] = useState(0);
+    const [totalLikesCount, setTotalLikesCount] = useState(0);
+
+    useEffect(() => {
+        if(userPosts) {
+            seTotalPostCount(userPosts.length)
+        } else if(userRecipes) {
+            seTotalPostCount(userRecipes.length)
+        } else {
+            seTotalPostCount(userPosts.length + userRecipes.length)
+        }
+    }, [userRecipes, userPosts])
+
+    useEffect(() => {
+        if(userLikedRecipes) {
+            setTotalLikesCount(userLikedRecipes.length)
+        } else if(userLikedRecipes) {
+            setTotalLikesCount(userLikedRecipes)
+        } else {
+            setTotalLikesCount(userLikedPosts + userLikedRecipes);
+        }
+    }, [userLikedRecipes, userLikedPosts])
+
 
     return (
         <>
@@ -25,17 +53,17 @@ export default function Profile() {
             <div className="bg-neutral-950 p-0 m-0">
                 <div className="bg-neutral-900 shadow mt-0 p-0">
                     <div className="grid grid-cols-1 md:grid-cols-3 p-8">
-                        <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+                        <div className="grid grid-cols-3 text-center order-last md:order-first mt-40 md:mt-0">
                             <div>
-                                <p className="font-bold text-white text-2xl">22</p>
+                                <p className="font-bold text-white text-2xl">{totalLikesCount ? totalLikesCount : 0}</p>
                                 <p className="text-gray-400">Likes</p>
                             </div>
-                            <div>
+                            {/* <div>
                                 <p className="font-bold text-white text-2xl">10</p>
                                 <p className="text-gray-400">Comments</p>
-                            </div>
+                            </div> */}
                             <div>
-                                <p className="font-bold text-white text-2xl">89</p>
+                                <p className="font-bold text-white text-2xl">{totalPostCount ? totalPostCount : 0}</p>
                                 <p className="text-gray-400">Posts</p>
                             </div>
                         </div>
@@ -46,14 +74,14 @@ export default function Profile() {
                                 alt="" 
                             />
                         </div>
-                        <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                        {/* <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
                             <button className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                                 Edit
                             </button>
                             <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                                 Change Image
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-20">
                         <h1 className="text-6xl font-medium text-white">
@@ -63,7 +91,7 @@ export default function Profile() {
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-12">
                         <p className="text-white text-lg font-light lg:px-16">
-                            {userData.description ? userData.description : 'No bio added for now'}
+                            {userData.description ? userData.description : 'No bio added'}
                         </p>
                     </div>
 
@@ -105,45 +133,37 @@ export default function Profile() {
                         </div>
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
                             <h2 className="bg-zinc-800 text-white text-2xl p-4">Liked Posts</h2>
-                            <div className="py-8 px-8 bg-zinc-900 space-y-2">
-                                <img className="block h-50 w-100 mx-auto rounded-lg mb-4" src="img/blog/blog-1.jpg" alt="" />
-                                <div className="space-y-2">
-                                    <p className="text-lg text-white font-semibold">Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler...</p>
-                                    <ul className="flex space-x-4 text-gray-600 text-sm mb-2">
-                                        <li>Aug, 15, 9</li>
-                                        <li>20 Comments</li>
-                                        <li>20 Likes</li>
-                                    </ul>
-                                    <p className="text-white font-medium mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua accumsan lacus facilisis.</p>
-                                    <div className="flex justify-center">
-                                        <a href="#" className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                                            Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="border-t border-gray-800" />
+                            {userLikedRecipes && userLikedPosts.length > 0 ?
+                                userLikedPosts.map(p => (
+                                    <LikedPosts 
+                                        key={p._id}
+                                        imageUrl={p.post.imageUrl}
+                                        title={p.post.title}
+                                        postId={p.post._id}
+                                        createdOn={p.post._createdOn}
+                                        updatedOn={p.post._updatedOn}
+                                        shortDescription={p.post.shortDescription}
+                                    />
+                                ))
+                            : <h2 className="font-medium text-white text-center">No liked Posts</h2>
+                            }
                         </div>
                         <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
-                            <h2 className="bg-zinc-800 text-white text-2xl p-4">Commented Posts</h2>
-                            <div className="py-8 px-8 bg-zinc-900 space-y-2">
-                                <img className="block h-50 w-100 mx-auto rounded-lg mb-4" src="img/blog/blog-1.jpg" alt="" />
-                                <div className="space-y-2">
-                                    <p className="text-lg text-white font-semibold">Vegan White Peach Mug Cobbler With Cardam Vegan White Peach Mug Cobbler...</p>
-                                    <ul className="flex space-x-4 text-gray-600 text-sm mb-2">
-                                        <li>Aug, 15, 9</li>
-                                        <li>20 Comments</li>
-                                        <li>20 Likes</li>
-                                    </ul>
-                                    <p className="text-white font-medium mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua accumsan lacus facilisis.</p>
-                                    <div className="flex justify-center">
-                                        <a href="#" className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                                            Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr className="border-t border-gray-800" />
+                            <h2 className="bg-zinc-800 text-white text-2xl p-4">Liked Healthy High Protein Recipes</h2>
+                            {userLikedRecipes.length > 0 ? 
+                                userLikedRecipes.map(lp => (
+                                    <LikedRecipes 
+                                        key={lp._id}
+                                        imageUrl={lp.recipe.imageUrl}
+                                        title={lp.recipe.title}
+                                        recipeId={lp.recipe._id}
+                                        createdOn={lp.recipe._createdOn}
+                                        updatedOn={lp.recipe._updatedOn}
+                                        description={lp.recipe.description}
+                                    />
+                                ))
+                            : <h2 className="font-medium text-white text-center">Not High Protein Recipes liked</h2>
+                            }
                         </div>
                     </div>
                 </div>

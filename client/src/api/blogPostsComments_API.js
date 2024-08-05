@@ -29,3 +29,4 @@ export async function getAll(postId) {
 
     return comments;
 }
+
