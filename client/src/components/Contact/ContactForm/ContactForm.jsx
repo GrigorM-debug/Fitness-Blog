@@ -1,37 +1,84 @@
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Field, Label, Switch } from '@headlessui/react'
 import {useState} from 'react'
+import useForm from '../../../hooks/useForm'
+import useSendContacts from '../../../hooks/useContacts'
+import Preloader from '../../Preloader/Preloader'
+import emailjs from '@emailjs/browser';
+import SuccessfullySubmittedContacts from '../../SuccesfullySubmittedContactsModal/SuccessfullySubmittedContacts'
+
+const initialData ={
+  firstName: '',
+  lastName: '',
+  email: '',
+  country: 'BG',
+  phoneNumber: '',
+  message: ''
+}
+
 export default function ContactForm() {
     const [agreed, setAgreed] = useState(false)
+    const [showNotCheckedMessage, setShowNotCheckedMessagee] = useState(false)
+    
+    const [isSuccessfullySubmittedContactOpen, setIsSuccessfullySubmittedContactOpen] = useState(false)
+
+    const openSuccessfullySubmittedContact = () => setIsSuccessfullySubmittedContactOpen(true)
+    const closeSuccessfullySubmittedContact = () => setIsSuccessfullySubmittedContactOpen(false);
+
+    const [isLoading, sendContacts] = useSendContacts();
+
+    const onSubmit = async (formData) => {
+      if(!agreed) {
+        setShowNotCheckedMessagee(true);
+      } else{
+        setShowNotCheckedMessagee(false)
+        // const success = await sendContacts(formData);
+        await emailjs.send('service_q5x0lkb', 'template_5iidqtj', formData, '9cJKUpCy22i2zOOIA')
+        
+        if(success) {
+          openSuccessfullySubmittedContact();
+        }
+      }
+    }
+
+    const {formData, onChangeHandler, onSubmitHandler} = useForm(initialData, onSubmit)
+
 
     return (
-        <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20 bg-blacj">
+      <>
+        {isLoading ? <Preloader />
+        :  
+        <>
+        <form onSubmit={onSubmitHandler} className="mx-auto mt-16 max-w-xl sm:mt-20 bg-blacj">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-white">
               First name
             </label>
             <div className="mt-2.5">
               <input
-                id="first-name"
-                name="first-name"
+                id="firstName"
+                name="firstName"
                 type="text"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                onChange={onChangeHandler}
+                value={formData.firstName}
               />
             </div>
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-white">
               Last name
             </label>
             <div className="mt-2.5">
               <input
-                id="last-name"
-                name="last-name"
+                id="lastName"
+                name="lastName"
                 type="text"
-                autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                onChange={onChangeHandler}
+                value={formData.lastName}
               />
             </div>
           </div>
@@ -44,13 +91,14 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 type="email"
-                autoComplete="email"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                onChange={onChangeHandler}
+                value={formData.email}
               />
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
               Phone number
             </label>
             <div className="relative mt-2.5">
@@ -62,11 +110,13 @@ export default function ContactForm() {
                   id="country"
                   name="country"
                   className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm"
+                  onChange={onChangeHandler}
+                  value={formData.country}
                 >
-                  <option>BG</option>
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
+                  <option value={'BG'}>BG</option>
+                  <option value={'US'}>US</option>
+                  <option value={'CA'}>CA</option>
+                  <option value={'EU'}>EU</option>
                 </select>
                 <ChevronDownIcon
                   aria-hidden="true"
@@ -74,11 +124,12 @@ export default function ContactForm() {
                 />
               </div>
               <input
-                id="phone-number"
-                name="phone-number"
+                id="phoneNumber"
+                name="phoneNumber"
                 type="tel"
-                autoComplete="tel"
                 className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                onChange={onChangeHandler}
+                value={formData.phoneNumber}
               />
             </div>
           </div>
@@ -92,7 +143,8 @@ export default function ContactForm() {
                 name="message"
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
+                onChange={onChangeHandler}
+                value={formData.message}
               />
             </div>
           </div>
@@ -119,6 +171,7 @@ export default function ContactForm() {
             </Label>
           </Field>
         </div>
+        <p className='text-red-600 font-medium'>{showNotCheckedMessage ? 'To proceed with your submission, you need to agree to our privacy policy.' : ''}</p>
         <div className="mt-10">
           <button
             type="submit"
@@ -128,5 +181,14 @@ export default function ContactForm() {
           </button>
         </div>
       </form>
+
+      <SuccessfullySubmittedContacts 
+        isOpen={isSuccessfullySubmittedContactOpen}
+        onClose={closeSuccessfullySubmittedContact}
+      />
+
+      </>
+      }
+      </>
     );
 };
