@@ -5,7 +5,7 @@ import Preloader from '../Preloader/Preloader';
 import useForm from '../../hooks/useForm';
 import EditAlertModal from '../EditAlertModal/EditAlertModal';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SuccessfullyEditedModal from '../SuccessfullyEditedModal/SuccessfullyEditedModal';
 
 export default function EditBlogPost() {
@@ -24,6 +24,12 @@ export default function EditBlogPost() {
     const openSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true)
     const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(false);
     
+    useEffect(() => {
+        if(Object.keys(errors).length > 0) {
+            closeEditAlertModal();
+        }
+    }, [errors]);
+
     const editPostCallback = async (formData) => {
         const success = await editPostHandler(postId, formData);
 
@@ -42,6 +48,7 @@ export default function EditBlogPost() {
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <p className="text-red-600">{errors ? errors.serverError : ''}</p>
                 <form onSubmit={onSubmitHandler}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className='mb-2'>
@@ -148,7 +155,7 @@ export default function EditBlogPost() {
 
                     <div>
                         <button
-                            type="submit"
+                            type="button"
                             className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 hover:text-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             onClick={openEditAlertModal}
                         >
@@ -162,9 +169,9 @@ export default function EditBlogPost() {
             <EditAlertModal 
                 isOpen={isEditAlertModalOpen}
                 onClose={closeEditAlertModal}
-                onConfirm={editPostCallback}
+                onConfirm={() => editPostCallback(formData)}
                 itemTitle={postData.title}
-                errorMessage={errors && errors.serverError}
+                // errorMessage={errors && errors.serverError}
             />
 
             <SuccessfullyEditedModal 

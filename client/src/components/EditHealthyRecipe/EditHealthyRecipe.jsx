@@ -1,6 +1,6 @@
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { useParams} from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useEditRecipe, useGetOneRecipe } from '../../hooks/useRecipes';
 import useForm from '../../hooks/useForm';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
@@ -24,6 +24,12 @@ export default function EditHealthyRecipe() {
     const openSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(true)
     const closeSuccessfullyEditedModal = () => setIsEditSuccessfullyModalOpen(false);
     
+    useEffect(() => {
+        if (Object.keys(errors).length > 0) {
+            closeEditAlertModal();
+        } 
+    }, [errors])
+
     const editRecipeCallback = async (formData) => {
         const success = await editRecipeHandler(recipeId, formData);
 
@@ -155,7 +161,7 @@ export default function EditHealthyRecipe() {
 
             <div>
               <button
-                type="submit"
+                type="button"
                 className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 hover:text-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={openEditAlertModal}
               >
@@ -169,9 +175,9 @@ export default function EditHealthyRecipe() {
         <EditAlertModal 
             isOpen={isEditAlertModalOpen}
             onClose={closeEditAlertModal}
-            onConfirm={editRecipeCallback}
+            onConfirm={() => editRecipeCallback(formData)}
             itemTitle={recipe.title}
-            errorMessage={errors && errors.serverError}
+            // errorMessage={errors && errors.serverError}
         />
 
         <SuccessfullyEditedModal 
