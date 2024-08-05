@@ -20,6 +20,7 @@ import {IsGuest, IsUser} from './components/ProtectedRoutes/RoutesGuards';
 import BlogPostDetails from './components/BlogPostDetails/BlogPostDetails';
 import HealthyRecipeDetails from './components/HealthyRecipeDetails/HealthyRecipeDetails';
 import EditBlogPost from './components/EditBlogPost/EditBlogPost';
+import EditHealthyRecipe from './components/EditHealthyRecipe/EditHealthyRecipe';
 
 function App() {
   const [isVisibleLogOutModal, setIsVisibleLogoutModal] = useState(false);
@@ -57,6 +58,7 @@ function App() {
             <Route path="/create-post" element={<CreateBlogPost />} />
             <Route path='/blog-post/:postId/edit' element={<EditBlogPost/>}/>
             <Route path="/createHealthyRecipe" element={<CreateHealthyRecipe />} />
+            <Route path="/healthy-recipe/:recipeId/edit" element={<EditHealthyRecipe />} />
             <Route path="/myProfile" element={<Profile />} />
           </Route>
 
