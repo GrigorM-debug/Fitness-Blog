@@ -5,8 +5,6 @@ import { validateRegisterForm } from "../vaidations/userValidations/registerUser
 import { validateLoginForm } from "../vaidations/userValidations/loginUserDataValidation";
 import { getUserPosts } from "../api/blogPost_API";
 import { getUserRecipes } from "../api/recipes_API";
-import { getUserLikedRecipes } from "../api/recipesLikes_API";
-import { getUserLikedPosts } from "../api/blogPostLikes_API";
 
 export function useLogin() {
     const {setUserDataHandler} = useContext(UserContext);
@@ -167,32 +165,3 @@ export function useGetUserRecipes(userId) {
     return {userRecipes, isLoadingData};
 }
 
-export function useGetUserLikedContent(userId) {
-    const [userLikedRecipes, setUserLikedRecipes] = useState([]);
-    const [userLikedPosts, setUserLikedPosts] = useState([]);
-    const [isLoadingLikes, setIsLoadingLikes] = useState(true);
-
-    useEffect(() => {
-        const fetchUserLikes = async () => {
-            try {
-                const [recipesResult, postsResult] = await Promise.all([
-                    getUserLikedRecipes(userId),
-                    getUserLikedPosts(userId)
-                ]);
-
-                setUserLikedRecipes(recipesResult);
-                setUserLikedPosts(postsResult);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setIsLoadingLikes(false); // Mark fetching complete
-            }
-        };
-
-        if (userId) { // Only fetch if userId is provided
-            fetchUserLikes();
-        }
-    }, [userId]);
-
-    return { userLikedRecipes, userLikedPosts, isLoadingLikes };
-}

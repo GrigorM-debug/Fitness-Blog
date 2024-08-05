@@ -1,12 +1,10 @@
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import  {useGetUserData, useGetUserLikedContent, useGetUserPosts } from "../../hooks/useAuth";
+import  {useGetUserData, useGetUserPosts } from "../../hooks/useAuth";
 import Preloader from "../Preloader/Preloader";
 import BlogPostsWrittenSection from "./BlogPostsWrittenSection/BlogPostsWrittenSection";
 import { useGetAllRecipes } from "../../hooks/useRecipes";
 import HighProteinRecipesWrittenSection from "./HighProteinRecipesWrittenSection/HighProteinRecipesWrittenSection";
 import { useEffect, useState } from "react";
-import LikedPosts from "./LikedPosts/LikedPosts";
-import LikedRecipes from "./LikedRecipes/LikedRecipes";
 
 export default function Profile() {
     const {userData, isPreloading} = useGetUserData();
@@ -14,34 +12,9 @@ export default function Profile() {
     const {userPosts, isLoading} = useGetUserPosts(userData._id);
 
     const {userRecipes, isLoadingData} = useGetAllRecipes(userData._id);
-    console.log(userRecipes)
 
-    const {userLikedRecipes, userLikedPosts, isLoadingLikes } = useGetUserLikedContent(userData._id)
+    const isFetching = isPreloading || isLoading || isLoadingData;
 
-    const isFetching = isPreloading || isLoading || isLoadingData || isLoadingLikes;
-
-    const [totalPostCount, seTotalPostCount] = useState(0);
-    const [totalLikesCount, setTotalLikesCount] = useState(0);
-
-    useEffect(() => {
-        if(userPosts) {
-            seTotalPostCount(userPosts.length)
-        } else if(userRecipes) {
-            seTotalPostCount(userRecipes.length)
-        } else {
-            seTotalPostCount(userPosts.length + userRecipes.length)
-        }
-    }, [userRecipes, userPosts])
-
-    useEffect(() => {
-        if(userLikedRecipes) {
-            setTotalLikesCount(userLikedRecipes.length)
-        } else if(userLikedRecipes) {
-            setTotalLikesCount(userLikedRecipes)
-        } else {
-            setTotalLikesCount(userLikedPosts + userLikedRecipes);
-        }
-    }, [userLikedRecipes, userLikedPosts])
 
 
     return (
@@ -55,17 +28,17 @@ export default function Profile() {
                 <div className="bg-neutral-900 shadow mt-0 p-0">
                     <div className="grid grid-cols-1 md:grid-cols-3 p-8">
                         <div className="grid grid-cols-3 text-center order-last md:order-first mt-40 md:mt-0">
-                            <div>
-                                <p className="font-bold text-white text-2xl">{totalLikesCount ? totalLikesCount : 0}</p>
-                                <p className="text-gray-400">Likes</p>
-                            </div>
                             {/* <div>
                                 <p className="font-bold text-white text-2xl">10</p>
                                 <p className="text-gray-400">Comments</p>
                             </div> */}
                             <div>
-                                <p className="font-bold text-white text-2xl">{totalPostCount ? totalPostCount : 0}</p>
-                                <p className="text-gray-400">Posts</p>
+                                <p className="font-bold text-white text-2xl">{userPosts ? userPosts.length : 0}</p>
+                                <p className="text-gray-400">Blog Posts</p>
+                            </div>
+                            <div>
+                                <p className="font-bold text-white text-2xl">{userRecipes ? userRecipes.length : 0}</p>
+                                <p className="text-gray-400">Healthy Recipes Posts</p>
                             </div>
                         </div>
                         <div className="relative">
@@ -131,41 +104,7 @@ export default function Profile() {
                                 ))
                                 : <h2 className="font-medium text-white text-center">Not High Protein Recipes written</h2>
                             }
-                        </div>
-                        <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
-                            <h2 className="bg-zinc-800 text-white text-2xl p-4">Liked Posts</h2>
-                            {userLikedRecipes && userLikedPosts.length > 0 ?
-                                userLikedPosts.map(p => (
-                                    <LikedPosts 
-                                        key={p._id}
-                                        imageUrl={p.post.imageUrl}
-                                        title={p.post.title}
-                                        postId={p.post._id}
-                                        createdOn={p.post._createdOn}
-                                        updatedOn={p.post._updatedOn}
-                                        shortDescription={p.post.shortDescription}
-                                    />
-                                ))
-                            : <h2 className="font-medium text-white text-center">No liked Posts</h2>
-                            }
-                        </div>
-                        <div className="border border-gray-900 rounded-xl overflow-hidden shadow-lg">
-                            <h2 className="bg-zinc-800 text-white text-2xl p-4">Liked Healthy High Protein Recipes</h2>
-                            {userLikedRecipes.length > 0 ? 
-                                userLikedRecipes.map(lp => (
-                                    <LikedRecipes 
-                                        key={lp._id}
-                                        imageUrl={lp.recipe.imageUrl}
-                                        title={lp.recipe.title}
-                                        recipeId={lp.recipe._id}
-                                        createdOn={lp.recipe._createdOn}
-                                        updatedOn={lp.recipe._updatedOn}
-                                        description={lp.recipe.description}
-                                    />
-                                ))
-                            : <h2 className="font-medium text-white text-center">Not High Protein Recipes liked</h2>
-                            }
-                        </div>
+                        </div>                
                     </div>
                 </div>
             </div>

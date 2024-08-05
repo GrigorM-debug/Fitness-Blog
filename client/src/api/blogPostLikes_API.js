@@ -31,16 +31,3 @@ export async function getLikes(postId) {
     return result;
 }
 
-export async function getUserLikedPosts(userId) {
-    const params = new URLSearchParams({
-        where: `_ownerId="${userId}"`,
-        load: `post=posdId:posts`
-    })
-
-    const response = await fetch(`${BASE_URL}?${params.toString()}`);
-
-    // const result = await response.json();
-    const result = await response.json();
-
-    return result;
-}
