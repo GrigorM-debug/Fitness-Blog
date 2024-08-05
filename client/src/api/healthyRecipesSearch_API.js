@@ -1,14 +1,15 @@
-const BASE_URL = 'http://localhost:3030/data/recipes'
+const BASE_URL = 'http://localhost:3030/data/recipes';
 
 export default async function searchRecipe(recipeTitle) {
-    const params = new URLSearchParams({
-        where: `title LIKE "${recipeTitle}"`
-    })
-
-    const response = await fetch(`${BASE_URL}?${params.toString()}`);
-
+    const encodedTitle = encodeURIComponent(`title LIKE "${recipeTitle}"`);
+    
+    const url = `${BASE_URL}?where=${encodedTitle}`;
+    
+    const response = await fetch(url);
+        
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const result = await response.json();
-    console.log(result)
-
-    return result;
 }

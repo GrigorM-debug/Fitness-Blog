@@ -18,6 +18,7 @@ export default function useHealthyRecipesSearch() {
         try {
             setIsLoading(true);
             const result = await searchRecipe(title);
+            console.log(result)
             setIsLoading(false); // Ensure this line is reached
             setErrors({})
             return result;
