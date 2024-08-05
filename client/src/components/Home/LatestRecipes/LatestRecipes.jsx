@@ -20,7 +20,6 @@ export default function LatestRecipes ({
         },
     };
 
-    console.log(recipes)
 
     return (
         <section className={`${styles.latestRecipesSection} spad`}>
@@ -66,7 +65,13 @@ export default function LatestRecipes ({
                                     <div className={styles.lsText}>
                                         <h4>{recipe.title}</h4>
                                         <span>Created by: <p>{recipe.author.username}</p></span>
-                                        <Link to={`/healthy-recipes/${recipe._id}/details`}>View Recipe Details</Link>
+                                        <Link 
+                                            to={`/healthy-recipes/${recipe._id}/details`}
+                                            onClick={(e) => {
+                                                e.preventDefault();  // This prevents the default link behavior if necessary
+                                                // Any other logic you need
+                                              }}
+                                        >View Recipe Details</Link>
                                     </div>
                                 </div>
                             </div>
