@@ -77,7 +77,7 @@ export default function HealthyRecipes() {
                                     recipeId={recipe._id}
                                 />
                             )) 
-                                : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
+                                : <h2 className={`${styles.sectionTitle} section-title`}>There are no posts available</h2>
                             }
                             
                             <Pagination 
