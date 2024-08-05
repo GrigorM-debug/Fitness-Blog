@@ -16,12 +16,21 @@ const initialData = {
   imageUrl: '',
 };
 
+//if no image is added I am adding default one
+const defaultImageUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg';
+
+
+
 export default function Register() {
   const [register, errors, isFetching] = useRegister();
   const navigate = useNavigate();
 
   const formSubmit = async (formData) => {
-    const success = await register(formData);
+    const dataToSubmit = {
+      ...formData,
+      imageUrl: formData.imageUrl || defaultImageUrl,
+    };
+    const success = await register(dataToSubmit);
 
     if (success) {
       navigate('/');

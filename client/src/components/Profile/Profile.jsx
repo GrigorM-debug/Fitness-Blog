@@ -63,7 +63,7 @@ export default function Profile() {
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-12">
                         <p className="text-white text-lg font-light lg:px-16">
-                            {userData.description ? userData.description : ''}
+                            {userData.description ? userData.description : 'No bio added for now'}
                         </p>
                     </div>
 

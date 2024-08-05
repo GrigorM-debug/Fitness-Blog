@@ -30,9 +30,7 @@ export function validateRegisterForm(formData) {
     }
 
     //Description validation
-    if(!formData.description) {
-        errors.description = 'Description is required !';
-    } else if (formData.description.length < 10) {
+    else if (formData.description && formData.description.length < 10) {
         errors.description = 'Description must be at least 10 characters long !';
     }
 
@@ -51,9 +49,7 @@ export function validateRegisterForm(formData) {
     }
 
     //Image Url validation 
-    if(!formData.imageUrl) {
-        errors.imageUrl = 'Image URL is required !';
-    } else if (!/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
+    if (!/^(http|https):\/\/[^ "]+$/.test(formData.imageUrl)) {
         errors.imageUrl = 'Image URL is invalid or not supported.';
     }
 
