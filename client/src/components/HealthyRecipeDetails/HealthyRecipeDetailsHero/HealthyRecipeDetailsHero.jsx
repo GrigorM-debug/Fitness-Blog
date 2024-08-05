@@ -7,7 +7,8 @@ export default function HealthyRecipeDetailsHero({
     authorName,
     commentsCount,
     likesCount,
-    createdOn
+    createdOn,
+    updatedOn
 }) {
     return (
         <section className={`${styles.blogDetailsHero} set-bg`} style={{backgroundImage: `url(${imageUrl})`}}>
@@ -19,6 +20,7 @@ export default function HealthyRecipeDetailsHero({
                             <ul>
                                 <li>by {authorName}</li>
                                 <li>Created On: {timestampToDate(createdOn)}</li>
+                                <li>Updated On: {updatedOn ? timestampToDate(updatedOn) : ''}</li>
                                 <li>{commentsCount > 0 ? commentsCount : '0'} Comments</li>
                                 <li>{likesCount > 0 ? likesCount : '0'} Likes</li>
                             </ul>

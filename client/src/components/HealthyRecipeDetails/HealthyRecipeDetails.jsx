@@ -64,6 +64,7 @@ export default function HealthyRecipeDetails() {
                 commentsCount={comments.length}
                 likesCount={likes.length}
                 createdOn={recipe._createdOn} 
+                updatedOn={recipe._updatedOn}
             />
 
             <section className={`${styles.blogDetailsSection} spad`}>
