@@ -16,13 +16,16 @@ export default function Home() {
 
     return (
         <>
-            {isLoading && <Preloader/>}
+            {isLoading ? <Preloader/> :
+                <>
+                    <HeroSection />
+                    <ChooseUs />
+                    <LatestArticles posts={posts}/>
+                    <LatestRecipes recipes={recipes}/>
+                    <GetInTouch />
+                </>
+            }
             
-            <HeroSection />
-            <ChooseUs />
-            <LatestArticles posts={posts}/>
-            <LatestRecipes recipes={recipes}/>
-            <GetInTouch />
         </>
     );
 };

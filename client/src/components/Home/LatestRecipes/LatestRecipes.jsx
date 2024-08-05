@@ -20,6 +20,8 @@ export default function LatestRecipes ({
         },
     };
 
+    console.log(recipes)
+
     return (
         <section className={`${styles.latestRecipesSection} spad`}>
             <div className="container">
@@ -42,8 +44,12 @@ export default function LatestRecipes ({
                         dotsClass='owl-dots'
                         smartSpeed={1200}
                         autoHeight={false}
+                        nav={true}
+                        autoplayHoverPause={false}
                         autoplay
                         responsive={responsive}
+                        lazyLoad={true}
+                    
                     >
                         {recipes.length > 0 ? recipes.slice(0, 5).map((recipe) => (
                             <div className="item" key={recipe._id}>
