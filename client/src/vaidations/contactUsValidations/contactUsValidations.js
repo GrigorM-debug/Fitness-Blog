@@ -28,7 +28,7 @@ export default function contactUsValidations(formData) {
     if(!formData.message) {
         errors.message = 'Message name is required !';
     } else if (formData.message.length < 10) {
-        errors.message = 'Messsage must be at least 3 characters long !';
+        errors.message = 'Messsage must be at least 10 characters long !';
     }
     
     return errors

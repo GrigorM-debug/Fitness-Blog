@@ -56,7 +56,8 @@ export async function logout(token) {
 }
 
 export async function getUserData() {
-    const token = localStorage.getItem('auth-token');
+    // const token = localStorage.getItem('auth-token');
+    const token = JSON.parse(localStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/me`, {
         headers: {
