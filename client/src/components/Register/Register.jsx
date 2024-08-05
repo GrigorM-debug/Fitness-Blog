@@ -1,4 +1,4 @@
-import { UserCircleIcon } from '@heroicons/react/24/solid';
+import { FolderMinusIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Link, useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
@@ -30,14 +30,16 @@ export default function Register() {
       ...formData,
       imageUrl: formData.imageUrl || defaultImageUrl,
     };
+
     const success = await register(dataToSubmit);
 
     if (success) {
+      clearData();
       navigate('/');
     }
   };
 
-  const { formData, onChangeHandler, onSubmitHandler } = useForm(initialData, formSubmit);
+  const { formData, onChangeHandler, onSubmitHandler, clearData} = useForm(initialData, formSubmit);
 
   return (
     <>

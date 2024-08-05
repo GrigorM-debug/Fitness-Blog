@@ -7,7 +7,7 @@ export default function useForm(initialData, handleSubmitCallback) {
         setFormData(initialData)
     }, [initialData])
 
-    const updateFormInitialData = () => {
+    const clearData = () => {
         setFormData(initialData);
     }
 
@@ -23,8 +23,8 @@ export default function useForm(initialData, handleSubmitCallback) {
 
         handleSubmitCallback(formData);
         
-        setFormData(initialData);
+        // setFormData(initialData);
     } 
 
-    return {formData, onChangeHandler, onSubmitHandler, updateFormInitialData};
+    return {formData, onChangeHandler, onSubmitHandler, clearData};
 }
