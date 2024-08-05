@@ -81,3 +81,22 @@ export async function deleteRecipe(recipeId) {
 
     return true;
 }
+
+export async function editRecipe(recipeId, newData) {
+    const token = localStorage.getItem('auth-token');
+
+    const response = await fetch(`${BASE_URL}/${recipeId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify(newData)
+    })
+
+    if(!response.ok) {
+        return false;
+    } 
+
+    return true;
+}

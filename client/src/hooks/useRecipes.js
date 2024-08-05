@@ -104,3 +104,24 @@ export function useDeleteRecipe() {
 
     return [error, deleteHandler]
 }
+
+export function useEditRecipe() {
+    const [errors, setErrors] = useState({});
+
+    const editRecipeHandler = async (recipeId, newData) => {
+        const validationResult = createHelthyRecipesValidations(newData)
+
+        if(Object.keys(validationResult).length > 0) {
+            setErrors(validationResult)
+            return;
+        }
+        try {
+            const result = await editPost(recipeId, newData);
+            return result;
+        } catch (err) {
+            setError({serverError: err.message})
+        }
+    }
+
+    return [errors, editRecipeHandler]
+}
