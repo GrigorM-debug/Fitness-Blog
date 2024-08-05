@@ -6,6 +6,10 @@
 	margin-bottom: 40px;
 }
 
+.commentOption h3 {
+	color: white;
+}
+
 .coWidget {
 	position: absolute;
 	right: 0;
