@@ -27,7 +27,7 @@ export default function HealthyRecipes() {
 
     const searchSubmitHandler = async (formData) => {
         const result = await searchHandler(formData.title);
-
+        console.log(result)
         if(result) {
             setFilteredRecipes(result);
         }
@@ -42,9 +42,9 @@ export default function HealthyRecipes() {
     const [itemsPerPage, setItemsPerPage] = useState(5);
 
     // Calculate indices for the current page
-    const indexOfLastPost = currentPage * itemsPerPage;
-    const indexOfFirstPost = indexOfLastPost - itemsPerPage;
-    const currentRecipes = filteredRecipes && filteredRecipes.slice(indexOfFirstPost, indexOfLastPost);
+    const indexOfLastRecipe = currentPage * itemsPerPage;
+    const indexOfFirstRecipe = indexOfLastRecipe - itemsPerPage;
+    const currentRecipes = filteredRecipes && filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -56,43 +56,41 @@ export default function HealthyRecipes() {
             <>
             <Breadcrumb title="Healthy Recipes" page="Healthy Recipes" breadcrumbImage="img/recipe-bg2.jpg"/>
     
-            <section className={`${styles.healthyRecipeSection} spad`}>
-                <div className={styles.container}>
-                    <div className="heading">
-                        <div className="col-lg-12">
-                            <div className={styles.hrTitle}>
-                                <div className={`${styles.sectionTitle} section-title`}>
-                                    <h2>Healthy High Protein Recipes</h2>
-                                </div>
+            <section className={styles.recipesSection}>
+                <div className="container">
+                    <div className="row">
+                        <div className={`col-lg-8 p-0`}>
+                            <div className={`${styles.sectionTitle} section-title`}>
+                                <h2>Healthy High Protein Recipes</h2>
                             </div>
-                        </div>
-                    </div>
-                    <div className={styles.content}>
-                        {currentRecipes.length > 0 ? currentRecipes.map(recipe => (
-                            <RecipeItem 
-                                key={recipe._id}
-                                title={recipe.title}
-                                imageUrl={recipe.imageUrl}
-                                author={recipe.author.username}
-                                recipeId={recipe._id}
+                            {currentRecipes.length > 0 ? currentRecipes.map(recipe => (
+                                <RecipeItem 
+                                    className={styles.itemC}
+                                    key={recipe._id}
+                                    title={recipe.title}
+                                    imageUrl={recipe.imageUrl}
+                                    author={recipe.author.username}
+                                    recipeId={recipe._id}
+                                />
+                            )) 
+                                : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
+                            }
+                            
+                            <Pagination 
+                                handleItemsPerPage={itemsPerPage}
+                                length={filteredRecipes && filteredRecipes.length}
+                                currentPage={currentPage}
+                                onPageChange={handlePageChange}
                             />
-                        )) 
-                            : <h2 className={`${styles.sectionTitle} section-title`}>There is no posts added</h2>
-                        }
+                        </div>
+                        <SideBar 
+                            onChange={onChangeHandler}
+                            onSubmit={onSubmitHandler}
+                            formData={formData}
+                            errors={errors}
+                        />
                     </div>
-                    <Pagination 
-                        handleItemsPerPage={itemsPerPage}
-                        length={filteredRecipes && filteredRecipes.length}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                    />
                 </div>
-                <SideBar 
-                    onChange={onChangeHandler}
-                    onSubmit={onSubmitHandler}
-                    formData={formData}
-                    errors={errors}
-                />
             </section>
             </>
         }

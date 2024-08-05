@@ -1,17 +1,14 @@
 const BASE_URL = 'http://localhost:3030/data/recipes'
 
 export default async function searchRecipe(recipeTitle) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams({
+        where: `title LIKE "${recipeTitle}"`
+    })
 
-    params.append('where', `title LIKE "${recipeTitle}"`);
-
-    params.append('load', `author=_ownerId:users`);
-
-    const queryString = params.toString();
-
-    const response = await fetch(`${BASE_URL}?${queryString}`);
+    const response = await fetch(`${BASE_URL}?${params.toString()}`);
 
     const result = await response.json();
+    console.log(result)
 
     return result;
 }

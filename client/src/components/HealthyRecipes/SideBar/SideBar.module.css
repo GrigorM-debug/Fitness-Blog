@@ -1,12 +1,18 @@
-.sidebarOption {
-	padding-left: 40px;
+@media only screen and (max-width: 767px) {
+    .sidebarOption {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
 }
 
-.sidebarOption .soCategories {
-    padding-bottom: 2em;
+@media only screen and (min-width: 1000px) {
+    .sidebarOption {
+        padding-left: 5em;
+    }
 }
 
-.sidebarOption .soCategories .title {
+
+.sidebarOption  .title {
     color: white;
     font-weight: 700;
     font-size: 18px;
