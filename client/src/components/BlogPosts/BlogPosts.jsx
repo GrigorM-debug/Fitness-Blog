@@ -7,6 +7,7 @@ import Preloader from "../Preloader/Preloader";
 import { useGetLatest } from "../../hooks/useBlogPosts";
 import { useState, useEffect } from "react";
 import useForm from "../../hooks/useForm";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import useBlogPostsSearch from "../../hooks/useBlogPostsSearch";
 
 const initialValues = {
@@ -22,6 +23,9 @@ export default function BlogPosts() {
     // Filtered data after using the Search
     const [filteredPosts, setFilteredPosts] = useState([]);
 
+    const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate()
+
     useEffect(() => {
         if(posts) {
             setFilteredPosts(posts);
@@ -36,6 +40,7 @@ export default function BlogPosts() {
         if(result) {
             setFilteredPosts(result);
             clearData()
+            navigate(`?title=${encodeURIComponent(formData.title)}&category=${encodeURIComponent(formData.category)}`, { replace: true });
         }
     }
 

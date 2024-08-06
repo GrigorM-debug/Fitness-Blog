@@ -8,6 +8,7 @@ import Preloader from '../Preloader/Preloader';
 import Pagination from '../Pagination/Pagination';
 import SideBar from './SideBar/SideBar';
 import useHealthyRecipesSearch from '../../hooks/useHealthyRecipesSearch';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const initialValues = {
     title: ''
@@ -19,6 +20,10 @@ export default function HealthyRecipes() {
 
     const [filteredRecipes, setFilteredRecipes] = useState([]);
 
+    //Check this
+    const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate()
+
     useEffect(() => {
         if(recipes) {
             setFilteredRecipes(recipes);
@@ -29,10 +34,10 @@ export default function HealthyRecipes() {
 
     const searchSubmitHandler = async (formData) => {
         const result = await searchHandler(formData.title);
-        console.log(result)
         if(result) {
             setFilteredRecipes(result);
             clearData()
+            navigate(`?title=${encodeURIComponent(formData.title)}`, { replace: true });
         }
     }
 

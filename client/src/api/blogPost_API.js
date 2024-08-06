@@ -3,6 +3,7 @@ const BASE_URL = 'http://localhost:3030/data/posts';
 export async function createPost(postData) {
     // const token = localStorage.getItem('auth-token');
     const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    console.log(token)
     
     const response = await fetch(BASE_URL, {
         method: 'POST',

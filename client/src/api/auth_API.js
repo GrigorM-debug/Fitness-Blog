@@ -46,6 +46,8 @@ export async function logout(token) {
         }
     })
 
+    localStorage.removeItem('auth');
+
     if(!response.ok) {
         throw new Error('User session does not exist !');
     }
