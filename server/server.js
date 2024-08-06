@@ -1351,7 +1351,144 @@
                 _createdOn: 1722348934844,
                 _id: "ea6f29cc-8265-4fc1-bfa6-dfaa6239baf6"
             },
+
+            "a191d000-ec80-4d5f-9de4-f9e1fdb1904f": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Which Squat Load Position is Right For You?",
+                category: "training",
+                subTitle: "Looking at the 6 most common squat loading positions",
+                shortDescription: "You may have heard that back squats work more glutes, and front squats work more quads. Loading positions can be dissected more profoundly than expected, with differences in muscle activation, joint angles, and joint force. Let’s discuss these differences according to what the research has found to help you select the best squat loading position for your goals and history. ",
+                content: "Front Squat vs. Back Squat\nOne study analyzed the muscle activation and trunk angle differences in twelve trained college-aged men during maximal lifting between the front and back squats (6). Front squats were tested using a barbell on the anterior deltoids, and back squats were placed in the high bar position. Here are some of the most exciting findings from this study with the following discussion: Back squat could allow up to 32% more weight lifted relative to body weight compared to front squat. Lifters should consider the vast difference in loading potential between back and front squats when choosing between the two. Back-loaded squats should be prioritized if the lifter aims to lift as much weight as possible. Suppose the lifter needs to squat but reduces the overall load for recovery. In that case, front-loaded positions should be prioritized, which will still result in similar high amounts of muscle activation. Despite the front squat resulting in less overall weight lifted, the vastus medialis (a quadricep muscle) had higher muscle activation during the ascending phase. This shows that front squats can still achieve similar amounts of quad activation as back squats, even more for the vastus medialis, despite less loading potential. This makes front squats a viable option for working the quads harder without the extra loading. The semitendinosus (a hamstring muscle) muscle had higher activation during the back squat than the front squat during the ascending phase. This result is because hamstring activity increases as the torso leans forward. Lifters looking to prioritize more hamstring activity during the squat should prioritize back-loaded variations because they cause greater trunk lean. The back squat resulted in much lower hip angles and a forward-leaning torso compared to the front squat. \n\n",
+                imageUrl: "https://www.bodybuilding.com/images/squatload-830x467.jpg",
+                _createdOn: 1722952628456,
+                _id: "a191d000-ec80-4d5f-9de4-f9e1fdb1904f"
+            },
+
+            "c2b6861d-e65e-4529-8f49-0aa8b5217540": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "The Benefits of Electrolytes",
+                category: "nutrition",
+                subTitle: "What’s all the hype about with electrolytes?",
+                shortDescription: "With the heat ramping up, it’s easy to overlook electrolytes' role in the body's fluid balance, muscle function, and nerve signaling. We know we must fuel our muscles with glucose and repair them with protein and amino acids. Yet, we often forget about electrolytes (sodium and potassium) even as we sweat them out.",
+                content: "Electrolytes are minerals dissolved in fluid that carry a positive electrical charge (Lewis). Sodium is one of the electrolytes consumed from food and exits the body via sweat and urine. The kidneys regulate the amount of sodium that the body retains or expels. \n\nSodium, the most abundant electrolyte in our body and our diet is vital to the body’s functioning, and we would not survive without it. Sodium plays a role in (Veniamakis):\nMaintaining blood pressure and volume\nOrgan perfusion\nStimulation of muscle and nerve cells\nBalancing fluids and intravascular osmotic pressure\nThirst stimulus and urine production\nAll types of electrolytes can be sufficiently attained through foods. Most people don’t need to try harder to get more sodium and chloride because it is a common additive (table salt) that makes food taste better. Foods with high amounts of electrolytes include:\nPotassium: Avocados, bananas, potatoes, spinach, legumes, and squash\n\nCalcium: Dairy products, seeds, fish, lentils, leafy greens\nMagnesium: Nuts, seeds, legumes, grains, corn, dark chocolate, papaya\nChloride: Table salt, processed meats and foods\nPhosphorus: Diary, poultry, legumes, eggs, tofu",
+                imageUrl: "https://www.bodybuilding.com/images/electrolytebenefits-830x467.jpg",
+                _createdOn: 1722952311275,
+                _id: "c2b6861d-e65e-4529-8f49-0aa8b5217540"
+            },
+
+            "ca076f06-cbee-474f-91e1-91fa3a70ed26": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Is BMI A Useful Measure Of Health?",
+                category: "healthAndRecovery",
+                subTitle: "BMI measurement is not giving you the full picture on how healthy you are.",
+                shortDescription: "Most healthcare facilities have been using body mass index (BMI) as a standard assessment tool for many years. It has been their go-to method of estimating whether a person is obese or underweight. However, since this system relies solely on height and weight, it may lead physicians to the wrong conclusion that a healthy, fit individual with greater muscle mass is overweight. Conversely, a lower BMI does not necessarily mean a person is healthier.",
+                content: "According to the World Health Organization, BMI was developed by Belgian mathematician Adolphe Quetelet in 1832. Its popularity skyrocketed during the 1970s, and many physicians and other health practitioners have been using it since in order to assess their patients’ overall health.\nSince the formula does not include all the important health indicators, you may be wondering what body mass index is for. Well, it does allow you to determine whether you are at high risk for obesity-related conditions, including diabetes, sleep apnea, liver disease, arthritis, high blood pressure, high cholesterol, stroke, and several types of cancer. \n\nTherefore, if you find yourself out of the healthy range, it is advisable to talk to your physician. Many of them recommend decreasing your BMI by a point or two, as this can significantly reduce the possibility of cardiovascular diseases\nEven though BMI can help you determine your risk of metabolic diseases, many healthcare workers and experts believe it shouldn't be used as the sole indicator of health, particularly because it leaves out a number of important factors essential for creating individualized care plans. \nIt's difficult to tell how healthy someone is by measuring only their body fat and weight. For a more detailed picture, you need specific metrics, such as blood pressure, waist size, and the levels of LDL and HDL cholesterol, triglycerides, and blood sugar. All of these factors should be considered together instead of separately, as is usually the case with BMI. ",
+                imageUrl: "https://www.bodybuilding.com/images/2023/october/is-bmi-a-useful-measure-of-health-header-830x467.jpg",
+                _createdOn: 1722952151357,
+                _id: "ca076f06-cbee-474f-91e1-91fa3a70ed26"
+            },
+
+            "c37a992e-097a-49ac-bbb9-d0c908507515": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Bodybuilding Community Predicts Olympia 2024 Results as Derek Lunsford Posts His First Physique Update of the Year",
+                category: "competitions",
+                subTitle: "Heavy is the head that wears the Mr. Olympia crown",
+                shortDescription: "Like the song says, ‘Ain’t no rest for the wicked,’ Derek Lunsford doesn’t seem to have rested either. Derek Lunsford started his Olympia reign in 2023. However, it was also filled with a little controversy because many bodybuilding fans believed that in the 2022 Mr. Olympia, Hadi Choopan should have won the title. However, with the dust settled, the 2023 Mr. Olympia has continued to surprise fans with his on-season and off-season physique.",
+                content: "Lunsford is one of the very few bodybuilders who has won in two divisions in Mr Olympia. The 30-year-old succeeded in winning Mr Olympia in the Men’s Physique category in 2023 and before that, he had secured the top spot in the 212 Olympia.\n\nNow of course, with being a champion, comes responsibility, and when you are the most coveted man in bodybuilding, appearances matter. In the newly uploaded pictures on Instagram, we can see Hany Rambod helping him pose in front of the mirror. Lunsford looks like if there were a Mr. Olympia tomorrow, he would still walk in, smile, and take the crown.",
+                imageUrl: "https://fitnessvolt.com/wp-content/uploads/2024/04/hany-rambod-derek-lunsford-hadi-choopan-2024-mr-olympia-750x467.jpg",
+                _createdOn: 1722951922115,
+                _id: "c37a992e-097a-49ac-bbb9-d0c908507515",
+                _updatedOn: 1722951959279
+            },
+
+            "b1a90216-616a-4fad-9c5a-2d0794f1cb2b": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "What is the Right Amount of Weekly Volume To Build Muscle?",
+                category: "training",
+                subTitle: "Junk volume, high volume or low volume. What’s the right amount for hypertrophy?",
+                shortDescription: "Let’s highlight the current research on the number of sets to lift per muscle group per week. Undoubtedly, volume is one of the top drivers of hypertrophy, but do more sets always lead to more growth? What is the minimum effective dosage? \n\nImplementing the optimal weekly volume per muscle is crucial for anyone looking to maximize muscle growth consistently. We’ll delve into recent studies to uncover the nuances of training volume, exploring dose-response relationships, minimum and maximum thresholds, and training frequency. Furthermore, we’ll cover how training status affects optimal volume. ",
+                content: "Minimum Threshold Volume for Hypertrophy\nAccording to three reviews, the minimum threshold for hypertrophy seems to be between 6 and 12 weekly sets (2, 9, 11). \n\nOne of the lowest recommendations on weekly volume comes from a review recommending a minimum of four weekly sets where the last few reps are challenging to complete (7). Another recommendation on the low end comes from the American College of Sports Medicine’s resistance training guidelines of 2–4 sets per muscle group for 2–3 times a week, equaling a weekly training volume of 4–12 sets per muscle group (12).\nMaximum Threshold Volume for Hypertrophy\nResearch seems more vague on the upper limit of weekly volume on hypertrophy. Some single studies have found positive results as high as 52 sets per week (4). One theory is that there is an inverse “U”-shape on the weekly volume where there is a sweet spot, and then as volume increases beyond that, hypertrophy results begin to diminish (6). Another theory is a dose-response relationship where hypertrophy results stop growing after a specific weekly volume (12).\n\nThe research's upper weekly volume limits suggest that 20-30 weekly sets at or near failure are effective (1, 2, 4, 6). However, weekly sets in this range only performed slightly better than those in the 12-20 range. If you’re short of this range and not seeing progression in size after a few consistent months of training, try increasing the weekly volume by a few sets. \n",
+                imageUrl: "https://www.bodybuilding.com/images/rightamountofweeklyvolumeheader-830x467.jpg",
+                _createdOn: 1722951725694,
+                _id: "b1a90216-616a-4fad-9c5a-2d0794f1cb2b"
+            }
+        },
+
+        recipes: {
+            "76c4ca50-b42c-42d9-928e-14502c8c46ae": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "Protein Banana Bread",
+                subTitle: "This protein banana bread is moist, fluffy, and made in just one bowl! It’s an eggless and dairy free recipe that packs in over 18 grams of protein per slice!",
+                ingredients: "Besides the banana and some pantry baking staples, there isn’t much else needed to make this recipe. Here is what you’ll need:\n\nBananas– Overripe bananas are a must, as they will make the bread extra moist and extra sweet. \nMilk of choice– I used unsweetened almond milk, but any milk will work. \nVinegar– White or apple cider. This reacts with the self-rising flour to give the bread some rise and fluffiness.\nVanilla extract– A must for any good banana bread. \nSelf-rising flour– Skip the expensive pre-made blends and make your own! \nAlmond flour– Blanched or superfine almond flour, not almond meal. \nProtein powder– I like using a vanilla-flavored protein powder, but unflavored works. Brown rice protein powder or casein protein powder are the best protein blends for baking. \nSugar or alternative– White, brown, or coconut sugar, or sugar free alternatives, like a brown sugar substitute. \nChocolate chips– Optional, but I love to fold through some vegan chocolate chips. ",
+                instructions: "I’ve included step-by-step photos below to make this recipe easy to follow at home. For the full printable recipe instructions and ingredient quantities, scroll to the recipe card at the bottom of this post.\n\nStep 1- Make the batter. Start by adding the mashed bananas, milk, and vanilla extract into a large mixing bowl and whisking together until combined. Next, add the dry ingredients and mix until a smooth batter remains. If using chocolate chips, fold them through at the end.\n\nStep 2- Bake. Now, transfer the batter into a greased loaf pan and bake for 45-50 minutes, or until a skewer comes out mostly clean from the middle. Let the protein banana bread cool in the pan completely before slicing and serving. \n",
+                description: "Adding protein powder to desserts and baked goods is one of my favorite things to do. As someone who follows a muscle-building diet, knowing that my treats are aiding my muscle growth keeps me motivated towards my goals.\n\nSome of my favorite treats to add protein to include protein cookies, protein muffins, and protein donuts. To change things up, I wanted to throw banana bread into the mix!",
+                imageUrl: "https://thebigmansworld.com/wp-content/uploads/2022/02/protein-banana-bread-3.jpg",
+                _createdOn: 1722950484750,
+                _id: "76c4ca50-b42c-42d9-928e-14502c8c46ae"
+            },
+
+            "0336e1e8-9ad5-46c9-be39-4bb09e616f2e": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "Protein Donuts",
+                subTitle: "For sweet lovers",
+                ingredients: "For the donuts\nProtein powder– Vanilla, chocolate, or unflavored protein powder. Opt for a brown rice protein powder or casein protein powder, as these two blends have the best baking qualities.\nSelf rising flour– Already has the leavening agents mixed into it. Don’t have any on hand? Easily make your own. \nCocoa powder– Unsweetened and sifted, to ensure there are no clumps throughout. \nGranulated sweetener of choice– I used a brown sugar substitute, but monk fruit sweetener, coconut sugar, or even white sugar can be used. \nOil– Any neutral-flavored oil. I used canola oil. \nMilk of choice– I used unsweetened almond milk, but coconut or soy are both also great.\nFor the glaze\nConfectioners sugar substitute– Homemade keto powdered sugar has no calories or carbs but the exact taste and texture of real powdered sugar.\nCocoa powder– Like the donuts, be sure to sift it very well to ensure there are no clumps throughout.\nMilk of choice– To thin the glaze out.",
+                instructions: "Start by mixing together your dry ingredients in a large mixing bowl. Next, add in the oil and milk and whisk together, until a smooth batter remains. If the batter is too thick, add a little extra milk.\n\nNow, transfer the donut batter into a piping bag. Pipe out the batter into a lightly greased 12-count donut pan. Bake for 13-15 minutes, or until they bounce back slightly. Let the donuts cool in the pan for 10 minutes, before carefully transferring to a wire rack to cool completely. Once cool, glaze the donuts.\n\nTo make the glaze, combine the confectioner’s sugar substitute with cocoa powder. Slowly add milk until it becomes thick and glossy. Moving quickly, dip each donut in the glaze and place them on a wire rack for it to firm up. Add some sprinkles, if desired.",
+                description: "I love it when my desserts have protein secretly in them, and some of my favorite recipes to make are brownies, cookies, and these protein donuts.\n\nRecently, I’ve been working out late at night and am not a fan of whipping out the blender to make a protein shake after. Instead, I’ve been finding alternative ways to get my protein in. I was recently inspired by Dunkin Donuts’ new protein muffin, which boasts a whopping 16 grams of protein. While I didn’t go the muffin route, it did inspire me to make donuts! These homemade protein donuts have 100 calories per donut and pack in over 12 grams of protein in each one. Compare that to store-bought ones which can pack in over 300 calories each!",
+                imageUrl: "https://thebigmansworld.com/wp-content/uploads/2021/11/protein-donuts-recipe.jpeg",
+                _createdOn: 1722950262860,
+                _id: "0336e1e8-9ad5-46c9-be39-4bb09e616f2e"
+            },
+
+            "8257c94a-7cb6-47c4-a0e7-7b810d0fdbda": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                title: "High Protein Blueberry Pancakes",
+                subTitle: "Perfect for Breakfast",
+                ingredients: "1 cup oats\n1 tsp baking powder\n1/2 tsp cinnamon\n1 egg\n1/4 cup plain greek yogurt\n1/3 cup milk of choice\n1 tbsp honey or maple syrup\n1 tsp vanilla extract\n1/3 cup blueberries (fresh or frozen)",
+                instructions: "Add all of the ingredients except the blueberries to your blender and blend for about 15 seconds.\nStop to scrape down the sides, then gently fold or pulse in blueberries.\nHeat a nonstick griddle or pan over medium heat and grease with a little butter or coconut oil.\nPour batter on, then cook for 2-3 minutes until the top is bubbly. Flip and cook for another 2-3 minutes.\nAdd your favorite toppings and enjoy!",
+                description: "These High Protein Blueberry Pancakes are so easy to make and will be your new favorite healthy breakfast! They are made with simple, wholesome ingredients and are sweetened with honey so you are getting a balanced breakfast that will make you feel as good as it tastes.",
+                imageUrl: "https://www.mealgarden.com/media/recipe/2020/11/high-protein-bleberry-pancakes-8.jpeg",
+                _createdOn: 1722949989898,
+                _id: "8257c94a-7cb6-47c4-a0e7-7b810d0fdbda",
+                _updatedOn: 1722950017316
+            },
+
+            "919bd466-e1ad-45ae-8247-52423e507e72": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Avocado Toast",
+                subTitle: "It is made very quickly if you are busy",
+                ingredients: "2 slices of whole-grain bread\n1 ripe avocado\nSalt and pepper to taste\nOptional toppings: cherry tomatoes, poached egg, red pepper flakes",
+                instructions: "1. Toast the slices of whole-grain bread until golden brown.\n2. Mash the ripe avocado and spread it evenly on the toasted bread.\n3. Season with salt and pepper to taste.\n4. Add your favorite toppings such as cherry tomatoes, a poached egg, or red pepper flakes.</\n5. Serve and enjoy!",
+                description: "A simple and delicious avocado toast recipe that's perfect for a healthy breakfast.",
+                imageUrl: "https://hips.hearstapps.com/hmg-prod/images/del119923-avocado-toast-web-305-rv-hires-index-6564c205a3402.jpg",
+                _createdOn: 1722952940685,
+                _id: "919bd466-e1ad-45ae-8247-52423e507e72"
+            },
+
+            "307f97f9-d9e3-42a4-bdb7-b4782e55f89d": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "How To Make Egg White Oatmeal",
+                subTitle: "Perfect for breakfast",
+                ingredients: "What you’ll need for this egg white oatmeal recipe\nrolled oats\nwater\nsea salt\nbanana\negg whites",
+                instructions: "Add the oats, 1 cup of water, sea salt, and sliced banana to a small pot and heat on medium heat. Bring the to a gentle simmer and stir every minute or so.\nOnce the oatmeal is beginning to look semi-cooked (4-6 minutes of cooking time), add the egg whites and begin to whisk. Whisk continuously until egg whites are no longer visible, and the oatmeal is looking like a creamy consistency.\nPour into a bowl and enjoy with your favorite toppings!",
+                description: "This high protein breakfast of egg white oatmeal is an easy way to start your day with a balanced, healthy meal! I’m excited to teach you how to make egg white oatmeal on the stove top with the included how-to video below. If you love morning oatmeal, but find leaves you hungry 1-2 hours later, give this delicious recipe a try. The fluffy texture is loved by both adults and kids!",
+                imageUrl: "https://www.fitmamarealfood.com/wp-content/uploads/2021/02/EggWhiteOatmeal-8.jpg",
+                _createdOn: 1722953120886,
+                _id: "307f97f9-d9e3-42a4-bdb7-b4782e55f89d"
+            },
+
+            "758cdb41-3d20-4eb3-ae9e-987a1e80a7dc": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Healthy No Bake Peanut Butter Coconut Oatmeal Bars",
+                subTitle: "Easy to make snack",
+                ingredients: "natural peanut butter\nhoney\ncoconut oil\nvanilla extract\nrolled oats\nunsweetened shredded coconut\ncinnamon\nsea salt",
+                instructions: "Step 1: In a medium saucepan over medium-low heat add the creamy peanut butter, honey, and coconut oil. Heat the wet ingredients until everything is melted together, then stir in the remaining ingredients.\n\nStep 2: Line a loaf pan with parchment paper (or use a silicone loaf pan), and add the oat mixture to the prepared pan. Smooth mixture on the top. Place in the fridge to set.\nStep 3: Once the bars are fully chilled and hardened, cut into 8 pieces, and enjoy! If they are out on the counter at room temperature or in a warm environment for a long time they will soften slightly due to the high coconut oil content.\n",
+                description: "No-bake peanut butter coconut bars come together with just 8 pantry ingredients including oatmeal! They’re naturally sweetened with honey, loaded with the best delicious peanut butter flavor, and are a hit with adults and kids alike. You’ll want to keep these no-bake peanut butter bars on hand for a quick afternoon snack or to pack in a lunch box!",
+                imageUrl: "https://www.fitmamarealfood.com/wp-content/uploads/2021/03/Peanut-Butter-Coconut-Bars-8.jpg",
+                _createdOn: 1722953328470,
+                _id: "758cdb41-3d20-4eb3-ae9e-987a1e80a7dc"
+            }
         }
+
     };
     var rules$1 = {
     	users: {

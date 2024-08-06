@@ -14,7 +14,6 @@ export default function Profile() {
     const isFetching = isPreloading || isLoading || isLoadingData;
 
 
-    console.log(userRecipes)
     return (
         <>
             {isFetching ? <Preloader /> : 
