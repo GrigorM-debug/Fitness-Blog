@@ -74,11 +74,7 @@ The blog section is the heart of the Fitness Blog Website. It allows users to:
 - **Create Posts:** Registered users can share their own fitness experiences and knowledge by writing and publishing blog posts.
 - **Edit and Delete:** Users have complete control over their content and can edit or delete their own posts as needed.
 
-![alt text](images/image-13.png)
-![alt text](image-12.png)
-![alt text](image-14.png)
-![alt text](image-15.png)
-![alt text](image-16.png)
+<img src="image-2.png" alt="alt text" width="500" style=""/>
 
 🍲 **High-Protein Recipes**
 ---------------------------
@@ -89,11 +85,7 @@ A special section dedicated to sharing healthy high-protein recipes, perfect for
 - **Publish Recipes:** Registered users can contribute by sharing their own favorite high-protein recipes.
 - **Edit and Delete:** Recipe creators can edit or delete their own recipes, ensuring their content stays up-to-date and accurate.
 
-![alt text](image-8.png)
-![alt text](image-7.png)
-![alt text](image-9.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
+<img src="images/image-4.png" alt="alt text" width="500" style=""/>
 
 
 📊 **BMI Calculator**
@@ -102,8 +94,7 @@ An essential tool for anyone interested in tracking their fitness progress:
 
 - **Calculate BMI:** Both users and guests can easily calculate their Body Mass Index (BMI) using this tool, helping them understand their body composition and set fitness goals.
 
-![alt text](image-6.png)
-![alt text](image-5.png)
+<img src="images/image-5.png" alt="alt text" width="500" style=""/>
 
 ✉️ **Contact Page**
 -------------------
@@ -112,19 +103,16 @@ Stay connected with the site administrators:
 - **Reach Out:** Users can use the contact page to send messages or inquiries, providing a direct line of communication with the team behind the Fitness Blog Website.
 - After completing the form, an email is sent to our official email address, which is mine 😅.
 
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
+<img src="images/image-3.png" alt="alt text" width="500" style=""/>
 
 👤 **User Profile**
 -------------------
 Each registered user gets a personalized profile page that showcases their activity and contributions:
 
-- **Activity Summary:** View detailed statistics on the number of comments written, likes given, and posts made.
-- **Interactive Sections:** See lists of commented, liked, and created posts, providing a comprehensive view of the user’s engagement with the site.
-- **Profile Management:** Users can edit their personal information, ensuring their profile remains current and accurate.
+- **Activity Summary:** View detailed posts made.
+- **Interactive Sections:** See lists created posts, providing a comprehensive view of the user’s engagement with the site.
 
-![alt text](image-17.png)
+<img src="images/image-6.png" alt="alt text" width="500" style=""/>
 
 🔒 **User Authentication**
 --------------------------
