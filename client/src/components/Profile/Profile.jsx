@@ -45,14 +45,28 @@ export default function Profile() {
                                 alt="" 
                             />
                         </div>
-                        {/* <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-                            <button className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                        <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                            {/* <button className="text-white py-2 px-4 uppercase rounded bg-orange-600 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                                 Edit
                             </button>
                             <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                                 Change Image
-                            </button>
-                        </div> */}
+                            </button> */}
+                            <a href="#">
+                                <i className="fa fa-facebook text-white" />
+                            </a>
+                            <a href="#">
+                                <i className="fa fa-twitter text-white" />
+                            </a>
+                            <a href="#">
+                                <i className="fa fa-instagram text-white" />
+                            </a>
+                            <a href="#">
+                                <i className="fa fa-youtube-play text-white" />
+                            </a>
+
+
+                        </div>
                     </div>
                     <div className="text-center border-b border-gray-800 pb-12 mt-20">
                         <h1 className="text-6xl font-medium text-white">

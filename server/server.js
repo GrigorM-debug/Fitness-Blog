@@ -1327,6 +1327,10 @@
     		"847ec027-f659-4086-8032-5173e2f9c93a": {
     			email: "george@abv.bg",
     			username: "George",
+                country: "USA",
+                city: "New York",
+                description: "Gym enthusiast ready to share knowledge and help to other people",
+                imageUrl: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
     			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
     		},
     		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
