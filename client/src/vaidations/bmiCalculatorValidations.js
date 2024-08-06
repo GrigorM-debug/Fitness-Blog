@@ -35,4 +35,6 @@ export default function useBMICalculatorValidations(data) {
     } else if (data.age < 2 && data.age > 102) {
         errors.age = 'Age must be between 2 and 102'
     }
+
+    return errors;
 }

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import styles from './BMICalculator.module.css';
 import useForm from '../../hooks/useForm';
+import useBMICalculator from '../../hooks/useBMICalculator';
 
 const initialData = {
     height: '',
@@ -13,46 +13,18 @@ const initialData = {
 }
 
 export default function BMICalculator() {
-    const [height, setHeight] = useState('');
-    const [weight, setWeight] = useState('');
-    const [heightUnit, setHeightUnit] = useState('');
-    const [weightUnit, setWeightUnit] = useState('');
-    const [bmi, setBmi] = useState('');
-    const [error, setError] = useState('');
 
-    const calculateBMI = (e) => {
-        e.preventDefault();
-
-        let heightInCm = parseFloat(height);
-        let weightInKg = parseFloat(weight);
-
-        if (isNaN(heightInCm) || isNaN(weightInKg)) {
-            setError("Provide valid height and weight!");
-            setBmi('');
-            return;
-        }
-
-        console.log(error)
-
-        setError(''); 
-
-        if (heightUnit === "ft") {
-            heightInCm *= 30.48; 
-        }
-
-        if (weightUnit === "lb") {
-            weightInKg *= 0.453592; 
-        }
-
-        const calculatedBmi = (weightInKg / ((heightInCm * heightInCm) / 10000)).toFixed(2);
-
-        setBmi(calculatedBmi);
-    };
+    const [bmi, calculateBMI, errors] = useBMICalculator();
 
     const formSubmit = (formData) => {
     
-        console.log(formData)
+        const success = calculateBMI(formData);
+
+        if(success) {
+            clearData();
+        }
     }
+
 
     const { formData, onChangeHandler, onSubmitHandler, clearData } = useForm(initialData, formSubmit);
 
@@ -120,9 +92,10 @@ export default function BMICalculator() {
                                 </p>
                                 <form onSubmit={onSubmitHandler}>
                                     <div className="row">
-                                        <p className="text-red-600">{error ? error : ''}</p>
+                                        {/* <p className="text-red-600">{error ? error : ''}</p> */}
                                         <div id="input-with-select" className="col-sm-6">
                                             <label htmlFor="height">Height</label>
+                                            <p className={styles.error}>{errors ? errors.height : ''}</p>
                                             <input 
                                                 id="height"
                                                 type="text" 
@@ -131,6 +104,7 @@ export default function BMICalculator() {
                                                 value={formData.height}
                                             />
                                             <label htmlFor='heightUnit'>Select Height Unit</label>
+                                            <p className={styles.error}>{errors ? errors.heightUnit : ''}</p>
                                             <select
                                                 id="heightUnit"
                                                 name="heightUnit"
@@ -145,6 +119,7 @@ export default function BMICalculator() {
                                         </div>
                                         <div id="input-with-select" className="col-sm-6">
                                             <label htmlFor="weight">Weight</label>
+                                            <p className={styles.error}>{errors ? errors.weight : ''}</p>
                                             <input 
                                                 id="weight"
                                                 type="text" 
@@ -153,6 +128,7 @@ export default function BMICalculator() {
                                                 onChange={onChangeHandler}
                                             />
                                             <label htmlFor="weightUnit">Select Weight Unit</label>
+                                            <p className={styles.error}>{errors ? errors.weightUnit : ''}</p>
                                             <select
                                                 id="weightUnit"
                                                 name="weightUnit"
@@ -167,10 +143,12 @@ export default function BMICalculator() {
                                         </div>
                                         <div className="col-sm-6">
                                             <label htmlFor="age">Age</label>
+                                            <p className={styles.error}>{errors ? errors.age : ''}</p>
                                             <input id="age" name='age' type="text" onChange={onChangeHandler} value={formData.age}/>
                                         </div>
                                         <div className="col-sm-6">
                                             <label htmlFor="gender">Select Gender</label>
+                                            <p className={styles.error}>{errors ? errors.gender : ''}</p>
                                             <select id="gender" name="gender" className={styles.unitSelect} onChange={onChangeHandler} value={formData.gender}>
                                                 <option value="">--Please select gender</option>
                                                 <option value="male">Male</option>
