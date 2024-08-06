@@ -7,15 +7,12 @@ export default function Navigation() {
     // const history = useHistory();
     const [activePath, setActivePath] = useState(location.pathname);
     
-    // Update activePath whenever location changes
     useEffect(() => {
         setActivePath(location.pathname);
     }, [location.pathname]);
 
-    // Handle NavLink clicks
     const handleNavLinkClick = (path) => {
         setActivePath(path);
-        // history.push(path); // Navigate programmatically
     };
 
     return (
