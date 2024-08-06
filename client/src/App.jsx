@@ -1,5 +1,5 @@
 import './index.css';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import CreateBlogPost from './components/CreateBlogPost/CreateBlogPost';
@@ -40,6 +40,7 @@ function App() {
     <AuthProvider>
       <>
         <Header handleLogoutClick={handleLogoutClick}/>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<BlogPosts />} />
@@ -53,7 +54,6 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Route>
-          {/* <Route path="/logout" element={<AlertModal />} /> */}
 
           <Route element={<PrivateGuard />}>
             <Route path="/create-post" element={<CreateBlogPost />} />
