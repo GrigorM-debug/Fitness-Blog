@@ -82,7 +82,7 @@ export default function Profile() {
                                     imageUrl={post.imageUrl}
                                 />
                             )) 
-                            : <h2 className="mt-5 font-medium text-white text-center">Not Blog Posts written</h2>
+                            : <h2 className="mt-2 font-medium text-white text-center">Not Blog Posts written</h2>
                             }
         
                         </div>
