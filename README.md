@@ -74,7 +74,7 @@ The blog section is the heart of the Fitness Blog Website. It allows users to:
 - **Create Posts:** Registered users can share their own fitness experiences and knowledge by writing and publishing blog posts.
 - **Edit and Delete:** Users have complete control over their content and can edit or delete their own posts as needed.
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 ![alt text](image-12.png)
 ![alt text](image-14.png)
 ![alt text](image-15.png)
