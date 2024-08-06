@@ -23,18 +23,17 @@ export default function Header({
   
     // Effect to set isNormalNav on component mount and window resize
     useEffect(() => {
-      handleResize(); // Initial setup
+      handleResize(); 
   
       // Add event listener for window resize
       window.addEventListener('resize', handleResize);
   
       // Cleanup function to remove event listener
       return () => window.removeEventListener('resize', handleResize);
-    }, []); // Empty dependency array ensures this effect runs only on mount and unmount
+    }, []); 
   
     const toggleOffcanvasMenu = () => {
       setOffcanvasOpen(!isOffcanvasOpen);
-    //   setIsNormalNav(!isNormalNav);
     };
 
   return (

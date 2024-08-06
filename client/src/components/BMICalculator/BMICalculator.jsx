@@ -8,6 +8,7 @@ export default function BMICalculator() {
     const [heightUnit, setHeightUnit] = useState('');
     const [weightUnit, setWeightUnit] = useState('');
     const [bmi, setBmi] = useState('');
+    const [error, setError] = useState('');
 
     const calculateBMI = (e) => {
         e.preventDefault();
@@ -16,24 +17,23 @@ export default function BMICalculator() {
         let weightInKg = parseFloat(weight);
 
         if (isNaN(heightInCm) || isNaN(weightInKg)) {
-            setBmi("Provide valid height and weight!");
+            setError("Provide valid height and weight!");
+            setBmi('');
             return;
         }
 
-        // Convert height to cm if necessary
+        setError(''); 
+
         if (heightUnit === "ft") {
-            heightInCm *= 30.48; // 1 ft = 30.48 cm
+            heightInCm *= 30.48; 
         }
 
-        // Convert weight to kg if necessary
         if (weightUnit === "lb") {
-            weightInKg *= 0.453592; // 1 lb = 0.453592 kg
+            weightInKg *= 0.453592; 
         }
 
-        // Calculate BMI
         const calculatedBmi = (weightInKg / ((heightInCm * heightInCm) / 10000)).toFixed(2);
 
-        // Display BMI result
         setBmi(calculatedBmi);
     };
 
@@ -100,17 +100,19 @@ export default function BMICalculator() {
                                 </p>
                                 <form onSubmit={calculateBMI}>
                                     <div className="row">
+                                        <p className="text-red-600">{error ? error : ''}</p>
                                         <div id="input-with-select" className="col-sm-6">
                                             <label htmlFor="height">Height</label>
                                             <input 
+                                                id="height"
                                                 type="text" 
                                                 name="height"
-                                                // placeholder="Height" 
                                                 value={height}
                                                 onChange={(e) => setHeight(e.target.value)}
                                             />
                                             <label htmlFor='height-units'>Select Height Unit</label>
                                             <select
+                                                id="height-units"
                                                 name="height-units"
                                                 className={styles.unitSelect}
                                                 value={heightUnit}
@@ -124,6 +126,7 @@ export default function BMICalculator() {
                                         <div id="input-with-select" className="col-sm-6">
                                             <label htmlFor="weight">Weight</label>
                                             <input 
+                                                id="weight"
                                                 type="text" 
                                                 name="weight"
                                                 value={weight}
@@ -131,6 +134,7 @@ export default function BMICalculator() {
                                             />
                                             <label htmlFor="weight-units">Select Weight Unit</label>
                                             <select
+                                                id="weight-units"
                                                 name="weight-units"
                                                 className={styles.unitSelect}
                                                 value={weightUnit}
@@ -143,11 +147,11 @@ export default function BMICalculator() {
                                         </div>
                                         <div className="col-sm-6">
                                             <label htmlFor="age">Age</label>
-                                            <input type="text"  name='age'/>
+                                            <input id="age" name='age' type="text"/>
                                         </div>
                                         <div className="col-sm-6">
                                             <label htmlFor="gender-select">Select Gender</label>
-                                            <select name="gender-select" className={styles.unitSelect}>
+                                            <select id="gender-select" name="gender-select" className={styles.unitSelect}>
                                                 <option value="">--Please select gender</option>
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
@@ -162,6 +166,11 @@ export default function BMICalculator() {
                                                 Calculate
                                             </button>
                                         </div>
+                                        {/* {error && (
+                                            <div className="col-lg-12">
+                                                <p style={{color: 'red'}}>{error}</p>
+                                            </div>
+                                        )} */}
                                     </div>
                                 </form>
                             </div>

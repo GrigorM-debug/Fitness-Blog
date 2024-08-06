@@ -28,7 +28,7 @@ export default function LatestRecipes ({
                     <div className="col-lg-12">
                         <div className={styles.lsTitle}>
                             <div className={`${styles.sectionTitle} section-title`}>
-                                <h2>Our Latest Healthy High Recipes</h2>
+                                <h2>Our Latest Healthy High Protein Recipes</h2>
                             </div>
                         </div>
                     </div>
