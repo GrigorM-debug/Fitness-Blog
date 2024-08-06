@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import styles from './BMICalculator.module.css';
+import useForm from '../../hooks/useForm';
+
+const initialData = {
+    height: '',
+    weight: '',
+    heightUnit: 'Please select height unit',
+    weightUnit: 'Please select weight unit',
+    gender: 'Please select gender',
+    age: ''
+}
 
 export default function BMICalculator() {
     const [height, setHeight] = useState('');
@@ -38,6 +48,14 @@ export default function BMICalculator() {
 
         setBmi(calculatedBmi);
     };
+
+    const formSubmit = (formData) => {
+    
+        console.log(formData)
+    }
+
+    const { formData, onChangeHandler, onSubmitHandler, clearData } = useForm(initialData, formSubmit);
+
 
     return (
         <>
@@ -100,7 +118,7 @@ export default function BMICalculator() {
                                     health status should also be considered when evaluating an
                                     individual's health and fitness.
                                 </p>
-                                <form onSubmit={calculateBMI}>
+                                <form onSubmit={onSubmitHandler}>
                                     <div className="row">
                                         <p className="text-red-600">{error ? error : ''}</p>
                                         <div id="input-with-select" className="col-sm-6">
@@ -109,16 +127,16 @@ export default function BMICalculator() {
                                                 id="height"
                                                 type="text" 
                                                 name="height"
-                                                value={height}
-                                                onChange={(e) => setHeight(e.target.value)}
+                                                onChange={onChangeHandler}
+                                                value={formData.height}
                                             />
-                                            <label htmlFor='height-units'>Select Height Unit</label>
+                                            <label htmlFor='heightUnit'>Select Height Unit</label>
                                             <select
-                                                id="height-units"
-                                                name="height-units"
+                                                id="heightUnit"
+                                                name="heightUnit"
                                                 className={styles.unitSelect}
-                                                value={heightUnit}
-                                                onChange={(e) => setHeightUnit(e.target.value)}
+                                                value={formData.heightUnit}
+                                                onChange={onChangeHandler}
                                             >
                                                 <option value="">--Please select height unit</option>
                                                 <option value="cm">Cm</option>
@@ -131,16 +149,16 @@ export default function BMICalculator() {
                                                 id="weight"
                                                 type="text" 
                                                 name="weight"
-                                                value={weight}
-                                                onChange={(e) => setWeight(e.target.value)}
+                                                value={formData.weight}
+                                                onChange={onChangeHandler}
                                             />
-                                            <label htmlFor="weight-units">Select Weight Unit</label>
+                                            <label htmlFor="weightUnit">Select Weight Unit</label>
                                             <select
-                                                id="weight-units"
-                                                name="weight-units"
+                                                id="weightUnit"
+                                                name="weightUnit"
                                                 className={styles.unitSelect}
-                                                value={weightUnit}
-                                                onChange={(e) => setWeightUnit(e.target.value)}
+                                                value={formData.weightUnit}
+                                                onChange={onChangeHandler}
                                             >
                                                 <option value="">--Please select weight unit</option>
                                                 <option value="kg">Kg</option>
@@ -149,11 +167,11 @@ export default function BMICalculator() {
                                         </div>
                                         <div className="col-sm-6">
                                             <label htmlFor="age">Age</label>
-                                            <input id="age" name='age' type="text"/>
+                                            <input id="age" name='age' type="text" onChange={onChangeHandler} value={formData.age}/>
                                         </div>
                                         <div className="col-sm-6">
-                                            <label htmlFor="gender-select">Select Gender</label>
-                                            <select id="gender-select" name="gender-select" className={styles.unitSelect}>
+                                            <label htmlFor="gender">Select Gender</label>
+                                            <select id="gender" name="gender" className={styles.unitSelect} onChange={onChangeHandler} value={formData.gender}>
                                                 <option value="">--Please select gender</option>
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
