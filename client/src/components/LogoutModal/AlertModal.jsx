@@ -1,15 +1,17 @@
 // AlertModal.js
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLogout } from '../../hooks/useAuth';
 import Preloader from '../Preloader/Preloader';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../contexts/userContext';
 
 export default function AlertModal({ isVisible, onClose }) {
     if (!isVisible) return null;
 
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
 
+    const {logout: localLogout} = useContext(UserContext);
     // Check this if is correct
     if(!token) {
         navigate('/');
@@ -26,6 +28,7 @@ export default function AlertModal({ isVisible, onClose }) {
        const success =  await logout(token);
     
         if(success) {
+            localLogout();
             navigate('/');
         }
     }
@@ -84,7 +87,7 @@ export default function AlertModal({ isVisible, onClose }) {
                         </h3>
                         <button
                             type="button"
-                            className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
+                            className="mb-2 text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
                             onClick={handleButtonClick}
                         >
                             Yes, I'm sure

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function usePersistedState(key, initialState){
     const [state, setState] = useState(() => {
-        const auth = localStorage.getItem(key);
+        const auth = sessionStorage.getItem(key);
 
         if(!auth) {
             return initialState;
@@ -13,8 +14,18 @@ export default function usePersistedState(key, initialState){
         return authData;
     });
 
+    const navigate = useNavigate()
+
     const setPersistedState = (value) => {
-        localStorage.setItem(key, JSON.stringify(value));
+
+        if(value === null || value === undefined) {
+            navigate('/login')
+            sessionStorage.removeItem(key);
+            
+        } else {
+            sessionStorage.setItem(key, JSON.stringify(value));
+        }
+        
         setState(value);
     }
 

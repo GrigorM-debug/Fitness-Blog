@@ -2,7 +2,7 @@ const BASE_URL = 'http://localhost:3030/data/likes';
 
 export async function likePost(postId) {
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}`, {
         method: 'POST',

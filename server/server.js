@@ -1487,6 +1487,133 @@
                 _createdOn: 1722953328470,
                 _id: "758cdb41-3d20-4eb3-ae9e-987a1e80a7dc"
             }
+        },
+
+        comments: {
+            "581c6ffd-7995-4f15-aea0-74f3c45505c0": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                recipeId: "307f97f9-d9e3-42a4-bdb7-b4782e55f89d",
+                text: "One of my favourite breakfast. Very good !",
+                _createdOn: 1722959677749,
+                _id: "581c6ffd-7995-4f15-aea0-74f3c45505c0"
+            },
+
+            "915e82a1-f019-4a82-b879-7cc95f357601": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                recipeId: "758cdb41-3d20-4eb3-ae9e-987a1e80a7dc",
+                text: "I try it. It is very fast to make and it is the perfect snack",
+                _createdOn: 1722959482377,
+                _id: "915e82a1-f019-4a82-b879-7cc95f357601"
+            },
+
+            "48c1dd41-b4df-4e86-a214-9c1a62ff8192": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                postId: "c37a992e-097a-49ac-bbb9-d0c908507515",
+                text: "I think Derek will win again. ",
+                _createdOn: 1722959418050,
+                _id: "48c1dd41-b4df-4e86-a214-9c1a62ff8192"
+            },
+
+            "e3461c01-46ea-45d0-82df-28624555125a": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                postId: "a191d000-ec80-4d5f-9de4-f9e1fdb1904f",
+                text: "Very helpfull post. I finally understand which position is best for my body structure.",
+                _createdOn: 1722959300867,
+                _id: "e3461c01-46ea-45d0-82df-28624555125a"
+            },
+
+            "f2bf0bc1-5ac5-4ada-8288-2dd426aa7cce": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                postId: "176bdaff-5c5f-4f41-941c-e5eea30c89ae",
+                text: "What you think about his",
+                _createdOn: 1722958988790,
+                _id: "f2bf0bc1-5ac5-4ada-8288-2dd426aa7cce"
+            }
+        },
+
+        likes: {
+            "c1c52f3b-bf5c-460d-aa0f-f284cc3c1cb4":  {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "581c6ffd-7995-4f15-aea0-74f3c45505c0",
+                _createdOn: 1722959784329,
+                _id: "c1c52f3b-bf5c-460d-aa0f-f284cc3c1cb4"
+            },
+
+            "125705ee-c653-4d36-a9e6-23e592ffba9d":  {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                recipeId: "307f97f9-d9e3-42a4-bdb7-b4782e55f89d",
+                _createdOn: 1722959679457,
+                _id: "125705ee-c653-4d36-a9e6-23e592ffba9d"
+            },
+
+            "c6635b7a-7e4a-4463-9e82-7c9c67fdf79f": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "915e82a1-f019-4a82-b879-7cc95f357601",
+                _createdOn: 1722959596837,
+                _id: "c6635b7a-7e4a-4463-9e82-7c9c67fdf79f"
+            },
+
+            "3ec4de52-b714-4e1a-ac92-b4826ef173c4": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                recipeId: "758cdb41-3d20-4eb3-ae9e-987a1e80a7dc",
+                _createdOn: 1722959457927,
+                _id: "3ec4de52-b714-4e1a-ac92-b4826ef173c4"
+            },
+
+            "ed4447da-d5fc-489c-aa01-0409a077c82c": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                postId: "c37a992e-097a-49ac-bbb9-d0c908507515",
+                _createdOn: 1722959436488,
+                _id: "ed4447da-d5fc-489c-aa01-0409a077c82c"
+            },
+
+            "650b6b49-bd4f-457c-9f82-4aa8f17749b4": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                postId: "a191d000-ec80-4d5f-9de4-f9e1fdb1904f",
+                _createdOn: 1722959388490,
+                _id: "650b6b49-bd4f-457c-9f82-4aa8f17749b4"
+            },
+
+            "817186a6-8a08-4343-9cbf-deb69647eea0": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "e3461c01-46ea-45d0-82df-28624555125a",
+                _createdOn: 1722959333401,
+                _id: "817186a6-8a08-4343-9cbf-deb69647eea0"
+            }
+        },
+
+        replies: {
+            "1d349041-083a-4272-9e48-ed67eafe62d0": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "581c6ffd-7995-4f15-aea0-74f3c45505c0",
+                text: "Thank you !",
+                _createdOn: 1722959789898,
+                _id: "1d349041-083a-4272-9e48-ed67eafe62d0"
+            },
+
+            "2950d932-bcef-4441-afb8-cf2de13e26ce": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "915e82a1-f019-4a82-b879-7cc95f357601",
+                text: "Thank I will post more like this !",
+                _createdOn: 1722959620927,
+                _id: "2950d932-bcef-4441-afb8-cf2de13e26ce"
+            },
+
+            "b3f890ef-db51-4202-925f-fb9e2ea5cc16": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                commentId: "e3461c01-46ea-45d0-82df-28624555125a",
+                text: "Thank you !",
+                _createdOn: 1722959343272,
+                _id: "b3f890ef-db51-4202-925f-fb9e2ea5cc16"
+            },
+
+            "858c0733-8a42-44b3-a6f0-84d2aef6b6a5": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                commentId: "f2bf0bc1-5ac5-4ada-8288-2dd426aa7cce",
+                text: "Replies",
+                _createdOn: 1722958993574,
+                _id: "858c0733-8a42-44b3-a6f0-84d2aef6b6a5"
+            }
         }
 
     };

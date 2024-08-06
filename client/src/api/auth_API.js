@@ -46,7 +46,7 @@ export async function logout(token) {
         }
     })
 
-    localStorage.removeItem('auth');
+    sessionStorage.removeItem('auth');
 
     if(!response.ok) {
         throw new Error('User session does not exist !');
@@ -59,7 +59,7 @@ export async function logout(token) {
 
 export async function getUserData() {
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/me`, {
         headers: {

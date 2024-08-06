@@ -43,7 +43,7 @@ export default function LatestRecipes ({
                         dotsClass='owl-dots'
                         smartSpeed={1200}
                         autoHeight={false}
-                        nav={true}
+                        // nav={true}
                         autoplayHoverPause={false}
                         autoplay
                         responsive={responsive}
@@ -67,10 +67,6 @@ export default function LatestRecipes ({
                                         <span>Created by: <p>{recipe.author.username}</p></span>
                                         <Link 
                                             to={`/healthy-recipes/${recipe._id}/details`}
-                                            onClick={(e) => {
-                                                e.preventDefault();  // This prevents the default link behavior if necessary
-                                                // Any other logic you need
-                                              }}
                                         >View Recipe Details</Link>
                                     </div>
                                 </div>

@@ -21,7 +21,7 @@ export default function CreateBlogPost() {
 
     const formSubmit = async (formData) => {
         const postId = await createPost(formData);
-        
+
         if(postId) {
             //Todo navigate on details page
             clearData();

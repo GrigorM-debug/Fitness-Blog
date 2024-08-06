@@ -1,8 +1,10 @@
 const BASE_URL = 'http://localhost:3030/data/posts';
 
+
+
 export async function createPost(postData) {
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
     console.log(token)
     
     const response = await fetch(BASE_URL, {
@@ -51,7 +53,7 @@ export async function getLatest() {
 
 export async function deletePost(postId) {
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/${postId}`, {
         method: 'DELETE',
@@ -71,7 +73,7 @@ export async function deletePost(postId) {
 
 export async function editPost(postId, newData) {
     // const token = localStorage.getItem('auth-token');
-    const token = JSON.parse(localStorage.getItem('auth')).accessToken
+    const token = JSON.parse(sessionStorage.getItem('auth')).accessToken
 
     const response = await fetch(`${BASE_URL}/${postId}`, {
         method: 'PUT',
