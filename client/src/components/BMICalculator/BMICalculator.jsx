@@ -22,6 +22,8 @@ export default function BMICalculator() {
             return;
         }
 
+        console.log(error)
+
         setError(''); 
 
         if (heightUnit === "ft") {

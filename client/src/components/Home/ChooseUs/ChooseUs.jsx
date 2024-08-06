@@ -16,33 +16,29 @@ export default function ChooseUs() {
                     <div className="col-lg-3 col-sm-6">
                         <div className={styles.csItem}>
                             <span className="flaticon-034-stationary-bike"></span>
-                            <h4>Modern equipment</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                dolore facilisis.</p>
+                            <h4>Community and Support</h4>
+                            <p>Connect with like-minded individuals who share your health and fitness goals. Our community forum allows you to exchange tips, seek advice, and celebrate achievements together. </p>
                         </div>
                     </div>
                     <div className="col-lg-3 col-sm-6">
                         <div className={styles.csItem}>
                             <span className="flaticon-033-juice"></span>
-                            <h4>Healthy nutrition plan</h4>
-                            <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                facilisis.</p>
+                            <h4>High-Protein Recipes</h4>
+                            <p>Explore our extensive collection of healthy, high-protein recipes that are not only good for you but also taste great. </p>
                         </div>
                     </div>
                     <div className="col-lg-3 col-sm-6">
                         <div className={styles.csItem}>
                             <span className="flaticon-002-dumbell"></span>
-                            <h4>Proffesponal training plan</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                dolore facilisis.</p>
+                            <h4>All-In-One Health and Fitness Hub</h4>
+                            <p>Whether you're looking for effective workout routines, nutritious meal plans, or recovery strategies, our platform offers a wealth of resources.</p>
                         </div>
                     </div>
                     <div className="col-lg-3 col-sm-6">
                         <div className={styles.csItem}>
                             <span className="flaticon-014-heart-beat"></span>
-                            <h4>Unique to your needs</h4>
-                            <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                facilisis.</p>
+                            <h4>Health and Recovery Insights</h4>
+                            <p>Discover expert advice on health maintenance and recovery strategies. Our posts cover everything from injury prevention to holistic recovery techniques, ensuring you stay at your best.</p>
                         </div>
                     </div>
                 </div>
