@@ -18,6 +18,7 @@
 
 📖 **Overview**
 ---------------
+-**Deployes client side** - https://fitness-blog-react-js.vercel.app/
 Welcome to the Fitness Blog Website, a comprehensive platform tailored for fitness enthusiasts to share their journeys, knowledge, and recipes. This dynamic site, built using React.js, offers a user-friendly experience, allowing users to engage with content, share their own stories, and discover healthy recipes to support their fitness goals.
 <!-- ![alt text](image.png) -->
 <img src="images/image.png" alt="alt text" width="500" style=""/>
