@@ -4,7 +4,7 @@ import useForm from '../../hooks/useForm';
 import { useCreatePost } from '../../hooks/useBlogPosts';
 import { useNavigate } from 'react-router';
 import Preloader from '../Preloader/Preloader';
-
+import styles from './CreateBlogPost.module.css';
 
 const initialData = {
     title: '',
@@ -53,7 +53,7 @@ export default function CreateBlogPost() {
                 <form onSubmit={onSubmitHandler}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label htmlFor="title" className="block text-sm font-bold leading-6 text-white">
+                            <label htmlFor="title" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                                 Title
                             </label>
                             <div className="mt-2">
@@ -69,7 +69,7 @@ export default function CreateBlogPost() {
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="categories" className="block text-sm font-bold leading-6 text-white">Select a category</label>
+                            <label htmlFor="categories" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>Select a category</label>
                             <p className="text-red-600">{errors ? errors.category : ''}</p>
                             <select 
                                 value={formData.category}
@@ -87,7 +87,7 @@ export default function CreateBlogPost() {
                     </div>
                     
                     <div className="mt-3">
-                        <label htmlFor="subTitle" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="subTitle" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                             Subtitle
                         </label>
                         <p className="text-red-600">{errors ? errors.subTitle : ''}</p>
@@ -106,7 +106,7 @@ export default function CreateBlogPost() {
                     </div>
 
                     <div className='mt-3'>
-                        <label htmlFor="shortDescription" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="shortDescription" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                         Short Description
                         </label>
                         <div className="mt-2">
@@ -124,7 +124,7 @@ export default function CreateBlogPost() {
                     </div>
 
                     <div className='mt-3'>
-                        <label htmlFor="content" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="content" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                             Content
                         </label>
                         <p className="text-red-600">{errors ? errors.content : ''}</p>
