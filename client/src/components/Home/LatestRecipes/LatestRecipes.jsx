@@ -42,7 +42,7 @@ export default function LatestRecipes ({
                         dotsEach={3}
                         dotsClass='owl-dots'
                         smartSpeed={1200}
-                        autoHeight={false}
+                        // autoHeight={false}
                         // nav={true}
                         autoplayHoverPause={false}
                         autoplay

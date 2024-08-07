@@ -64,7 +64,7 @@ export default function EditBlogPost() {
                                     name="title"
                                     className={`p-2 block w-full rounded-md border-2 ${errors.title ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                     onChange={onChangeHandler}
-                                    value={formData.title}
+                                    value={formData.title || ''}
                                 />
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function EditBlogPost() {
                             <label htmlFor="categories" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>Select a category</label>
                             <p className="text-red-600">{errors ? errors.category : ''}</p>
                             <select 
-                                value={formData.category}
+                                value={formData.category || ''}
                                 onChange={onChangeHandler}
                                 id="categories" 
                                 name="category"
@@ -98,7 +98,7 @@ export default function EditBlogPost() {
                                 name="subTitle"
                                 className={`p-2 block w-full rounded-md border-2 ${errors.subTitle ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                 onChange={onChangeHandler}
-                                value={formData.subTitle}
+                                value={formData.subTitle || ''}
                             />
                         </div>
                     </div>
@@ -115,7 +115,7 @@ export default function EditBlogPost() {
                                 rows={3}
                                 className={`p-2 block w-full rounded-md border-2 ${errors.shortDescription ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                 onChange={onChangeHandler}
-                                value={formData.shortDescription}
+                                value={formData.shortDescription || ''}
                             />
                         </div>
                     </div>
@@ -132,7 +132,7 @@ export default function EditBlogPost() {
                                 rows={3}
                                 className={`p-2 block w-full rounded-md border-2 ${errors.content ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                 onChange={onChangeHandler}
-                                value={formData.content}
+                                value={formData.content || ''}
                             />
                         </div>
                     </div>
@@ -150,7 +150,7 @@ export default function EditBlogPost() {
                                 placeholder='Write image Url'
                                 className={`p-2 block w-full rounded-md border-2 ${errors.imageUrl ? 'border-red-600' : 'border-gray-300'} py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
                                 onChange={onChangeHandler}
-                                value={formData.imageUrl}
+                                value={formData.imageUrl || ''}
                             />
                         </div>
                     </div>

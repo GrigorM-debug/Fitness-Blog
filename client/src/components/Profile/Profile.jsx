@@ -24,7 +24,7 @@ export default function Profile() {
             <div className="bg-neutral-950 p-0 m-0">
                 <div className="bg-neutral-900 shadow mt-0 p-0">
                     <div className="grid grid-cols-1 md:grid-cols-3 p-8">
-                        <div className="grid grid-cols-3 text-center order-last md:order-first mt-40 md:mt-0">
+                        <div className="grid grid-cols-2 text-center order-last md:order-first mt-40 md:mt-0">
                             {/* <div>
                                 <p className="font-bold text-white text-2xl">10</p>
                                 <p className="text-gray-400">Comments</p>

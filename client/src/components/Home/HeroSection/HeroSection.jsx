@@ -36,7 +36,7 @@ export default function HeroSection() {
           '<i class="fa fa-angle-left"></i>',
         ]}
         smartSpeed={1200}
-        autoHeight={false}
+        // autoHeight={false}
         autoplay={false}
       >
         {items.map((item, index) => (
