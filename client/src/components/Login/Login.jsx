@@ -3,6 +3,7 @@ import useForm from "../../hooks/useForm";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import {Link, useNavigate} from 'react-router-dom';
 import Preloader from "../Preloader/Preloader";
+import styles from './Login.module.css';
 
 const initialData = {
   email: '',
@@ -46,7 +47,7 @@ export default function Login() {
           <form className="space-y-6" onSubmit={onSubmitHandler}>
           <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
             <div>
-              <label htmlFor="email" className="block text-sm font-bold leading-6 text-white">
+              <label htmlFor="email" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                 Email address
               </label>
               <div className="mt-2">
@@ -68,7 +69,7 @@ export default function Login() {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="password" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   Password
                 </label>
                 <div className="text-sm">
