@@ -64,14 +64,14 @@ export default function HealthyRecipes() {
     <>
         {isPreloading ? <Preloader /> :
             <>
-            <Breadcrumb title="Healthy Recipes" page="Healthy Recipes" breadcrumbImage="img/recipe-bg2.jpg"/>
+            <Breadcrumb title="Healthy High-Protein Recipes" page="Healthy Recipes" breadcrumbImage="img/recipe-bg2.jpg"/>
     
             <section className={styles.recipesSection}>
                 <div className="container">
                     <div className="row">
                         <div className={`col-lg-8 p-0`}>
                             <div className={`${styles.sectionTitle} section-title`}>
-                                <h2>Healthy High Protein Recipes</h2>
+                                <h2>Healthy High-Protein Recipes</h2>
                             </div>
                             {currentRecipes.length > 0 ? currentRecipes.map(recipe => (
                                 <RecipeItem 

@@ -34,7 +34,7 @@ export default function CreateHealthyRecipe() {
         <>
         {isFetching && <Preloader />}
 
-        <Breadcrumb title="Create Healthy High Protein Recipe" page="Create Healthy High Protein Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
+        <Breadcrumb title="Create Healthy High-Protein Recipe" page="Create Healthy High Protein Recipe" breadcrumbImage="img/recipe-bg2.jpg"/>
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
