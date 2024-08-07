@@ -46,7 +46,7 @@ export default function EditBlogPost() {
     return (
         <>
         {isFetching && <Preloader />}
-        <Breadcrumb title="Edit Blog Post" page="Edit Blog Post" breadcrumbImage="img/coaches-bg.jpg"/>
+        <Breadcrumb title="Edit Blog Post" page="Edit Blog Post" breadcrumbImage="/img/coaches-bg.jpg"/>
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-neutral-900">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

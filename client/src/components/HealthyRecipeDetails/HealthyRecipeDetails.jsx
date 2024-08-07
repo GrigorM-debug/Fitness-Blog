@@ -24,7 +24,7 @@ export default function HealthyRecipeDetails() {
 
     useEffect(() => {
         updateComments();
-    }, [recipeId]);
+    }, [comments]);
 
     const isAuthor = userId === recipe._ownerId;
     const isUser = !!isAuthenticated;
