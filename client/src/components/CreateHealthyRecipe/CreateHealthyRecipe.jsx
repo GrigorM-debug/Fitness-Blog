@@ -4,6 +4,7 @@ import { useCreateRecipe } from '../../hooks/useRecipes';
 import useForm from '../../hooks/useForm';
 import { useNavigate } from 'react-router-dom';
 import Preloader from '../Preloader/Preloader';
+import styles from './CreateHealthyRecipe.module.css';
 
 const initialData = {
   title: '',
@@ -21,9 +22,9 @@ export default function CreateHealthyRecipe() {
     const formSubmit = async (formData) => {
         const recipeId = await createRecipeHandler(formData);
         if(recipeId) {
-            //Todo navigate on details page
-            clearData()
-            navigate(`/healthy-recipes/${recipeId}/details`);
+          //Todo navigate on details page
+          clearData()
+          navigate(`/healthy-recipes/${recipeId}/details`);
         }
     };
 
@@ -43,7 +44,7 @@ export default function CreateHealthyRecipe() {
             className="mx-auto h-20 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-            Create Your Healthy High Protein Recipe
+            Create Your Healthy High-Protein Recipe
           </h2>
         </div>
 
@@ -51,7 +52,7 @@ export default function CreateHealthyRecipe() {
           <p className="text-red-600">{errors ? errors.serverError : ''}</p>
           <form className="space-y-6" onSubmit={onSubmitHandler}>
             <div>
-              <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
+              <label htmlFor="username" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                 Recipe Title
               </label>
               <div className="mt-2">
@@ -68,7 +69,7 @@ export default function CreateHealthyRecipe() {
             </div>
 
             <div>
-              <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
+              <label htmlFor="username" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                 SubTitle
               </label>
               <div className="mt-2">
@@ -87,7 +88,7 @@ export default function CreateHealthyRecipe() {
             <div className="w-96">
                 <div className="relative w-full min-w-[200px]">
                     <label
-                      className=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      className={`left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 ${styles.requiredField}`}>
                       Description
                     </label>
                     <p className="text-red-600">{errors ? errors.description : ''}</p>
@@ -103,7 +104,7 @@ export default function CreateHealthyRecipe() {
             <div className="w-96">
                 <div className="relative w-full min-w-[200px]">
                     <label
-                      className=" left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      className={`left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 ${styles.requiredField}`}>
                       Ingredients
                     </label>
                     <p className="text-red-600">{errors ? errors.ingredients : ''}</p>
@@ -120,7 +121,7 @@ export default function CreateHealthyRecipe() {
             <div className="w-96">
                 <div className="relative w-full min-w-[200px]">
                     <label
-                      className="left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                      className={`left-0 -top-1.5 flex h-full w-full select-none text-[15px] font-bold leading-tight text-white  peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 ${styles.requiredField}`}>
                       Instructions
                     </label>
                     <p className="text-red-600">{errors ? errors.instructions : ''}</p>
@@ -135,7 +136,7 @@ export default function CreateHealthyRecipe() {
             </div>
 
             <div>
-                <label htmlFor="photo" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="photo" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   Image Url
                 </label>
                 <p className="text-red-600">{errors ? errors.imageUrl : ''}</p>
