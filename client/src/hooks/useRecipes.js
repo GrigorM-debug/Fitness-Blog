@@ -24,7 +24,7 @@ export function useCreateRecipe() {
             return _id;
         } catch (err) {
             setIsFetching(false);
-            setErrors({serverError: err.mesaage});
+            setErrors({serverError: err.message});
             return null;
         }
     }

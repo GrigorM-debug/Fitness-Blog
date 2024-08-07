@@ -38,6 +38,10 @@ export async function getOne(postId) {
     });
     const response = await fetch(`${BASE_URL}/${postId}?${params.toString()}`)
 
+    if(!response.ok) {
+        throw new Error('Not found');
+    }
+
     const post = await response.json();
 
     return post;

@@ -49,7 +49,7 @@ export default function CreateBlogPost() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <p className="text-red-600">{errors ? errors.serverError : ''}</p>
+                <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
                 <form onSubmit={onSubmitHandler}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>

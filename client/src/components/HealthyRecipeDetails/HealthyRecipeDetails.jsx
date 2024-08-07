@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 import { useGetOneRecipe } from '../../hooks/useRecipes';
 import styles from './HealthyRecipeDetails.module.css';
 import HealthyRecipeDetailsHero from './HealthyRecipeDetailsHero/HealthyRecipeDetailsHero';
@@ -14,7 +14,6 @@ import AuthButtons from './AuthButtons/AuthButtons';
 
 export default function HealthyRecipeDetails() {
     const { recipeId } = useParams();
-
     const [recipe, isFetching] = useGetOneRecipe(recipeId);
 
     const { contextData } = useContext(UserContext);

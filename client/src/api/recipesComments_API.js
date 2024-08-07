@@ -13,6 +13,7 @@ export async function createComment(recipeId, text) {
         body: JSON.stringify({recipeId, text})
     })
 
+
     const result = await response.json();
 
     return result;

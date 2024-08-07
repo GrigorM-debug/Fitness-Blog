@@ -12,6 +12,7 @@ export async function createRecipe(recipeData) {
         },
         body: JSON.stringify(recipeData)
     })
+    
 
     const result = await response.json();
     return result;
@@ -42,6 +43,10 @@ export async function getOne(recipeId) {
         load: `author=_ownerId:users`
     });
     const response = await fetch(`${BASE_URL}/${recipeId}?${params.toString()}`)
+
+    if(!response.ok) {
+        throw new Error('Not found');
+    }
 
     const recipe = await response.json();
 

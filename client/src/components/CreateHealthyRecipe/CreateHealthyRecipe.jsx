@@ -49,7 +49,7 @@ export default function CreateHealthyRecipe() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <p className="text-red-600">{errors ? errors.serverError : ''}</p>
+          <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
           <form className="space-y-6" onSubmit={onSubmitHandler}>
             <div>
               <label htmlFor="username" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>

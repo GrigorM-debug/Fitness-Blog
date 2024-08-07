@@ -14,6 +14,7 @@ export default async function searchPost(postTitle, postCategory) {
 
     const response = await fetch(`${BASE_URL}?${queryString}`);
 
+
     const result = await response.json();
 
     return result;
