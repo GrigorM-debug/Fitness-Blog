@@ -7,22 +7,26 @@ export default function useBlogPostsSearch() {
     const [isLoading, setIsLoading] = useState(false);
 
     const searchHandler = async (postTitle, postCategory) => {
-
+        
         const validationResult = blogPostsSearchValidations(postTitle, postCategory);
-
+        
         if(Object.keys(validationResult).length > 0) {
             setErrors(validationResult);
             return;
         }
-
+        
         try {
             setIsLoading(true);
             const result = await searchPost(postTitle, postCategory);
-            setIsLoading(false); // Ensure this line is reached
+
+            //Remove this
+            console.log(result)
+
+            setIsLoading(false); 
             setErrors({})
             return result;
         } catch (err) {
-            setIsLoading(false); // Ensure this line is reached in case of error
+            setIsLoading(false); 
             setErrors({ serverError: err.message });
             return null;
         }
