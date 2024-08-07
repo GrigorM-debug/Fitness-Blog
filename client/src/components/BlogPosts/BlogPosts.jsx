@@ -59,7 +59,10 @@ export default function BlogPosts() {
     const currentPosts = Array.isArray(filteredPosts) ? 
         filteredPosts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
 
+
     const handlePageChange = (pageNumber) => {
+        navigate(`?page=${encodeURIComponent(pageNumber)}`, { replace: true });
+
         setCurrentPage(pageNumber);
     }
 

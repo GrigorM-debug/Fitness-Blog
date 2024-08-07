@@ -57,6 +57,7 @@ export default function HealthyRecipes() {
         filteredRecipes.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
 
     const handlePageChange = (pageNumber) => {
+        navigate(`?page=${encodeURIComponent(pageNumber)}`, { replace: true });
         setCurrentPage(pageNumber);
     }
 
