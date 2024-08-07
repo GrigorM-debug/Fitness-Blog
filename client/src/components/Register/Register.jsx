@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { useRegister } from '../../hooks/useAuth';
 import Preloader from '../Preloader/Preloader';
+import styles from './Register.module.css';
 
 const initialData = {
   username: '',
@@ -63,7 +64,7 @@ export default function Register() {
             <p className="text-red-600 text-center">{errors ? errors.serverError : ''}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="username" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="username" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   Username
                 </label>
                 <div className="mt-2">
@@ -82,7 +83,7 @@ export default function Register() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="email" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   Email address
                 </label>
                 <div className="mt-2">
@@ -103,7 +104,7 @@ export default function Register() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-bold leading-6 text-white">
+              <label htmlFor="password" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                 Password
               </label>
               <div className="mt-2">
@@ -122,7 +123,7 @@ export default function Register() {
             </div>
 
             <div>
-              <label htmlFor="repassword" className="block text-sm font-bold leading-6 text-white">
+              <label htmlFor="repassword" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                 Confirm password
               </label>
               <div className="mt-2">
@@ -162,7 +163,7 @@ export default function Register() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="country" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="country" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   Country
                 </label>
                 <div className="mt-2">
@@ -182,7 +183,7 @@ export default function Register() {
               </div>
 
               <div>
-                <label htmlFor="city" className="block text-sm font-bold leading-6 text-white">
+                <label htmlFor="city" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                   City
                 </label>
                 <div className="mt-2">
