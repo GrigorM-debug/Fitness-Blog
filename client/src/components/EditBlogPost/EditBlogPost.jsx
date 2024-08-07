@@ -7,6 +7,7 @@ import EditAlertModal from '../EditAlertModal/EditAlertModal';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { useEffect, useState } from 'react';
 import SuccessfullyEditedModal from '../SuccessfullyEditedModal/SuccessfullyEditedModal';
+import styles from './EditBlogPost.module.css';
 
 export default function EditBlogPost() {
     const {postId} = useParams();
@@ -53,7 +54,7 @@ export default function EditBlogPost() {
                 <form onSubmit={onSubmitHandler}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className='mb-2'>
-                            <label htmlFor="title" className="block text-sm font-bold leading-6 text-white">
+                            <label htmlFor="title" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                                 Title
                             </label>
                             <p className="text-red-600">{errors ? errors.title : ''}</p>
@@ -68,7 +69,7 @@ export default function EditBlogPost() {
                             </div>
                         </div>
                         <div className='mb-2'>
-                            <label htmlFor="categories" className="block text-sm font-bold leading-6 text-white">Select a category</label>
+                            <label htmlFor="categories" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>Select a category</label>
                             <p className="text-red-600">{errors ? errors.category : ''}</p>
                             <select 
                                 value={formData.category}
@@ -87,7 +88,7 @@ export default function EditBlogPost() {
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="title" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="title" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                             SubTitle
                         </label>
                         <p className="text-red-600">{errors ? errors.subTitle : ''}</p>
@@ -103,7 +104,7 @@ export default function EditBlogPost() {
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="shortDesctiption" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="shortDesctiption" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                         Short Description
                         </label>
                         <p className="text-red-600">{errors ? errors.shortDescription : ''}</p>
@@ -120,7 +121,7 @@ export default function EditBlogPost() {
                     </div>
 
                     <div className='mb-2'>
-                        <label htmlFor="content" className="block text-sm font-bold leading-6 text-white">
+                        <label htmlFor="content" className={`block text-sm font-bold leading-6 text-white ${styles.requiredField}`}>
                             Content
                         </label>
                         <p className="text-red-600">{errors ? errors.content : ''}</p>
