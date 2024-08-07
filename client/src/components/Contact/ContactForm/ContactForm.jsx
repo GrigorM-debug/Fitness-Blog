@@ -6,6 +6,7 @@ import Preloader from '../../Preloader/Preloader'
 import emailjs from '@emailjs/browser';
 import SuccessfullySubmittedContacts from '../../SuccesfullySubmittedContactsModal/SuccessfullySubmittedContacts'
 import contactUsValidations from '../../../vaidations/contactUsValidations/contactUsValidations'
+import styles from './ContactForm.module.css';
 
 const initialData ={
   firstName: '',
@@ -60,7 +61,7 @@ export default function ContactForm() {
         <form onSubmit={onSubmitHandler} className="mx-auto mt-16 max-w-xl sm:mt-20 bg-blacj">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="firstName" className={`block text-sm font-semibold leading-6 text-white ${styles.requiredField}`}>
               First name
             </label>
             <p className="text-red-600">{errors ? errors.firstName : ''}</p>
@@ -77,7 +78,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="lastName" className={`block text-sm font-semibold leading-6 text-white ${styles.requiredField}`}>
               Last name
             </label>
             <p className="text-red-600">{errors ? errors.lastName : ''}</p>
@@ -93,7 +94,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="email" className={`block text-sm font-semibold leading-6 text-white ${styles.requiredField}`}>
               Email
             </label>
             <p className="text-red-600">{errors ? errors.email : ''}</p>
@@ -109,13 +110,13 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="phoneNumber" className={`block text-sm font-semibold leading-6 text-white ${styles.requiredField}`}>
               Phone number
             </label>
             <p className="text-red-600">{errors ? errors.phoneNumber : ''}</p>
             <div className={`relative border-2 ${errors.phoneNumber ? 'border-red-600' : ''} mt-2.5`}>
               <div className="absolute inset-y-0 left-0 flex items-center">
-                <label htmlFor="country" className="sr-only">
+                <label htmlFor="country" className={`sr-only ${styles.requiredField}`}>
                   Country
                 </label>
                 <select
@@ -146,7 +147,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
+            <label htmlFor="message" className={`block text-sm font-semibold leading-6 text-white ${styles.requiredField}`}>
               Message
             </label>
             <p className="text-red-600">{errors ? errors.message : ''}</p>
